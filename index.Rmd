@@ -1,0 +1,34 @@
+--- 
+title: "R Kurs Unterlagen"
+author: |
+ Anna-Lena Schubert,
+ Jan Goettmann,
+ Jose Carlos Garcia Alanis,
+ Meike Steinhilber,
+ Cordula Hunt,
+ Florian Kobylka
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+url: https://amd-lab.github.io/R-Kurs-Unterlagen/index.html
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
+  Veranstaltungen.
+
+link-citations: yes
+github-repo:  AMD-Lab/R-Kurs-Unterlagen
+
+---
+
+# Über dieses Buch
+TEXT
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
