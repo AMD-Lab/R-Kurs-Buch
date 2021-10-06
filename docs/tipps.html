@@ -4,12 +4,12 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | R Kurs Unterlagen</title>
+  <title>7 Tipps | R Kurs Unterlagen</title>
   <meta name="description" content="<p>Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
 Veranstaltungen.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | R Kurs Unterlagen" />
+  <meta property="og:title" content="7 Tipps | R Kurs Unterlagen" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://amd-lab.github.io/R-Kurs-Unterlagen/index.html" />
   
@@ -18,7 +18,7 @@ Veranstaltungen.</p>" />
   <meta name="github-repo" content="AMD-Lab/R-Kurs-Unterlagen" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | R Kurs Unterlagen" />
+  <meta name="twitter:title" content="7 Tipps | R Kurs Unterlagen" />
   
   <meta name="twitter:description" content="<p>Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
 Veranstaltungen.</p>" />
@@ -33,8 +33,8 @@ Veranstaltungen.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tipps.html"/>
-
+<link rel="prev" href="graphiken.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -203,31 +203,162 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="tipps" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Tipps</h1>
+<div id="chapters" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> chapters</h2>
+<p>All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (<code>#</code>) per .Rmd file.</p>
+</div>
+<div id="a-section" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> A section</h2>
+<p>All chapter sections start with a second-level (<code>##</code>) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.</p>
+<div id="an-unnumbered-section" class="section level3 unnumbered">
+<h3>An unnumbered section</h3>
+<p>Chapters and sections are numbered by default. To un-number a heading, add a <code>{.unnumbered}</code> or the shorter <code>{-}</code> at the end of the heading, like in this section.</p>
+</div>
+</div>
+<div id="cross-referenc-chapters-and-sub-chapters" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> cross-referenc: Chapters and sub-chapters</h2>
+<p>There are two steps to cross-reference any heading:</p>
+<ol style="list-style-type: decimal">
+<li>Label the heading: <code># Hello world {#nice-label}</code>.
+<ul>
+<li>Leave the label off if you like the automated heading generated based on your heading title: for example, <code># Hello world</code> = <code># Hello world {#hello-world}</code>.</li>
+<li>To label an un-numbered heading, use: <code># Hello world {-#nice-label}</code> or <code>{# Hello world .unnumbered}</code>.</li>
+</ul></li>
+<li>Next, reference the labeled heading anywhere in the text using <code>\@ref(nice-label)</code>; for example, please see Chapter <a href="#cross"><strong>??</strong></a>.
+<ul>
+<li>If you prefer text as the link instead of a numbered reference use: <a href="#cross">any text you want can go here</a>.</li>
+</ul></li>
+</ol>
+</div>
+<div id="captioned-figures-and-tables" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Captioned figures and tables</h2>
+<p>Figures and tables <em>with captions</em> can also be cross-referenced from elsewhere in your book using <code>\@ref(fig:chunk-label)</code> and <code>\@ref(tab:chunk-label)</code>, respectively.</p>
+<p>See Figure <a href="tipps.html#fig:nice-fig">7.1</a>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tipps.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
+<span id="cb1-2"><a href="tipps.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">type =</span> <span class="st">&#39;b&#39;</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nice-fig"></span>
+<img src="_main_files/figure-html/nice-fig-1.png" alt="Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases." width="80%" />
+<p class="caption">
+Figure 7.1: Here is a nice figure!
+</p>
+</div>
+<p>Don’t miss Table <a href="tipps.html#tab:nice-tab">7.1</a>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tipps.html#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb2-2"><a href="tipps.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(pressure, <span class="dv">10</span>), <span class="at">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
+<span id="cb2-3"><a href="tipps.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-4"><a href="tipps.html#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<table>
+<caption><span id="tab:nice-tab">Table 7.1: </span>Here is a nice table!</caption>
+<thead>
+<tr class="header">
+<th align="right">temperature</th>
+<th align="right">pressure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0.0002</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="right">0.0012</td>
+</tr>
+<tr class="odd">
+<td align="right">40</td>
+<td align="right">0.0060</td>
+</tr>
+<tr class="even">
+<td align="right">60</td>
+<td align="right">0.0300</td>
+</tr>
+<tr class="odd">
+<td align="right">80</td>
+<td align="right">0.0900</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">0.2700</td>
+</tr>
+<tr class="odd">
+<td align="right">120</td>
+<td align="right">0.7500</td>
+</tr>
+<tr class="even">
+<td align="right">140</td>
+<td align="right">1.8500</td>
+</tr>
+<tr class="odd">
+<td align="right">160</td>
+<td align="right">4.2000</td>
+</tr>
+<tr class="even">
+<td align="right">180</td>
+<td align="right">8.8000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="footnotes" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Footnotes</h2>
+<p>Footnotes are put inside the square brackets after a caret <code>^[]</code>. Like this one.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+</div>
+<div id="citations" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Citations</h2>
+<p>Reference items in your bibliography file(s) using <code>@key</code>.</p>
+<p>For example, we are using the <strong>bookdown</strong> package <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref">Xie 2021</a>)</span> (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(<a href="#ref-xie2015" role="doc-biblioref">Xie 2015</a>)</span> (this citation was added manually in an external file book.bib).
+Note that the <code>.bib</code> files need to be listed in the index.Rmd with the YAML <code>bibliography</code> key.</p>
+<p>The RStudio Visual Markdown Editor can also make it easier to insert citations: <a href="https://rstudio.github.io/visual-markdown-editing/#/citations" class="uri">https://rstudio.github.io/visual-markdown-editing/#/citations</a></p>
+</div>
+<div id="equations" class="section level2" number="7.7">
+<h2><span class="header-section-number">7.7</span> Equations</h2>
+<p>Here is an equation.</p>
+<p><span class="math display" id="eq:binom">\[\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \tag{7.1}
+\end{equation}\]</span></p>
+<p>You may refer to using <code>\@ref(eq:binom)</code>, like see Equation <a href="tipps.html#eq:binom">(7.1)</a>.</p>
+</div>
+<div id="theorems-and-proofs" class="section level2" number="7.8">
+<h2><span class="header-section-number">7.8</span> Theorems and proofs</h2>
+<p>Labeled theorems can be referenced in text using <code>\@ref(thm:tri)</code>, for example, check out this smart theorem <a href="tipps.html#thm:tri">7.1</a>.</p>
+<div class="theorem">
+<p><span id="thm:tri" class="theorem"><strong>Theorem 7.1  </strong></span>For a right triangle, if <span class="math inline">\(c\)</span> denotes the <em>length</em> of the hypotenuse
+and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the <strong>other</strong> two sides, we have
+<span class="math display">\[a^2 + b^2 = c^2\]</span></p>
+</div>
+<p>Read more here <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html" class="uri">https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html</a>.</p>
+</div>
+<div id="callout-blocks" class="section level2" number="7.9">
+<h2><span class="header-section-number">7.9</span> Callout blocks</h2>
+<p>The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: <a href="https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html</a></p>
 
+</div>
+</div>
+<h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
+<div id="ref-xie2015" class="csl-entry">
 Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.org/knitr/">http://yihui.org/knitr/</a>.
 </div>
-<div class="csl-entry">
+<div id="ref-R-bookdown" class="csl-entry">
 ———. 2021. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
 </div>
 </div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>This is a footnote.<a href="tipps.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="tipps.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="graphiken.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
