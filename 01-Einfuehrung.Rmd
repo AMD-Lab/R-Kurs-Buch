@@ -1,3 +1,311 @@
 # Einführung
-(Anna-Lena)
+ (Anna-Lena)
 
+
+## Installation
+
+Um R nutzen zu können, müssen Sie sich sowohl R als auch R-Studio installieren.
+
+R ist eine Open-Source-Software, die zur Datenanalyse genutzt wird. Die große Stärke von R in der Verfügbarkeit zahlreicher Zusatzfunktionen, in Form sogenannter Packages. Entwickler:innen überall auf der Welt bieten Packages fals Lösungen für die unterschiedlichsten Probleme an, von der Datenaufbereitung über APA-formatierten Tabellen bis hin zu zahlreichen statistischen Analysen. Laden Sie sich R unter dem folgenden Link herunter und installieren Sie sich das Programm auf Ihrem PC/Laptop: [https://cran.r-project.org/](https://cran.r-project.org/)
+
+Außerdem benötigen Sie noch R-Studio. R-Studio ist eine „integrierte Entwicklungsumgebung“ (engl: integrated development environment; *IDE*), die es deutlich einfacher macht, mit R zu arbeiten. Installieren Sie sich daher auch R-Studio auf Ihrem PC/Laptop, indem Sie folgendem Link folgen: [https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download)
+
+## Erste Schritte
+
+Nachdem Sie R und R-Studio installiert haben, können Sie Ihre ersten Schritte in R machen. Öffnen Sie dazu R-Studio und geben Sie etwas in das Feld "Konsole" (oder "Console") ein. Im Normalfall finden Sie die Konsole in der Anzeige auf der linken Seite (ggfs. befindet sich die Konsole auch links unten). Sie erkennen die Konsole daran, dass die Zeile, in die Sie etwas eingeben können, mit `>` beginnt. Diese Klammer fordert Sie auf, R-Code einzugeben! Geben Sie Folgendes in die Konsole ein:
+
+```R
+> "Hallo R!"
+```
+  
+Wenn folgende Ausgabe erscheint, hat die Installation funktioniert:
+
+```{r hello, echo = FALSE}
+"Hallo R!"
+```
+
+Sie können auch Zahlen in die Konsole eingeben:
+
+```{r}
+42
+```
+
+Jetzt können Sie R schon als einfachen Taschenrechner benutzen! 
+
+Addition:
+
+```{r}
+3+2
+```
+
+Subtraktion:
+
+```{r}
+3-2
+```
+
+Multiplikation:
+
+```{r}
+3*2
+```
+
+Division:
+
+```{r}
+3/2
+```
+
+Beachten Sie dabei, dass Sie auch Klammern setzen können:
+
+
+```{r}
+(3+2)*5
+```
+
+## Das R-Skript
+
+In der Regel werden Sie Ihre Analysen nicht direkt in die Konsole eingeben, sondern ein *Skript* schreiben, in dem Sie Ihre Analysen dokumentieren. Dieses Skript dokumentiert Ihre Analysen, was den großen Vorteil hat, dass Ihre Analysen dadurch reproduzierbar werden. Wenn Sie Daten aufbereiten oder analysieren und dabei unterbrochen werden, können Sie sich - auch noch Tage oder Wochen später - einfach wieder an das Skript setzen, die bisherigen Analyseschritte erneut ausführen und dort weitermachen. So können Sie Ihre Analysen auch mit anderen Studierenden oder Lehrenden, die ein Projekt betreuen, teilen. Viele Forschende laden ihre R-Skripte regelmäßig ins [Open Science Framework (OSF)](osf.io) hoch, wenn sie Artikel zur Begutachtung einreichen, damit andere ihren Code und ihre Analysen auf Fehler überprüfen und nachvollziehen können.
+
+Um ein solches Skript zu erstellen, nutzen wir den in R-Studio verfügbaren Texteditor. Sie können ein neues Skript unter „Datei $\to$ NeueDatei $\to$ R Skript“ („File $\to$ New File $\to$ R Script“ öffnen. Skripte, die R-Code enthalten, speichern wir mit der Dateiendung „.r“ oder „.R“ ab.
+
+Das Praktische: Wenn Sie Code im Skript schreiben, können Sie diesen Code direkt ausführen. Wenn sich Ihr Cursor in einer Zeile befindet, in der Code steht, können Sie `STRG-Enter` drücken (oder oben auf das `Run`-Symbol klicken), um diese Zeile auszuführen. Wenn Sie einen Teil des Skripts markieren, wird nur genau dieser Teil ausgeführt, wenn Sie `STRG-Enter` drücken. Das Ergebnis wird Ihnen wie gewohnt in der Konsole angezeigt.
+
+## Struktur des Skripts
+
+Nichts ist wichtiger als gute Organisation! Damit Sie sich auch später noch daran erinnern, welche Analysen Sie durchgeführt haben, können (und sollten) Sie sich Kommentare ins Skript schreiben. In R wird `#` benutzt, um Code zu kommentieren. Wenn Sie `#` vor Code setzen, wird dieser Code beim Ausführen einfach ignoriert! So können Sie sich ganze Abschnitte dazu notieren, welche Analysen Sie gemacht haben, was Kernbefunde waren, usw., ohne dass Sie Probleme beim Ausführen Ihres Skriptes bekommen. Sie sollten Ihren Code *immer* kommentieren, um sich auch später noch daran erinnern zu können, was Sie vor einiger Zeit geschrieben haben.
+
+```R
+# 3+2
+# Nichts passiert - die Rechnung wurde nicht ausgeführt, weil sie auskommentiert ist
+```
+
+Sie können Kommentare auch nutzen, um das Skript in Abschnitte zu gliedern. Wenn Sie hinter ein `#` noch ein `-` setzen, fügt der Editor einen logischen Abschnitt ein, den Sie ein- oder ausklappen können. Das ist insbesondere zur Strukturierung längerer Skripte enorm hilfreich.
+
+## Variablen
+
+Sicherlich wollen Sie Ihre Daten nicht nur in der Konsole ausgeben lassen und bearbeiten, sondern auch in Variablen speichern. Variablen sind Bezeichnungen, mit deren Hilfe Sie auf gespeicherte Daten zugreifen. Sobald eine Variable definiert wurde, können Sie immer wieder darauf zugreifen. Variablen werden mit Hilfe des `<-` Operators definiert.
+
+
+```{r Datatypes, echo=TRUE}
+# Hier werden zwei Variablen - x und y - definiert
+x <- 2
+y <- 3
+
+```
+
+Sie können sich die Werte dieser Variablen ausgeben lassen, indem Sie die Variablennamen in der Konsole eingeben und Enter drücken.
+
+```{r}
+x
+```
+
+Jetzt können Sie bereits erste Berechnungen mit Variablen durchführen:
+
+```{r}
+x+y
+x*y
+```
+
+In R lassen sich sämtliche Objekte - nicht nur einzelne Zahlen, sondern auch Datentabellen, Wortlisten oder sogar Ergebnisse komplizierter Analysen - in Variablen speichern. Der Workflow ist so ausgelegt, dass Sie Ergebnisse einer Analyse in einer Variable speichern und von dort aus weiterverarbeiten können, z.B. um APA-konforme Tabellen oder Grafiken zu erstellen oder sich Effektstärkemaße ausgeben zu lassen. Im weiteren Verlauf des Kurses lernen Sie andere Datentypen kennen, die in Variablen gespeichert werden können.
+
+*Achtung*: Wenn Sie eine Berechnung mit einer Variable durchführen und das Ergebnis dieser Berechnung speichern möchten, müssen Sie es wieder eine Variable zuweisen - es wird nicht automatisch gespeichert!
+
+
+```{r}
+z <- x*10
+```
+
+Wenn Sie sich jetzt `x` und `z` ausgeben lassen, sehen Sie, dass sich nichts an `x` geändert hat - das Ergebnis der Berechnung wurde nicht abgespeichert. In der Variable `z` hingegen sehen Sie das Ergebnis Ihrer Berechnung.
+
+```{r}
+x
+z
+```
+
+`x`, `y` und `z` sind denkbar schlechte Variablennamen! Gute Variablennamen sprechen, d.h. dass der Name eine Variable verrät, was sich "in" dieser Variable verbirgt. Deswegen sollten Sie sich immer bemühen, möglichst klare und eindeutige Variablennamen zu vergeben. 
+
+```{r}
+# Beispiele für gute Variablennamen
+
+durchschnittliches_Alter <- 23
+MW_Alter <- 23
+
+durchschnittliches_Evaluationsergebnis_KursA <- 2
+MW_Evaluationsergebnis_KursA <- 2
+```
+
+Scheuen Sie sich nicht vor langen Variablennamen! Je besser und klarer Sie Ihre Variablen definieren, desto einfacher wird es sowohl Ihnen als auch anderen fallen, Ihren Code nachzuvollziehen. Besonders einfach lesbar sind längere Variablennamen, wenn Sie unterschiedliche Elemente des Variablennamens mit einem Unterstrich trennen. Diese Konvention wird auch in diesem Kurs verwendet.
+
+## Vektoren
+
+Jede Spalte eines Datensatzes ist ein Vektor. In einem Vektor befinden sich mehrere Elemente eines Datentyps, also z.B. mehrere Zahlen oder mehrere Wörter. Vektoren werden mit Hilfe des "combine"-Operators `c` erstellt.
+
+```{r}
+Vektor_numeric <- c(1, 2, 3, 4, 5, 6:10)
+```
+
+
+Mit jedem Datentyp können Sie unterschiedliche Operationen durchführen. Um sich den Datentyp eines Vektors anzeigen zu lassen, können Sie die Funktion `mode` verwenden.
+
+```{r}
+mode(Vektor_numeric)
+```
+### Datentyp numeric
+
+Mit Vektoren vom Typ `numeric` können Sie verschiedene mathematische Operationen durchführen. Sie können diese Vektoren addieren, multiplizieren, usw. Wenn Sie eine Operation wie `*2` auf den Vektor anwenden, wird diese Operation auf alle Elemente des Vektors angewendet.
+
+```{r}
+Vektor_numeric*2
+```
+
+Wenn Sie hingegen zwei gleich lange Vektoren haben, wird jedes *i*-te Element des ersten Vektors mit dem *i*-ten Element des zweiten Vektors verrechnet. Das Element an Position 1 im einen Vektor wird dann mit dem Element an Position 1 im anderen Vektor gepaart, das Element an Position 2 im einen Vektor mit dem Element an Position 2 im anderen Vektor – und so weiter.
+
+```{r}
+punkte_MC_Fragen <- c(5, 2, 2, 4, 3, 2, 1, 0, 1, 4)
+punkte_offene_Fragen <- c(3, 4, 5, 0, 2, 3, 1, 3, 5, 1)
+klausurergebnis <- punkte_MC_Fragen + punkte_offene_Fragen
+klausurergebnis
+
+```
+
+### Datentyp character
+
+Wenn Sie in einer Variable Text abspeichern wollen, erschaffen Sie eine Variable vom Datentyp `character`. Test wird mit doppelten oder einfachen Anführungszeichen angegeben:
+
+```{r}
+"Alpha" 
+'Beta'
+Vektor_character <- c("Lea", "Luke", "Han", "Chewy") 
+mode(Vektor_character)
+```
+
+Mit Vektoren des Typs `character` können Sie natürlich keine mathematischen Operationen durchführen. Sie sind aber nützlich, um bestimmte Daten zu kodieren, wie bspw. das Geschlecht oder das Studienfach von Versuchspersonen.
+
+```{r}
+Geschlecht <- c("männlich", "weiblich", "weiblich", "divers", "weiblich")
+Studienfach <- c("Psychologie", "Medizin", "Informatik", "Sportwissenschaft", "Biologie")
+```
+
+### Datentyp logical
+
+Der Datentyp `logical` kodiert nur binäre Informationen - diese sind entweder `TRUE` oder `FALSE`.
+
+```{r}
+TRUE 
+FALSE
+Vektor_logical <- c(TRUE, TRUE, FALSE, TRUE) 
+mode(Vektor_logical)
+```
+
+Dabei werden `TRUE` und `FALSE` als logische Bedingungen interpretiert, die erfüllt oder nicht erfüllt sein können. Vektoren dieses Datentyps sind für die Datenaufbereitung unglaublich nützlich! Mit Hilfe eines Vektors vom Typ `logical` können sie beispielsweise kodieren, welche Versuchspersonen die Studie vollständig abgeschlossen haben oder ob einzelne Beobachtungen Ausreißer darstellen. Sie werden diesen Datentyp häufig benötigen, wenn Sie in Datentabellen einzelne Fälle auswählen oder Versuchspersonen ausschließen möchte. Hierbei wird dann jeweils im Einzelfall überprüft, welche Fälle eine gewünschte Bedingung erfüllen (z.B. maximal 30 Minuten zur Bearbeitung eines Tests gebraucht haben) und daher in den weiteren Analysen eingeschlossen werden.
+
+```{r}
+# Hier wird festgehalten, welche Versuchspersonen (id) die Studie 
+# vollständig abgeschlossen haben (Studie_abgeschlossen)
+id <- c(1:10)
+Studie_abgeschlossen <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE) 
+```   
+
+Mit logischen Werten kann man die logischen Operationen UND (`&`), ODER (`|` ) und NICHT (`!` ) umsetzen. UND und ODER 
+verknüpfen jeweils zwei logische Bedingungen (sprich: zwei logische Werte, also `TRUE`/`FALSE`) miteinander und geben selbst einen logischen Wert zurück. 
+
+Die Verknüpfung UND ergibt dann `TRUE`, wenn beide Bedingungen erfüllt sind, d.h. nur wenn die erste und die zweite Bedingung jeweils `TRUE` sind.
+
+
+```{r}
+## Logisches UND
+TRUE & TRUE
+TRUE & FALSE
+FALSE & FALSE
+```
+
+einen logischen Wert zurück. 
+
+Die Verknüpfung ODER ergibt dann `TRUE`, wenn mindestens eine der beiden Bedingungen erfüllt ist, d.h. wenn die erste oder die zweite Bedingung oder beide Bedingungen `TRUE` sind. Ganz wichtig: ODER gibt auch dann `TRUE` aus, wenn beide Bedingungen erfüllt sind!
+
+```{r}
+## Logisches ODER
+TRUE | TRUE
+TRUE | FALSE
+FALSE | FALSE
+```
+
+
+Das logische NICHT invertiert eine logische Variable: Aus `TRUE` wird `FALSE` und umgekehrt. Das ist hier noch etwas abstrakt, wird aber später in den Kapiteln zur Datenaufbereitung noch klarer.
+
+```{r}
+## Logisches NICHT
+!TRUE
+!FALSE
+```
+
+### Datentyp factor
+
+Variablen vom Datentyp `factor` sind nützlich, um kategoriale Variablen zu kodieren. Dabei wird zunächst ein Vektor vom Typ 'numeric' erstellt. Den einzelnen Werten dieses numerischen Vektors werden dann kategoriale Bezeichnungen zugewiesen.
+
+```{r}
+Bedingung <- c (0, 1, 1, 0, 1, 0, 0, 1)
+
+Vektor_factor <- factor(x = Bedingung, 
+                        levels = c(0,1),
+                        labels = c("Kontrollgruppe", "Experimentalgruppe"))
+Vektor_factor
+mode(Vektor_factor)
+```
+
+Dazu verwenden Sie die Funktion `factor`. Dieser Funktion übergeben Sie den numerischen Vektor `Bedingung` und definieren anschließend die Stufen des Faktors mit Hilfe des Argument `levels` (hier 0 und 1) sowie die Bezeichnungen mit Hilfe des Argument `labels` (hier Kontrollgruppe und Experimentalgruppe).
+
+Es ist immer sinnvoll, Variablen als Faktoren zu definieren, wenn sie endliche Ausprägungen haben. Experimentelle Bedingungen, Messzeitpunkte oder das Geschlecht von Versuchspersonen sind typische Kandidaten, die als Vektoren vom Typ `factor` gespeichert werden. Der Vorteil dieses Variablentyps besteht darin, dass Sie dort die Zuordnung von numerischen zu verbalen Bezeichnungen direkt vornehmen können und nachher nicht mehr nachschlagen müssen, ob "0" oder "1" nun die Experimentalgruppe kodiert. Spätestens bei der Auswertung Ihrer Daten sollten Sie solche Variablen also immer als `factor` rekodieren.
+
+*Achtung*: Sie können mit Faktoren keine mathematischen Operationen durchführen, auch wenn ihnen eigentlich numerische Kodierungen zugrunde liegen. In R werden Vektoren vom Variablentyp `factor` diesbezüglich ebenso wie Vektoren vom Variablentyp `character` behandelt.
+
+### Datentyp NA
+
+Ein Vektor besteht in der Regel nicht nur aus Variablen vom Datentyp `NA`. In echten Datensätzen werden Sie aber immer mal wieder fehlende Daten haben. Diese werden in R als `NA` kodiert. 
+
+```{r}
+alter <- c (21, 25, 29, 24, NA, 19, 23, 24, 20)
+```
+
+*Achtung*: In anderer Statistiksoftware wie z.B. SPSS hat sich die Konvention entwickelt, fehlende Werte nicht mit "NA", sondern mit bestimmten nicht beobachtbaren numerischen Werten wie "-9" oder "-99" zu beschreiben. Wenn Sie mit einem solchen Datensatz arbeiten, der zuvor in einer anderen Statistiksoftware bearbeitet wurde, sollten Sie immer überprüfen, ob fehlende Werte anhand solcher numerischen Werte kodiert sind und diese als "NA" rekodieren. 
+
+## Auswahl von Vektorelementen
+
+Sie können auf einzelne Elemente eines Vektor zugreifen, indem Sie den Operator `[]` verwenden. In die eckigen Klammern wird die Position des Elements eingefügt, das Sie auswählen möchte. Dieses Vorgehen wird **Indizierung** genannt.
+
+```{r}
+daten <- c (3, 7, 9, 0, 1, 1, 4, 5)
+daten[3]
+# Hier wird das dritte Element ausgewählt
+```
+
+Sie können auch eine sogenannte **Negativindizierung** durchführen, d.h. im Index festhalten, welches Element Sie *nicht* auswählen möchten.
+
+
+```{r}
+daten[-3]
+# Hier werden alle Elemente außer des dritten ausgewählt
+```
+
+Selbstverständlich können Sie auch gleich mehrere Elemente auswählen. Wenn Sie z.B. alles vom zweiten bis fünften Element auswählen wollen, können Sie das im Index so vermerken: `[2:5]`. Ganz allgemein gilt: Die Zahl *vor* dem Doppelpunkt gibt an, wo die Indizierung beginnt, und die Zahl *nach* dem Doppelpunkt gibt an, wo die Indizierung endet.
+
+```{r}
+daten[2:5]
+# Hier werden die Elemente 2, 3, 4 und 5 ausgewählt
+```
+
+Wenn Sie mehrere Elemente auswählen möchten, die nicht direkt nebeneinander stehen, müssen Sie diese mit dem "combine"-Operator `c` verknüpfen:
+
+```{r}
+daten[c(2, 7)]
+# Hier werden die Elemente 2 und 7 ausgewählt
+```
+
+Die so ausgewählten Daten können Sie natürlich wieder in einer neuen Variable speichern:
+
+```{r}
+ausgewaehlte_daten <- daten[c(2, 7)]
+```
+
+## Logische Vergleiche
