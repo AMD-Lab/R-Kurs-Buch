@@ -41,3 +41,12 @@ datentyp-factor
 datentyp-na
 auswahl-von-vektorelementen
 logische-vergleiche
+datentyp-numeric-1
+datentyp-character-1
+datentyp-factor-1
+rekodieren-von-variablen-mit-hilfe-logischer-vergleich
+hier-wurde-der-werte--9-durch-na-ersetzt
+erste-schritte-1
+installieren-und-laden-von-paketen
+pakete
+working-directory
