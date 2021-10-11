@@ -411,6 +411,32 @@ verknüpfen jeweils zwei logische Bedingungen (sprich: zwei logische Werte, also
 </div>
 <div id="logische-vergleiche" class="section level2" number="2.8">
 <h2><span class="header-section-number">2.8</span> Logische Vergleiche</h2>
+<p>Logische Vergleiche können genutzt werden, um bestimmte Fälle - z.B. einzelne Versuchspersonen - auszuwählen. Welche logischen Vergleich für einen Datentyp sinnvoll sind, hängt von diesem Datentyp ab.</p>
+<p>Wenn Sie Daten vom Typ <code>numeric</code> haben, können Sie numerische Vergleiche durchführen. Sie können zum Beispiel überprüfen, welche Ihrer Versuchspersonen älter als 18 Jahre sind. Dazu verwenden Sie den logischen Operator <code>&gt;=</code>, den Sie als “größer oder gleich” interpretieren können (analog dazu liest sich <code>&lt;=</code> als “kleiner oder gleich.”)</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="einführung.html#cb84-1" aria-hidden="true" tabindex="-1"></a>alter <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">32</span>, <span class="dv">17</span>, <span class="dv">65</span>, <span class="dv">22</span>)</span>
+<span id="cb84-2"><a href="einführung.html#cb84-2" aria-hidden="true" tabindex="-1"></a>alter <span class="sc">&gt;=</span> <span class="dv">18</span></span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE</code></pre>
+<p>Bei numerischen Vektoren können Sie folgende logischen Vergleiche durchführen: (a) gleich (<code>==</code>), (b) größer (<code>&gt;</code>), (c) kleiner (<code>&lt;</code>), (d) größer gleich (<code>&gt;=</code>), (e) kleiner gleich (<code>&lt;=</code>) oder (f) ungleich (<code>!=</code>). Wenn Sie einen logischen Vergleich mit einem gesamten Vektor durchführen, wird für jedes einzelne Element überprüft, ob es der logischen Bedingung entspricht (<code>TRUE</code>) oder nicht (<code>FALSE</code>).</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="einführung.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hier überprüfen wir, welche Versuchspersonen jünger als 18 Jahre sind</span></span>
+<span id="cb86-2"><a href="einführung.html#cb86-2" aria-hidden="true" tabindex="-1"></a>alter <span class="sc">&lt;</span> <span class="dv">18</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="einführung.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre sind</span></span>
+<span id="cb88-2"><a href="einführung.html#cb88-2" aria-hidden="true" tabindex="-1"></a>alter <span class="sc">==</span> <span class="dv">18</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>Vektoren vom Typ <code>character</code> lassen sich darauf überprüfen, ob diese identisch mit einer bestimmten Bedingung sind.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="einführung.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hier wird überprüft, welche Versuchspersonen Psychologie studieren</span></span>
+<span id="cb90-2"><a href="einführung.html#cb90-2" aria-hidden="true" tabindex="-1"></a>Studienfach <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Psychologie&quot;</span>, <span class="st">&quot;Medizin&quot;</span>, <span class="st">&quot;Informatik&quot;</span>, <span class="st">&quot;Sportwissenschaft&quot;</span>, <span class="st">&quot;Biologie&quot;</span>)</span>
+<span id="cb90-3"><a href="einführung.html#cb90-3" aria-hidden="true" tabindex="-1"></a>Studienfach <span class="sc">==</span> <span class="st">&quot;Psychologie&quot;</span></span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE</code></pre>
+<p>Dieser logische Vergleich lässt sich auch mit Daten vom Typ <code>factor</code> durchführen.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="einführung.html#cb92-1" aria-hidden="true" tabindex="-1"></a>Bedingung <span class="ot">&lt;-</span> <span class="fu">c</span> (<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb92-2"><a href="einführung.html#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="einführung.html#cb92-3" aria-hidden="true" tabindex="-1"></a>Bedingung <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="at">x =</span> Bedingung, </span>
+<span id="cb92-4"><a href="einführung.html#cb92-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb92-5"><a href="einführung.html#cb92-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Kontrollgruppe&quot;</span>, <span class="st">&quot;Experimentalgruppe&quot;</span>))</span>
+<span id="cb92-6"><a href="einführung.html#cb92-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-7"><a href="einführung.html#cb92-7" aria-hidden="true" tabindex="-1"></a>Bedingung <span class="sc">==</span> <span class="st">&quot;Experimentalgruppe&quot;</span></span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
 
 </div>
 </div>

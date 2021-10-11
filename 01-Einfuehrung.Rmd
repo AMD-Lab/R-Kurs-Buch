@@ -309,3 +309,5 @@ ausgewaehlte_daten <- daten[c(2, 7)]
 ```
 
 ## Logische Vergleiche
+
+todo
