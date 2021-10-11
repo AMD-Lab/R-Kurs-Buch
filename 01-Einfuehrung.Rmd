@@ -310,4 +310,135 @@ ausgewaehlte_daten <- daten[c(2, 7)]
 
 ## Logische Vergleiche
 
-todo
+Logische Vergleiche können genutzt werden, um bestimmte Fälle - z.B. einzelne Versuchspersonen - auszuwählen. Welche logischen Vergleich für einen Datentyp sinnvoll sind, hängt von diesem Datentyp ab. 
+
+
+### Datentyp numeric
+
+Wenn Sie Daten vom Typ `numeric` haben, können Sie numerische Vergleiche durchführen. Sie können zum Beispiel überprüfen, welche Ihrer Versuchspersonen älter als 18 Jahre sind. Dazu verwenden Sie den logischen Operator `>=`, den Sie als "größer oder gleich" interpretieren können (analog dazu liest sich `<=` als "kleiner oder gleich".)
+
+```{r}
+alter <- c(20, 21, 24, 25, 32, 17, 65, 22)
+alter >= 18
+```
+
+Bei numerischen Vektoren können Sie folgende logischen Vergleiche durchführen: (a) gleich (`==`), (b) größer (`>`), (c) kleiner (`<`), (d) größer gleich (`>=`), (e) kleiner gleich (`<=`) oder (f) ungleich (`!=`). Wenn Sie einen logischen Vergleich mit einem gesamten Vektor durchführen, wird für jedes einzelne Element überprüft, ob es der logischen Bedingung entspricht (`TRUE`) oder nicht (`FALSE`).
+
+```{r}
+# Hier überprüfen wir, welche Versuchspersonen jünger als 18 Jahre sind
+alter < 18
+
+# Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre sind
+alter == 18
+```
+
+### Datentyp character
+
+Vektoren vom Typ `character` lassen sich darauf überprüfen, ob diese identisch mit einer bestimmten Bedingung sind.
+
+```{r}
+# Hier wird überprüft, welche Versuchspersonen Psychologie studieren
+Studienfach <- c("Psychologie", "Medizin", "Informatik", "Sportwissenschaft", "Biologie")
+Studienfach == "Psychologie"
+```
+
+### Datentyp factor
+
+Dieser logische Vergleich lässt sich auch mit Daten vom Typ `factor` durchführen.
+
+```{r}
+Bedingung <- c (0, 1, 1, 0, 1, 0, 0, 1)
+
+Bedingung <- factor(x = Bedingung, 
+                        levels = c(0,1),
+                        labels = c("Kontrollgruppe", "Experimentalgruppe"))
+
+# Hier wird überprüft, welche Versuchspersonen der Experimentalgruppe angehören
+Bedingung == "Experimentalgruppe"
+```
+
+### Rekodieren von Variablen mit Hilfe logischer Vergleich
+
+Sie werden logische Vergleiche häufig anwenden, um Daten zu rekodieren. Schauen Sie sich dazu die folgenden Beispiele an.
+
+
+Mit Hilfe logischer Vergleiche können Sie überprüfen, ob fehlende Werte nicht mit "NA", sondern mit "-9" kodiert wurden, um diese anschließend zu rekodieren.
+
+```{r}
+Testwerte <- c(80, 57, 93, 85, 72, 65, -9)
+Testwerte == -9
+```
+
+Sie können das Ergebnis dieses logischen Vergleichs nun nutzen, um alle Werte, die als `-9` kodiert wurden, zu rekodieren. Dazu speichern Sie das Ergebnis des logischen Vergleichs einfach in einer neuen Variable ab.
+
+
+```{r}
+fehlende_Werte <- Testwerte == -9
+```
+
+Im nächsten Schritt benutzen Sie die neue erstellte Variable vom Typ `logical`, um alle Werte des Vektors `Testwerte`, die den Wert "-9" haben, durch "NA" zu ersetzen.
+
+
+```{r}
+Testwerte[fehlende_Werte] <- NA
+
+# Hier wurde der Werte -9 durch NA ersetzt:
+Testwerte
+```
+
+Ganz ähnlich können Sie bei einem Reaktionszeitexperiment alle Trials entfernen, in denen Versuchspersonen sehr lange mit ihrer Reaktion gebraucht haben, d.h. in denen sie möglicherweise mit ihrer Aufmerksamkeit abgeschweift sind.
+
+```{r}
+# Als erstes werden 1000 Trials einer Versuchsperson simuliert
+RTs <- rnorm(n = 1000, mean = 500, sd = 100)
+hist(RTs)
+
+# In diesem Vektor von Reaktionszeiten werden alle RTs, die länger als 700 ms sind, entfernt
+Ausreisser <- RTs > 700
+RTs[Ausreisser] <- NA
+hist(RTs)
+```
+
+Für die ganz Eiligen: Sie können dies auch in einem einzigen Schritt durchführen, es ist dann aber fehleranfälliger. Dazu geben Sie den logischen Vergleich direkt als Index an:
+
+```{r}
+RTs <- rnorm(n = 1000, mean = 500, sd = 100)
+
+# Hier wird der logische Vergleich direkt als Index von RTs genutzt.
+RTs[RTs > 700] <- NA
+```
+
+Alternativ könnten Sie Extremwerte natürlich durch einen sinnvollen Maximalwert ersetzen. Beispielsweise lassen sich Reaktionszeiten, die länger als 700 ms sind, auf 700 ms "deckeln".
+
+
+```{r}
+RTs <- rnorm(n = 1000, mean = 500, sd = 100)
+
+# Hier wird der logische Vergleich direkt als Index von RTs genutzt.
+RTs[RTs > 700] <- 700
+```
+
+Sie können auch mehrere logische Vergleiche kombinieren. In Reaktionszeitexperimenten wollen Sie meist extrem langsame sowie extrem schnelle Durchgänge ausschließen, weil Sie nicht sicher sein können, ob die Versuchspersonen vorschnell reagiert haben (extrem schnelsl) oder mit ihren Gedanken nicht bei der Sache waren (extrem langsam). Dazu können Sie mehrere logische Vergleiche kombinieren.
+
+```{r}
+# Als erstes werden 1000 Trials einer Versuchsperson simuliert
+RTs <- rnorm(n = 1000, mean = 500, sd = 100)
+
+# Dann werden untere und obere Grenzen als Variablen definiert. Dies hat den
+# Vorteil, dass Sie einfach diese Variablen im Code anpassen können, wenn Sie 
+# die Kriterien zur Ausreißeranalyse anpassen möchten.
+
+untere_Grenze <- 300
+obere_Grenze <- 700
+
+# In diesem Vektor von Reaktionszeiten werden alle RTs, die schneller als 200 ms
+# oder länger als 700 ms sind, entfernt. Dazu wird der logische ODER-Operator 
+# benötigt; es sollen solche Trials identifiziert werden, die < 300 ms ODER 
+# > 700 ms sind.
+Ausreisser <- (RTs > obere_Grenze | RTs < untere_Grenze)
+RTs[Ausreisser] <- NA
+
+# Im Histogramm ist zu sehen, dass sowohl sehr schnelle als auch sehr langsame
+# Trials aus den Daten entfernt wurden.
+hist(RTs)
+```

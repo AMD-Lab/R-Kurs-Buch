@@ -156,7 +156,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6.5" data-path="einführung.html"><a href="einführung.html#datentyp-na"><i class="fa fa-check"></i><b>2.6.5</b> Datentyp NA</a></li>
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="einführung.html"><a href="einführung.html#auswahl-von-vektorelementen"><i class="fa fa-check"></i><b>2.7</b> Auswahl von Vektorelementen</a></li>
-<li class="chapter" data-level="2.8" data-path="einführung.html"><a href="einführung.html#logische-vergleiche"><i class="fa fa-check"></i><b>2.8</b> Logische Vergleiche</a></li>
+<li class="chapter" data-level="2.8" data-path="einführung.html"><a href="einführung.html#logische-vergleiche"><i class="fa fa-check"></i><b>2.8</b> Logische Vergleiche</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="einführung.html"><a href="einführung.html#datentyp-numeric-1"><i class="fa fa-check"></i><b>2.8.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="2.8.2" data-path="einführung.html"><a href="einführung.html#datentyp-character-1"><i class="fa fa-check"></i><b>2.8.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="2.8.3" data-path="einführung.html"><a href="einführung.html#datentyp-factor-1"><i class="fa fa-check"></i><b>2.8.3</b> Datentyp factor</a></li>
+<li class="chapter" data-level="2.8.4" data-path="einführung.html"><a href="einführung.html#rekodieren-von-variablen-mit-hilfe-logischer-vergleich"><i class="fa fa-check"></i><b>2.8.4</b> Rekodieren von Variablen mit Hilfe logischer Vergleich</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="datenstruktur.html"><a href="datenstruktur.html"><i class="fa fa-check"></i><b>3</b> Datenstruktur</a>
 <ul>
@@ -412,6 +418,8 @@ verknüpfen jeweils zwei logische Bedingungen (sprich: zwei logische Werte, also
 <div id="logische-vergleiche" class="section level2" number="2.8">
 <h2><span class="header-section-number">2.8</span> Logische Vergleiche</h2>
 <p>Logische Vergleiche können genutzt werden, um bestimmte Fälle - z.B. einzelne Versuchspersonen - auszuwählen. Welche logischen Vergleich für einen Datentyp sinnvoll sind, hängt von diesem Datentyp ab.</p>
+<div id="datentyp-numeric-1" class="section level3" number="2.8.1">
+<h3><span class="header-section-number">2.8.1</span> Datentyp numeric</h3>
 <p>Wenn Sie Daten vom Typ <code>numeric</code> haben, können Sie numerische Vergleiche durchführen. Sie können zum Beispiel überprüfen, welche Ihrer Versuchspersonen älter als 18 Jahre sind. Dazu verwenden Sie den logischen Operator <code>&gt;=</code>, den Sie als “größer oder gleich” interpretieren können (analog dazu liest sich <code>&lt;=</code> als “kleiner oder gleich.”)</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="einführung.html#cb84-1" aria-hidden="true" tabindex="-1"></a>alter <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">32</span>, <span class="dv">17</span>, <span class="dv">65</span>, <span class="dv">22</span>)</span>
 <span id="cb84-2"><a href="einführung.html#cb84-2" aria-hidden="true" tabindex="-1"></a>alter <span class="sc">&gt;=</span> <span class="dv">18</span></span></code></pre></div>
@@ -423,11 +431,17 @@ verknüpfen jeweils zwei logische Bedingungen (sprich: zwei logische Werte, also
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="einführung.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre sind</span></span>
 <span id="cb88-2"><a href="einführung.html#cb88-2" aria-hidden="true" tabindex="-1"></a>alter <span class="sc">==</span> <span class="dv">18</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+<div id="datentyp-character-1" class="section level3" number="2.8.2">
+<h3><span class="header-section-number">2.8.2</span> Datentyp character</h3>
 <p>Vektoren vom Typ <code>character</code> lassen sich darauf überprüfen, ob diese identisch mit einer bestimmten Bedingung sind.</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="einführung.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hier wird überprüft, welche Versuchspersonen Psychologie studieren</span></span>
 <span id="cb90-2"><a href="einführung.html#cb90-2" aria-hidden="true" tabindex="-1"></a>Studienfach <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Psychologie&quot;</span>, <span class="st">&quot;Medizin&quot;</span>, <span class="st">&quot;Informatik&quot;</span>, <span class="st">&quot;Sportwissenschaft&quot;</span>, <span class="st">&quot;Biologie&quot;</span>)</span>
 <span id="cb90-3"><a href="einführung.html#cb90-3" aria-hidden="true" tabindex="-1"></a>Studienfach <span class="sc">==</span> <span class="st">&quot;Psychologie&quot;</span></span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+<div id="datentyp-factor-1" class="section level3" number="2.8.3">
+<h3><span class="header-section-number">2.8.3</span> Datentyp factor</h3>
 <p>Dieser logische Vergleich lässt sich auch mit Daten vom Typ <code>factor</code> durchführen.</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="einführung.html#cb92-1" aria-hidden="true" tabindex="-1"></a>Bedingung <span class="ot">&lt;-</span> <span class="fu">c</span> (<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb92-2"><a href="einführung.html#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -435,9 +449,69 @@ verknüpfen jeweils zwei logische Bedingungen (sprich: zwei logische Werte, also
 <span id="cb92-4"><a href="einführung.html#cb92-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
 <span id="cb92-5"><a href="einführung.html#cb92-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Kontrollgruppe&quot;</span>, <span class="st">&quot;Experimentalgruppe&quot;</span>))</span>
 <span id="cb92-6"><a href="einführung.html#cb92-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-7"><a href="einführung.html#cb92-7" aria-hidden="true" tabindex="-1"></a>Bedingung <span class="sc">==</span> <span class="st">&quot;Experimentalgruppe&quot;</span></span></code></pre></div>
+<span id="cb92-7"><a href="einführung.html#cb92-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Hier wird überprüft, welche Versuchspersonen der Experimentalgruppe angehören</span></span>
+<span id="cb92-8"><a href="einführung.html#cb92-8" aria-hidden="true" tabindex="-1"></a>Bedingung <span class="sc">==</span> <span class="st">&quot;Experimentalgruppe&quot;</span></span></code></pre></div>
 <pre><code>## [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
+</div>
+<div id="rekodieren-von-variablen-mit-hilfe-logischer-vergleich" class="section level3" number="2.8.4">
+<h3><span class="header-section-number">2.8.4</span> Rekodieren von Variablen mit Hilfe logischer Vergleich</h3>
+<p>Sie werden logische Vergleiche häufig anwenden, um Daten zu rekodieren. Schauen Sie sich dazu die folgenden Beispiele an.</p>
+<p>Mit Hilfe logischer Vergleiche können Sie überprüfen, ob fehlende Werte nicht mit “NA,” sondern mit “-9” kodiert wurden, um diese anschließend zu rekodieren.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="einführung.html#cb94-1" aria-hidden="true" tabindex="-1"></a>Testwerte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">57</span>, <span class="dv">93</span>, <span class="dv">85</span>, <span class="dv">72</span>, <span class="dv">65</span>, <span class="sc">-</span><span class="dv">9</span>)</span>
+<span id="cb94-2"><a href="einführung.html#cb94-2" aria-hidden="true" tabindex="-1"></a>Testwerte <span class="sc">==</span> <span class="sc">-</span><span class="dv">9</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE</code></pre>
+<p>Sie können das Ergebnis dieses logischen Vergleichs nun nutzen, um alle Werte, die als <code>-9</code> kodiert wurden, zu rekodieren. Dazu speichern Sie das Ergebnis des logischen Vergleichs einfach in einer neuen Variable ab.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="einführung.html#cb96-1" aria-hidden="true" tabindex="-1"></a>fehlende_Werte <span class="ot">&lt;-</span> Testwerte <span class="sc">==</span> <span class="sc">-</span><span class="dv">9</span></span></code></pre></div>
+<p>Im nächsten Schritt benutzen Sie die neue erstellte Variable vom Typ <code>logical</code>, um alle Werte des Vektors <code>Testwerte</code>, die den Wert “-9” haben, durch “NA” zu ersetzen.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="einführung.html#cb97-1" aria-hidden="true" tabindex="-1"></a>Testwerte[fehlende_Werte] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb97-2"><a href="einführung.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="einführung.html#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Hier wurde der Werte -9 durch NA ersetzt:</span></span>
+<span id="cb97-4"><a href="einführung.html#cb97-4" aria-hidden="true" tabindex="-1"></a>Testwerte</span></code></pre></div>
+<pre><code>## [1] 80 57 93 85 72 65 NA</code></pre>
+<p>Ganz ähnlich können Sie bei einem Reaktionszeitexperiment alle Trials entfernen, in denen Versuchspersonen sehr lange mit ihrer Reaktion gebraucht haben, d.h. in denen sie möglicherweise mit ihrer Aufmerksamkeit abgeschweift sind.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="einführung.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Als erstes werden 1000 Trials einer Versuchsperson simuliert</span></span>
+<span id="cb99-2"><a href="einführung.html#cb99-2" aria-hidden="true" tabindex="-1"></a>RTs <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">100</span>)</span>
+<span id="cb99-3"><a href="einführung.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(RTs)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="einführung.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In diesem Vektor von Reaktionszeiten werden alle RTs, die länger als 700 ms sind, entfernt</span></span>
+<span id="cb100-2"><a href="einführung.html#cb100-2" aria-hidden="true" tabindex="-1"></a>Ausreisser <span class="ot">&lt;-</span> RTs <span class="sc">&gt;</span> <span class="dv">700</span></span>
+<span id="cb100-3"><a href="einführung.html#cb100-3" aria-hidden="true" tabindex="-1"></a>RTs[Ausreisser] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb100-4"><a href="einführung.html#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(RTs)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-2.png" width="672" /></p>
+<p>Für die ganz Eiligen: Sie können dies auch in einem einzigen Schritt durchführen, es ist dann aber fehleranfälliger. Dazu geben Sie den logischen Vergleich direkt als Index an:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="einführung.html#cb101-1" aria-hidden="true" tabindex="-1"></a>RTs <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">100</span>)</span>
+<span id="cb101-2"><a href="einführung.html#cb101-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-3"><a href="einführung.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Hier wird der logische Vergleich direkt als Index von RTs genutzt.</span></span>
+<span id="cb101-4"><a href="einführung.html#cb101-4" aria-hidden="true" tabindex="-1"></a>RTs[RTs <span class="sc">&gt;</span> <span class="dv">700</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
+<p>Alternativ könnten Sie Extremwerte natürlich durch einen sinnvollen Maximalwert ersetzen. Beispielsweise lassen sich Reaktionszeiten, die länger als 700 ms sind, auf 700 ms “deckeln.”</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="einführung.html#cb102-1" aria-hidden="true" tabindex="-1"></a>RTs <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">100</span>)</span>
+<span id="cb102-2"><a href="einführung.html#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-3"><a href="einführung.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Hier wird der logische Vergleich direkt als Index von RTs genutzt.</span></span>
+<span id="cb102-4"><a href="einführung.html#cb102-4" aria-hidden="true" tabindex="-1"></a>RTs[RTs <span class="sc">&gt;</span> <span class="dv">700</span>] <span class="ot">&lt;-</span> <span class="dv">700</span></span></code></pre></div>
+<p>Sie können auch mehrere logische Vergleiche kombinieren. In Reaktionszeitexperimenten wollen Sie meist extrem langsame sowie extrem schnelle Durchgänge ausschließen, weil Sie nicht sicher sein können, ob die Versuchspersonen vorschnell reagiert haben (extrem schnelsl) oder mit ihren Gedanken nicht bei der Sache waren (extrem langsam). Dazu können Sie mehrere logische Vergleiche kombinieren.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="einführung.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Als erstes werden 1000 Trials einer Versuchsperson simuliert</span></span>
+<span id="cb103-2"><a href="einführung.html#cb103-2" aria-hidden="true" tabindex="-1"></a>RTs <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">100</span>)</span>
+<span id="cb103-3"><a href="einführung.html#cb103-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-4"><a href="einführung.html#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Dann werden untere und obere Grenzen als Variablen definiert. Dies hat den</span></span>
+<span id="cb103-5"><a href="einführung.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Vorteil, dass Sie einfach diese Variablen im Code anpassen können, wenn Sie </span></span>
+<span id="cb103-6"><a href="einführung.html#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="co"># die Kriterien zur Ausreißeranalyse anpassen möchten.</span></span>
+<span id="cb103-7"><a href="einführung.html#cb103-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-8"><a href="einführung.html#cb103-8" aria-hidden="true" tabindex="-1"></a>untere_Grenze <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb103-9"><a href="einführung.html#cb103-9" aria-hidden="true" tabindex="-1"></a>obere_Grenze <span class="ot">&lt;-</span> <span class="dv">700</span></span>
+<span id="cb103-10"><a href="einführung.html#cb103-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-11"><a href="einführung.html#cb103-11" aria-hidden="true" tabindex="-1"></a><span class="co"># In diesem Vektor von Reaktionszeiten werden alle RTs, die schneller als 200 ms</span></span>
+<span id="cb103-12"><a href="einführung.html#cb103-12" aria-hidden="true" tabindex="-1"></a><span class="co"># oder länger als 700 ms sind, entfernt. Dazu wird der logische ODER-Operator </span></span>
+<span id="cb103-13"><a href="einführung.html#cb103-13" aria-hidden="true" tabindex="-1"></a><span class="co"># benötigt; es sollen solche Trials identifiziert werden, die &lt; 300 ms ODER </span></span>
+<span id="cb103-14"><a href="einführung.html#cb103-14" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt; 700 ms sind.</span></span>
+<span id="cb103-15"><a href="einführung.html#cb103-15" aria-hidden="true" tabindex="-1"></a>Ausreisser <span class="ot">&lt;-</span> (RTs <span class="sc">&gt;</span> obere_Grenze <span class="sc">|</span> RTs <span class="sc">&lt;</span> untere_Grenze)</span>
+<span id="cb103-16"><a href="einführung.html#cb103-16" aria-hidden="true" tabindex="-1"></a>RTs[Ausreisser] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb103-17"><a href="einführung.html#cb103-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-18"><a href="einführung.html#cb103-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Im Histogramm ist zu sehen, dass sowohl sehr schnelle als auch sehr langsame</span></span>
+<span id="cb103-19"><a href="einführung.html#cb103-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Trials aus den Daten entfernt wurden.</span></span>
+<span id="cb103-20"><a href="einführung.html#cb103-20" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(RTs)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 
+</div>
 </div>
 </div>
             </section>
