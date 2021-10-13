@@ -12,3 +12,5 @@
 _bookdown_files/*
 docs/
 packages.bib
+
+.Rbuildignore
