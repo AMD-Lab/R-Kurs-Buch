@@ -1,0 +1,463 @@
+--- 
+title: "R Kurs Unterlagen"
+author: |
+ Anna-Lena Schubert,
+ Jan Goettmann,
+ Jose Carlos Garcia Alanis,
+ Meike Steinhilber,
+ Cordula Hunt,
+ Florian Kobylka
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+url: https://amd-lab.github.io/R-Kurs-Unterlagen/index.html
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
+  Veranstaltungen.
+
+link-citations: yes
+github-repo:  AMD-Lab/R-Kurs-Unterlagen
+
+---
+
+# Über dieses Buch
+TEXT
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+<!--chapter:end:index.Rmd-->
+
+# Einführung
+(Anna-Lena)
+
+
+<!--chapter:end:01-Einfuehrung.Rmd-->
+
+# Datenstruktur
+(Florian)
+
+
+<!--chapter:end:02-Datenstruktur.Rmd-->
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(psych)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Einführung in Dplyr und tidyverse
+
+Dplyr ist Teil des tidyverse Packages und ermöglicht es, Daten sehr einfach zu manipulieren und in eine Form zu bringen, um diese dann zu analysieren. Um das zu tun greifen wir auf den Star Wars Datensatz zurück, den das dplyr Package mitliefert:
+
+```{r}
+
+# Lest die Daten bitte ein, der Datensatz heisst "starwars.RDS" und befindet sich in eurem Projektordner, diesmal benutzen wir den readRDS() Befehl.
+
+starwars <- readRDS("starwars.RDS")
+```
+
+Der Datensatz enthält Informationen über unsere Star Wars Helden, ähnlich dem Datensatz, den wir uns in der letzten Sitzung ausgedacht haben:
+
+```{r, echo=T}
+
+head(starwars,5) # Wir lassen uns erstmal die ersten 5 Zeilen des Datensatzes ausgeben
+
+```
+
+Bevor wir einsteigen, schaut euch an, wie die einzelnen Variablen im Datensatz verteilt sind. Benutzt dazu den den `summary()` Befehl, was fällt euch auf ?
+
+```{r}
+summary(starwars)
+
+```
+
+## Dplyr: Die wichtigsten Befehle
+
+-   Filtern von Beobachtungen nach Wert ([`filter()`](https://rdrr.io/r/stats/filter.html)).
+
+-   Reihen neu Sortieren (`arrange()`).
+
+-   Auswahl von Variablen nach Name (`select()`).
+
+-   Erstellen von neuen Variablen aus bereits existierenden (`mutate()`).
+
+-   Viele Werte zu einem einzelnen Wert zusammenfassen (`summarise()`).
+
+Der vielleicht wichtigste Befehl ist der `group_by()` Befehl, mit dem Ihr die oben genannten Befehle auf einzelne Gruppen innerhalb eines Datensatzes anwenden könnt.
+
+Diese 6 sogennaten "Verben" bilden die Grundlage für tidyverse.Damit ist es möglichmehrere einfache Schritte miteinander zu verketten, um ein komplexes Ergebnis zu erzielen. Alles Befehle funktionieren auf die gleiche Art und Weise:
+
+1.  Das erste Argument ist ein Dataframe.
+
+2.  Die nachfolgenden Argumente beschreiben, was mit dem Dataframe geschehen soll, wobei die Variablennamen (ohne Anführungszeichen) verwendet werden.
+
+3.  Das Ergebnis ist ein neuer Dataframe
+
+Hier ein Beispiel, zum `filter()` Befehl, dazu müsst ihr auch wissen, wie Ihr die gewünschten Beobachtungen mit Hilfe der Vergleichsoperatoren auswählen können. R bietet euch hier die Standardoperatoren:
+
+1.  `>` (größer)
+
+2.  `>=` (größer gleich)
+
+3.  `<` (kleiner)
+
+4.  `<=` (kleiner gleich)
+
+5.  `!=` (nicht gleich)
+
+6.  `==`(gleich)
+
+Anmerkung: Es gibt auch noch logische Operatoren, also "und", "oder" etc. Diese Besprechen wir nicht im Detail, da das sonst zu viel würde. Die Logik der Anwendungen ist aber genau gleich wie bei den Vergleichsoperatoren, hier nur der Vollstädigkeit halber eine übersicht über diese Operatoren:\
+
+![Logische Operatoren in R](https://d33wubrfki0l68.cloudfront.net/01f4b6d39d2be8269740a3ad7946faa79f7243cf/8369a/diagrams/transform-logical.png "Logische Operatoren und Ihre Aussage"){width="800"}
+
+Beispiel
+
+```{r}
+# Wenn wir zum Beispiel wissen wollen, wer die größten und schwersten Charaktere aus Starwars sind, dann könnten wir dies so machen:
+
+filter(starwars, height > 190, mass > 90)
+
+# Wir filtern hier alle heraus, die größer sind als 190 und mehr als 90 Kilo wiegen
+
+```
+
+Wenn man mit Strings arbeitet sucht man häufig nach bestimmen `pattern` in den Strings, wie hier bei den Namen. Wollen wir nun alle Skywalkers filtern, müssen wir die `grepl()` Funktion aus R nutzen. Diese prüft, ob eine Zeichenfolge vorhanden ist oder nicht und gibt dann entsprechend TRUE oder FALSE aus, also perfekt für `filter()` . Bei Strings die nur aus einem Wort bestehen, funktioniert aber auch `filter(starwars, species=="human").`
+
+Beispiel:
+
+```{r}
+
+filter(starwars, species == "Human")
+
+# Alle Helden, mit dem Nachnamen Skywalker
+
+filter(starwars, grepl("Skywalker", name))
+
+
+# Es wird im Datensatz starwars nach dem String "Skywalker" in der Spalte name gesucht. 
+# Das Ergebnis sieht dann so aus: 
+
+```
+
+Wichtig ist natürlich für uns auch der Umgang mit Faktoren. Glücklicherweise ist das viel einfacher als mit Strings:
+
+```{r}
+
+# Wenn wir nun nach einem bestimmten Faktor-Level Filtern wollen geht das genauso wie mit numerischen Werten:
+
+filter(starwars, sex == "male")
+```
+
+## Übung 1
+
+Filtert nun selbst den Datensatz nach bestimmten Kriterien
+
+```{r}
+
+# 1.) Filtert alle Helden, die Älter sind als 20 und größer als 160 sind
+
+fat_starwars <- filter(starwars, Age > 20, height > 160)
+
+# 2.) Filtert alle Helden, die Blaue Augen haben und männlich sind
+
+filter(starwars, eye_color == "blue", sex == "male")
+
+# 3.) Filtert alle, die zur Spezies Droid gehören
+
+filter(starwars, species=="Droid")
+```
+
+## Dplyr: Der Piping Operator
+
+Jetzt wisst ihr, wie man Daten filtert. Das ist aber nur eine der Basisfunktionen von dplyr. Die vielleicht wichtigste Funktion der sogenannte "piping operator" `%>%` Mit diesem könnt ihr die Befehle kombinieren, oder auch "verketten" um die Datensätze nach euren Wünschen umzugestalten. Das funktioniert auch immer nach den oben genannten Prinzipien:
+
+1.  Das erste Argument ist ein Dataframe.
+
+2.  Die nachfolgenden Argumente beschreiben, was mit dem Dataframe geschehen soll, wobei die Variablennamen (ohne Anführungszeichen) verwendet werden.
+
+3.  Das Ergebnis ist ein neuer Dataframe
+
+Wir werden hier erstmal nur die basis dplyr-Funktionen besprechen. Aber auch alle anderen Befehle lassen sich in eine "Pipeline" integrieren. Hier mal ein sehr fortgeschrittenes Beispiel, wie das aussehen kann:
+
+```{r}
+
+# df_clean %>% group_by(N,K,Retrievals) %>%  
+#   summarise(corA = cor(mu_est_a, mu_real_a),
+#             corC = cor(mu_est_c, mu_real_c)) %>%
+#   mutate(z_a = fisherz(corA), z_c = fisherz(corC)) %>% 
+#   filter(Retrievals== 100) %>%
+#   group_by(N,K) %>%  
+#   summarise(mean_a_100 = mean(z_a),
+#             mean_c_100 = mean(z_c),
+#             range_cor = range(mean_a_100),
+#             range_cor = range(mean_a_100)) %>%
+#   mutate(meanCorA_100 = fisherz2r(mean_a_100),
+#          meanCorC_100 = fisherz2r(mean_c_100)) %>%
+#   select(-c(mean_a_100, mean_c_100))
+
+
+```
+
+## Beispiel
+
+Stellt euch vor, ihr wollte gerne den Mittelwert des Alters der Helden aus dem Starwars Datensatz berechnen, und das für unterschiedliche Heimatwelten und Spezies:
+
+```{r}
+
+# Dazu benutzen wir den Piping Operator %>%, um die Befehle zu verketten:
+
+starwars %>% 
+  group_by(species, homeworld) %>% 
+  summarise(mean_Age=mean(Age))
+
+```
+
+Wir schreiben hier im Prinzip:
+
+1.  Nehme den Datensatz starwars (1. Zuerst der Dataframe):
+
+<!-- -->
+
+    `starwars %>%`
+
+2.  Gruppiere diesen nach Spezies und Heimatwelt (1. Verarbeitungsschritt):
+
+    `` `group_by(species, homeworld) %>%` ``
+
+3.  Berechne dann für jede dieser Gruppen den Mittelwert für die Variable "Age" (2. Schritt):
+
+<!-- -->
+
+    `summarise(meanAge=mean(Age)`
+
+Da wir nun den Piping Operator benutzen der vom Dataframe starwars ausgeht, müssen wir auch nicht mehr bei jedem Befehl den Datensatz angeben, es reicht dies am Anfang der "Pipeline" zu tun.
+
+Problem: Wir haben noch viele fehlende Beobachtungen. Diese müssen wir zunächst entfehrnen. Auch das können wir nun innerhalb der "Pipeline" tun. Dazu bietet R den Befehl `drop_na()` an. Dieser entfehrnt alle fehlenden Werte eines Datensatzes.
+
+Wir müssen diesen Befehl nun einfach an eine Stelle in der Pipe einfügen, an der es Sinn macht, die Fehlenden Werte zu entfehrnen:
+
+```{r}
+
+# Wo könnte das hier sein ? 
+
+starwars %>% drop_na() %>%
+  group_by(species, homeworld) %>% 
+  summarise(mean_Age=mean(Age))
+```
+
+Nun haben wir nach verschiedenen Gruppen die Altersmittelwerte, bereinigt von den fehlenden Werten. Und das mit nur 2 Zeilen Code :)
+
+## Übung 2
+
+```{r}
+
+# 1.) Gruppiert die Daten nach der Haarfarbe und berechnet für alle vollständigen Werte den Mittelwert und die Standardabweichung für die Größe und das Gewicht. Benutzt dafür wie im vorigen Beispiel die summarise() Funktion. Mit dieser könnt ihr auch mehrere Variablen berechnen. Bindet auch den drop_na() ein. Am Ende sollte es keine NA-Werte mehr in der Ausgabe geben. 
+
+starwars %>% drop_na() %>% group_by(hair_color) %>%
+  summarise(mean_Height = mean(height),
+            sd_Height= sd(height),
+            mean_Mass = mean(mass),
+            sd_Mass = sd(mass)) 
+
+```
+
+## Dplyr : Neue Variablen mit `mutate()` berechnen
+
+Der letzte wichtige Befehl in dplyr ist `mutate()` bzw. `across()`. Letztes mal haben wir in dem Beispiel der Matrix zwei Variablen miteinander kombiniert und daraus einen neue berechnet (Größe\*5). Mit `mutate()` können wir eine Variable und mit `across()` gleich mehrere Variablen umformen, oder neu berechnen. Hier möchte ich es am Beispiel einer z-Tranformation erläutern. Diese werden wir mit dem Befehl `scale()` tun, der standardmäßig in R vorhanden ist.
+
+## Beispiel
+
+```{r}
+
+starwars %>% 
+  select(height,mass) %>% 
+  mutate(z_height = scale(height),
+         z_mass = scale(mass)) %>% 
+  drop_na()
+
+ starwars %>% select(height,mass) %>% 
+  mutate(across(c(height,mass), list(z=scale))) %>%
+  drop_na()
+
+```
+
+In diesem Beispiel haben wir zunächste nur `height` und `mass` mit dem `select()` Befehl ausgewählt, daher werden auch nur diese beiden Spalten am Ende der Pipline im Datensatz angezeigt. Dies kann hilfreich sein, wenn man einen Datensatz mit sehr vielen Variablen analysieren muss, von denen nur einige wenige interessant sind. Dies ist meiner Erfahrung nach zum Beispiel bei Fragebögen der Fall, die unterschiedliche Facetten erfassen.
+
+Der nächste Befehl `mutate()` besteht immer aus einer Operation, die mit einer Spalte im Datensatz durchgeführt wird. Im Beispiel oben fügen wir also die Spalten `z_height` und `z_mass` hinzu, die sich jeweils aus `scale(SPALTENNAME)` berechnen und die z-Werte der jeweiligen Variablen berechnen.
+
+Wir können auch anstatt die Variablen einzeln umzurechnen, den Befehl `scale()` direkt auf mehrere Spalten anwenden. Dazu können wir den `across()` Befehl verwenden. Hier müssen wir innerhalb von `mutate()` einfach mit `across(c(SPALTE1, SPALTE2))` einen Vektor der gewünschten Spalten übergeben und dann die Funktion(en), welche auf die Spalten angewand werden soll. Dies muss dann so definiert werden:
+
+`mutate(across(c(height,mass), list(z=scale)))`
+
+Diese Schreibweise hat den Vorteil das ihr
+
+1.  In der `list()` mehrere Befehle übergeben könnt
+
+2.  Die Originalspalten beibehalten werden
+
+3.  Ihr den neuen Spalten direkt einen Suffix geben könnt.\
+    Dieser wird automatisch als "\_suffix" an die neue Variable angehängt.
+
+    `mutate(across(c(height,mass), list(z=scale)))` würde also zusätzliche zu Spalte1 und Spalte2 noch Spalte1_z und Spalte2_z, die den z-Wert der jeweiligen Variablen
+
+## Aufgabe bis zum nächsten Mal
+
+Übersetzt diese Anweisungen in dplyr-Sprache:
+
+1.  Dataframe starwars
+2.  Gruppiert diesen nach Spezies
+3.  Entfehrnt alle fehlenden Werte
+4.  Fasst die Variablen Age und Height zu nur einem Mittelwert zusammen
+5.  z-Transformiert die Mittelwerte beider Spalten.
+
+Befehle die Ihr dazu braucht:
+
+`drop_na(), across()` ,`scale(), mutate(), group_by(), summarise(), mean()`
+
+Wenn ihr es Richtig gemacht habt, sollte der Datensatz am Ende so aussehen:
+
+![](Merged_Data.png)
+
+*Zusatzaufgabe:*
+
+*Ihr könnt den `summarise()` Befehl auch mit `across()` umsetzen und automatisch einen Suffix für die zusammengefassten Variablen erstellen, hierdurch spart man sich einige Tipparbeit. Das Ergebnis ist das gleiche, nur mit unterschiedlichen Spaltenamen für die "mean" Variablen.*
+
+```{r}
+
+starwars %>% group_by(species) %>%
+  drop_na() %>%
+  summarise(mean_Age = mean(Age),
+            mean_Height = mean(height)) %>%
+  mutate(mean_Age_z = scale(mean_Age),
+         mean_Height_z = scale(mean_Height))
+
+# mit across()
+
+starwars %>% group_by(species) %>%
+  drop_na() %>%
+  summarise(across(c(Age, height), list(mean= mean))) %>%
+           mutate(across(c(Age_mean, height_mean), list(z=scale)))
+
+```
+
+<!--chapter:end:03-Datenaufbereitung.Rmd-->
+
+# Deskreptive Statistik
+(Jose)
+
+
+<!--chapter:end:04-Deskreptive_Statistik.Rmd-->
+
+# Graphiken
+(Cordula)
+
+
+<!--chapter:end:05-Graphiken.Rmd-->
+
+# Tipps
+
+## chapters
+All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+
+## A section
+
+All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
+
+### An unnumbered section {-}
+
+Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section.
+
+
+## cross-referenc: Chapters and sub-chapters
+
+There are two steps to cross-reference any heading:
+
+1. Label the heading: `# Hello world {#nice-label}`. 
+    - Leave the label off if you like the automated heading generated based on your heading title: for example, `# Hello world` = `# Hello world {#hello-world}`.
+    - To label an un-numbered heading, use: `# Hello world {-#nice-label}` or `{# Hello world .unnumbered}`.
+
+1. Next, reference the labeled heading anywhere in the text using `\@ref(nice-label)`; for example, please see Chapter \@ref(cross). 
+    - If you prefer text as the link instead of a numbered reference use: [any text you want can go here](#cross).
+
+## Captioned figures and tables
+
+Figures and tables *with captions* can also be cross-referenced from elsewhere in your book using `\@ref(fig:chunk-label)` and `\@ref(tab:chunk-label)`, respectively.
+
+See Figure \@ref(fig:nice-fig).
+
+```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases.'}
+par(mar = c(4, 4, .1, .1))
+plot(pressure, type = 'b', pch = 19)
+```
+
+Don't miss Table \@ref(tab:nice-tab).
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(pressure, 10), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
+```
+
+## Footnotes
+
+Footnotes are put inside the square brackets after a caret `^[]`. Like this one ^[This is a footnote.]. 
+
+## Citations
+
+Reference items in your bibliography file(s) using `@key`.
+
+For example, we are using the **bookdown** package [@R-bookdown] (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and **knitr** [@xie2015] (this citation was added manually in an external file book.bib). 
+Note that the `.bib` files need to be listed in the index.Rmd with the YAML `bibliography` key.
+
+
+The RStudio Visual Markdown Editor can also make it easier to insert citations: <https://rstudio.github.io/visual-markdown-editing/#/citations>
+
+
+## Equations
+
+Here is an equation.
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  (\#eq:binom)
+\end{equation} 
+
+You may refer to using `\@ref(eq:binom)`, like see Equation \@ref(eq:binom).
+
+
+## Theorems and proofs
+
+Labeled theorems can be referenced in text using `\@ref(thm:tri)`, for example, check out this smart theorem \@ref(thm:tri).
+
+::: {.theorem #tri}
+For a right triangle, if $c$ denotes the *length* of the hypotenuse
+and $a$ and $b$ denote the lengths of the **other** two sides, we have
+$$a^2 + b^2 = c^2$$
+:::
+
+Read more here <https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html>.
+
+## Callout blocks
+
+
+The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
+
+<!--chapter:end:06-Tipps.Rmd-->
+
+`r if (knitr::is_html_output()) '
+# References {-}
+'`
+
+<!--chapter:end:07-references.Rmd-->
+
