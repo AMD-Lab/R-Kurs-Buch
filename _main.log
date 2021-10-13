@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.7.4)  13 OCT 2021 11:24
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.7.4)  13 OCT 2021 12:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1324,143 +1324,236 @@ Kapitel 2.
 
 ]
 Kapitel 3.
+File: _bookdown_files/_main_files/figure-html/RMarkmitNum.png Graphic file (typ
+e bmp)
+<_bookdown_files/_main_files/figure-html/RMarkmitNum.png>
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[9] [10]
+Overfull \vbox (0.80139pt too high) detected at line 278
+ []
+
+[11] [12]
+File: _bookdown_files/_main_files/figure-html/Workspace.png Graphic file (type 
+bmp)
+<_bookdown_files/_main_files/figure-html/Workspace.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[13]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[14]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.01236pt on input line 482.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 4.98074pt on input line 482.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00015pt on input line 482.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.01247pt on input line 482.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 4.9808pt on input line 482.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99985pt on input line 482.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.01224pt on input line 482.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.98067pt on input line 482.
+[15] [16] [17]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.3 on input line 714.
+
+
+Underfull \vbox (badness 2343) has occurred while \output is active []
+
+[18]
+Overfull \hbox (22.75002pt too wide) in alignment at lines 746--755
+ [] [] [] 
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.4 on input line 755.
+
+[19] [20] [21]
+File: _bookdown_files/_main_files/figure-html/png.png Graphic file (type bmp)
+<_bookdown_files/_main_files/figure-html/png.png>
+
+Overfull \hbox (11.04002pt too wide) in paragraph at lines 939--940
+[]\TU/lmr/m/n/10 Nach einmaliger Installation des Packages (\TU/lmtt/m/n/10 ins
+tall.packages(pp-almerpenguins"\TU/lmr/m/n/10 )
+ []
+
+[22]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.5 on input line 961.
+
+
+Underfull \hbox (badness 2012) in paragraph at lines 980--982
+[]\TU/lmr/m/n/10 Excel Dateien werden mit Funktionen \TU/lmtt/m/n/10 read_excel
+()\TU/lmr/m/n/10 , \TU/lmtt/m/n/10 read_xls() \TU/lmr/m/n/10 oder
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[23]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1024--1024
+[]\TU/lmtt/m/n/10 ##  $ Gender     : Factor w/ 3 levels "d","f","m": 3 2 1 2 2 
+3 2 2 2 3 ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1024--1024
+[]\TU/lmtt/m/n/10 ##  $ Eigenschaft: chr [1:20] "kreativ" "kreativ" "kreativ" "
+kreativ" ...[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[24]
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1074--1074
 []\TU/lmtt/m/n/10 ##   name           height  mass hair_color skin_color  eye_c
 olor   Age sex   gender[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 198--198
+Overfull \hbox (90.75pt too wide) in paragraph at lines 1074--1074
 []\TU/lmtt/m/n/10 ##   <chr>           <int> <dbl> <fct>      <fct>       <fct>
      <dbl> <fct> <fct>[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1074--1074
 []\TU/lmtt/m/n/10 ## 1 Luke Skywalker    172    77 blond      fair        blue 
       19   male  mascu~[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1074--1074
 []\TU/lmtt/m/n/10 ## 2 C-3PO             167    75 <NA>       gold        yello
 w    112   none  mascu~[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1074--1074
 []\TU/lmtt/m/n/10 ## 3 R2-D2              96    32 <NA>       white, blue red  
       33   none  mascu~[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1074--1074
 []\TU/lmtt/m/n/10 ## 4 Darth Vader       202   136 none       white       yello
 w     41.9 male  mascu~[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1074--1074
 []\TU/lmtt/m/n/10 ## 5 Leia Organa       150    49 brown      light       brown
       19   fema~ femin~[] 
  []
 
-[9]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 233--233
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##      name               height           mass           ha
 ir_color   skin_color[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##  Length:87          Min.   : 66.0   Min.   :  15.00   none
    :37   fair   :17[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##  Class :character   1st Qu.:167.0   1st Qu.:  55.60   brow
 n  :18   light  :11[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##  Mode  :character   Median :180.0   Median :  79.00   blac
 k  :13   dark   : 6[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##                     Mean   :174.4   Mean   :  97.31   whit
 e  : 4   green  : 6[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##                     3rd Qu.:191.0   3rd Qu.:  84.50   blon
 d  : 3   grey   : 6[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##                     Max.   :264.0   Max.   :1358.00   (Oth
 er): 7   pale   : 5[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##                     NA[]s   :6       NA[]s   :28        NA
 []s   : 5   (Other):36[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 233--233
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##    eye_color       Age                     sex           g
 ender[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 233--233
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##  brown  :21   Min.   :  8.00   female        :16   feminin
 e :17[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 233--233
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##  blue   :19   1st Qu.: 35.00   hermaphroditic: 1   masculi
 ne:66[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 233--233
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1109--1109
 []\TU/lmtt/m/n/10 ##  yellow :11   Median : 52.00   male          :60   NA[]s  
    : 4[] 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 283--284
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 1159--1160
 
  []
 
+[26]
 
 LaTeX Warning: File `https://d33wubrfki0l68.cloudfront.net/01f4b6d39d2be8269740
 a3ad7946faa79f7243cf/8369a/diagrams/transform-logical.png' not found on input l
-ine 287.
+ine 1163.
 
 ! Unable to load picture or PDF file 'https://d33wubrfki0l68.cloudfront.net/01f
 4b6d39d2be8269740a3ad7946faa79f7243cf/8369a/diagrams/transform-logical.png'.
 <to be read again> 
                    }
-l.287 ...3cf/8369a/diagrams/transform-logical.png}
+l.1163 ...cf/8369a/diagrams/transform-logical.png}
                                                    
 Here is how much of TeX's memory you used:
- 27776 strings out of 492969
- 490940 string characters out of 6137284
- 722187 words of memory out of 5000000
- 31518 multiletter control sequences out of 15000+600000
- 535830 words of font info for 59 fonts, out of 8000000 for 9000
+ 27868 strings out of 492969
+ 493454 string characters out of 6137284
+ 725187 words of memory out of 5000000
+ 31590 multiletter control sequences out of 15000+600000
+ 538675 words of font info for 77 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 58i,6n,117p,899b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,6n,117p,1675b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (10 pages).
+Output written on _main.pdf (26 pages).

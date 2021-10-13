@@ -1,5 +1,14 @@
-.Rproj.user
+# MacOs
+.DS_Store
+
+# R-stuff
+*.Rproj
+.Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
 
+# project specific
+_bookdown_files/*
+docs/
+packages.bib
