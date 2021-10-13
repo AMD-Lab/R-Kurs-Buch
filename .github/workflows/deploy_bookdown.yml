@@ -42,13 +42,7 @@ jobs:
          # Destination path
          # path: docs/ # optional
      - name: Deploy to GitHub Pages
-<<<<<<< jose_updates
-       uses: Cecilapp/GitHub-Pages-deploy@3.0.0
-=======
-       uses: Cecilapp/GitHub-Pages-deploy@v3
->>>>>>> change Cecilapp version
        env:
-<<<<<<< jose_updates
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        with:
          email: ${{ secrets.EMAIL }}
@@ -57,6 +51,13 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
           GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
           BUILD_DIR: docs/                    # "_site/" by default
+    - name: Deploy to GitHub Pages
+      uses: Cecilapp/GitHub-Pages-deploy@3.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        email: ${{ secrets.EMAIL }}
+        build_dir: docs
     
  
 >>>>>>> update BUILD_DIR
