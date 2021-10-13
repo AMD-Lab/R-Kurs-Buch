@@ -7,6 +7,8 @@
 .Rhistory
 .RData
 .Ruserdata
+.Rbuildignore
+.Rapp.history
 
 # project specific
 _bookdown_files/*
