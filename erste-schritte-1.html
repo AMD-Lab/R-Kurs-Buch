@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Erste Schritte | Einführung in R</title>
+  <meta name="description" content="<p>Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
+Veranstaltungen.</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Erste Schritte | Einführung in R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://amd-lab.github.io/R-Kurs-Unterlagen/index.html" />
+  
+  <meta property="og:description" content="<p>Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
+Veranstaltungen.</p>" />
+  <meta name="github-repo" content="AMD-Lab/R-Kurs-Unterlagen" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Erste Schritte | Einführung in R" />
+  
+  <meta name="twitter:description" content="<p>Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
+Veranstaltungen.</p>" />
+  
+
+
+
+<meta name="date" content="2021-10-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="einführung.html"/>
+<link rel="next" href="datenstruktur.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Über dieses Buch</a></li>
+<li class="chapter" data-level="2" data-path="einführung.html"><a href="einführung.html"><i class="fa fa-check"></i><b>2</b> Einführung</a><ul>
+<li class="chapter" data-level="2.1" data-path="einführung.html"><a href="einführung.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="einführung.html"><a href="einführung.html#erste-schritte"><i class="fa fa-check"></i><b>2.2</b> Erste Schritte</a></li>
+<li class="chapter" data-level="2.3" data-path="einführung.html"><a href="einführung.html#das-r-skript"><i class="fa fa-check"></i><b>2.3</b> Das R-Skript</a></li>
+<li class="chapter" data-level="2.4" data-path="einführung.html"><a href="einführung.html#struktur-des-skripts"><i class="fa fa-check"></i><b>2.4</b> Struktur des Skripts</a></li>
+<li class="chapter" data-level="2.5" data-path="einführung.html"><a href="einführung.html#pakete"><i class="fa fa-check"></i><b>2.5</b> Pakete</a></li>
+<li class="chapter" data-level="2.6" data-path="einführung.html"><a href="einführung.html#working-directory"><i class="fa fa-check"></i><b>2.6</b> Working Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html"><i class="fa fa-check"></i><b>3</b> Erste Schritte</a><ul>
+<li class="chapter" data-level="3.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#variablen"><i class="fa fa-check"></i><b>3.1</b> Variablen</a></li>
+<li class="chapter" data-level="3.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#vektoren"><i class="fa fa-check"></i><b>3.2</b> Vektoren</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-numeric"><i class="fa fa-check"></i><b>3.2.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="3.2.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-character"><i class="fa fa-check"></i><b>3.2.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="3.2.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-logical"><i class="fa fa-check"></i><b>3.2.3</b> Datentyp logical</a></li>
+<li class="chapter" data-level="3.2.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-factor"><i class="fa fa-check"></i><b>3.2.4</b> Datentyp factor</a></li>
+<li class="chapter" data-level="3.2.5" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-na"><i class="fa fa-check"></i><b>3.2.5</b> Datentyp NA</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#auswahl-von-vektorelementen"><i class="fa fa-check"></i><b>3.3</b> Auswahl von Vektorelementen</a></li>
+<li class="chapter" data-level="3.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#logische-vergleiche"><i class="fa fa-check"></i><b>3.4</b> Logische Vergleiche</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-numeric-1"><i class="fa fa-check"></i><b>3.4.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="3.4.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-character-1"><i class="fa fa-check"></i><b>3.4.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="3.4.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-factor-1"><i class="fa fa-check"></i><b>3.4.3</b> Datentyp factor</a></li>
+<li class="chapter" data-level="3.4.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#rekodieren-von-variablen-mit-hilfe-logischer-vergleich"><i class="fa fa-check"></i><b>3.4.4</b> Rekodieren von Variablen mit Hilfe logischer Vergleich</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datenstruktur.html"><a href="datenstruktur.html"><i class="fa fa-check"></i><b>4</b> Datenstruktur</a><ul>
+<li class="chapter" data-level="4.1" data-path="datenstruktur.html"><a href="datenstruktur.html#rmarkdown"><i class="fa fa-check"></i><b>4.1</b> RMarkdown</a></li>
+<li class="chapter" data-level="4.2" data-path="datenstruktur.html"><a href="datenstruktur.html#hilfe"><i class="fa fa-check"></i><b>4.2</b> Hilfe</a></li>
+<li class="chapter" data-level="4.3" data-path="datenstruktur.html"><a href="datenstruktur.html#werte-vektoren"><i class="fa fa-check"></i><b>4.3</b> Werte &amp; Vektoren</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datenstruktur.html"><a href="datenstruktur.html#coercion-umwandlung-von-typen"><i class="fa fa-check"></i><b>4.3.1</b> Coercion (Umwandlung von Typen)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datenstruktur.html"><a href="datenstruktur.html#aufruf-einzelner-elemente-per-index"><i class="fa fa-check"></i><b>4.3.2</b> Aufruf einzelner Elemente per Index:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="datenstruktur.html"><a href="datenstruktur.html#der-workspace"><i class="fa fa-check"></i><b>4.4</b> Der Workspace</a></li>
+<li class="chapter" data-level="4.5" data-path="datenstruktur.html"><a href="datenstruktur.html#einfache-berechnungen"><i class="fa fa-check"></i><b>4.5</b> Einfache Berechnungen</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="datenstruktur.html"><a href="datenstruktur.html#rechnen-mit-values"><i class="fa fa-check"></i><b>4.5.1</b> Rechnen mit Values</a></li>
+<li class="chapter" data-level="4.5.2" data-path="datenstruktur.html"><a href="datenstruktur.html#rechnen-mit-vektoren"><i class="fa fa-check"></i><b>4.5.2</b> Rechnen mit Vektoren</a></li>
+<li class="chapter" data-level="4.5.3" data-path="datenstruktur.html"><a href="datenstruktur.html#übersicht-berechnungsfunktionen"><i class="fa fa-check"></i><b>4.5.3</b> Übersicht Berechnungsfunktionen</a></li>
+<li class="chapter" data-level="4.5.4" data-path="datenstruktur.html"><a href="datenstruktur.html#beispiel-einer-z-standardisierung-eines-vektors-mit-3-einträgen"><i class="fa fa-check"></i><b>4.5.4</b> Beispiel einer z-Standardisierung eines Vektors mit 3 Einträgen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="datenstruktur.html"><a href="datenstruktur.html#matrizen"><i class="fa fa-check"></i><b>4.6</b> Matrizen</a></li>
+<li class="chapter" data-level="4.7" data-path="datenstruktur.html"><a href="datenstruktur.html#tidy-daten"><i class="fa fa-check"></i><b>4.7</b> tidy Daten</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="datenstruktur.html"><a href="datenstruktur.html#tidyverse"><i class="fa fa-check"></i><b>4.7.1</b> tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="datenstruktur.html"><a href="datenstruktur.html#data.frames-df-und-tibbles-tib"><i class="fa fa-check"></i><b>4.8</b> data.frames (df) und tibbles (tib)</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="datenstruktur.html"><a href="datenstruktur.html#faktoren"><i class="fa fa-check"></i><b>4.8.1</b> Faktoren</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="datenstruktur.html"><a href="datenstruktur.html#einlesen-und-speichern-von-daten"><i class="fa fa-check"></i><b>4.9</b> Einlesen und Speichern von Daten</a></li>
+<li class="chapter" data-level="4.10" data-path="datenstruktur.html"><a href="datenstruktur.html#datensätze-dat-anschauen"><i class="fa fa-check"></i><b>4.10</b> Datensätze (dat) anschauen</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Einführung in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="erste-schritte-1" class="section level1">
+<h1><span class="header-section-number">3</span> Erste Schritte</h1>
+<div id="variablen" class="section level2">
+<h2><span class="header-section-number">3.1</span> Variablen</h2>
+<p>Sicherlich wollen Sie Ihre Daten nicht nur in der Konsole ausgeben lassen und bearbeiten, sondern auch in Variablen speichern. Variablen sind Bezeichnungen, mit deren Hilfe Sie auf gespeicherte Daten zugreifen. Sobald eine Variable definiert wurde, können Sie immer wieder darauf zugreifen. Variablen werden mit Hilfe des <code>&lt;-</code> Operators definiert.</p>
+<p>Sie können sich die Werte dieser Variablen ausgeben lassen, indem Sie die Variablennamen in der Konsole eingeben und Enter drücken.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="erste-schritte-1.html#cb22-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Jetzt können Sie bereits erste Berechnungen mit Variablen durchführen:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="erste-schritte-1.html#cb24-1"></a>x<span class="op">+</span>y</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="erste-schritte-1.html#cb26-1"></a>x<span class="op">*</span>y</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>In R lassen sich sämtliche Objekte - nicht nur einzelne Zahlen, sondern auch Datentabellen, Wortlisten oder sogar Ergebnisse komplizierter Analysen - in Variablen speichern. Der Workflow ist so ausgelegt, dass Sie Ergebnisse einer Analyse in einer Variable speichern und von dort aus weiterverarbeiten können, z.B. um APA-konforme Tabellen oder Grafiken zu erstellen oder sich Effektstärkemaße ausgeben zu lassen. Im weiteren Verlauf des Kurses lernen Sie andere Datentypen kennen, die in Variablen gespeichert werden können.</p>
+<p><em>Achtung</em>: Wenn Sie eine Berechnung mit einer Variable durchführen und das Ergebnis dieser Berechnung speichern möchten, müssen Sie es wieder eine Variable zuweisen - es wird nicht automatisch gespeichert!</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="erste-schritte-1.html#cb28-1"></a>z &lt;-<span class="st"> </span>x<span class="op">*</span><span class="dv">10</span></span></code></pre></div>
+<p>Wenn Sie sich jetzt <code>x</code> und <code>z</code> ausgeben lassen, sehen Sie, dass sich nichts an <code>x</code> geändert hat - das Ergebnis der Berechnung wurde nicht abgespeichert. In der Variable <code>z</code> hingegen sehen Sie das Ergebnis Ihrer Berechnung.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="erste-schritte-1.html#cb29-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="erste-schritte-1.html#cb31-1"></a>z</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p><code>x</code>, <code>y</code> und <code>z</code> sind denkbar schlechte Variablennamen! Gute Variablennamen sprechen, d.h. dass der Name eine Variable verrät, was sich “in” dieser Variable verbirgt. Deswegen sollten Sie sich immer bemühen, möglichst klare und eindeutige Variablennamen zu vergeben.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="erste-schritte-1.html#cb33-1"></a><span class="co"># Beispiele für gute Variablennamen</span></span>
+<span id="cb33-2"><a href="erste-schritte-1.html#cb33-2"></a>durchschnittliches_Alter &lt;-<span class="st"> </span><span class="dv">23</span></span>
+<span id="cb33-3"><a href="erste-schritte-1.html#cb33-3"></a>MW_Alter &lt;-<span class="st"> </span><span class="dv">23</span></span>
+<span id="cb33-4"><a href="erste-schritte-1.html#cb33-4"></a>durchschnittliches_Evaluationsergebnis_KursA &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb33-5"><a href="erste-schritte-1.html#cb33-5"></a>MW_Evaluationsergebnis_KursA &lt;-<span class="st"> </span><span class="dv">2</span></span></code></pre></div>
+<p>Scheuen Sie sich nicht vor langen Variablennamen! Je besser und klarer Sie Ihre Variablen definieren, desto einfacher wird es sowohl Ihnen als auch anderen fallen, Ihren Code nachzuvollziehen. Besonders einfach lesbar sind längere Variablennamen, wenn Sie unterschiedliche Elemente des Variablennamens mit einem Unterstrich trennen. Diese Konvention wird auch in diesem Kurs verwendet.</p>
+</div>
+<div id="vektoren" class="section level2">
+<h2><span class="header-section-number">3.2</span> Vektoren</h2>
+<p>Jede Spalte eines Datensatzes ist ein Vektor. In einem Vektor befinden sich mehrere Elemente eines Datentyps, also z.B. mehrere Zahlen oder mehrere Wörter. Vektoren werden mit Hilfe des “combine”-Operators <code>c</code> erstellt.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="erste-schritte-1.html#cb34-1"></a>Vektor_numeric &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>)</span></code></pre></div>
+<p>Mit jedem Datentyp können Sie unterschiedliche Operationen durchführen. Um sich den Datentyp eines Vektors anzeigen zu lassen, können Sie die Funktion <code>mode</code> verwenden.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="erste-schritte-1.html#cb35-1"></a><span class="kw">mode</span>(Vektor_numeric)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div id="datentyp-numeric" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Datentyp numeric</h3>
+<p>Mit Vektoren vom Typ <code>numeric</code> können Sie verschiedene mathematische Operationen durchführen. Sie können diese Vektoren addieren, multiplizieren, usw. Wenn Sie eine Operation wie <code>*2</code> auf den Vektor anwenden, wird diese Operation auf alle Elemente des Vektors angewendet.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="erste-schritte-1.html#cb37-1"></a>Vektor_numeric<span class="op">*</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+<p>Wenn Sie hingegen zwei gleich lange Vektoren haben, wird jedes <em>i</em>-te Element des ersten Vektors mit dem <em>i</em>-ten Element des zweiten Vektors verrechnet. Das Element an Position 1 im einen Vektor wird dann mit dem Element an Position 1 im anderen Vektor gepaart, das Element an Position 2 im einen Vektor mit dem Element an Position 2 im anderen Vektor – und so weiter.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="erste-schritte-1.html#cb39-1"></a>punkte_MC_Fragen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb39-2"><a href="erste-schritte-1.html#cb39-2"></a>punkte_offene_Fragen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>)</span>
+<span id="cb39-3"><a href="erste-schritte-1.html#cb39-3"></a>klausurergebnis &lt;-<span class="st"> </span>punkte_MC_Fragen <span class="op">+</span><span class="st"> </span>punkte_offene_Fragen</span>
+<span id="cb39-4"><a href="erste-schritte-1.html#cb39-4"></a>klausurergebnis</span></code></pre></div>
+<pre><code>##  [1] 8 6 7 4 5 5 2 3 6 5</code></pre>
+</div>
+<div id="datentyp-character" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Datentyp character</h3>
+<p>Wenn Sie in einer Variable Text abspeichern wollen, erschaffen Sie eine Variable vom Datentyp <code>character</code>. Test wird mit doppelten oder einfachen Anführungszeichen angegeben:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="erste-schritte-1.html#cb41-1"></a><span class="st">&quot;Alpha&quot;</span> </span></code></pre></div>
+<pre><code>## [1] &quot;Alpha&quot;</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="erste-schritte-1.html#cb43-1"></a><span class="st">&#39;Beta&#39;</span></span></code></pre></div>
+<pre><code>## [1] &quot;Beta&quot;</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="erste-schritte-1.html#cb45-1"></a>Vektor_character &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Lea&quot;</span>, <span class="st">&quot;Luke&quot;</span>, <span class="st">&quot;Han&quot;</span>, <span class="st">&quot;Chewy&quot;</span>) </span>
+<span id="cb45-2"><a href="erste-schritte-1.html#cb45-2"></a><span class="kw">mode</span>(Vektor_character)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Mit Vektoren des Typs <code>character</code> können Sie natürlich keine mathematischen Operationen durchführen. Sie sind aber nützlich, um bestimmte Daten zu kodieren, wie bspw. das Geschlecht oder das Studienfach von Versuchspersonen.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="erste-schritte-1.html#cb47-1"></a>Geschlecht &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;männlich&quot;</span>, <span class="st">&quot;weiblich&quot;</span>, <span class="st">&quot;weiblich&quot;</span>, <span class="st">&quot;divers&quot;</span>, <span class="st">&quot;weiblich&quot;</span>)</span>
+<span id="cb47-2"><a href="erste-schritte-1.html#cb47-2"></a>Studienfach &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Psychologie&quot;</span>, <span class="st">&quot;Medizin&quot;</span>, <span class="st">&quot;Informatik&quot;</span>, <span class="st">&quot;Sportwissenschaft&quot;</span>, <span class="st">&quot;Biologie&quot;</span>)</span></code></pre></div>
+</div>
+<div id="datentyp-logical" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Datentyp logical</h3>
+<p>Der Datentyp <code>logical</code> kodiert nur binäre Informationen - diese sind entweder <code>TRUE</code> oder <code>FALSE</code>.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="erste-schritte-1.html#cb48-1"></a><span class="ot">TRUE</span> </span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="erste-schritte-1.html#cb50-1"></a><span class="ot">FALSE</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="erste-schritte-1.html#cb52-1"></a>Vektor_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>) </span>
+<span id="cb52-2"><a href="erste-schritte-1.html#cb52-2"></a><span class="kw">mode</span>(Vektor_logical)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>Dabei werden <code>TRUE</code> und <code>FALSE</code> als logische Bedingungen interpretiert, die erfüllt oder nicht erfüllt sein können. Vektoren dieses Datentyps sind für die Datenaufbereitung unglaublich nützlich! Mit Hilfe eines Vektors vom Typ <code>logical</code> können sie beispielsweise kodieren, welche Versuchspersonen die Studie vollständig abgeschlossen haben oder ob einzelne Beobachtungen Ausreißer darstellen. Sie werden diesen Datentyp häufig benötigen, wenn Sie in Datentabellen einzelne Fälle auswählen oder Versuchspersonen ausschließen möchte. Hierbei wird dann jeweils im Einzelfall überprüft, welche Fälle eine gewünschte Bedingung erfüllen (z.B. maximal 30 Minuten zur Bearbeitung eines Tests gebraucht haben) und daher in den weiteren Analysen eingeschlossen werden.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="erste-schritte-1.html#cb54-1"></a><span class="co"># Hier wird festgehalten, welche Versuchspersonen (id) die Studie </span></span>
+<span id="cb54-2"><a href="erste-schritte-1.html#cb54-2"></a><span class="co"># vollständig abgeschlossen haben (Studie_abgeschlossen)</span></span>
+<span id="cb54-3"><a href="erste-schritte-1.html#cb54-3"></a>id &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span>
+<span id="cb54-4"><a href="erste-schritte-1.html#cb54-4"></a>Studie_abgeschlossen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>) </span></code></pre></div>
+<p>Mit logischen Werten kann man die logischen Operationen UND (<code>&amp;</code>), ODER (<code>|</code> ) und NICHT (<code>!</code> ) umsetzen. UND und ODER
+verknüpfen jeweils zwei logische Bedingungen (sprich: zwei logische Werte, also <code>TRUE</code>/<code>FALSE</code>) miteinander und geben selbst einen logischen Wert zurück.</p>
+<p>Die Verknüpfung UND ergibt dann <code>TRUE</code>, wenn beide Bedingungen erfüllt sind, d.h. nur wenn die erste und die zweite Bedingung jeweils <code>TRUE</code> sind.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="erste-schritte-1.html#cb55-1"></a><span class="co">## Logisches UND</span></span>
+<span id="cb55-2"><a href="erste-schritte-1.html#cb55-2"></a><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">TRUE</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="erste-schritte-1.html#cb57-1"></a><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">FALSE</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="erste-schritte-1.html#cb59-1"></a><span class="ot">FALSE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">FALSE</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>einen logischen Wert zurück.</p>
+<p>Die Verknüpfung ODER ergibt dann <code>TRUE</code>, wenn mindestens eine der beiden Bedingungen erfüllt ist, d.h. wenn die erste oder die zweite Bedingung oder beide Bedingungen <code>TRUE</code> sind. Ganz wichtig: ODER gibt auch dann <code>TRUE</code> aus, wenn beide Bedingungen erfüllt sind!</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="erste-schritte-1.html#cb61-1"></a><span class="co">## Logisches ODER</span></span>
+<span id="cb61-2"><a href="erste-schritte-1.html#cb61-2"></a><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">TRUE</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="erste-schritte-1.html#cb63-1"></a><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">FALSE</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="erste-schritte-1.html#cb65-1"></a><span class="ot">FALSE</span> <span class="op">|</span><span class="st"> </span><span class="ot">FALSE</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Das logische NICHT invertiert eine logische Variable: Aus <code>TRUE</code> wird <code>FALSE</code> und umgekehrt. Das ist hier noch etwas abstrakt, wird aber später in den Kapiteln zur Datenaufbereitung noch klarer.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="erste-schritte-1.html#cb67-1"></a><span class="co">## Logisches NICHT</span></span>
+<span id="cb67-2"><a href="erste-schritte-1.html#cb67-2"></a><span class="op">!</span><span class="ot">TRUE</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="erste-schritte-1.html#cb69-1"></a><span class="op">!</span><span class="ot">FALSE</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="datentyp-factor" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Datentyp factor</h3>
+<p>Variablen vom Datentyp <code>factor</code> sind nützlich, um kategoriale Variablen zu kodieren. Dabei wird zunächst ein Vektor vom Typ ‘numeric’ erstellt. Den einzelnen Werten dieses numerischen Vektors werden dann kategoriale Bezeichnungen zugewiesen.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="erste-schritte-1.html#cb71-1"></a>Bedingung &lt;-<span class="st"> </span><span class="kw">c</span> (<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb71-2"><a href="erste-schritte-1.html#cb71-2"></a>Vektor_factor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dt">x =</span> Bedingung, </span>
+<span id="cb71-3"><a href="erste-schritte-1.html#cb71-3"></a>                        <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb71-4"><a href="erste-schritte-1.html#cb71-4"></a>                        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Kontrollgruppe&quot;</span>, <span class="st">&quot;Experimentalgruppe&quot;</span>))</span>
+<span id="cb71-5"><a href="erste-schritte-1.html#cb71-5"></a>Vektor_factor</span></code></pre></div>
+<pre><code>## [1] Kontrollgruppe     Experimentalgruppe Experimentalgruppe Kontrollgruppe    
+## [5] Experimentalgruppe Kontrollgruppe     Kontrollgruppe     Experimentalgruppe
+## Levels: Kontrollgruppe Experimentalgruppe</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="erste-schritte-1.html#cb73-1"></a><span class="kw">mode</span>(Vektor_factor)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Dazu verwenden Sie die Funktion <code>factor</code>. Dieser Funktion übergeben Sie den numerischen Vektor <code>Bedingung</code> und definieren anschließend die Stufen des Faktors mit Hilfe des Argument <code>levels</code> (hier 0 und 1) sowie die Bezeichnungen mit Hilfe des Argument <code>labels</code> (hier Kontrollgruppe und Experimentalgruppe).</p>
+<p>Es ist immer sinnvoll, Variablen als Faktoren zu definieren, wenn sie endliche Ausprägungen haben. Experimentelle Bedingungen, Messzeitpunkte oder das Geschlecht von Versuchspersonen sind typische Kandidaten, die als Vektoren vom Typ <code>factor</code> gespeichert werden. Der Vorteil dieses Variablentyps besteht darin, dass Sie dort die Zuordnung von numerischen zu verbalen Bezeichnungen direkt vornehmen können und nachher nicht mehr nachschlagen müssen, ob “0” oder “1” nun die Experimentalgruppe kodiert. Spätestens bei der Auswertung Ihrer Daten sollten Sie solche Variablen also immer als <code>factor</code> rekodieren.</p>
+<p><em>Achtung</em>: Sie können mit Faktoren keine mathematischen Operationen durchführen, auch wenn ihnen eigentlich numerische Kodierungen zugrunde liegen. In R werden Vektoren vom Variablentyp <code>factor</code> diesbezüglich ebenso wie Vektoren vom Variablentyp <code>character</code> behandelt.</p>
+</div>
+<div id="datentyp-na" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Datentyp NA</h3>
+<p>Ein Vektor besteht in der Regel nicht nur aus Variablen vom Datentyp <code>NA</code>. In echten Datensätzen werden Sie aber immer mal wieder fehlende Daten haben. Diese werden in R als <code>NA</code> kodiert.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="erste-schritte-1.html#cb75-1"></a>alter &lt;-<span class="st"> </span><span class="kw">c</span> (<span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">29</span>, <span class="dv">24</span>, <span class="ot">NA</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">20</span>)</span></code></pre></div>
+<p><em>Achtung</em>: In anderer Statistiksoftware wie z.B. SPSS hat sich die Konvention entwickelt, fehlende Werte nicht mit “NA”, sondern mit bestimmten nicht beobachtbaren numerischen Werten wie “-9” oder “-99” zu beschreiben. Wenn Sie mit einem solchen Datensatz arbeiten, der zuvor in einer anderen Statistiksoftware bearbeitet wurde, sollten Sie immer überprüfen, ob fehlende Werte anhand solcher numerischen Werte kodiert sind und diese als “NA” rekodieren.</p>
+</div>
+</div>
+<div id="auswahl-von-vektorelementen" class="section level2">
+<h2><span class="header-section-number">3.3</span> Auswahl von Vektorelementen</h2>
+<p>Sie können auf einzelne Elemente eines Vektor zugreifen, indem Sie den Operator <code>[]</code> verwenden. In die eckigen Klammern wird die Position des Elements eingefügt, das Sie auswählen möchte. Dieses Vorgehen wird <strong>Indizierung</strong> genannt.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="erste-schritte-1.html#cb76-1"></a>daten &lt;-<span class="st"> </span><span class="kw">c</span> (<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb76-2"><a href="erste-schritte-1.html#cb76-2"></a>daten[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="erste-schritte-1.html#cb78-1"></a><span class="co"># Hier wird das dritte Element ausgewählt</span></span></code></pre></div>
+<p>Sie können auch eine sogenannte <strong>Negativindizierung</strong> durchführen, d.h. im Index festhalten, welches Element Sie <em>nicht</em> auswählen möchten.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="erste-schritte-1.html#cb79-1"></a>daten[<span class="op">-</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 3 7 0 1 1 4 5</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="erste-schritte-1.html#cb81-1"></a><span class="co"># Hier werden alle Elemente außer des dritten ausgewählt</span></span></code></pre></div>
+<p>Selbstverständlich können Sie auch gleich mehrere Elemente auswählen. Wenn Sie z.B. alles vom zweiten bis fünften Element auswählen wollen, können Sie das im Index so vermerken: <code>[2:5]</code>. Ganz allgemein gilt: Die Zahl <em>vor</em> dem Doppelpunkt gibt an, wo die Indizierung beginnt, und die Zahl <em>nach</em> dem Doppelpunkt gibt an, wo die Indizierung endet.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="erste-schritte-1.html#cb82-1"></a>daten[<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 7 9 0 1</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="erste-schritte-1.html#cb84-1"></a><span class="co"># Hier werden die Elemente 2, 3, 4 und 5 ausgewählt</span></span></code></pre></div>
+<p>Wenn Sie mehrere Elemente auswählen möchten, die nicht direkt nebeneinander stehen, müssen Sie diese mit dem “combine”-Operator <code>c</code> verknüpfen:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="erste-schritte-1.html#cb85-1"></a>daten[<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">7</span>)]</span></code></pre></div>
+<pre><code>## [1] 7 4</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="erste-schritte-1.html#cb87-1"></a><span class="co"># Hier werden die Elemente 2 und 7 ausgewählt</span></span></code></pre></div>
+<p>Die so ausgewählten Daten können Sie natürlich wieder in einer neuen Variable speichern:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="erste-schritte-1.html#cb88-1"></a>ausgewaehlte_daten &lt;-<span class="st"> </span>daten[<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">7</span>)]</span></code></pre></div>
+</div>
+<div id="logische-vergleiche" class="section level2">
+<h2><span class="header-section-number">3.4</span> Logische Vergleiche</h2>
+<p>Logische Vergleiche können genutzt werden, um bestimmte Fälle - z.B. einzelne Versuchspersonen - auszuwählen. Welche logischen Vergleich für einen Datentyp sinnvoll sind, hängt von diesem Datentyp ab.</p>
+<div id="datentyp-numeric-1" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Datentyp numeric</h3>
+<p>Wenn Sie Daten vom Typ <code>numeric</code> haben, können Sie numerische Vergleiche durchführen. Sie können zum Beispiel überprüfen, welche Ihrer Versuchspersonen älter als 18 Jahre sind. Dazu verwenden Sie den logischen Operator <code>&gt;=</code>, den Sie als “größer oder gleich” interpretieren können (analog dazu liest sich <code>&lt;=</code> als “kleiner oder gleich”.)</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="erste-schritte-1.html#cb89-1"></a>alter &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">32</span>, <span class="dv">17</span>, <span class="dv">65</span>, <span class="dv">22</span>)</span>
+<span id="cb89-2"><a href="erste-schritte-1.html#cb89-2"></a>alter <span class="op">&gt;=</span><span class="st"> </span><span class="dv">18</span></span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE</code></pre>
+<p>Bei numerischen Vektoren können Sie folgende logischen Vergleiche durchführen: (a) gleich (<code>==</code>), (b) größer (<code>&gt;</code>), (c) kleiner (<code>&lt;</code>), (d) größer gleich (<code>&gt;=</code>), (e) kleiner gleich (<code>&lt;=</code>) oder (f) ungleich (<code>!=</code>). Wenn Sie einen logischen Vergleich mit einem gesamten Vektor durchführen, wird für jedes einzelne Element überprüft, ob es der logischen Bedingung entspricht (<code>TRUE</code>) oder nicht (<code>FALSE</code>).</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="erste-schritte-1.html#cb91-1"></a><span class="co"># Hier überprüfen wir, welche Versuchspersonen jünger als 18 Jahre sind</span></span>
+<span id="cb91-2"><a href="erste-schritte-1.html#cb91-2"></a>alter <span class="op">&lt;</span><span class="st"> </span><span class="dv">18</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="erste-schritte-1.html#cb93-1"></a><span class="co"># Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre sind</span></span>
+<span id="cb93-2"><a href="erste-schritte-1.html#cb93-2"></a>alter <span class="op">==</span><span class="st"> </span><span class="dv">18</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+<div id="datentyp-character-1" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Datentyp character</h3>
+<p>Vektoren vom Typ <code>character</code> lassen sich darauf überprüfen, ob diese identisch mit einer bestimmten Bedingung sind.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="erste-schritte-1.html#cb95-1"></a><span class="co"># Hier wird überprüft, welche Versuchspersonen Psychologie studieren</span></span>
+<span id="cb95-2"><a href="erste-schritte-1.html#cb95-2"></a>Studienfach &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Psychologie&quot;</span>, <span class="st">&quot;Medizin&quot;</span>, <span class="st">&quot;Informatik&quot;</span>, <span class="st">&quot;Sportwissenschaft&quot;</span>, <span class="st">&quot;Biologie&quot;</span>)</span>
+<span id="cb95-3"><a href="erste-schritte-1.html#cb95-3"></a>Studienfach <span class="op">==</span><span class="st"> &quot;Psychologie&quot;</span></span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+<div id="datentyp-factor-1" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Datentyp factor</h3>
+<p>Dieser logische Vergleich lässt sich auch mit Daten vom Typ <code>factor</code> durchführen.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="erste-schritte-1.html#cb97-1"></a>Bedingung &lt;-<span class="st"> </span><span class="kw">c</span> (<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb97-2"><a href="erste-schritte-1.html#cb97-2"></a>Bedingung &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dt">x =</span> Bedingung, </span>
+<span id="cb97-3"><a href="erste-schritte-1.html#cb97-3"></a>                        <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb97-4"><a href="erste-schritte-1.html#cb97-4"></a>                        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Kontrollgruppe&quot;</span>, <span class="st">&quot;Experimentalgruppe&quot;</span>))</span>
+<span id="cb97-5"><a href="erste-schritte-1.html#cb97-5"></a><span class="co"># Hier wird überprüft, welche Versuchspersonen der Experimentalgruppe angehören</span></span>
+<span id="cb97-6"><a href="erste-schritte-1.html#cb97-6"></a>Bedingung <span class="op">==</span><span class="st"> &quot;Experimentalgruppe&quot;</span></span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
+</div>
+<div id="rekodieren-von-variablen-mit-hilfe-logischer-vergleich" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Rekodieren von Variablen mit Hilfe logischer Vergleich</h3>
+<p>Sie werden logische Vergleiche häufig anwenden, um Daten zu rekodieren. Schauen Sie sich dazu die folgenden Beispiele an.</p>
+<p>Mit Hilfe logischer Vergleiche können Sie überprüfen, ob fehlende Werte nicht mit “NA”, sondern mit “-9” kodiert wurden, um diese anschließend zu rekodieren.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="erste-schritte-1.html#cb99-1"></a>Testwerte &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">80</span>, <span class="dv">57</span>, <span class="dv">93</span>, <span class="dv">85</span>, <span class="dv">72</span>, <span class="dv">65</span>, <span class="dv">-9</span>)</span>
+<span id="cb99-2"><a href="erste-schritte-1.html#cb99-2"></a>Testwerte <span class="op">==</span><span class="st"> </span><span class="dv">-9</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE</code></pre>
+<p>Sie können das Ergebnis dieses logischen Vergleichs nun nutzen, um alle Werte, die als <code>-9</code> kodiert wurden, zu rekodieren. Dazu speichern Sie das Ergebnis des logischen Vergleichs einfach in einer neuen Variable ab.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="erste-schritte-1.html#cb101-1"></a>fehlende_Werte &lt;-<span class="st"> </span>Testwerte <span class="op">==</span><span class="st"> </span><span class="dv">-9</span></span></code></pre></div>
+<p>Im nächsten Schritt benutzen Sie die neue erstellte Variable vom Typ <code>logical</code>, um alle Werte des Vektors <code>Testwerte</code>, die den Wert “-9” haben, durch “NA” zu ersetzen.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="erste-schritte-1.html#cb102-1"></a>Testwerte[fehlende_Werte] &lt;-<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb102-2"><a href="erste-schritte-1.html#cb102-2"></a><span class="co"># Hier wurde der Werte -9 durch NA ersetzt:</span></span>
+<span id="cb102-3"><a href="erste-schritte-1.html#cb102-3"></a>Testwerte</span></code></pre></div>
+<pre><code>## [1] 80 57 93 85 72 65 NA</code></pre>
+<p>Ganz ähnlich können Sie bei einem Reaktionszeitexperiment alle Trials entfernen, in denen Versuchspersonen sehr lange mit ihrer Reaktion gebraucht haben, d.h. in denen sie möglicherweise mit ihrer Aufmerksamkeit abgeschweift sind.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="erste-schritte-1.html#cb104-1"></a><span class="co"># Als erstes werden 1000 Trials einer Versuchsperson simuliert</span></span>
+<span id="cb104-2"><a href="erste-schritte-1.html#cb104-2"></a>RTs &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">500</span>, <span class="dt">sd =</span> <span class="dv">100</span>)</span>
+<span id="cb104-3"><a href="erste-schritte-1.html#cb104-3"></a><span class="kw">hist</span>(RTs)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="erste-schritte-1.html#cb105-1"></a><span class="co"># In diesem Vektor von Reaktionszeiten werden alle RTs, die länger als 700 ms sind, entfernt</span></span>
+<span id="cb105-2"><a href="erste-schritte-1.html#cb105-2"></a>Ausreisser &lt;-<span class="st"> </span>RTs <span class="op">&gt;</span><span class="st"> </span><span class="dv">700</span></span>
+<span id="cb105-3"><a href="erste-schritte-1.html#cb105-3"></a>RTs[Ausreisser] &lt;-<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb105-4"><a href="erste-schritte-1.html#cb105-4"></a><span class="kw">hist</span>(RTs)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-39-2.png" width="672" /></p>
+<p>Für die ganz Eiligen: Sie können dies auch in einem einzigen Schritt durchführen, es ist dann aber fehleranfälliger. Dazu geben Sie den logischen Vergleich direkt als Index an:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="erste-schritte-1.html#cb106-1"></a>RTs &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">500</span>, <span class="dt">sd =</span> <span class="dv">100</span>)</span>
+<span id="cb106-2"><a href="erste-schritte-1.html#cb106-2"></a><span class="co"># Hier wird der logische Vergleich direkt als Index von RTs genutzt.</span></span>
+<span id="cb106-3"><a href="erste-schritte-1.html#cb106-3"></a>RTs[RTs <span class="op">&gt;</span><span class="st"> </span><span class="dv">700</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></span></code></pre></div>
+<p>Alternativ könnten Sie Extremwerte natürlich durch einen sinnvollen Maximalwert ersetzen. Beispielsweise lassen sich Reaktionszeiten, die länger als 700 ms sind, auf 700 ms “deckeln”.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="erste-schritte-1.html#cb107-1"></a>RTs &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">500</span>, <span class="dt">sd =</span> <span class="dv">100</span>)</span>
+<span id="cb107-2"><a href="erste-schritte-1.html#cb107-2"></a><span class="co"># Hier wird der logische Vergleich direkt als Index von RTs genutzt.</span></span>
+<span id="cb107-3"><a href="erste-schritte-1.html#cb107-3"></a>RTs[RTs <span class="op">&gt;</span><span class="st"> </span><span class="dv">700</span>] &lt;-<span class="st"> </span><span class="dv">700</span></span></code></pre></div>
+<p>Sie können auch mehrere logische Vergleiche kombinieren. In Reaktionszeitexperimenten wollen Sie meist extrem langsame sowie extrem schnelle Durchgänge ausschließen, weil Sie nicht sicher sein können, ob die Versuchspersonen vorschnell reagiert haben (extrem schnelsl) oder mit ihren Gedanken nicht bei der Sache waren (extrem langsam). Dazu können Sie mehrere logische Vergleiche kombinieren.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="erste-schritte-1.html#cb108-1"></a><span class="co"># Als erstes werden 1000 Trials einer Versuchsperson simuliert</span></span>
+<span id="cb108-2"><a href="erste-schritte-1.html#cb108-2"></a>RTs &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">500</span>, <span class="dt">sd =</span> <span class="dv">100</span>)</span>
+<span id="cb108-3"><a href="erste-schritte-1.html#cb108-3"></a><span class="co"># Dann werden untere und obere Grenzen als Variablen definiert. Dies hat den</span></span>
+<span id="cb108-4"><a href="erste-schritte-1.html#cb108-4"></a><span class="co"># Vorteil, dass Sie einfach diese Variablen im Code anpassen können, wenn Sie </span></span>
+<span id="cb108-5"><a href="erste-schritte-1.html#cb108-5"></a><span class="co"># die Kriterien zur Ausreißeranalyse anpassen möchten.</span></span>
+<span id="cb108-6"><a href="erste-schritte-1.html#cb108-6"></a>untere_Grenze &lt;-<span class="st"> </span><span class="dv">300</span></span>
+<span id="cb108-7"><a href="erste-schritte-1.html#cb108-7"></a>obere_Grenze &lt;-<span class="st"> </span><span class="dv">700</span></span>
+<span id="cb108-8"><a href="erste-schritte-1.html#cb108-8"></a><span class="co"># In diesem Vektor von Reaktionszeiten werden alle RTs, die schneller als 200 ms</span></span>
+<span id="cb108-9"><a href="erste-schritte-1.html#cb108-9"></a><span class="co"># oder länger als 700 ms sind, entfernt. Dazu wird der logische ODER-Operator </span></span>
+<span id="cb108-10"><a href="erste-schritte-1.html#cb108-10"></a><span class="co"># benötigt; es sollen solche Trials identifiziert werden, die &lt; 300 ms ODER </span></span>
+<span id="cb108-11"><a href="erste-schritte-1.html#cb108-11"></a><span class="co"># &gt; 700 ms sind.</span></span>
+<span id="cb108-12"><a href="erste-schritte-1.html#cb108-12"></a>Ausreisser &lt;-<span class="st"> </span>(RTs <span class="op">&gt;</span><span class="st"> </span>obere_Grenze <span class="op">|</span><span class="st"> </span>RTs <span class="op">&lt;</span><span class="st"> </span>untere_Grenze)</span>
+<span id="cb108-13"><a href="erste-schritte-1.html#cb108-13"></a>RTs[Ausreisser] &lt;-<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb108-14"><a href="erste-schritte-1.html#cb108-14"></a><span class="co"># Im Histogramm ist zu sehen, dass sowohl sehr schnelle als auch sehr langsame</span></span>
+<span id="cb108-15"><a href="erste-schritte-1.html#cb108-15"></a><span class="co"># Trials aus den Daten entfernt wurden.</span></span>
+<span id="cb108-16"><a href="erste-schritte-1.html#cb108-16"></a><span class="kw">hist</span>(RTs)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="einführung.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datenstruktur.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
