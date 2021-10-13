@@ -4,12 +4,12 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Deskreptive Statistik | R Kurs Unterlagen</title>
+  <title>4 Deskreptive Statistik | R Kurs Unterlagen</title>
   <meta name="description" content="<p>Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
 Veranstaltungen.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Deskreptive Statistik | R Kurs Unterlagen" />
+  <meta property="og:title" content="4 Deskreptive Statistik | R Kurs Unterlagen" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://amd-lab.github.io/R-Kurs-Unterlagen/index.html" />
   
@@ -18,7 +18,7 @@ Veranstaltungen.</p>" />
   <meta name="github-repo" content="AMD-Lab/R-Kurs-Unterlagen" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Deskreptive Statistik | R Kurs Unterlagen" />
+  <meta name="twitter:title" content="4 Deskreptive Statistik | R Kurs Unterlagen" />
   
   <meta name="twitter:description" content="<p>Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
 Veranstaltungen.</p>" />
@@ -26,16 +26,16 @@ Veranstaltungen.</p>" />
 
 
 
-<meta name="date" content="2021-10-06" />
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="datenaufbereitung.html"/>
+<link rel="prev" href="datenstruktur.html"/>
 <link rel="next" href="graphiken.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -163,24 +163,34 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Über dieses Buch</a></li>
 <li class="chapter" data-level="2" data-path="einführung.html"><a href="einführung.html"><i class="fa fa-check"></i><b>2</b> Einführung</a></li>
-<li class="chapter" data-level="3" data-path="datenstruktur.html"><a href="datenstruktur.html"><i class="fa fa-check"></i><b>3</b> Datenstruktur</a></li>
-<li class="chapter" data-level="4" data-path="datenaufbereitung.html"><a href="datenaufbereitung.html"><i class="fa fa-check"></i><b>4</b> Datenaufbereitung</a></li>
-<li class="chapter" data-level="5" data-path="deskreptive-statistik.html"><a href="deskreptive-statistik.html"><i class="fa fa-check"></i><b>5</b> Deskreptive Statistik</a></li>
-<li class="chapter" data-level="6" data-path="graphiken.html"><a href="graphiken.html"><i class="fa fa-check"></i><b>6</b> Graphiken</a></li>
-<li class="chapter" data-level="7" data-path="tipps.html"><a href="tipps.html"><i class="fa fa-check"></i><b>7</b> Tipps</a>
+<li class="chapter" data-level="3" data-path="datenstruktur.html"><a href="datenstruktur.html"><i class="fa fa-check"></i><b>3</b> Datenstruktur</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="tipps.html"><a href="tipps.html#chapters"><i class="fa fa-check"></i><b>7.1</b> chapters</a></li>
-<li class="chapter" data-level="7.2" data-path="tipps.html"><a href="tipps.html#a-section"><i class="fa fa-check"></i><b>7.2</b> A section</a>
+<li class="chapter" data-level="3.1" data-path="datenstruktur.html"><a href="datenstruktur.html#einführung-in-dplyr-und-tidyverse"><i class="fa fa-check"></i><b>3.1</b> Einführung in Dplyr und tidyverse</a></li>
+<li class="chapter" data-level="3.2" data-path="datenstruktur.html"><a href="datenstruktur.html#dplyr-die-wichtigsten-befehle"><i class="fa fa-check"></i><b>3.2</b> Dplyr: Die wichtigsten Befehle</a></li>
+<li class="chapter" data-level="3.3" data-path="datenstruktur.html"><a href="datenstruktur.html#übung-1"><i class="fa fa-check"></i><b>3.3</b> Übung 1</a></li>
+<li class="chapter" data-level="3.4" data-path="datenstruktur.html"><a href="datenstruktur.html#dplyr-der-piping-operator"><i class="fa fa-check"></i><b>3.4</b> Dplyr: Der Piping Operator</a></li>
+<li class="chapter" data-level="3.5" data-path="datenstruktur.html"><a href="datenstruktur.html#beispiel"><i class="fa fa-check"></i><b>3.5</b> Beispiel</a></li>
+<li class="chapter" data-level="3.6" data-path="datenstruktur.html"><a href="datenstruktur.html#übung-2"><i class="fa fa-check"></i><b>3.6</b> Übung 2</a></li>
+<li class="chapter" data-level="3.7" data-path="datenstruktur.html"><a href="datenstruktur.html#dplyr-neue-variablen-mit-mutate-berechnen"><i class="fa fa-check"></i><b>3.7</b> Dplyr : Neue Variablen mit <code>mutate()</code> berechnen</a></li>
+<li class="chapter" data-level="3.8" data-path="datenstruktur.html"><a href="datenstruktur.html#beispiel-1"><i class="fa fa-check"></i><b>3.8</b> Beispiel</a></li>
+<li class="chapter" data-level="3.9" data-path="datenstruktur.html"><a href="datenstruktur.html#aufgabe-bis-zum-nächsten-mal"><i class="fa fa-check"></i><b>3.9</b> Aufgabe bis zum nächsten Mal</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="deskreptive-statistik.html"><a href="deskreptive-statistik.html"><i class="fa fa-check"></i><b>4</b> Deskreptive Statistik</a></li>
+<li class="chapter" data-level="5" data-path="graphiken.html"><a href="graphiken.html"><i class="fa fa-check"></i><b>5</b> Graphiken</a></li>
+<li class="chapter" data-level="6" data-path="tipps.html"><a href="tipps.html"><i class="fa fa-check"></i><b>6</b> Tipps</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tipps.html"><a href="tipps.html#chapters"><i class="fa fa-check"></i><b>6.1</b> chapters</a></li>
+<li class="chapter" data-level="6.2" data-path="tipps.html"><a href="tipps.html#a-section"><i class="fa fa-check"></i><b>6.2</b> A section</a>
 <ul>
 <li class="chapter" data-level="" data-path="tipps.html"><a href="tipps.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="tipps.html"><a href="tipps.html#cross-referenc-chapters-and-sub-chapters"><i class="fa fa-check"></i><b>7.3</b> cross-referenc: Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="7.4" data-path="tipps.html"><a href="tipps.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>7.4</b> Captioned figures and tables</a></li>
-<li class="chapter" data-level="7.5" data-path="tipps.html"><a href="tipps.html#footnotes"><i class="fa fa-check"></i><b>7.5</b> Footnotes</a></li>
-<li class="chapter" data-level="7.6" data-path="tipps.html"><a href="tipps.html#citations"><i class="fa fa-check"></i><b>7.6</b> Citations</a></li>
-<li class="chapter" data-level="7.7" data-path="tipps.html"><a href="tipps.html#equations"><i class="fa fa-check"></i><b>7.7</b> Equations</a></li>
-<li class="chapter" data-level="7.8" data-path="tipps.html"><a href="tipps.html#theorems-and-proofs"><i class="fa fa-check"></i><b>7.8</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="7.9" data-path="tipps.html"><a href="tipps.html#callout-blocks"><i class="fa fa-check"></i><b>7.9</b> Callout blocks</a></li>
+<li class="chapter" data-level="6.3" data-path="tipps.html"><a href="tipps.html#cross-referenc-chapters-and-sub-chapters"><i class="fa fa-check"></i><b>6.3</b> cross-referenc: Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="6.4" data-path="tipps.html"><a href="tipps.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>6.4</b> Captioned figures and tables</a></li>
+<li class="chapter" data-level="6.5" data-path="tipps.html"><a href="tipps.html#footnotes"><i class="fa fa-check"></i><b>6.5</b> Footnotes</a></li>
+<li class="chapter" data-level="6.6" data-path="tipps.html"><a href="tipps.html#citations"><i class="fa fa-check"></i><b>6.6</b> Citations</a></li>
+<li class="chapter" data-level="6.7" data-path="tipps.html"><a href="tipps.html#equations"><i class="fa fa-check"></i><b>6.7</b> Equations</a></li>
+<li class="chapter" data-level="6.8" data-path="tipps.html"><a href="tipps.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.8</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="6.9" data-path="tipps.html"><a href="tipps.html#callout-blocks"><i class="fa fa-check"></i><b>6.9</b> Callout blocks</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -203,8 +213,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="deskreptive-statistik" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Deskreptive Statistik</h1>
+<div id="deskreptive-statistik" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Deskreptive Statistik</h1>
 <p>(Jose)</p>
 
 </div>
@@ -213,7 +223,7 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="datenaufbereitung.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datenstruktur.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="graphiken.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
