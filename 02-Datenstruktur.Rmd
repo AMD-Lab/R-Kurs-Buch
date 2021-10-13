@@ -358,7 +358,7 @@ Es werden die einzelnen Ausprägungen und die möglichen Ausprägungen als Level
 
 Daten können in R Studio auf unterschiedliche Weise eingelesen werden. Ich habe dieses Bild zur Abwechslung für Ihre Augen erstellt.
 
-![](_bookdown_files/_main_files/figure-html/png.png){width="50%"}
+![](_bookdown_files/_main_files/figure-html/png.png){width="58%"}
 
 Es gibt frei verfügbare Datensätze in Packages, z.B. einen Datensatz zu Pinguinen: palmerpenguins.
 
@@ -372,7 +372,7 @@ pengu <- penguins       # penguins ist zwar schon ein tibble, aber Namenszuweisu
 ```
 In der Regel werden Sie aber einen selbst erhobenen oder einen aus dem Internet heruntergeladenen Datensatz einlesen wollen. Mein Tipp ist, den Datensatz in das Working Directory zu speichern, dann finden Sie ihn schneller und er ist in der Nähe Ihrer Auswertung, noch eleganter ist es einen Unterordner namens data in den Ordner des Working Directories anzulegen, in den Sie alle Datensätze zu ihrem Projekt speichern können. Im `File`-tab unten rechts navigieren Sie zu der Datei mit dem Datensatz und dann klicken Sie diese zum Importieren des Datensatzes an (alternativ können Sie im `Environment`-tab über den Button `Import Dataset` einen Datensatz zum Importieren auf ihrem Computer suchen). In RStudio erscheint ein Fenster zum Importieren, unten rechts wird der automatisch der dem Dateiformat und unten links angegebenen Optionen entspricht, ggf. werden sogar benötigte Packages geladen. Um einen Datensatz per Code zu importieren sind Dateiformat, die Trennzeichen (`sep`) und die Dezimalzeichen (`dec`) besonders relevant. Das Standard-Dateiformat ist `.csv`, hier sind Kommata Trennzeichen (`sep=","`) und Punkte kennzeichnen Dezimalstellen (`dec="."`). Sie können die Funktionen `read_cvs()` oder `read_delim()` für dieses Dateiformat verwenden, letztere sollte Trenn- und Dezimalzeichen automatisch erkennen. Hier ist eine Übersicht zu den Einlesefunktionen in base R (also ohne zusätzlich geladene Packages) und im tidiverse Package, der Unterschied ist, dass base R Funktionen die Daten in einen data.frame laden, tidyverse Funktionen in ein tibble:
 
-|   Funktion zum   | sep  | dec |    in base R    |   im tidverse    |
+| Funktion zum| sep  | dec |    in base R    |   im tidverse    |
 |:----------------:|:----:|:---:|:---------------:|:----------------:|
 | [autolesen]{.ul} | auto |  .  | `read.delim()`  |  `read_delim()`  |
 |    autolesen     | auto |  ,  | `read.delim2()` | `read _delim2()` |
