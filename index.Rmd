@@ -3,7 +3,7 @@ title: "Einführung in R"
 author: |
  Anna-Lena Schubert,
  Jan Goettmann,
- Jose Carlos Garcia Alanis,
+ José Carlos García Alanis,
  Meike Steinhilber,
  Cordula Hunt,
  Florian Kobylka
