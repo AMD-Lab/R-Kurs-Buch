@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.7.4)  13 OCT 2021 11:24
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.7.4)  13 OCT 2021 11:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1324,143 +1324,32 @@ Kapitel 2.
 
 ]
 Kapitel 3.
+File: _bookdown_files/_main_files/figure-html/RMarkmitNum.png Graphic file (typ
+e bmp)
+<_bookdown_files/_main_files/figure-html/RMarkmitNum.png>
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
-[]\TU/lmtt/m/n/10 ##   name           height  mass hair_color skin_color  eye_c
-olor   Age sex   gender[] 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[9] [10]
+Overfull \vbox (0.80139pt too high) detected at line 278
  []
 
+[11] [12]
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 198--198
-[]\TU/lmtt/m/n/10 ##   <chr>           <int> <dbl> <fct>      <fct>       <fct>
-     <dbl> <fct> <fct>[] 
- []
+LaTeX Warning: File `img/Workspace.png' not found on input line 371.
 
-
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
-[]\TU/lmtt/m/n/10 ## 1 Luke Skywalker    172    77 blond      fair        blue 
-      19   male  mascu~[] 
- []
-
-
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
-[]\TU/lmtt/m/n/10 ## 2 C-3PO             167    75 <NA>       gold        yello
-w    112   none  mascu~[] 
- []
-
-
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
-[]\TU/lmtt/m/n/10 ## 3 R2-D2              96    32 <NA>       white, blue red  
-      33   none  mascu~[] 
- []
-
-
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
-[]\TU/lmtt/m/n/10 ## 4 Darth Vader       202   136 none       white       yello
-w     41.9 male  mascu~[] 
- []
-
-
-Overfull \hbox (96.0pt too wide) in paragraph at lines 198--198
-[]\TU/lmtt/m/n/10 ## 5 Leia Organa       150    49 brown      light       brown
-      19   fema~ femin~[] 
- []
-
-[9]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##      name               height           mass           ha
-ir_color   skin_color[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##  Length:87          Min.   : 66.0   Min.   :  15.00   none
-   :37   fair   :17[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##  Class :character   1st Qu.:167.0   1st Qu.:  55.60   brow
-n  :18   light  :11[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##  Mode  :character   Median :180.0   Median :  79.00   blac
-k  :13   dark   : 6[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##                     Mean   :174.4   Mean   :  97.31   whit
-e  : 4   green  : 6[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##                     3rd Qu.:191.0   3rd Qu.:  84.50   blon
-d  : 3   grey   : 6[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##                     Max.   :264.0   Max.   :1358.00   (Oth
-er): 7   pale   : 5[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##                     NA[]s   :6       NA[]s   :28        NA
-[]s   : 5   (Other):36[] 
- []
-
-
-Overfull \hbox (1.5pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##    eye_color       Age                     sex           g
-ender[] 
- []
-
-
-Overfull \hbox (1.5pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##  brown  :21   Min.   :  8.00   female        :16   feminin
-e :17[] 
- []
-
-
-Overfull \hbox (1.5pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##  blue   :19   1st Qu.: 35.00   hermaphroditic: 1   masculi
-ne:66[] 
- []
-
-
-Overfull \hbox (1.5pt too wide) in paragraph at lines 233--233
-[]\TU/lmtt/m/n/10 ##  yellow :11   Median : 52.00   male          :60   NA[]s  
-   : 4[] 
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 283--284
-
- []
-
-
-LaTeX Warning: File `https://d33wubrfki0l68.cloudfront.net/01f4b6d39d2be8269740
-a3ad7946faa79f7243cf/8369a/diagrams/transform-logical.png' not found on input l
-ine 287.
-
-! Unable to load picture or PDF file 'https://d33wubrfki0l68.cloudfront.net/01f
-4b6d39d2be8269740a3ad7946faa79f7243cf/8369a/diagrams/transform-logical.png'.
+! Unable to load picture or PDF file 'img/Workspace.png'.
 <to be read again> 
                    }
-l.287 ...3cf/8369a/diagrams/transform-logical.png}
+l.371 ...th,height=\textheight]{img/Workspace.png}
                                                    
 Here is how much of TeX's memory you used:
- 27776 strings out of 492969
- 490940 string characters out of 6137284
- 722187 words of memory out of 5000000
- 31518 multiletter control sequences out of 15000+600000
- 535830 words of font info for 59 fonts, out of 8000000 for 9000
+ 27796 strings out of 492969
+ 491305 string characters out of 6137284
+ 721187 words of memory out of 5000000
+ 31535 multiletter control sequences out of 15000+600000
+ 535838 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 58i,6n,117p,899b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,6n,117p,899b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (10 pages).
+Output written on _main.pdf (12 pages).
