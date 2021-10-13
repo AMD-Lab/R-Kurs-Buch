@@ -23,8 +23,8 @@ github-repo:  AMD-Lab/R-Kurs-Unterlagen
 ---
 
 # Über dieses Buch
-TEXT
 
+This is a test
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
