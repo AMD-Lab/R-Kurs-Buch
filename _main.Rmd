@@ -164,7 +164,7 @@ Ich habe jetzt mehrere Variablen (Values, Vektoren, Listen) definiert, sie sind 
 
 Rechts oben im Fenster ist das `Environment`-tab. Hier sieht man alle im `globale Workspace` definierten Objekte (Datenstrukturen: Werte, Vektoren, Matrizen, Arrays, Listen, `data.frames`, `tibbles`; und Funktionen) aufgelistet:
 
-![](img/Workspace.png){width="65%"}
+![](_bookdown_files/_main_files/figure-html/Workspace.png){width="65%"}
 
 Per Doppelklick können Sie die Objekte jeweils einzeln oben links im extra Fenster (`Datenansicht-tab` ) anschauen. `rm(Objektname)` ist die Funktion zum Entfernen einzelner Objekte aus dem `globalen Workspace`. Das `Besensymbol` im `Environment`-tab oben rechts fegt den `globalen Workspace` leer. Es ist zu beachten, dass R Markdown beim `knitten` nicht auf den `globalen Workspace` zugreift, sondern einen eigenen Workspace aus dem Code in den `Chunks` erstellt. Beim Ausführen
 einzelner `Chunks` per Markieren und `STRG/CTRL`&`Enter` oder `grüner Pfeil rechts` wird jedoch auf den `globalen Workspace`
