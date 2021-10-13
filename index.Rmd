@@ -3,7 +3,7 @@ title: "Einführung in R"
 author: |
  Anna-Lena Schubert,
  Jan Goettmann,
- Jose Carlos Garcia Alanis,
+ José Carlos García Alanis,
  Meike Steinhilber,
  Cordula Hunt,
  Florian Kobylka
@@ -23,8 +23,8 @@ github-repo:  AMD-Lab/R-Kurs-Unterlagen
 ---
 
 # Über dieses Buch
-TEXT
 
+This is yet another test
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
