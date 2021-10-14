@@ -35,7 +35,7 @@ Standardfarben in Matlab) unten:
 
 <center>
 
-![](img/viridis_jet.png){width="250"}
+![](_static/viridis_jet.png){width="250"}
 
 </center>
 
@@ -53,7 +53,7 @@ aus viridis und jet:
 
 <center>
 
-![](img/viridis_jet_gray.png){width="250"}
+![](_static/viridis_jet_gray.png){width="250"}
 
 </center>
 
@@ -68,7 +68,7 @@ die alle diese Kriterien erfüllen:
 
 <center>
 
-![viridis_map](img/viridis.png){width="80%"}
+![viridis_map](_static/viridis.png){width="80%"}
 
 </center>
 
