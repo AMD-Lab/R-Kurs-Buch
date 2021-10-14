@@ -228,7 +228,7 @@ mean(bsp_mat, na.rm=TRUE)     # MW der Matrix ohne NaN
 ```
 Nun, da wir mit dem Rechnen in Matrizen vertraut sind möchte ich die letzte Spalte mit Einträgen füllen:
 ```{r}
-mat_sav <- bsp_mat          # in weiser Voraussicht speichere ich die bisherige Matrix unter anderem Namen
+mat_sav <- bsp_mat          # speichern der Matrix unter anderem Namen zur späteren Verwendung
 bsp_mat[,4] <- c("coercion","kann","nervig","sein")  # weise Spalte 4 einen chr-Vektor zu
 bsp_mat
 mode(bsp_mat)
@@ -252,14 +252,14 @@ Es gibt noch weitere Regeln für konsistentes und ordentliches Arbeiten in R und
 
 ### tidyverse
 
-Bevor wir uns dem schönsten Datenformat, den `tibble`s widmen, müssen wir das entsprechende Package einmalig in der `Console` installieren. Ich habe den Code auskommentiert, weil das Package bei mir bereits installiert ist:
+Bevor wir uns dem übersichtlichsten Datenformat, den `tibble`s widmen, müssen wir das entsprechende Package einmalig in der `Console` installieren. Ich habe den Code auskommentiert, weil das Package bei mir bereits installiert ist:
 ```{r}
 #install.packages("tidyverse")  # R kennt den Namen noch nicht, deswegen ""
 ```
 
 Das Package `tidyverse` enthält eine Reihe nützlicher Packages, die eine saubere Datenverarbeitung zum Ziel haben. Packages müssen bei jeder Sitzung neu aktiviert bzw. angehängt werden. Für Sie relevante Packages im tidyverse sind `tibble`, `readr`, `stringr`, `dplyr`, `purr` und `ggplot2`.
 ```{r, echo=T, message=F}
-library(tidyverse)   # Bitte an den Anfang eines Skriptes, um beim Starten der R Session anzuhängen (attach).
+library(tidyverse)   # Bitte an den Anfang eines Skriptes, um beim Starten der R Session anzuhängen.
 ```
 
 ## data.frames (df) und tibbles (tib)
@@ -312,7 +312,7 @@ mylist$var_4
 ```
 Für die Listeneintäge in mylist hatte ich keine Namen vergeben, daher führt der $-Operator hier ins Leere.
 ```{r}
-list_of_thingis$ticki$Artist # mit mehreren $ können sie tiefere Ebenen erreichen 
+list_of_thingis$ticki$Artist # mit mehreren $ können Sie tiefere Ebenen erreichen 
 ```
 Mir fällt auf, ich habe den Namen eine Künstlerin in tickets_2022 falsch geschrieben:
 ```{r}
@@ -320,14 +320,14 @@ tickets_2022$Artist[2] <- "Billy Eilish" # $-Operator und Indexing per Nummer la
 ```
 Sie können also nicht nur Elemente aus Datensätzen abrufen, sondern diese mit dem `<-` neu zuweisen. Sie können das \$ auch verwenden um ganz neue Spalten in die Datensätze einzufügen:
 ```{r}
-tickets_2022$Priorität <- c(2, 4, 3, 5, 1)  # definiert eine neue Spalte im Datensatz
+tickets_2022$Priorität <- c(2, 4, 3, 5, 1)        # definiert neue Spalte im Datensatz
 tickets_2022$Prioritaet <- tickets_2022$Priorität # besser ae statt ä in Variablennamen 
-tickets_2022              # nun gibt es eine Spalte zu viel
+tickets_2022                                      # nun gibt es eine Spalte zu viel
 ```
 ```{r}
 tickets_2022$Priorität <- NULL   # entfernt eine Spalte, vorsichtig hierbei(!)
 ```
-Ein weitere Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Reihennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Reihennamen vergeben, dann müssen Sie sich mit einer neuen Variable(z.B. Reihenname) behelfen, die Sie mit `relocate(tib,var)` an den Anfang des Datensatzes stellen.
+Ein weiterer Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Reihennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Reihennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. var_name) behelfen, die Sie mit `relocate(tib,var)` an den Anfang des Datensatzes stellen.
 
 Mit dem Hinzufügen und Abändern von Spaltenvektoren haben wir schon ein bisschen an der Oberfläche der Möglichkeiten zur Datenaufbereitung gekratzt, die in der nächsten Sitzung ausführlich behandelt werden. Jetzt, wo Sie mit dem Management von Datensätzen vertraut sind, wollen wir vorhandene Datensätze einlesen:  
 
