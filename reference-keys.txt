@@ -39,6 +39,7 @@ data.frames-df-und-tibbles-tib
 faktoren
 einlesen-und-speichern-von-daten
 datensätze-dat-anschauen
+datenaufbereitung-mit-dplyr
 einführung-in-dplyr-und-tidyverse
 dplyr-die-wichtigsten-befehle
 übung-1
