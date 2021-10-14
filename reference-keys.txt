@@ -39,3 +39,12 @@ data.frames-df-und-tibbles-tib
 faktoren
 einlesen-und-speichern-von-daten
 datensätze-dat-anschauen
+einführung-in-dplyr-und-tidyverse
+dplyr-die-wichtigsten-befehle
+übung-1
+dplyr-der-piping-operator
+beispiel
+übung-2
+dplyr-neue-variablen-mit-mutate-berechnen
+beispiel-1
+aufgabe-bis-zum-nächsten-mal
