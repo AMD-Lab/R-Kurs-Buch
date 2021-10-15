@@ -35,7 +35,7 @@ Dieses Skript wurde als Begleitmaterial für verschiedene Lehrveranstaltungen en
 </center>
 [^source]: Artwork by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
 
-## Rückmeldungen
+## Feedback
 
 Derzeit ist das Skript ein lebendiges Dokument, das auf Basis von Rückmeldungen ständig überarbeitet und verbessert wird. Sollten Ihnen Fehler im Skript auffallen oder sollten Sie sonstiges Feedback haben, freuen wir uns sehr, wenn Sie uns eine E-Mail senden. Schreiben Sie einfach eine E-Mail an [amd_lab@uni-mainz.de](mailto:amd_lab@uni-mainz.de?subject=R-Kurs-Unterlagen).
 

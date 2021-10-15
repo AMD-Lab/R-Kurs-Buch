@@ -113,10 +113,20 @@ getwd()
 
 In der Regel werden Sie für jedes Projekt ein eigenes working directory anlegen, in dem Sie die Daten und Skripte speichern, die zu dem Projekt gehören. Um in das richtige Verzeichnis zu wechseln, können Sie den Befehl `setwd()` nutzen. Noch einfacher geht es per Mausklick über Session &#8594;  Set Working Directory &#8594;  Choose Directory.
 
-*Tipp*: Wenn Sie bereits ein Verzeichnis für Ihr Projekt angelegt und dort ein Skript gespeichert haben (**wichtig: es muss unbedingt im Verzeichnis gespeichert sein!**), können Sie mit folgendem Codeschnipsel ganz einfach ihr working directory dorthin legen, wo Ihr aktuelles Skript gespeichert ist. Das ist auch dann enorm praktisch, wenn Sie Ihre Skripte mit anderen austauschen! Dazu müssen Ihr allerdings zunächst das Paket "rstudioapi" installieren. 
 
 
+*Tipp*: Noch einfacher geht es mit dem R-Paket `here`: Wenn Sie bereits ein Verzeichnis für Ihr Projekt angelegt und dort ein Skript gespeichert haben (**wichtig: es muss unbedingt im Verzeichnis gespeichert sein!**), liest das Paket `here`  automatisch den Pfad aus, an dem ein Skript gespeichert ist. Das ist auch dann enorm praktisch, wenn Sie Ihre Skripte mit anderen austauschen! 
+
+<center>
+
+![Ein digitaler Cartoon mit zwei Illustrationen: Die obere zeigt das R-Logo mit einem furchteinflößenden Gesicht und ein kleines, verängstigtes, wuscheliges Monster, das unter einer dunklen Gewitterwolke eine weiße Fahne hochhält, um sich zu ergeben. Der Text darüber lautet: "at first I was like…". Der untere Cartoon zeigt ein freundliches, lächelndes R-Logo, das aufspringt, um einem glücklichen, unscharfen Monster unter einer lächelnden Sonne und neben bunten Blumen ein High-Five zu geben. Der Text über der unteren Illustration lautet "but now it’s like…"](_static/here.png){width="400"}[^source]
+
+</center>
+[^source]: Artwork by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
+
+Dazu müssen Ihr allerdings zunächst *einmalig* das Paket "here" installieren und dann die Funktion `here()` in die Funktion `setwd()` einfügen. 
+ 
 ```R
-install.packages("rstudioapi")
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+install.packages("here")
+setwd(here::here())
 ```
