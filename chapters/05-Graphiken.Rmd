@@ -1,7 +1,5 @@
 # Graphiken mit ggplot2
 
-(Cordula Hunt)
-
 ```{r setup, include=FALSE}
 library(tidyverse)
 knitr::opts_chunk$set(echo = TRUE)
