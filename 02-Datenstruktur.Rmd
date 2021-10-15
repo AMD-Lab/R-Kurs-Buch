@@ -68,12 +68,10 @@ oder Probleme führen zu besseren Treffern. Noch trivialer ist es, im Skript des
 
 Datenformate in R sind von einfach zu komplex: `Value`, Vektor, `matrix`, (`array`), `data.frame`,`tibble` und `list`. Die kleinste Objekteinheit in R ist ein `Value`. Die unterschiedlichen Datentypen von `Values` sind bereits bekannt:
 
-1.  Text, bzw. Charakter (`chr`), manchmal auch String genannt,
-2.  (komplexe Zahlen, `cmplx`)
-3.  Nummer (`num`), bzw.`double`
-4.  (ganze Zahlen, integer `int` genannt)
-5.  logische Werte (`logi`), manchmal auch Boolean genannt
-6.  fehlende Werte (`NA`), `Not Available`
+1.  Text, bzw. Charakter (`chr`), auch String genannt,
+2.  Nummer (`num`), auch `double`
+3.  logische Werte (`logi`)
+4.  fehlende Werte (`NA`), `Not Available`
 
 Sie weisen einem Objektnamen einen Wert per `<-` zu (Shortkey:`ALT`&`-`), der Datentyp des `Values` wird automatisch Rkannt.
 ```{r, echo=TRUE, results='hide'}
@@ -88,11 +86,9 @@ Vektoren reihen Werte desselben Datentyps auf `c(Wert1, Wert2, ...)`:
 
 vec1 <- c(3, 6, 3.4)   
 ```
-Fassen Sie Werte von verschiedenen Typen zu einem Vektor zusammen, werden beide Werte zum Typen mit der kleineren Typenzahl umgewandelt (`coercion`).
+Versuchen Sie aus verschiedenen Typen einen Vektor zu bilden, werden beide Werte zu dem Typen umgewandelt. Sie werden zu dem Typen umgewandelt, der in der Datentypen-Übersichtstabelle weiter oben steht bzw. die kleinere Nummer hat. Das nennt sich `coercion`:
 ```{r, echo=TRUE}
-# Ich versuche ein `chr` und eine `num` zu einem Vektor zu kombinieren
-
-c("kreativ",3.5)
+c("kreativ",3.5)  # Versucht `chr` und `num` zu einem Vektor zu kombinieren
 ```
 3.5 wird in `""` ausgegeben, die Nummer wurde zu Text.
 
@@ -100,14 +96,10 @@ c("kreativ",3.5)
 
 Sie können den Datentypen auch per Funktion ändern, z.B. `as.character()`, `as.double()`:
 ```{r, error=TRUE}
-# Verändere eine Reihe von Werten zum Typ chr:
-
-as.character(c(1, TRUE, "abc", 4.1627))  
+as.character(c(1, TRUE, "abc", 4.1627))  # Verändert die Werte unterschiedlicher Typen zum Typ chr
 ```
 ```{r, error=TRUE}
-# Verändere die Werte zum Typ num. Wo dies nicht möglich ist erscheinen NAs:
-
-as.double(c(2, TRUE, "abc", 4.1627))    
+as.double(c(2, TRUE, "abc", 4.1627))   # Coerced zum Typ num. Ist dies nicht möglich, erscheint NA   
 ```
 `Coercion` gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten `list(Element1, Element2, ...)`. Das geht soweit, dass Listen selbst Listen enthalten können.
 
@@ -115,13 +107,9 @@ as.double(c(2, TRUE, "abc", 4.1627))
 
 Ihnen ist bekannt, dass Sie zum Aufruf einzelner Elemente deren Indexnummer verwenden können:
 ```{r, echo=TRUE}
-# Definition eines Vektors:
+vec_4 <- c(1,3,3,7)  # Definition eines Vektors
 
-vec_4 <- c(1,3,3,7)
-
-# Abruf des zweiten Elements des Vektors:
-
-vec_4[2]              
+vec_4[2]             # Abruf des zweiten Elements des Vektors    
 ```
 Das geht auch in verschachtelten Listen:
 ```{r, echo=TRUE}
@@ -194,25 +182,17 @@ Folgende Funktionen können Sie auf `num`-Vektoren und Matrizen anwenden, je nac
 #### Beispiel einer z-Standardisierung eines Vektors mit 3 Einträgen
 
 ```{r, echo=TRUE}
-# Def. der Variable geschwister:
+geschwister <- c(8,4,12)              # Def. der Variable geschwister
 
-geschwister <- c(8,4,12)   
-
-# MW:
-
-mw_geschwister <- mean(geschwister)                 
+mw_geschwister <- mean(geschwister)   # MW               
 
 mw_geschwister
 
-# SD:
-
-sd_geschwister <- sd(geschwister)                   
+sd_geschwister <- sd(geschwister)     # SD              
 
 sd_geschwister
 
-# z-Standardisierung des Vektors:
-
-z_geschwister <- (geschwister-mw_geschwister)/sd_geschwister  
+z_geschwister <- (geschwister-mw_geschwister)/sd_geschwister  # z-Standardisierung des Vektors
 
 z_geschwister
 ```
@@ -240,36 +220,24 @@ bsp_mat[,2] <- 8
 bsp_mat
 ```
 ```{r}
-# Logische Werte werden zu numerischen Werten coerced:
-
-bsp_mat[,3] <- c(FALSE, TRUE, FALSE, TRUE) 
+bsp_mat[,3] <- c(FALSE, TRUE, FALSE, TRUE)  # Logi Werte werden zu num coerced
 bsp_mat                                
 ```
 Coercion: TRUE wurde zu 1 und FALSE wurde zu 0. Wenn man nun eine bestimmte Zeile oder Spalte betrachten möchte, kann man dies auch über die Indizierung tun, hierbei kann man sich beliebig austoben. Die Regeln dafür sind dieselben wie bei Vektoren, nur in 2D, wobei stets `[Zeile, Spalte]` gilt.
 ```{r}
-# Wähle alle Zeilen von Spalte 1:
+bsp_mat[,1]   # Wählt alle Zeilen von Spalte 1
 
-bsp_mat[,1]
-
-# Wähle Zeile 4 von Spalte 1:
-
-bsp_mat[4,1]      
+bsp_mat[4,1]  # Wählt Zeile 4 von Spalte 1    
 ```
 Hier wird es turbulent:
 ```{r}
-# Wähle Zeilen 1 & 3 von allen Spalten:
+bsp_mat[c(1,3),] # Wählt Zeilen 1 & 3 von allen Spalten
 
-bsp_mat[c(1,3),] 
-
-# Wähle alle Zeilen außer 1, und Spalten 2-4:
-
-bsp_mat[-1,2:4]  
+bsp_mat[-1,2:4]  # Wählt alle Zeilen außer 1, und Spalten 2-4
 ```
 Da ich jetzt Bereiche der Matrix auswählen kann, kann ich vielleicht Berechnungen vornehmen:
 ```{r} 
-# Ist Matrix numerisch, kann ich damit rechnen:
-
-mode(bsp_mat)
+mode(bsp_mat)        # Ist bsp_mat numerisch?
 bsp_mat
 
 # Spalte 2 minus Spalte 1 und dann mal Spalte 3:
@@ -278,38 +246,24 @@ bsp_mat
 ```
 Es sind immer noch nicht angegebene Nummernwerte in der Matrix. Da ich mich beim Berechnen auf Bereiche der Matrix beschränke, die vergebene numerische Werte haben (Spalten 1 bis 3 ohne NaN Einträge), habe ich ein sinnvolles Ergebnis bekommen. Was passiert, wenn ich mit NaN Einträgen rechnen möchte?
 ```{r}
-# wähle Zeile 1:
+bsp_mat[1,]              # wählt Zeile 1
 
-bsp_mat[1,] 
-
-# Summe über Zeile 1 mit NaN:
-
-sum(bsp_mat[1,])         
+sum(bsp_mat[1,])         # Summe über Zeile 1 mit NaN
 ```
 Die Summe der Zeile führt zu keinem interpretierbaren Ergebniss. Zum Auslassen der NaNs wird das Funktionsargument `na.rm=TRUE` verwendet (rm steht für remove):
 ```{r}
-# Summe über Zeile 1 ohne NaN:
+sum(bsp_mat[1,], na.rm=TRUE)  # Summe über Zeile 1 ohne NaN
 
-sum(bsp_mat[1,], na.rm=TRUE)  
-
-# MW der Matrix ohne NaN:
-
-mean(bsp_mat, na.rm=TRUE)    
+mean(bsp_mat, na.rm=TRUE)    # MW der Matrix ohne NaN
 ```
 Nun, da wir mit dem Rechnen in Matrizen vertraut sind, möchte ich die letzte Spalte mit Einträgen füllen:
 ```{r}
-# Speichere die Matrix unter anderem Namen zur späteren Verwendung:
+sav_mat <- bsp_mat    # Speichert bsp_mat unter sav_mat zur späteren Verwendung
 
-mat_sav <- bsp_mat    
-
-# Weise Spalte 4 einen chr-Vektor zu:
-
-bsp_mat[,4] <- c("coercion","kann","nervig","sein")  
+bsp_mat[,4] <- c("coercion","kann","nervig","sein")  # Weist Spalte 4 einen chr-Vektor zu
 bsp_mat
 
-# Bestimme den Datentypen der neuen Matrix:
-
-mode(bsp_mat)
+mode(bsp_mat)  # Bestimmt den Datentypen der neuen Matrix
 ```
 Konnte ich eben noch den Mittelwert einer Spalte bilden, so geht das jetzt nicht mehr, da alle Einträge der Matrix zu `chr` coerced wurden. In einem typischen Datensatz sind aber Variablen verschiedener Typen (`num` und `chr`) enthalten. Dieses Problem ließe sich mit Listen lösen, welche aber unübersichtlich sind. Datensätze bestehen manchmal aus unüberschaubar vielen Einträgen und deshalb sollten sie wenigstens übersichtlich strukturiert sein.
 
@@ -362,27 +316,21 @@ Sie können die beiden Datensatz-Formate einfach in das jeweils andere konvertie
 # Erzeuge einen data.frame durch Verwendung der Spaltenvektoren aus den vorherigen Matrizen, denen Namen zugewiesen werden (Denken Sie beim Definieren der Spaltenvektoren daran diese mit einem Komma voneinander zu trennen):
 
 test_df <- data.frame("text"=bsp_mat[,4] ,     
-                      "ist_Verb"=mat_sav[,3])  
+                      "ist_Verb"=sav_mat[,3])  
 test_df
 ```
 In Bezug auf weitere Funktionen des Packages `tidyverse` sind tibbles ein wenig praktischer. Große tibbles werden beim Aufrufen etwas übersichtlicher angezeigt (nur die ersten 10 Zeilen).
 ```{r}
-# Konvertiere den data.frame zu einem tibble test_tib:
-
-test_tib <- as_tibble(test_df)   
+test_tib <- as_tibble(test_df)   # Konvertiert data.frame zu tibble
 test_tib
 ```
 Einzelne Spalten können ganz einfach aufgerufen werden, in dem man den \$-Operator benutzt. Schreibt man diesen direkt hinter den Namen des Datensatzes, klappt automatisch eine Liste mit allen Spalten auf:
 ```{r}
-# Rufe die Spalte namens text aus dem Datensatz namens test_tib auf:
-
-test_tib$text   
+test_tib$text    # Ruft Spalte text aus Datensatz test_tib auf
 ```
 Es ist auch möglich, mehrere Zeilen und/oder Spalten auszugeben. Dies funktioniert wie bei Matrizen per Indexnummer:
 ```{r}
-# Gebe Zeilen 2 bis 4 aus Spalte 1 aus:
-
-test_tib[2:4,1] 
+test_tib[2:4,1]     # Gibt Zeilen 2 bis 4 aus Spalte 1 aus
 ```
 Die Adressierung einzelner Spalten und Zeilen ermöglicht dann zum Beispiel die Berechnung von Kennwerten nur für einzelne Spalten. Z.B. kann man die Kosten für Konzertkarten im Jahr 2022 aufsummieren lassen:
 ```{r}
@@ -391,7 +339,7 @@ Die Adressierung einzelner Spalten und Zeilen ermöglicht dann zum Beispiel die 
 tickets_2022 <- tibble("Artist"=c("Ed Sheeran", "Billy Ellish", "The Weeknd", "Dua Lipa", "Imagine Dragons"),
                   "Kosten"=c(79.32, 282, 116, 136, 68.71 ))
 
-# Berechne die Summe einer dieser Variablen:
+# Berechne die Summe einer dieser beiden Variablen:
 
 sum(tickets_2022$Kosten)
 ```
@@ -413,34 +361,22 @@ list_of_thingis$geschwi
 mylist$vec_4
 ```
 ```{r}
-# Mit mehreren $ können Sie tiefere Ebenen erreichen:
-
-list_of_thingis$ticki$Artist 
+list_of_thingis$ticki$Artist     # Mit mehreren $ können Sie tiefere Ebenen erreichen 
 ```
 Mir fällt auf, dass ich den Namen einer Künstlerin in tickets_2022 falsch geschrieben habe, das möchte ich ändern:
 ```{r}
-# $-Operator und Indexing per Nummer lassen sich auch kombinieren:
-
-tickets_2022$Artist[2] <- "Billy Eilish" 
+tickets_2022$Artist[2] <- "Billy Eilish"  # $-Operator und Indexing per Nummer lassen sich auch kombinieren
 ```
 Sie können also nicht nur Elemente aus Datensätzen abrufen, sondern diese mit dem `<-` neu zuweisen. Sie können das \$ auch verwenden um ganz neue Spalten in die Datensätze einzufügen:
 ```{r}
-# Definiere neue Spalte im Datensatz:
+tickets_2022$Priorität <- c(2, 4, 3, 5, 1)         # Definiert neue Spalte im Datensatz 
 
-tickets_2022$Priorität <- c(2, 4, 3, 5, 1)   
+tickets_2022$Prioritaet <- tickets_2022$Priorität  # Besser ae statt ä im Variablennamen 
 
-# besser ae statt ä in Variablennamen: 
-
-tickets_2022$Prioritaet <- tickets_2022$Priorität
-
-# nun gibt es eine Spalte zu viel:
-
-tickets_2022                                      
+tickets_2022                                       # Nun gibt es eine Spalte zu viel                          
 ```
 ```{r}
-# entfernt eine Spalte, vorsichtig hiermit(!):
-
-tickets_2022$Priorität <- NULL   
+tickets_2022$Priorität <- NULL              # Entfernt eine Spalte, vorsichtig hiermit(!)
 ```
 Ein weiterer Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Reihennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Reihennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. var_name) behelfen, die Sie mit `relocate(tib,var)` an den Anfang des Datensatzes stellen.
 
@@ -450,7 +386,7 @@ Mit dem Hinzufügen und Abändern von Spaltenvektoren haben wir schon ein bissch
 
 Daten können in R Studio auf unterschiedliche Weise eingelesen werden.
 
-![](_static/pingu.png){width="60%"}
+![](_static/penguin.png){width="60%"}
 
 Es gibt Packages mit frei verfügbaren Datensätzen, z.B. einen Datensatz zu Pinguinen: palmerpenguins.
 
@@ -496,15 +432,11 @@ Es gibt noch ein weiteres erwähnenswertes Dateiformat, das von R selbst: `.RDS`
 
 Um sich einen geladenen Datensatz komplett anzuschauen, können Sie diesen im `Workspace` anklicken, oder deren Namen an die Funktion `view(dat)` übergeben. Der Datensatz pingus hat 344 Zeilen, das kann ich im Workspace sehen. Da er als tibble gespeichert ist, könnte ich diesen per Name aufrufen (nur die ersten 10 Zeilen würden dargestellt werden). Mit der Funktion `head(dat)` wird einem der Kopf des Datensatzes ausgegeben, genau genommen die ersten 6 Zeilen. Die Funktion ist besonders nützlich für große `data.frames`, da diese beim Aufrufen per Name die Console überfüllen. 
 ```{r}
-# Zeige die ersten 6 Zeilen jeder Variable an:
-
-head(pingus)
+head(pingus)   # Zeigt die ersten 6 Zeilen jeder Variable an
 ```
 Einen Überlick über die Datenstruktur, inklusive Factor-`levels` (der Faktorstufen) erhalten Sie mit der Funktion `str(dat)`:
 ```{r}
-# zeige die Struktur der Daten:
-
-str(pingus)      
+str(pingus)    # Zeigt die Struktur der Daten  
 ```
 Zeile 1 gibt Auskunft über Größe und die Klasse des Objektes, tibbles sind eine Art data.frame. In den weiteren Zeilen werden die Datentypen bzw. Faktorlevel und die ersten Werte der Spaltenvectoren angezeigt.
 
@@ -512,8 +444,6 @@ Zeile 1 gibt Auskunft über Größe und die Klasse des Objektes, tibbles sind ei
 
 Faktoren und die Zuweisung mit der Funktion `factor()` kennen Sie bereits aus dem vorherigen Kapitel. Die Funktion `levels(Faktor)` gibt die möglichen Ausprägungen einer Faktorvariable wieder. Faktoren eignen sich oft besser als Vektoren zum Plotten, Gruppieren oder für Häufigkeitstabellen. Mit der Funktion `count(dat,var)` lassen sich beispielsweise die Häufigkeiten der Levels eines Faktors ausgeben:
 ```{r}
-# Zähle in pingu die Häufigkeiten der Levels des Faktors species:
-
-count(pingus, island)     
+count(pingus, island)  # Zählt in pingu die Häufigkeiten der Levels des Faktors species  
 ```
 Mit der ersten deskriptiven Statistik zu einem Datensatz in R schließen wir dieses Kapitel ab. Es folgen geschickte Methoden zur Datenaufbereitung.
