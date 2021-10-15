@@ -86,7 +86,7 @@ Vektoren reihen Werte desselben Datentyps auf `c(Wert1, Wert2, ...)`:
 
 vec1 <- c(3, 6, 3.4)   
 ```
-Versuchen Sie aus verschiedenen Typen einen Vektor zu bilden, werden beide Werte zu dem Typen umgewandelt. Sie werden zu dem Typen umgewandelt, der in der Datentypen-Übersichtstabelle weiter oben steht bzw. die kleinere Nummer hat. Das nennt sich `coercion`:
+Versuchen Sie aus verschiedenen Typen einen Vektor zu bilden, werden sie zu dem komplexeren Typen von beiden umgewandelt. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1-4) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`:
 ```{r, echo=TRUE}
 c("kreativ",3.5)  # Versucht `chr` und `num` zu einem Vektor zu kombinieren
 ```
@@ -201,12 +201,12 @@ z_geschwister
 Matrizen sind 2D Datenstrukturen, sie bestehen aus Vektoren [gleicher]{.ul} Länge und enthalten [einen]{.ul} Datentyp. Mit dem
 Befehl `matrix()` können sie erstellt werden:
 ```{r}
-# Erstelle die Matrix bsp_mat mit 4 Zeilen, 4 Spalten und leeren Einträgen. NaN (Not a Number) ist zwar vom Typ num, aber Berechnungen mit NaNs sind nicht so sinnvoll.
+# Erstelle die Matrix bsp_mat mit 4 Zeilen, 4 Spalten und leeren Einträgen: 
 
-bsp_mat <- matrix(NaN, nrow=4, ncol=4) 
+bsp_mat <- matrix(NaN, nrow=4, ncol=4) #NaN (Not a Number) ist vom Typ num
 bsp_mat
 ```
-Ich habe eine 4x4 Matrix erstellt, die mit NaNs gefüllt ist. Hätte ich diverse Datentypen zugeordnet, wären diese zum niedrigeren `coerced` worden. Matrizen können mit `matrixname[Zeilennummer,Spaltenummer]` manipuliert werden. Praktischerweise stehen die entspechenden Indizes neben der oben angezeigten Matrix. Beispiele zum Auswählen und Zuweisen neuer Werte:
+Ich habe eine 4x4 Matrix erstellt, die mit NaNs gefüllt ist. Hätte ich diverse Datentypen zugeordnet, wären diese zum komplexeren `coerced` worden. Matrizen können mit `matrixname[Zeilennummer,Spaltenummer]` manipuliert werden. Praktischerweise stehen die entspechenden Indizes neben der oben angezeigten Matrix. Beispiele zum Auswählen und Zuweisen neuer Werte:
 ```{r}
 # Weil Spalte 1. von mat und vec_4 dieselbe Länge haben, kann ich die Spalte 1 neu zuweisen. Dadurch, dass der Eintrag für die Zeilennummer leer ist, beziehe ich mich auf alle Zeilen:
 
