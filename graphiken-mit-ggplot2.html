@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Graphiken mit ggplot2 | Einführung in R</title>
+  <meta name="description" content="<p>Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
+Veranstaltungen.</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Graphiken mit ggplot2 | Einführung in R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://amd-lab.github.io/R-Kurs-Unterlagen/index.html" />
+  
+  <meta property="og:description" content="<p>Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
+Veranstaltungen.</p>" />
+  <meta name="github-repo" content="AMD-Lab/R-Kurs-Unterlagen" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Graphiken mit ggplot2 | Einführung in R" />
+  
+  <meta name="twitter:description" content="<p>Dies sind R Kurs Unterlagen für Lehre in verschiedenen studentischen
+Veranstaltungen.</p>" />
+  
+
+
+
+<meta name="date" content="2021-10-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="datenaufbereitung-mit-dplyr.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Über dieses Buch</a></li>
+<li class="chapter" data-level="2" data-path="einführung.html"><a href="einführung.html"><i class="fa fa-check"></i><b>2</b> Einführung</a><ul>
+<li class="chapter" data-level="2.1" data-path="einführung.html"><a href="einführung.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="einführung.html"><a href="einführung.html#erste-schritte"><i class="fa fa-check"></i><b>2.2</b> Erste Schritte</a></li>
+<li class="chapter" data-level="2.3" data-path="einführung.html"><a href="einführung.html#das-r-skript"><i class="fa fa-check"></i><b>2.3</b> Das R-Skript</a></li>
+<li class="chapter" data-level="2.4" data-path="einführung.html"><a href="einführung.html#struktur-des-skripts"><i class="fa fa-check"></i><b>2.4</b> Struktur des Skripts</a></li>
+<li class="chapter" data-level="2.5" data-path="einführung.html"><a href="einführung.html#pakete"><i class="fa fa-check"></i><b>2.5</b> Pakete</a></li>
+<li class="chapter" data-level="2.6" data-path="einführung.html"><a href="einführung.html#working-directory"><i class="fa fa-check"></i><b>2.6</b> Working Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html"><i class="fa fa-check"></i><b>3</b> Erste Schritte</a><ul>
+<li class="chapter" data-level="3.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#variablen"><i class="fa fa-check"></i><b>3.1</b> Variablen</a></li>
+<li class="chapter" data-level="3.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#vektoren"><i class="fa fa-check"></i><b>3.2</b> Vektoren</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-numeric"><i class="fa fa-check"></i><b>3.2.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="3.2.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-character"><i class="fa fa-check"></i><b>3.2.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="3.2.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-logical"><i class="fa fa-check"></i><b>3.2.3</b> Datentyp logical</a></li>
+<li class="chapter" data-level="3.2.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-factor"><i class="fa fa-check"></i><b>3.2.4</b> Datentyp factor</a></li>
+<li class="chapter" data-level="3.2.5" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-na"><i class="fa fa-check"></i><b>3.2.5</b> Datentyp NA</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#auswahl-von-vektorelementen"><i class="fa fa-check"></i><b>3.3</b> Auswahl von Vektorelementen</a></li>
+<li class="chapter" data-level="3.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#logische-vergleiche"><i class="fa fa-check"></i><b>3.4</b> Logische Vergleiche</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-numeric-1"><i class="fa fa-check"></i><b>3.4.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="3.4.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-character-1"><i class="fa fa-check"></i><b>3.4.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="3.4.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-factor-1"><i class="fa fa-check"></i><b>3.4.3</b> Datentyp factor</a></li>
+<li class="chapter" data-level="3.4.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#rekodieren-von-variablen-mit-hilfe-logischer-vergleich"><i class="fa fa-check"></i><b>3.4.4</b> Rekodieren von Variablen mit Hilfe logischer Vergleich</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datenstruktur.html"><a href="datenstruktur.html"><i class="fa fa-check"></i><b>4</b> Datenstruktur</a><ul>
+<li class="chapter" data-level="4.1" data-path="datenstruktur.html"><a href="datenstruktur.html#rmarkdown"><i class="fa fa-check"></i><b>4.1</b> RMarkdown</a></li>
+<li class="chapter" data-level="4.2" data-path="datenstruktur.html"><a href="datenstruktur.html#hilfe"><i class="fa fa-check"></i><b>4.2</b> Hilfe</a></li>
+<li class="chapter" data-level="4.3" data-path="datenstruktur.html"><a href="datenstruktur.html#werte-vektoren"><i class="fa fa-check"></i><b>4.3</b> Werte &amp; Vektoren</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datenstruktur.html"><a href="datenstruktur.html#coercion-umwandlung-von-typen"><i class="fa fa-check"></i><b>4.3.1</b> Coercion (Umwandlung von Typen)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datenstruktur.html"><a href="datenstruktur.html#aufruf-einzelner-elemente-per-index"><i class="fa fa-check"></i><b>4.3.2</b> Aufruf einzelner Elemente per Index:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="datenstruktur.html"><a href="datenstruktur.html#der-workspace"><i class="fa fa-check"></i><b>4.4</b> Der Workspace</a></li>
+<li class="chapter" data-level="4.5" data-path="datenstruktur.html"><a href="datenstruktur.html#einfache-berechnungen"><i class="fa fa-check"></i><b>4.5</b> Einfache Berechnungen</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="datenstruktur.html"><a href="datenstruktur.html#rechnen-mit-values"><i class="fa fa-check"></i><b>4.5.1</b> Rechnen mit Values</a></li>
+<li class="chapter" data-level="4.5.2" data-path="datenstruktur.html"><a href="datenstruktur.html#rechnen-mit-vektoren"><i class="fa fa-check"></i><b>4.5.2</b> Rechnen mit Vektoren</a></li>
+<li class="chapter" data-level="4.5.3" data-path="datenstruktur.html"><a href="datenstruktur.html#übersicht-berechnungsfunktionen"><i class="fa fa-check"></i><b>4.5.3</b> Übersicht Berechnungsfunktionen</a></li>
+<li class="chapter" data-level="4.5.4" data-path="datenstruktur.html"><a href="datenstruktur.html#beispiel-einer-z-standardisierung-eines-vektors-mit-3-einträgen"><i class="fa fa-check"></i><b>4.5.4</b> Beispiel einer z-Standardisierung eines Vektors mit 3 Einträgen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="datenstruktur.html"><a href="datenstruktur.html#matrizen"><i class="fa fa-check"></i><b>4.6</b> Matrizen</a></li>
+<li class="chapter" data-level="4.7" data-path="datenstruktur.html"><a href="datenstruktur.html#tidy-daten"><i class="fa fa-check"></i><b>4.7</b> tidy Daten</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="datenstruktur.html"><a href="datenstruktur.html#tidyverse"><i class="fa fa-check"></i><b>4.7.1</b> tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="datenstruktur.html"><a href="datenstruktur.html#data.frames-df-und-tibbles-tib"><i class="fa fa-check"></i><b>4.8</b> data.frames (df) und tibbles (tib)</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="datenstruktur.html"><a href="datenstruktur.html#faktoren"><i class="fa fa-check"></i><b>4.8.1</b> Faktoren</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="datenstruktur.html"><a href="datenstruktur.html#einlesen-und-speichern-von-daten"><i class="fa fa-check"></i><b>4.9</b> Einlesen und Speichern von Daten</a></li>
+<li class="chapter" data-level="4.10" data-path="datenstruktur.html"><a href="datenstruktur.html#datensätze-dat-anschauen"><i class="fa fa-check"></i><b>4.10</b> Datensätze (dat) anschauen</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung mit dplyr</a><ul>
+<li class="chapter" data-level="5.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#einführung-in-dplyr-und-tidyverse"><i class="fa fa-check"></i><b>5.1</b> Einführung in Dplyr und tidyverse</a></li>
+<li class="chapter" data-level="5.2" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-die-wichtigsten-befehle"><i class="fa fa-check"></i><b>5.2</b> Dplyr: Die wichtigsten Befehle</a></li>
+<li class="chapter" data-level="5.3" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#übung-1"><i class="fa fa-check"></i><b>5.3</b> Übung 1</a></li>
+<li class="chapter" data-level="5.4" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-der-piping-operator"><i class="fa fa-check"></i><b>5.4</b> Dplyr: Der Piping Operator</a></li>
+<li class="chapter" data-level="5.5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel"><i class="fa fa-check"></i><b>5.5</b> Beispiel</a></li>
+<li class="chapter" data-level="5.6" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#übung-2"><i class="fa fa-check"></i><b>5.6</b> Übung 2</a></li>
+<li class="chapter" data-level="5.7" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-neue-variablen-mit-mutate-berechnen"><i class="fa fa-check"></i><b>5.7</b> Dplyr : Neue Variablen mit <code>mutate()</code> berechnen</a></li>
+<li class="chapter" data-level="5.8" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-1"><i class="fa fa-check"></i><b>5.8</b> Beispiel</a></li>
+<li class="chapter" data-level="5.9" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#aufgabe-bis-zum-nächsten-mal"><i class="fa fa-check"></i><b>5.9</b> Aufgabe bis zum nächsten Mal</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Graphiken mit ggplot2</a><ul>
+<li class="chapter" data-level="6.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#exkurs-warum-viridis"><i class="fa fa-check"></i><b>6.1</b> Exkurs: Warum viridis?</a></li>
+<li class="chapter" data-level="6.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ggplot2---einführung"><i class="fa fa-check"></i><b>6.2</b> <code>ggplot2</code> - Einführung</a></li>
+<li class="chapter" data-level="6.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#vor-der-visualisierung-die-daten"><i class="fa fa-check"></i><b>6.3</b> Vor der Visualisierung: Die Daten</a></li>
+<li class="chapter" data-level="6.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ästhetische-mapping"><i class="fa fa-check"></i><b>6.4</b> Ästhetische Mapping</a></li>
+<li class="chapter" data-level="6.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#graphischen-funktionen"><i class="fa fa-check"></i><b>6.5</b> Graphischen Funktionen</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#säulen--und-balkendiagramm"><i class="fa fa-check"></i><b>6.5.1</b> Säulen- und Balkendiagramm</a></li>
+<li class="chapter" data-level="6.5.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#histogramm"><i class="fa fa-check"></i><b>6.5.2</b> Histogramm</a></li>
+<li class="chapter" data-level="6.5.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#qq-plot"><i class="fa fa-check"></i><b>6.5.3</b> QQ-Plot</a></li>
+<li class="chapter" data-level="6.5.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#boxplot"><i class="fa fa-check"></i><b>6.5.4</b> Boxplot</a></li>
+<li class="chapter" data-level="6.5.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#violinen-plot"><i class="fa fa-check"></i><b>6.5.5</b> Violinen-Plot</a></li>
+<li class="chapter" data-level="6.5.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#beeswarm-plot-mit-dem-paket-ggbeeswarm"><i class="fa fa-check"></i><b>6.5.6</b> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code></a></li>
+<li class="chapter" data-level="6.5.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#scatterplot"><i class="fa fa-check"></i><b>6.5.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="6.5.8" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linearer-fit"><i class="fa fa-check"></i><b>6.5.8</b> (Linearer) Fit</a></li>
+<li class="chapter" data-level="6.5.9" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linienplot"><i class="fa fa-check"></i><b>6.5.9</b> Linienplot</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#sonstige-funktionalität"><i class="fa fa-check"></i><b>6.6</b> Sonstige Funktionalität</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#labels"><i class="fa fa-check"></i><b>6.6.1</b> Labels</a></li>
+<li class="chapter" data-level="6.6.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#thema"><i class="fa fa-check"></i><b>6.6.2</b> Thema</a></li>
+<li class="chapter" data-level="6.6.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#position"><i class="fa fa-check"></i><b>6.6.3</b> Position</a></li>
+<li class="chapter" data-level="6.6.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#legenden"><i class="fa fa-check"></i><b>6.6.4</b> Legenden</a></li>
+<li class="chapter" data-level="6.6.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#koordinatensysteme"><i class="fa fa-check"></i><b>6.6.5</b> Koordinatensysteme</a></li>
+<li class="chapter" data-level="6.6.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#farbskalen"><i class="fa fa-check"></i><b>6.6.6</b> Farbskalen</a></li>
+<li class="chapter" data-level="6.6.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#variablenskalen"><i class="fa fa-check"></i><b>6.6.7</b> Variablenskalen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#facetten"><i class="fa fa-check"></i><b>6.7</b> Facetten</a></li>
+<li class="chapter" data-level="6.8" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#zwischenübungen"><i class="fa fa-check"></i><b>6.8</b> Zwischenübungen</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#lösung-zwischenübungen"><i class="fa fa-check"></i><b>6.8.1</b> Lösung Zwischenübungen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#aufgaben-bis-zum-nächsten-mal"><i class="fa fa-check"></i><b>6.9</b> Aufgaben bis zum nächsten Mal</a><ul>
+<li class="chapter" data-level="6.9.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#lösung-aufgaben-bis-zum-nächsten-mal"><i class="fa fa-check"></i><b>6.9.1</b> Lösung Aufgaben bis zum nächsten Mal</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Einführung in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="graphiken-mit-ggplot2" class="section level1">
+<h1><span class="header-section-number">6</span> Graphiken mit ggplot2</h1>
+<div id="exkurs-warum-viridis" class="section level2">
+<h2><span class="header-section-number">6.1</span> Exkurs: Warum viridis?</h2>
+<p>Das <code>viridis</code> Paket in R stellt eine Reihe an Colormaps bereit, die
+folgenden Anspruch an sich stellen:</p>
+<ul>
+<li>gute <strong>Lesbarkeit</strong> und Unterscheidbarkeit in Graphiken</li>
+<li>auch bei <strong>Farbenblindheit</strong> oder <strong>Farbsehschwäche</strong></li>
+<li>bleibt bei <strong>Grauskala</strong>(-druck) erhalten</li>
+</ul>
+<p>Praktisch bedeutet das, die Farbkarten sind:</p>
+<ul>
+<li><strong>farbenfroh</strong>: sie umspannen weite Teile der Farbpalette damit
+Unterschiede einfach zu erkennen sind</li>
+<li><strong>einheitlich</strong>: Punkte nah beieinander haben ähnliche Farben und
+Punkte weit auseinander stark unterschiedliche Farben - und das
+möglichst konsistent über den gesamten Farbraum hinweg<br />
+<span class="math inline">\(\rightarrow\)</span> <em>ein fester Abstand wird also an verschiedenen Stellen
+im Farbraum als perzeptuell gleich wahrgenommen, dh. keine mal
+schnellen mal langsamen Farbton- oder Helligkeitsänderungen</em></li>
+</ul>
+<p>Gerade die Einheitlichkeit ist wichtig, sie sorgt dafür, dass keine
+Gebiete überbetont werden, während Kontrast an anderen Strellen nicht
+gegeben ist. Hier die viridis Farbskala oben und jet (langjährig die
+Standardfarben in Matlab) unten:</p>
+<center>
+<p><img src="_static/viridis_jet.png" width="250" /></p>
+</center>
+<p>Bei jet stechen besonders Gelb und Türkis heraus - in einer Graphik gibt
+das Artefakte durch die Darstellung, weil unauffällige Daten durch die
+Farbwahl auf einmal außergewöhnlich wirken. Außerdem werden an anderen
+Stellen Unterschiede in den Daten dadurch unterschlagen, dass in weiten
+Teilen des roten und blauen Spektrums in jet fast keine Farbstufen
+enthalten sind. viridis versucht dieses Problem zu beheben und wirkt
+homogen - ohne “Spitzen und Täler”.</p>
+<p>Zusätzlich muss berücksichtigt werden, dass Graphiken auch bei
+Grauskaladruck noch interpretierbar bleiben. Das macht eine Grauskala
+aus viridis und jet:</p>
+<center>
+<p><img src="_static/viridis_jet_gray.png" width="250" /></p>
+</center>
+<p>Bei der oberen viridis Skala vermindert sich die Interpretierbarkeit nur
+minimal, während man bei der unteren Skala nicht mehr zwischen hohen und
+niedrigen Werten unterscheiden kann. Tatsächlich wirkt es so, als ob die
+mittleren Bereiche besonders auffällig wären - Bereiche die meistens um
+die 0 herum liegen!</p>
+<p>Im <code>viridis</code> Paket gibt es 8 Colormaps, aus denen man wählen kann und
+die alle diese Kriterien erfüllen:</p>
+<center>
+<div class="figure">
+<img src="_static/viridis.PNG" style="width:80.0%" alt="" />
+<p class="caption">viridis_map</p>
+</div>
+</center>
+<div class="footnotes">
+<p>source: <a href="https://www.rstudio.com/resources/cheatsheets/">viridis
+Dokumentation</a></p>
+</div>
+</div>
+<div id="ggplot2---einführung" class="section level2">
+<h2><span class="header-section-number">6.2</span> <code>ggplot2</code> - Einführung</h2>
+<p><code>ggplot2</code> ist ein Paket zur graphischen Darstellung in R, das auf dem
+Buch <a href="https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448/ref=as_li_ss_tl">“The Grammar of
+Graphics”</a>
+von Leland Wilkinson basiert. Wie bei <code>dplyr</code> ist die Codestruktur an
+Grammatik orientiert und somit einfach nachzuvollziehen. Ablauf der
+Graphikerstellung in <code>ggplot2</code> lässt sich wie folgend zusammenfassen:</p>
+<ul>
+<li><p><span style="color:#8fd744">Daten</span> bereitstellen</p></li>
+<li><p>Wie werden Variablen in der Graphik in <span style="color:#35b779">Ästhetik
+umgewandelt</span>? - <code>aesthetics()</code></p>
+<ul>
+<li>Was ist die x-Achse, was die y-Achse?</li>
+<li>Wonach wird farbkodiert?</li>
+<li>…</li>
+</ul></li>
+<li><p>Welche <span style="color:#21918d">graphische Darstellung</span>?</p>
+<ul>
+<li>Scatterplot - <code>geom_point()</code></li>
+<li>Histogram - <code>geom_histogram()</code></li>
+<li>Linienplot - <code>geom_line()</code></li>
+<li>…</li>
+</ul></li>
+<li><p>Ggf. weitere <span style="color:#31688e">Details</span> definieren, wie zB die
+Achsenlabel</p></li>
+</ul>
+<p>Um eine Graphik zu “bauen” kann man also dieser Struktur folgen:</p>
+<p><br></p>
+<p><strong>ggplot</strong>(data = <span style="color:#8fd744">DATA</span>,
+aes(<span style="color:#35b779">MAPPINGS</span>)) +</p>
+<blockquote>
+<p><span style="color:#21918d">GEOM_FUNCTION</span> (mapping =
+aes(<span style="color:#35b779">MAPPINGS</span>), position =
+<span style="color:#31688e">POSITION</span>) +</p>
+</blockquote>
+<blockquote>
+<p><span style="color:#31688e">LABEL_FUNCTION</span> +</p>
+</blockquote>
+<blockquote>
+<p><span style="color:#31688e">THEME_FUNCTION</span> +</p>
+</blockquote>
+<blockquote>
+<p><span style="color:#31688e">COORDINATE_FUNCTION</span> +</p>
+</blockquote>
+<blockquote>
+<p><span style="color:#31688e">SCALE_FUNCTION</span> +</p>
+</blockquote>
+<blockquote>
+<p><span style="color:#31688e">FACET_FUNCTION</span></p>
+</blockquote>
+<p><br> Dabei sind <span style="color:#8fd744">DATA</span>,
+<span style="color:#35b779">MAPPINGS</span> und
+<span style="color:#21918d">GEOM_FUNCTION</span> notwendig, während <span style="color:#31688e">der
+Rest</span> nicht notwendig ist, da es gute
+Standardeinstellungen gibt.</p>
+<p><br> <strong>Vorsicht</strong>: In <code>ggplot2</code> sind Lagen mit <code>+</code> verknüpft und nicht
+mit <code>%&gt;%</code>! <br></p>
+<div class="footnotes">
+<p>source: <a href="https://www.rstudio.com/resources/cheatsheets/">ggplot2 Cheat
+Sheet</a></p>
+</div>
+</div>
+<div id="vor-der-visualisierung-die-daten" class="section level2">
+<h2><span class="header-section-number">6.3</span> Vor der Visualisierung: Die Daten</h2>
+<p>Wir arbeiten mit einem Datensatz, der die Superhelden von Marvel und DC
+miteinander vergleicht. Die Daten finden sich auf GitHub
+(“<a href="https://github.com/cosmoduende/r-marvel-vs-dc" class="uri">https://github.com/cosmoduende/r-marvel-vs-dc</a>”), sind aber auf zwei
+Files aufgeteilt, die wir erst einzeln laden und dann zusammenführen
+müssen. Um eine Vorlage zu geben, ist der Code dafür hier aufgenommen,
+ist aber zu fortgeschritten für den meisten Gebrauch, und kann für
+dieses Kapitel auch ignoriert werden.</p>
+<p>Erst werden die zwei Files von GitHub heruntergeladen und den Variablen
+<code>MarvelCharacters</code> und <code>MarvelStats</code> zugewiesen. Dabei werden fehlende
+Werte als <code>NA</code> kodiert:</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="graphiken-mit-ggplot2.html#cb232-1"></a>MarvelCharacters &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.github.com/cosmoduende/r-marvel-vs-dc/main/dataset_shdb/heroesInformation.csv&quot;</span>, </span>
+<span id="cb232-2"><a href="graphiken-mit-ggplot2.html#cb232-2"></a>                             <span class="dt">na =</span> <span class="kw">c</span>(<span class="st">&quot;-&quot;</span>, <span class="st">&quot;-99.0&quot;</span>))</span>
+<span id="cb232-3"><a href="graphiken-mit-ggplot2.html#cb232-3"></a>MarvelStats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.github.com/cosmoduende/r-marvel-vs-dc/main/dataset_shdb/charactersStats.csv&quot;</span>)</span></code></pre></div>
+<p>Wir wählen nur die Charaktere aus Marvel und DC aus und machen ein
+bisschen weiteres preprocessing:</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="graphiken-mit-ggplot2.html#cb233-1"></a>marvelDcInfo &lt;-<span class="st"> </span>MarvelCharacters <span class="op">%&gt;%</span></span>
+<span id="cb233-2"><a href="graphiken-mit-ggplot2.html#cb233-2"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Name =</span> name) <span class="op">%&gt;%</span><span class="st">                  </span><span class="co"># `name` soll `Name` heißen</span></span>
+<span id="cb233-3"><a href="graphiken-mit-ggplot2.html#cb233-3"></a><span class="st">  </span><span class="kw">filter</span>(Publisher <span class="op">==</span><span class="st"> &quot;Marvel Comics&quot;</span> <span class="op">|</span><span class="st">    </span><span class="co"># wir wählen nur Charaktere von Marvel oder... </span></span>
+<span id="cb233-4"><a href="graphiken-mit-ggplot2.html#cb233-4"></a><span class="st">           </span>Publisher <span class="op">==</span><span class="st"> &quot;DC Comics&quot;</span>)  <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># ...von DC</span></span>
+<span id="cb233-5"><a href="graphiken-mit-ggplot2.html#cb233-5"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">duplicated</span>(Name)) <span class="op">%&gt;%</span><span class="st">            </span><span class="co"># alle Duplikate löschen wir</span></span>
+<span id="cb233-6"><a href="graphiken-mit-ggplot2.html#cb233-6"></a><span class="st">  </span><span class="kw">select</span>(Name, Gender, Race, Publisher, Weight, Height) <span class="co"># wir wollen nur bestimmte Spalten</span></span></code></pre></div>
+<p>Dann fügen wir die Datensätze zusammen:</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="graphiken-mit-ggplot2.html#cb234-1"></a>MarvelDC &lt;-<span class="st"> </span><span class="kw">inner_join</span>(marvelDcInfo, MarvelStats, <span class="dt">by =</span> <span class="st">&quot;Name&quot;</span>)</span>
+<span id="cb234-2"><a href="graphiken-mit-ggplot2.html#cb234-2"></a>MarvelDC&lt;-<span class="st"> </span>MarvelDC <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb234-3"><a href="graphiken-mit-ggplot2.html#cb234-3"></a><span class="st">  </span><span class="co"># einige Zeilen sind falsch kodiert und enthalten eine andere Skala,</span></span>
+<span id="cb234-4"><a href="graphiken-mit-ggplot2.html#cb234-4"></a><span class="st">  </span><span class="co"># deswegen schließen wir alle Zeilen mit Intelligence = 1 aus. </span></span>
+<span id="cb234-5"><a href="graphiken-mit-ggplot2.html#cb234-5"></a><span class="st">  </span><span class="kw">filter</span>(Intelligence <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>) </span></code></pre></div>
+<p>Damit haben wir einen Datensatz <code>MarvelDC</code>mit dem wir weiterarbeiten
+können!</p>
+<p>Um <code>ggplot</code> <span style="color:#8fd744">Daten</span> zu geben können wir sie
+entweder in den Klammern definieren:</p>
+<pre><code>ggplot(data = MarvelDC)    # Info: das &quot;data = &quot; kann auch weggelassen werden.</code></pre>
+<p>Oder man gibt sie via Pipeline an <code>ggplot</code> weiter - beides ist
+äquivalent:</p>
+<pre><code>MarvelDC %&gt;%
+ggplot()</code></pre>
+<p>Dieser Code funktioniert allerdings noch nicht, da wir nur die
+<span style="color:#8fd744">Daten</span> haben, aber noch keine
+<span style="color:#35b779">MAPPINGS</span> und auch keine
+<span style="color:#21918d">GEOM_FUNCTION</span> - die beiden anderen
+erforderlichen Angaben.</p>
+</div>
+<div id="ästhetische-mapping" class="section level2">
+<h2><span class="header-section-number">6.4</span> Ästhetische Mapping</h2>
+<p>Das <span style="color:#35b779">ästhetische Mapping</span> (<code>aesthetics</code>) kann
+entweder direkt in <code>ggplot</code> definiert werden, dann gilt es für <strong>alle</strong>
+weiteren Schritte, oder es kann in der jeweiligen <span style="color:#21918d">graphischen
+Funktion</span> definiert werden, dann gilt es nur für
+diese <code>geom_*</code> Funktion.</p>
+<center>
+<div style="float: center; width: 80%;">
+<table>
+<thead>
+<tr class="header">
+<th><code>aesthetics</code></th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+<td>Welche Variable soll auf die x-Achse?</td>
+</tr>
+<tr class="even">
+<td>y</td>
+<td>Welche Variable soll auf die y-Achse?</td>
+</tr>
+<tr class="odd">
+<td>shape</td>
+<td>Nach den Werten welcher Variable soll die Form vergeben werden?</td>
+</tr>
+<tr class="even">
+<td>color</td>
+<td>Nach den Werten welcher Variable soll die Farbe vergeben werden?</td>
+</tr>
+<tr class="odd">
+<td>fill</td>
+<td>Nach den Werten welcher Variable soll die Füllfarbe vergeben werden?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</center>
+<p><br> <code>aesthetics</code> in <code>ggplot()</code> werden an alle <code>geom_*</code> weitergegeben.
+<code>aesthetics</code> in <code>geom_*</code> sind spezifisch für diese <span style="color:#21918d">graphische
+Funktion</span> (und können geerbte Werte
+überschreiben).</p>
+<p><br> Hier ein Beispiel, das sich wie folgend liest: “Nehme MarvelDC als
+<span style="color:#8fd744">Daten</span>. Die <span style="color:#35b779">x-Achse</span>
+soll <code>Publisher</code> sein und die <span style="color:#35b779">y-Achse</span> <code>Combat</code>.
+Stelle das in einem <span style="color:#21918d">Boxplot</span> dar.”</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="graphiken-mit-ggplot2.html#cb237-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC, <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Combat)) <span class="op">+</span></span>
+<span id="cb237-2"><a href="graphiken-mit-ggplot2.html#cb237-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()    </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-99-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>Um eine <span style="color:#35b779">farbliche</span> Trennung nach Geschlecht zu
+haben, erweitern wir das Beispiel: “Nehme MarvelDC als
+<span style="color:#8fd744">Daten</span>. Die <span style="color:#35b779">x-Achse</span>
+soll <code>Publisher</code> sein und die <span style="color:#35b779">y-Achse</span> <code>Combat</code>.
+Stelle das in einem <span style="color:#21918d">Boxplot</span> dar. Wähle
+unterschiedliche <span style="color:#35b779">Farben</span> für <code>Gender</code> und fülle
+die Plots damit.”</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="graphiken-mit-ggplot2.html#cb238-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC, <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Combat)) <span class="op">+</span></span>
+<span id="cb238-2"><a href="graphiken-mit-ggplot2.html#cb238-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Gender))    </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-100-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="graphischen-funktionen" class="section level2">
+<h2><span class="header-section-number">6.5</span> Graphischen Funktionen</h2>
+<p>Mit den <span style="color:#21918d">graphischen Funktionen</span> (<code>geom_*</code>) gibt
+man an, welche Art der graphischen Darstellung man will. Beispiele sind:</p>
+<center>
+<div style="float: center; width: 80%;">
+<table>
+<thead>
+<tr class="header">
+<th><code>aesthetics</code></th>
+<th>Anzahl Variablen:</th>
+<th>x ist dabei:</th>
+<th>y ist dabei:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>geom_bar()</code></td>
+<td>1</td>
+<td>diskret</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><code>geom_histogram()</code></td>
+<td>1</td>
+<td>kontinuierlich</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><code>geom_qq()</code></td>
+<td>1</td>
+<td>kontinuierlich</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><code>geom_boxplot()</code></td>
+<td>2</td>
+<td>diskret</td>
+<td>kontinuierlich</td>
+</tr>
+<tr class="odd">
+<td><code>geom_violin()</code></td>
+<td>2</td>
+<td>diskret</td>
+<td>kontinuierlich</td>
+</tr>
+<tr class="even">
+<td><code>geom_point()</code></td>
+<td>2</td>
+<td>kontinuierlich</td>
+<td>kontinuierlich</td>
+</tr>
+<tr class="odd">
+<td><code>geom_smooth()</code></td>
+<td>2</td>
+<td>kontinuierlich</td>
+<td>kontinuierlich</td>
+</tr>
+</tbody>
+</table>
+</div>
+</center>
+<div class="footnotes">
+<p>source: <a href="https://www.rstudio.com/resources/cheatsheets/">ggplot2 Cheat
+Sheet</a></p>
+</div>
+<div id="säulen--und-balkendiagramm" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> Säulen- und Balkendiagramm</h3>
+<p><code>geom_bar</code> ist eine <span style="color:#21918d">graphische Funktion</span> um
+Häufigkeiten einer diskreten Variable in einem
+<span style="color:#21918d">Säulen-</span> oder
+<span style="color:#21918d">Balkendiagramm</span> zu visualisieren.</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="graphiken-mit-ggplot2.html#cb239-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC,        <span class="co"># Nehme Daten MarcelDC</span></span>
+<span id="cb239-2"><a href="graphiken-mit-ggplot2.html#cb239-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher)) <span class="op">+</span><span class="st">   </span><span class="co"># auf der x-Achse soll Publisher sein</span></span>
+<span id="cb239-3"><a href="graphiken-mit-ggplot2.html#cb239-3"></a><span class="st">  </span><span class="kw">geom_bar</span>()                   <span class="co"># stelle in einem Barplot dar</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-101-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>Marvel hat doppelt soviele Superhelden wie DC! Wollen wir wissen, wie
+viele es genau sind, können wir mithilfe eines
+<span style="color:#21918d">Graphik-Labels</span> die Zählung hinzufügen:</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="graphiken-mit-ggplot2.html#cb240-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC, </span>
+<span id="cb240-2"><a href="graphiken-mit-ggplot2.html#cb240-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher)) <span class="op">+</span></span>
+<span id="cb240-3"><a href="graphiken-mit-ggplot2.html#cb240-3"></a><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></span>
+<span id="cb240-4"><a href="graphiken-mit-ggplot2.html#cb240-4"></a><span class="st">  </span><span class="kw">geom_label</span>(<span class="dt">stat =</span> <span class="st">&quot;count&quot;</span>,  <span class="co"># vergebe Label mithilfe der Statistik &quot;zählen&quot;</span></span>
+<span id="cb240-5"><a href="graphiken-mit-ggplot2.html#cb240-5"></a>             <span class="kw">aes</span>(<span class="dt">label =</span> ..count..)) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-102-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>Indem wir eine <span style="color:#35b779">Farbkodierung</span> vergeben, können
+wir in diesem Säulendiagramm das Geschlechterverhältnis beurteilen. Da
+hier mit <span style="color:#35b779">Farben gefüllt</span> wird, ist das Argument
+<code>fill</code>.</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="graphiken-mit-ggplot2.html#cb241-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC,      </span>
+<span id="cb241-2"><a href="graphiken-mit-ggplot2.html#cb241-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher,    </span>
+<span id="cb241-3"><a href="graphiken-mit-ggplot2.html#cb241-3"></a>           <span class="dt">fill =</span> Gender)) <span class="op">+</span><span class="st">    </span><span class="co"># vergebe Füllfarbe nach Geschlecht</span></span>
+<span id="cb241-4"><a href="graphiken-mit-ggplot2.html#cb241-4"></a><span class="st">  </span><span class="kw">geom_bar</span>()                 </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>In der Graphik oben haben wir den default-Parameter für
+<span style="color:#31688e">Position</span> verwendet, weil wir nichts anderes
+definiert haben. Das ist <code>stack</code>. Bei <code>stack</code>werden die Teile
+übereinander “gestapelt” dargestellt. Da weit mehr Charaktere aus Marvel
+stammen, kann die <span style="color:#31688e">Position</span> <code>fill</code> dafür sorgen,
+dass wir das Geschlechterverhältnis besser beurteilen können. <code>fill</code>
+erstellt Balken gleicher Länge, sodass eine Beurteilung der relativen
+Anteile leichter fällt. Erst nehmen wir allerdings die <code>NA</code> Fälle
+heraus, damit wir bei Marvel und DC je nur zwei Kategorien haben.</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="graphiken-mit-ggplot2.html#cb242-1"></a>MarvelDC <span class="op">%&gt;%</span><span class="st">                  </span></span>
+<span id="cb242-2"><a href="graphiken-mit-ggplot2.html#cb242-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Gender)) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># Schließe Gender=NA aus</span></span>
+<span id="cb242-3"><a href="graphiken-mit-ggplot2.html#cb242-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Publisher,    </span>
+<span id="cb242-4"><a href="graphiken-mit-ggplot2.html#cb242-4"></a>             <span class="dt">fill =</span> Gender)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb242-5"><a href="graphiken-mit-ggplot2.html#cb242-5"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>)   <span class="co"># mache alle Balken gleich lang</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-104-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Die <span style="color:#35b779">x</span> oder <span style="color:#35b779">y</span> Angabe
+entscheidet darüber, ob ein <span style="color:#21918d">Säulen-</span> oder
+<span style="color:#21918d">Balkendiagramm</span> entsteht. Oben haben wir die
+Daten als <code>x</code> an die Funktion gegeben und ein
+<span style="color:#21918d">Säulendiagramm</span> erhalten. Geben wir die Daten
+als <code>y</code> weiter, erhalten wir ein
+<span style="color:#21918d">Balkendiagramm</span>:</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="graphiken-mit-ggplot2.html#cb243-1"></a>MarvelDC <span class="op">%&gt;%</span><span class="st">               </span></span>
+<span id="cb243-2"><a href="graphiken-mit-ggplot2.html#cb243-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Gender)) <span class="op">%&gt;%</span></span>
+<span id="cb243-3"><a href="graphiken-mit-ggplot2.html#cb243-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Publisher,     <span class="co"># auf der y-Achse soll Publisher sein </span></span>
+<span id="cb243-4"><a href="graphiken-mit-ggplot2.html#cb243-4"></a>             <span class="dt">fill =</span> Gender)) <span class="op">+</span></span>
+<span id="cb243-5"><a href="graphiken-mit-ggplot2.html#cb243-5"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-105-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Dieselbe Information können wir auch in Kreisform darstellen, in
+sogenannten <span style="color:#31688e">Polarkoordinaten</span>:</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="graphiken-mit-ggplot2.html#cb244-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb244-2"><a href="graphiken-mit-ggplot2.html#cb244-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Gender)) <span class="op">%&gt;%</span></span>
+<span id="cb244-3"><a href="graphiken-mit-ggplot2.html#cb244-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Publisher, </span>
+<span id="cb244-4"><a href="graphiken-mit-ggplot2.html#cb244-4"></a>             <span class="dt">fill =</span> Gender)) <span class="op">+</span></span>
+<span id="cb244-5"><a href="graphiken-mit-ggplot2.html#cb244-5"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="op">+</span></span>
+<span id="cb244-6"><a href="graphiken-mit-ggplot2.html#cb244-6"></a><span class="st">  </span><span class="kw">coord_polar</span>()                 <span class="co"># stelle das in Polarkoordinaten dar</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-106-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Hier sieht man, dass bei DC Comics weniger als ein Viertel aller Helden
+weiblich sind, während es bei Marvel etwas mehr als ein Viertel sind.</p>
+</div>
+<div id="histogramm" class="section level3">
+<h3><span class="header-section-number">6.5.2</span> Histogramm</h3>
+<p><code>geom_histogram</code> ist eine <span style="color:#21918d">graphische Funktion</span>
+um Häufigkeiten einer kontinuierlichen Variable zu visualisieren.
+Beispielsweise können wir schauen, wie schnell die Superhelden unterwegs
+sind:</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="graphiken-mit-ggplot2.html#cb245-1"></a><span class="kw">ggplot</span>(MarvelDC,                </span>
+<span id="cb245-2"><a href="graphiken-mit-ggplot2.html#cb245-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Speed)) <span class="op">+</span><span class="st">        </span><span class="co"># auf der x-Achse soll Speed sein  </span></span>
+<span id="cb245-3"><a href="graphiken-mit-ggplot2.html#cb245-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(               <span class="co"># stelle das in einem Histogramm dar</span></span>
+<span id="cb245-4"><a href="graphiken-mit-ggplot2.html#cb245-4"></a>    <span class="dt">bins =</span> <span class="dv">10</span>)                  <span class="co"># Anzahl der Kategorien soll 10 sein</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-107-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Unterscheidet sich die Geschwindigkeit der Helden zwischen Marvel und
+DC?</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="graphiken-mit-ggplot2.html#cb246-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
+<span id="cb246-2"><a href="graphiken-mit-ggplot2.html#cb246-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Speed, </span>
+<span id="cb246-3"><a href="graphiken-mit-ggplot2.html#cb246-3"></a>           <span class="dt">fill =</span> Publisher)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb246-4"><a href="graphiken-mit-ggplot2.html#cb246-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>,             </span>
+<span id="cb246-5"><a href="graphiken-mit-ggplot2.html#cb246-5"></a>                 <span class="dt">alpha =</span> <span class="fl">0.7</span>,         <span class="co"># &quot;Durchsichtigkeit&quot; bei 70%</span></span>
+<span id="cb246-6"><a href="graphiken-mit-ggplot2.html#cb246-6"></a>                 <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)  <span class="co"># Position Balken: nebeneinander</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-108-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Offensichtlich nicht, die Verteilungen sind sich relativ ähnlich.</p>
+<p>Bei <code>Speed</code> fällt uns allerdings direkt auf, dass es nicht sehr
+normalverteilt aussieht. Ein <span style="color:#21918d">Histogramm</span> lässt
+hier einen ersten Eindruck zu, aber eine visuelle Prüfung der
+Normalverteilung sollten wir lieber über einen
+<span style="color:#21918d">qq-Plot</span> vornehmen.</p>
+</div>
+<div id="qq-plot" class="section level3">
+<h3><span class="header-section-number">6.5.3</span> QQ-Plot</h3>
+<p>Also erstellen wir einen <span style="color:#21918d">qq-Plot</span> von <code>Speed</code>,
+sowohl mit Punkten als auch mit Vergleichslinie:</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="graphiken-mit-ggplot2.html#cb247-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
+<span id="cb247-2"><a href="graphiken-mit-ggplot2.html#cb247-2"></a>       <span class="kw">aes</span>(<span class="dt">sample =</span> Speed)) <span class="op">+</span><span class="st">  </span><span class="co"># erstelle Quantile von: Speed</span></span>
+<span id="cb247-3"><a href="graphiken-mit-ggplot2.html#cb247-3"></a><span class="st">  </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st">                  </span><span class="co"># erstelle QQ-Plot Punkte</span></span>
+<span id="cb247-4"><a href="graphiken-mit-ggplot2.html#cb247-4"></a><span class="st">  </span><span class="kw">geom_qq_line</span>()               <span class="co"># erstelle QQ-Plot Vergleichslinie</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-109-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Bei <code>Speed</code> zeigen sich deutliche Abweichungen von einer
+Normalverteilung. Diese Variable ist nicht normalverteilt. Das gilt auch
+für alle anderen Eigenschaften (hier nicht gezeigt). Nur der
+Summenscore, <code>Total</code>, zeigt im <span style="color:#21918d">qq-Plot</span> eine
+Verteilung nahe der Normalverteilung:</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="graphiken-mit-ggplot2.html#cb248-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
+<span id="cb248-2"><a href="graphiken-mit-ggplot2.html#cb248-2"></a>       <span class="kw">aes</span>(<span class="dt">sample =</span> Total)) <span class="op">+</span><span class="st"> </span><span class="co"># erstelle Quantile von: Total</span></span>
+<span id="cb248-3"><a href="graphiken-mit-ggplot2.html#cb248-3"></a><span class="st">  </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb248-4"><a href="graphiken-mit-ggplot2.html#cb248-4"></a><span class="st">  </span><span class="kw">geom_qq_line</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-110-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="boxplot" class="section level3">
+<h3><span class="header-section-number">6.5.4</span> Boxplot</h3>
+<p><code>geom_boxplot</code>ist eine <span style="color:#21918d">graphische Funktion</span> um
+kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung
+darzustellen. Die Frage, die wir beantworten wollen lautet: Hat Marvel
+oder DC die stärkeren Superhelden? - Dafür betrachten wir den <code>Total</code>
+Wert jedes Helden.</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="graphiken-mit-ggplot2.html#cb249-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
+<span id="cb249-2"><a href="graphiken-mit-ggplot2.html#cb249-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Total)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb249-3"><a href="graphiken-mit-ggplot2.html#cb249-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-111-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>Auf den ersten Blick mithilfe eines <span style="color:#21918d">Boxplots</span>
+gibt es keine Unterschiede zwischen Marvel Comics und DC Comics.</p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="graphiken-mit-ggplot2.html#cb250-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
+<span id="cb250-2"><a href="graphiken-mit-ggplot2.html#cb250-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Total, </span>
+<span id="cb250-3"><a href="graphiken-mit-ggplot2.html#cb250-3"></a>           <span class="dt">fill=</span> Gender)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb250-4"><a href="graphiken-mit-ggplot2.html#cb250-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-112-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Betrachten wir <code>Total</code> aufgespalten nach Geschlecht, so scheint Marvel
+etwas stärkere Männer und schwächere Frauen zu haben - allerdings sind
+die Unterschiede so gering, dass es sich wahrscheinlich um zufällige
+Schwankungen und nicht um belastbare Effekte handelt! Wir gehen also
+davon aus, dass keins der Universen dem anderen überlegen ist.</p>
+</div>
+<div id="violinen-plot" class="section level3">
+<h3><span class="header-section-number">6.5.5</span> Violinen-Plot</h3>
+<p><code>geom_violin</code> ist ebenfalls eine <span style="color:#21918d">graphische
+Funktion</span> um kontinuierliche Verteilungen
+getrennt nach einer diskreten Gruppierung darzustellen - und lässt etwas
+mehr Aufschluss auf die Daten zu (zB wie die grobe Verteilung der Werte
+ist).</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="graphiken-mit-ggplot2.html#cb251-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
+<span id="cb251-2"><a href="graphiken-mit-ggplot2.html#cb251-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Total, </span>
+<span id="cb251-3"><a href="graphiken-mit-ggplot2.html#cb251-3"></a>           <span class="dt">fill=</span> Gender)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb251-4"><a href="graphiken-mit-ggplot2.html#cb251-4"></a><span class="st">  </span><span class="kw">geom_violin</span>(            <span class="co"># stelle in einem Violinenplot dar</span></span>
+<span id="cb251-5"><a href="graphiken-mit-ggplot2.html#cb251-5"></a>    <span class="dt">trim=</span><span class="ot">FALSE</span>)           <span class="co"># schneide Spitzen nicht ab</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-113-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="beeswarm-plot-mit-dem-paket-ggbeeswarm" class="section level3">
+<h3><span class="header-section-number">6.5.6</span> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code></h3>
+<p>Das package <code>ggbeeswarm</code> bietet eine ähnliche Darstellung durch die
+<span style="color:#21918d">graphische Funktion</span> <code>geom_quasirandom</code>:</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="graphiken-mit-ggplot2.html#cb252-1"></a><span class="kw">library</span>(ggbeeswarm)</span>
+<span id="cb252-2"><a href="graphiken-mit-ggplot2.html#cb252-2"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb252-3"><a href="graphiken-mit-ggplot2.html#cb252-3"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Gender)) <span class="op">%&gt;%</span></span>
+<span id="cb252-4"><a href="graphiken-mit-ggplot2.html#cb252-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Total, <span class="dt">x =</span> Publisher,</span>
+<span id="cb252-5"><a href="graphiken-mit-ggplot2.html#cb252-5"></a>             <span class="dt">colour =</span> Gender)) <span class="op">+</span></span>
+<span id="cb252-6"><a href="graphiken-mit-ggplot2.html#cb252-6"></a><span class="st">  </span></span>
+<span id="cb252-7"><a href="graphiken-mit-ggplot2.html#cb252-7"></a><span class="st">  </span><span class="kw">geom_quasirandom</span>(<span class="dt">dodge.width =</span> <span class="dv">1</span>) <span class="co"># stelle das als beeswarm dar</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-114-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Weder <span style="color:#21918d">Violinen-Plot</span> noch
+<span style="color:#21918d">Beeswarm-Plot</span> deuten darauf hin, dass Marvels
+Superhelden stärker und cooler sind, als die von DC. Wir müssen also
+weiterhin bei der Annahme bleiben, dass beide Universen gleich gut sind.</p>
+</div>
+<div id="scatterplot" class="section level3">
+<h3><span class="header-section-number">6.5.7</span> Scatterplot</h3>
+<p>Ein <span style="color:#21918d">Scatterplot</span> mit <code>geom_point</code> stellt die
+<span style="color:#8fd744">Daten</span> als Punkte im Raum zweier
+kontinuierlicher Variablen dar. Beispielsweise können wir <code>Power</code> und
+<code>Durability</code> aller Helden gegeneinander darstellen:</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="graphiken-mit-ggplot2.html#cb253-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC, </span>
+<span id="cb253-2"><a href="graphiken-mit-ggplot2.html#cb253-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Power, <span class="dt">y =</span> Durability)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb253-3"><a href="graphiken-mit-ggplot2.html#cb253-3"></a><span class="st">  </span><span class="kw">geom_point</span>()                           <span class="co"># stelle als Scatterplot dar</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-115-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Auch diese Graphik können wir einfach nach Publisher
+<span style="color:#35b779">farblich</span> kodieren. Hier sollen die Punkte
+<span style="color:#35b779">Farbe</span> haben, aber es wird nichts mit Farbe
+gefüllt, deswegen ist das Argument hier <code>color</code>:</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="graphiken-mit-ggplot2.html#cb254-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC, </span>
+<span id="cb254-2"><a href="graphiken-mit-ggplot2.html#cb254-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Power, <span class="dt">y =</span> Durability, </span>
+<span id="cb254-3"><a href="graphiken-mit-ggplot2.html#cb254-3"></a>           <span class="dt">color =</span> Publisher)) <span class="op">+</span><span class="st">      </span><span class="co"># getrennte Farben für Publisher</span></span>
+<span id="cb254-4"><a href="graphiken-mit-ggplot2.html#cb254-4"></a><span class="st">  </span><span class="kw">geom_point</span>()    </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-116-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Die Daten beider <code>Publisher</code>sind weit verteilt, es ist also keineswegs
+so, dass DCs Superhelden weniger <code>Power</code>haben, als die von Marvel.</p>
+<p>Wollen wir zusätzlich nach Geschlecht unterscheiden, so geht das
+beispielsweise über die <span style="color:#35b779">Form</span> der Punkte
+mithilfe des Arguments <code>shape</code>:</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="graphiken-mit-ggplot2.html#cb255-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC, </span>
+<span id="cb255-2"><a href="graphiken-mit-ggplot2.html#cb255-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Power, <span class="dt">y =</span> Durability, </span>
+<span id="cb255-3"><a href="graphiken-mit-ggplot2.html#cb255-3"></a>           <span class="dt">color =</span> Publisher, </span>
+<span id="cb255-4"><a href="graphiken-mit-ggplot2.html#cb255-4"></a>           <span class="dt">shape =</span> Gender)) <span class="op">+</span><span class="st">    </span><span class="co"># getrennte Formen für Gender</span></span>
+<span id="cb255-5"><a href="graphiken-mit-ggplot2.html#cb255-5"></a><span class="st">  </span><span class="kw">geom_point</span>()    </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-117-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="linearer-fit" class="section level3">
+<h3><span class="header-section-number">6.5.8</span> (Linearer) Fit</h3>
+<p>Die <code>Power</code> und <code>Durability</code>Daten können wir mit einer Funktion fitten.
+Damit können wir visuell prüfen, ob es bei Marvel und DC einen anderen
+Zusammenhang zwischen <code>Power</code>und <code>Durability</code>gibt. Dafür verwendet man
+die <span style="color:#21918d">graphischen Funktion</span> <code>geom_smooth</code>. Um ein
+<strong>lineares</strong> Modell zu erhalten, müssen wir das Argument <code>method = "lm"</code>
+für “linear model” setzen. Um y durch x vorherzusagen, brauchen wir die
+Formel <code>y ~ x</code>:</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="graphiken-mit-ggplot2.html#cb256-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC, </span>
+<span id="cb256-2"><a href="graphiken-mit-ggplot2.html#cb256-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Power, <span class="dt">y =</span> Durability, </span>
+<span id="cb256-3"><a href="graphiken-mit-ggplot2.html#cb256-3"></a>           <span class="dt">color =</span> Publisher, </span>
+<span id="cb256-4"><a href="graphiken-mit-ggplot2.html#cb256-4"></a>           <span class="dt">shape =</span> Gender)) <span class="op">+</span></span>
+<span id="cb256-5"><a href="graphiken-mit-ggplot2.html#cb256-5"></a><span class="st">  </span><span class="kw">geom_point</span>()    <span class="op">+</span><span class="st"> </span></span>
+<span id="cb256-6"><a href="graphiken-mit-ggplot2.html#cb256-6"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>,      <span class="co"># lineares Modell</span></span>
+<span id="cb256-7"><a href="graphiken-mit-ggplot2.html#cb256-7"></a>              <span class="dt">formula =</span> <span class="st">&#39;y ~ x&#39;</span>,  <span class="co"># y sagen wir durch x vorher</span></span>
+<span id="cb256-8"><a href="graphiken-mit-ggplot2.html#cb256-8"></a>              <span class="dt">se =</span> <span class="ot">FALSE</span>)         <span class="co"># keine Fehlerbalken</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-118-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Jetzt haben wir aber 5 Fits! Je für Geschlecht und Publisher - nicht nur
+für die beiden Publisher wie wir wollten!</p>
+<p>Das liegt daran, dass wir sowohl <span style="color:#35b779">Farbe</span> als auch
+<span style="color:#35b779">Form</span> innerhalb von <code>ggplot</code>bei den allgemeinen
+<code>aesthetics</code> definiert haben. Um nur einen linearen Fit für jeden
+Publisher zu erhalten, nicht aber nach Geschlecht aufgespalten, müssen
+wir die <span style="color:#35b779">Form</span>-Kennung für Geschlecht nur an
+<code>geom_point</code> geben. Auf diese Weise kann sie nicht mehr an <code>geom_smooth</code>
+weitergegeben werden. Die <span style="color:#35b779">Farb</span>-Kennung für
+Publisher geben wir nur an die Linien, also nur an <code>geom_smooth</code>. Mit
+<code>se=TRUE</code> erstellen wir zusätzlich Fehlerintervalle um die linearen
+Fit-Funktionen herum. So erhalten wir einen linearen Fit der <code>Power</code> und
+<code>Durability</code>der Superhelden farblich getrennt nach Marvel und DC:</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="graphiken-mit-ggplot2.html#cb257-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC, </span>
+<span id="cb257-2"><a href="graphiken-mit-ggplot2.html#cb257-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Power, <span class="dt">y =</span> Durability)) <span class="op">+</span></span>
+<span id="cb257-3"><a href="graphiken-mit-ggplot2.html#cb257-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> Gender)) <span class="op">+</span><span class="st">  </span><span class="co"># Trennung gilt nur für Punkte</span></span>
+<span id="cb257-4"><a href="graphiken-mit-ggplot2.html#cb257-4"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Publisher),</span>
+<span id="cb257-5"><a href="graphiken-mit-ggplot2.html#cb257-5"></a>              <span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>,      </span>
+<span id="cb257-6"><a href="graphiken-mit-ggplot2.html#cb257-6"></a>              <span class="dt">formula =</span> <span class="st">&#39;y ~ x&#39;</span>,  </span>
+<span id="cb257-7"><a href="graphiken-mit-ggplot2.html#cb257-7"></a>              <span class="dt">se =</span> <span class="ot">TRUE</span>)         </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-119-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Auch hier zeigen sich weiterhin keine Unterschiede zwischen den
+Publishern. Wir müssen wohl endgültig annehmen, dass Mavel nicht das
+alleinige Recht auf coole Superhelden hat.</p>
+</div>
+<div id="linienplot" class="section level3">
+<h3><span class="header-section-number">6.5.9</span> Linienplot</h3>
+<p>Um <span style="color:#21918d">Linienplots</span> zu veranschaulichen, wählen wir
+eine übersichtliche Menge an Datenpunkten aus, zB einige der X-Men. Die
+Datenpunkte trennen wir <span style="color:#35b779">farblich</span> nach
+Geschlecht und verbinden alle Punkte durch eine
+<span style="color:#21918d">Linie</span>.</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="graphiken-mit-ggplot2.html#cb258-1"></a><span class="co"># Erstelle Vektor der X-Men Charaktere: </span></span>
+<span id="cb258-2"><a href="graphiken-mit-ggplot2.html#cb258-2"></a>XMen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Wolverine&quot;</span>, <span class="st">&quot;Jean Grey&quot;</span>, <span class="st">&quot;Storm&quot;</span>, <span class="st">&quot;Beast&quot;</span>, <span class="st">&quot;Cyclops&quot;</span>, <span class="st">&quot;Professor X&quot;</span>, <span class="st">&quot;Raven&quot;</span>)</span>
+<span id="cb258-3"><a href="graphiken-mit-ggplot2.html#cb258-3"></a></span>
+<span id="cb258-4"><a href="graphiken-mit-ggplot2.html#cb258-4"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb258-5"><a href="graphiken-mit-ggplot2.html#cb258-5"></a><span class="st">  </span><span class="kw">filter</span>(Name <span class="op">%in%</span><span class="st"> </span>XMen) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># Verwende nur X-Men</span></span>
+<span id="cb258-6"><a href="graphiken-mit-ggplot2.html#cb258-6"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Power,            </span>
+<span id="cb258-7"><a href="graphiken-mit-ggplot2.html#cb258-7"></a>             <span class="dt">y =</span> Durability)) <span class="op">+</span></span>
+<span id="cb258-8"><a href="graphiken-mit-ggplot2.html#cb258-8"></a><span class="st">  </span><span class="kw">geom_point</span>(                   <span class="co"># stelle in Scatterplot dar</span></span>
+<span id="cb258-9"><a href="graphiken-mit-ggplot2.html#cb258-9"></a>    <span class="kw">aes</span>(<span class="dt">color =</span> Gender),        <span class="co"># vergebe Farbe der Punkte nach Gender</span></span>
+<span id="cb258-10"><a href="graphiken-mit-ggplot2.html#cb258-10"></a>             <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">        </span><span class="co"># Punkte sollen Größe 3 haben</span></span>
+<span id="cb258-11"><a href="graphiken-mit-ggplot2.html#cb258-11"></a><span class="st">  </span><span class="kw">geom_line</span>()                   <span class="co"># verbinde Punkte mit Linie</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-120-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Da wir die <span style="color:#35b779">Farbe</span> innerhalb von <code>geom_point</code>
+definiert haben, haben wir in den allgemeinen <code>aesthetics</code>keine
+Gruppierung enthalten. Deswegen verbindet die
+<span style="color:#21918d">Linie</span> einfach alle Datenpunkte. Informativer
+ist es natürlich, wenn wir getrennte Linien für die Geschlechter haben,
+das erreichen wir, indem wir die <span style="color:#35b779">Farbdefinition</span>
+in den allgemeinen <code>aesthetics</code>durchführen und nicht innerhalb von
+<code>geom_point</code>:</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="graphiken-mit-ggplot2.html#cb259-1"></a>XMen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Wolverine&quot;</span>, <span class="st">&quot;Jean Grey&quot;</span>, <span class="st">&quot;Storm&quot;</span>, <span class="st">&quot;Beast&quot;</span>, <span class="st">&quot;Cyclops&quot;</span>, <span class="st">&quot;Professor X&quot;</span>, <span class="st">&quot;Raven&quot;</span>)</span>
+<span id="cb259-2"><a href="graphiken-mit-ggplot2.html#cb259-2"></a></span>
+<span id="cb259-3"><a href="graphiken-mit-ggplot2.html#cb259-3"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb259-4"><a href="graphiken-mit-ggplot2.html#cb259-4"></a><span class="st">  </span><span class="kw">filter</span>(Name <span class="op">%in%</span><span class="st"> </span>XMen) <span class="op">%&gt;%</span></span>
+<span id="cb259-5"><a href="graphiken-mit-ggplot2.html#cb259-5"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Power, </span>
+<span id="cb259-6"><a href="graphiken-mit-ggplot2.html#cb259-6"></a>             <span class="dt">y =</span> Durability, </span>
+<span id="cb259-7"><a href="graphiken-mit-ggplot2.html#cb259-7"></a>             <span class="dt">color =</span> Gender)) <span class="op">+</span><span class="st">     </span><span class="co"># Farbe nach Gender (Punkte &amp; Linie)</span></span>
+<span id="cb259-8"><a href="graphiken-mit-ggplot2.html#cb259-8"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">          </span></span>
+<span id="cb259-9"><a href="graphiken-mit-ggplot2.html#cb259-9"></a><span class="st">                 </span></span>
+<span id="cb259-10"><a href="graphiken-mit-ggplot2.html#cb259-10"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">linetype =</span> Gender)) <span class="co"># zusätzlich unterschiedliche Linen nach Gender</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-121-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Wollen wir ablesen, welcher Charakter welche Werte aufweist, können wir
+mit <code>geom_label</code><span style="color:#21918d">Textlabels</span> zu unserem Plot
+hinzufügen. Außerdem <span style="color:#31688e">skalieren</span> wir die Achsen
+so, dass wir den absoluten Null Punkt sehen und beide Achsen symmetrisch
+laufen.</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="graphiken-mit-ggplot2.html#cb260-1"></a>XMen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Wolverine&quot;</span>, <span class="st">&quot;Jean Grey&quot;</span>, <span class="st">&quot;Storm&quot;</span>, <span class="st">&quot;Beast&quot;</span>, <span class="st">&quot;Cyclops&quot;</span>, <span class="st">&quot;Professor X&quot;</span>, <span class="st">&quot;Raven&quot;</span>)</span>
+<span id="cb260-2"><a href="graphiken-mit-ggplot2.html#cb260-2"></a></span>
+<span id="cb260-3"><a href="graphiken-mit-ggplot2.html#cb260-3"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb260-4"><a href="graphiken-mit-ggplot2.html#cb260-4"></a><span class="st">  </span><span class="kw">filter</span>(Name <span class="op">%in%</span><span class="st"> </span>XMen) <span class="op">%&gt;%</span></span>
+<span id="cb260-5"><a href="graphiken-mit-ggplot2.html#cb260-5"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Power, </span>
+<span id="cb260-6"><a href="graphiken-mit-ggplot2.html#cb260-6"></a>             <span class="dt">y =</span> Durability,</span>
+<span id="cb260-7"><a href="graphiken-mit-ggplot2.html#cb260-7"></a>             <span class="dt">color =</span> Gender)) <span class="op">+</span></span>
+<span id="cb260-8"><a href="graphiken-mit-ggplot2.html#cb260-8"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb260-9"><a href="graphiken-mit-ggplot2.html#cb260-9"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">linetype =</span> Gender)) <span class="op">+</span></span>
+<span id="cb260-10"><a href="graphiken-mit-ggplot2.html#cb260-10"></a><span class="st">  </span><span class="kw">geom_label</span>(<span class="kw">aes</span>(<span class="dt">label =</span> Name,      <span class="co"># Füge Label hinzu mit: &quot;Name&quot;</span></span>
+<span id="cb260-11"><a href="graphiken-mit-ggplot2.html#cb260-11"></a>                 <span class="dt">color =</span> Gender)) <span class="op">+</span><span class="st"> </span><span class="co"># färbe Labels nach Geschlecht</span></span>
+<span id="cb260-12"><a href="graphiken-mit-ggplot2.html#cb260-12"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">110</span>))<span class="op">+</span><span class="st">                  </span><span class="co"># x-Achse soll laufen von 0-110</span></span>
+<span id="cb260-13"><a href="graphiken-mit-ggplot2.html#cb260-13"></a><span class="st">  </span><span class="kw">ylim</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">110</span>))                   <span class="co"># y-Achse soll laufen von 0-110</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-122-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="sonstige-funktionalität" class="section level2">
+<h2><span class="header-section-number">6.6</span> Sonstige Funktionalität</h2>
+<div id="labels" class="section level3">
+<h3><span class="header-section-number">6.6.1</span> Labels</h3>
+<p><span style="color:#31688e">Label</span> sind die wahrscheilich wichtigste
+zusätzliche Funktionalität, die fast immer benötigt wird um einen Plot
+allgemein verständlich zu machen. Mithilfe von <code>labs()</code> können Titel,
+Untertitel, Achsenbeschriftungen und eine Caption zu einem Plot
+hinzugefügt werden. zB für den Plot der X-Men:</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="graphiken-mit-ggplot2.html#cb261-1"></a>XMen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Wolverine&quot;</span>, <span class="st">&quot;Jean Grey&quot;</span>, <span class="st">&quot;Storm&quot;</span>, <span class="st">&quot;Beast&quot;</span>, <span class="st">&quot;Cyclops&quot;</span>, <span class="st">&quot;Professor X&quot;</span>, <span class="st">&quot;Raven&quot;</span>)</span>
+<span id="cb261-2"><a href="graphiken-mit-ggplot2.html#cb261-2"></a></span>
+<span id="cb261-3"><a href="graphiken-mit-ggplot2.html#cb261-3"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb261-4"><a href="graphiken-mit-ggplot2.html#cb261-4"></a><span class="st">  </span><span class="kw">filter</span>(Name <span class="op">%in%</span><span class="st"> </span>XMen) <span class="op">%&gt;%</span></span>
+<span id="cb261-5"><a href="graphiken-mit-ggplot2.html#cb261-5"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Power, </span>
+<span id="cb261-6"><a href="graphiken-mit-ggplot2.html#cb261-6"></a>             <span class="dt">y =</span> Durability, </span>
+<span id="cb261-7"><a href="graphiken-mit-ggplot2.html#cb261-7"></a>             <span class="dt">color =</span> Gender)) <span class="op">+</span></span>
+<span id="cb261-8"><a href="graphiken-mit-ggplot2.html#cb261-8"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb261-9"><a href="graphiken-mit-ggplot2.html#cb261-9"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">linetype =</span> Gender)) <span class="op">+</span></span>
+<span id="cb261-10"><a href="graphiken-mit-ggplot2.html#cb261-10"></a><span class="st">  </span><span class="kw">geom_label</span>(<span class="kw">aes</span>(<span class="dt">label =</span> Name, </span>
+<span id="cb261-11"><a href="graphiken-mit-ggplot2.html#cb261-11"></a>                 <span class="dt">color =</span> Gender)) <span class="op">+</span></span>
+<span id="cb261-12"><a href="graphiken-mit-ggplot2.html#cb261-12"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">110</span>)) <span class="op">+</span></span>
+<span id="cb261-13"><a href="graphiken-mit-ggplot2.html#cb261-13"></a><span class="st">  </span><span class="kw">ylim</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">110</span>)) <span class="op">+</span></span>
+<span id="cb261-14"><a href="graphiken-mit-ggplot2.html#cb261-14"></a></span>
+<span id="cb261-15"><a href="graphiken-mit-ggplot2.html#cb261-15"></a><span class="st">  </span><span class="co"># Füge Beschriftungen hinzu: Titel, x- &amp; y-Achsen, Caption</span></span>
+<span id="cb261-16"><a href="graphiken-mit-ggplot2.html#cb261-16"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Power and durability of the X-Men&quot;</span>,</span>
+<span id="cb261-17"><a href="graphiken-mit-ggplot2.html#cb261-17"></a>         <span class="dt">x =</span> <span class="st">&quot;Power&quot;</span>, </span>
+<span id="cb261-18"><a href="graphiken-mit-ggplot2.html#cb261-18"></a>         <span class="dt">y =</span> <span class="st">&quot;Durability&quot;</span>,</span>
+<span id="cb261-19"><a href="graphiken-mit-ggplot2.html#cb261-19"></a>         <span class="dt">caption =</span> <span class="st">&quot;dataset source: https://github.com/cosmoduende/r-marvel-vs-dc&quot;</span> )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-123-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Ein weiteres Beispiel:</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="graphiken-mit-ggplot2.html#cb262-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
+<span id="cb262-2"><a href="graphiken-mit-ggplot2.html#cb262-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Total, </span>
+<span id="cb262-3"><a href="graphiken-mit-ggplot2.html#cb262-3"></a>           <span class="dt">fill=</span> Gender)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb262-4"><a href="graphiken-mit-ggplot2.html#cb262-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb262-5"><a href="graphiken-mit-ggplot2.html#cb262-5"></a></span>
+<span id="cb262-6"><a href="graphiken-mit-ggplot2.html#cb262-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Total skills of Marvel and DC superheros&quot;</span>,</span>
+<span id="cb262-7"><a href="graphiken-mit-ggplot2.html#cb262-7"></a>         <span class="dt">subtitle =</span> <span class="st">&quot;Separate for their gender&quot;</span>, </span>
+<span id="cb262-8"><a href="graphiken-mit-ggplot2.html#cb262-8"></a>         <span class="dt">x =</span> <span class="st">&quot;Publisher&quot;</span>, </span>
+<span id="cb262-9"><a href="graphiken-mit-ggplot2.html#cb262-9"></a>         <span class="dt">y =</span> <span class="st">&quot;Total skills&quot;</span>,</span>
+<span id="cb262-10"><a href="graphiken-mit-ggplot2.html#cb262-10"></a>         <span class="dt">caption =</span> <span class="st">&quot;dataset source: https://github.com/cosmoduende/r-marvel-vs-dc&quot;</span> )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-124-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="thema" class="section level3">
+<h3><span class="header-section-number">6.6.2</span> Thema</h3>
+<p>Es gibt verschiedene <code>themes</code> die das grundlegende
+<span style="color:#31688e">Graphiklayout</span> bestimmen.</p>
+<ul>
+<li><p><code>theme_bw()</code> - weißer Hintergrund mit grid Linien</p></li>
+<li><p><code>theme_gray()</code> - grauer Hintergrund mit hellen grid Linien (default)</p></li>
+<li><p><code>theme_dark()</code> - dunkler Hintergrund mit grid Linien</p></li>
+<li><p><code>theme_minimal()</code> - minimales <code>theme</code></p></li>
+<li><p><code>theme_void()</code> - leeres <code>theme</code></p></li>
+</ul>
+<p><span style="color:#31688e">Minimalistisches Thema</span>:</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="graphiken-mit-ggplot2.html#cb263-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
+<span id="cb263-2"><a href="graphiken-mit-ggplot2.html#cb263-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Total, </span>
+<span id="cb263-3"><a href="graphiken-mit-ggplot2.html#cb263-3"></a>           <span class="dt">fill=</span> Gender)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb263-4"><a href="graphiken-mit-ggplot2.html#cb263-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb263-5"><a href="graphiken-mit-ggplot2.html#cb263-5"></a><span class="st">  </span></span>
+<span id="cb263-6"><a href="graphiken-mit-ggplot2.html#cb263-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>()         <span class="co"># verwende Thema: Minimal</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-125-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><span style="color:#31688e">Dunkles Thema</span>:</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="graphiken-mit-ggplot2.html#cb264-1"></a><span class="kw">ggplot</span>(MarvelDC, <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Total, <span class="dt">fill=</span> Gender)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb264-2"><a href="graphiken-mit-ggplot2.html#cb264-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb264-3"><a href="graphiken-mit-ggplot2.html#cb264-3"></a><span class="st">  </span></span>
+<span id="cb264-4"><a href="graphiken-mit-ggplot2.html#cb264-4"></a><span class="st">  </span><span class="kw">theme_dark</span>()            <span class="co"># verwende Thema: Dunkel</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-126-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="position" class="section level3">
+<h3><span class="header-section-number">6.6.3</span> Position</h3>
+<p>Mit <code>position</code> kann die <span style="color:#31688e">Positionierung</span>
+graphischer Elemente zueinander eingestellt werden. Positionsarten sind
+zB:</p>
+<ul>
+<li><p><code>identity</code> - wahre Werte an wahrer Position, hier kann man Plots zB
+durch den alpha Parameter entzerren</p></li>
+<li><p><code>stack</code> - Elemente aufeinander schichten (default)</p></li>
+<li><p><code>dodge</code> - Elemente nebeneinander zeigen</p></li>
+<li><p><code>jitter</code> - Zufälliges Rauschen auf die (x,y) Positions jedes
+Elements addieren um den Plot zu entzerren</p></li>
+</ul>
+<p><span style="color:#31688e">dodge</span> = nebeneinander:</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="graphiken-mit-ggplot2.html#cb265-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb265-2"><a href="graphiken-mit-ggplot2.html#cb265-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Alignment),            <span class="co"># verwende nur Alignment</span></span>
+<span id="cb265-3"><a href="graphiken-mit-ggplot2.html#cb265-3"></a>         Alignment <span class="op">!=</span><span class="st"> &quot;neutral&quot;</span>) <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># good and bad</span></span>
+<span id="cb265-4"><a href="graphiken-mit-ggplot2.html#cb265-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Intelligence, </span>
+<span id="cb265-5"><a href="graphiken-mit-ggplot2.html#cb265-5"></a>             <span class="dt">fill =</span> Alignment)) <span class="op">+</span></span>
+<span id="cb265-6"><a href="graphiken-mit-ggplot2.html#cb265-6"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>,</span>
+<span id="cb265-7"><a href="graphiken-mit-ggplot2.html#cb265-7"></a>                 <span class="dt">alpha =</span> <span class="fl">0.6</span>,</span>
+<span id="cb265-8"><a href="graphiken-mit-ggplot2.html#cb265-8"></a>                 </span>
+<span id="cb265-9"><a href="graphiken-mit-ggplot2.html#cb265-9"></a>                 <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)   <span class="co"># Position: nebeneinander</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-127-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><span style="color:#31688e">stack</span> = aufeinander:</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="graphiken-mit-ggplot2.html#cb266-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb266-2"><a href="graphiken-mit-ggplot2.html#cb266-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Alignment), </span>
+<span id="cb266-3"><a href="graphiken-mit-ggplot2.html#cb266-3"></a>         Alignment <span class="op">!=</span><span class="st"> &quot;neutral&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb266-4"><a href="graphiken-mit-ggplot2.html#cb266-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Intelligence, </span>
+<span id="cb266-5"><a href="graphiken-mit-ggplot2.html#cb266-5"></a>             <span class="dt">fill =</span> Alignment)) <span class="op">+</span></span>
+<span id="cb266-6"><a href="graphiken-mit-ggplot2.html#cb266-6"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>,</span>
+<span id="cb266-7"><a href="graphiken-mit-ggplot2.html#cb266-7"></a>                 <span class="dt">alpha =</span> <span class="fl">0.6</span>,</span>
+<span id="cb266-8"><a href="graphiken-mit-ggplot2.html#cb266-8"></a>                 </span>
+<span id="cb266-9"><a href="graphiken-mit-ggplot2.html#cb266-9"></a>                 <span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>)  <span class="co"># Position: aufeinander</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-128-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><span style="color:#31688e">identity</span> = hintereinander:</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="graphiken-mit-ggplot2.html#cb267-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb267-2"><a href="graphiken-mit-ggplot2.html#cb267-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Alignment), </span>
+<span id="cb267-3"><a href="graphiken-mit-ggplot2.html#cb267-3"></a>         Alignment <span class="op">!=</span><span class="st"> &quot;neutral&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb267-4"><a href="graphiken-mit-ggplot2.html#cb267-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Intelligence, </span>
+<span id="cb267-5"><a href="graphiken-mit-ggplot2.html#cb267-5"></a>             <span class="dt">fill =</span> Alignment)) <span class="op">+</span></span>
+<span id="cb267-6"><a href="graphiken-mit-ggplot2.html#cb267-6"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>,</span>
+<span id="cb267-7"><a href="graphiken-mit-ggplot2.html#cb267-7"></a>                 <span class="dt">alpha =</span> <span class="fl">0.6</span>,</span>
+<span id="cb267-8"><a href="graphiken-mit-ggplot2.html#cb267-8"></a>                 </span>
+<span id="cb267-9"><a href="graphiken-mit-ggplot2.html#cb267-9"></a>                 <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>)  <span class="co"># Position: hintereinander</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-129-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="legenden" class="section level3">
+<h3><span class="header-section-number">6.6.4</span> Legenden</h3>
+<p>Die <span style="color:#31688e">Legende</span> wird von <code>ggplot</code> automatisch
+erstellt und kann einfach an die Positionen <code>bottom</code>, <code>right</code>, <code>left</code>
+und <code>top</code> gelegt werden:</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="graphiken-mit-ggplot2.html#cb268-1"></a><span class="kw">ggplot</span>(MarvelDC, <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Total, </span>
+<span id="cb268-2"><a href="graphiken-mit-ggplot2.html#cb268-2"></a>                     <span class="dt">fill=</span> Gender)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb268-3"><a href="graphiken-mit-ggplot2.html#cb268-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb268-4"><a href="graphiken-mit-ggplot2.html#cb268-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb268-5"><a href="graphiken-mit-ggplot2.html#cb268-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Total skills of Marvel and DC superheros&quot;</span>,</span>
+<span id="cb268-6"><a href="graphiken-mit-ggplot2.html#cb268-6"></a>         <span class="dt">subtitle =</span> <span class="st">&quot;Separate for their gender&quot;</span>, </span>
+<span id="cb268-7"><a href="graphiken-mit-ggplot2.html#cb268-7"></a>         <span class="dt">x =</span> <span class="st">&quot;Publisher&quot;</span>, </span>
+<span id="cb268-8"><a href="graphiken-mit-ggplot2.html#cb268-8"></a>         <span class="dt">y =</span> <span class="st">&quot;Total skills&quot;</span>,</span>
+<span id="cb268-9"><a href="graphiken-mit-ggplot2.html#cb268-9"></a>         <span class="dt">caption =</span> <span class="st">&quot;dataset source: https://github.com/cosmoduende/r-marvel-vs-dc&quot;</span> ) <span class="op">+</span></span>
+<span id="cb268-10"><a href="graphiken-mit-ggplot2.html#cb268-10"></a><span class="st">  </span></span>
+<span id="cb268-11"><a href="graphiken-mit-ggplot2.html#cb268-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;top&quot;</span>)   <span class="co"># positioniere Legende oben</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-130-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="koordinatensysteme" class="section level3">
+<h3><span class="header-section-number">6.6.5</span> Koordinatensysteme</h3>
+<p>Das wichtigste <span style="color:#31688e">Koordinatensystem</span> ist zweifellos
+das kartesische. In R kann man aber zB auch
+<span style="color:#31688e">Polarkoordinaten</span> verwenden, oder das
+<span style="color:#31688e">kartesische System “drehen”</span></p>
+<ul>
+<li><p><code>coord_flip</code> - <span style="color:#31688e">dreht ein kartesisches
+Koordinatensystem</span> um (x wird zu y und
+umgekehrt) - empfohlen ist allerdings, das über die Definition von
+<span style="color:#35b779">x</span> und <span style="color:#35b779">y</span> direkt zu
+lösen.</p></li>
+<li><p><code>coord_polar</code> - <span style="color:#31688e">Polarkoordinaten</span></p></li>
+</ul>
+<p>Polarkoordinaten haben wir vorne beim Balkendiagramm schon gesehen.</p>
+</div>
+<div id="farbskalen" class="section level3">
+<h3><span class="header-section-number">6.6.6</span> Farbskalen</h3>
+<p><code>scale</code> bestimmt auf welche <span style="color:#31688e">Farbskala</span> die
+<span style="color:#8fd744">Daten</span> abgebildet werden. Am Beispiel von
+<code>viridis</code>:</p>
+<ul>
+<li><p><code>scale_color_viridis_d()</code> - diskretes <span style="color:#31688e">viridis
+Spektrum</span> für das Argument <code>color</code></p></li>
+<li><p><code>scale_color_viridis_c()</code> - kontinuierliches <span style="color:#31688e">viridis
+Spektrum</span> für das Argument <code>color</code></p></li>
+<li><p><code>scale_fill_viridis_d()</code> - diskretes <span style="color:#31688e">viridis
+Spektrum</span> für das Argument <code>fill</code></p></li>
+</ul>
+<p>Über <code>option</code> kann im Paket <code>viridis</code> auf eine andere der enthaltenen
+Skalen zugegriffen werden:</p>
+<ul>
+<li><code>scale_fill_viridis_d(option=inferno)</code> - diskretes <span style="color:#31688e">inferno
+Spektrum</span> für das Argument <code>fill</code></li>
+</ul>
+<p>Neben dem viridis Package gibt es auch den ColorBrewer in R, der unter
+anderem folgende Farbkarten kennt (am Beispiel von <code>fill</code> Skalen):</p>
+<ul>
+<li><code>scale_fill_brewer(palette="Set1")</code> andere mögliche Einstellungen
+für <code>palette</code>:
+<code>"Set2", "Set3", "Accent", "Dark2", "Pastel1", "Pastel2"</code></li>
+</ul>
+<p>Wenn man allerdings schon ein Farbspektrum selbst definiert, ist es
+empfehlenswert ein <em>colorblind friendly</em> Schema wie alle Skalen aus dem
+<code>viridis</code> Package zu benutzen.</p>
+<p>Im folgenden Beispiel erstellen wir eine Liste der besten Superhelden
+der X-Men, der Avengers und der Guardians of the Galaxy. Dann
+veranschaulichen wir in einem Balkendiagramm welcher Art sie angehören.
+Also ob es Menschen sind, oder Mutanten, oder Androiden.</p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="graphiken-mit-ggplot2.html#cb269-1"></a><span class="co"># Charaktere der X-Men, der Guardians of the Galaxy und der Avengers</span></span>
+<span id="cb269-2"><a href="graphiken-mit-ggplot2.html#cb269-2"></a>XMen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Wolverine&quot;</span>, <span class="st">&quot;Jean Grey&quot;</span>, <span class="st">&quot;Storm&quot;</span>, <span class="st">&quot;Beast&quot;</span>, <span class="st">&quot;Cyclops&quot;</span>, <span class="st">&quot;Professor X&quot;</span>, <span class="st">&quot;Raven&quot;</span>)</span>
+<span id="cb269-3"><a href="graphiken-mit-ggplot2.html#cb269-3"></a>GoG &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Groot&quot;</span>, <span class="st">&quot;Quill&quot;</span>, <span class="st">&quot;Rocket Raccoon&quot;</span>)</span>
+<span id="cb269-4"><a href="graphiken-mit-ggplot2.html#cb269-4"></a>Avengers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iron Man&quot;</span>, <span class="st">&quot;Captain America&quot;</span>, <span class="st">&quot;Black Widow&quot;</span>, <span class="st">&quot;Hulk&quot;</span>, <span class="st">&quot;Hawkeye&quot;</span>, <span class="st">&quot;Thor&quot;</span>, <span class="st">&quot;Spiderman&quot;</span>, <span class="st">&quot;Vision&quot;</span>)</span>
+<span id="cb269-5"><a href="graphiken-mit-ggplot2.html#cb269-5"></a></span>
+<span id="cb269-6"><a href="graphiken-mit-ggplot2.html#cb269-6"></a><span class="co"># ein Vektor mit den coolsten Superhelden</span></span>
+<span id="cb269-7"><a href="graphiken-mit-ggplot2.html#cb269-7"></a>BestHeros &lt;-<span class="st"> </span><span class="kw">c</span>(XMen, GoG, Avengers)</span>
+<span id="cb269-8"><a href="graphiken-mit-ggplot2.html#cb269-8"></a></span>
+<span id="cb269-9"><a href="graphiken-mit-ggplot2.html#cb269-9"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb269-10"><a href="graphiken-mit-ggplot2.html#cb269-10"></a><span class="st">  </span><span class="kw">filter</span>(Name <span class="op">%in%</span><span class="st"> </span>BestHeros) <span class="op">%&gt;%</span><span class="st">     </span><span class="co"># Nur Charaktere aus &#39;BestHeros&#39;</span></span>
+<span id="cb269-11"><a href="graphiken-mit-ggplot2.html#cb269-11"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Race,                <span class="co"># y soll &#39;Race&#39; sein</span></span>
+<span id="cb269-12"><a href="graphiken-mit-ggplot2.html#cb269-12"></a>             <span class="dt">fill=</span> Race)) <span class="op">+</span><span class="st">           </span><span class="co"># vergebe Füllfarbe nach &#39;Race&#39;</span></span>
+<span id="cb269-13"><a href="graphiken-mit-ggplot2.html#cb269-13"></a><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st">                        </span><span class="co"># stelle als Balken dar</span></span>
+<span id="cb269-14"><a href="graphiken-mit-ggplot2.html#cb269-14"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st">                        </span><span class="co"># in scharz-weißem Thema</span></span>
+<span id="cb269-15"><a href="graphiken-mit-ggplot2.html#cb269-15"></a><span class="st">  </span></span>
+<span id="cb269-16"><a href="graphiken-mit-ggplot2.html#cb269-16"></a><span class="st">  </span><span class="co"># Beschrifte</span></span>
+<span id="cb269-17"><a href="graphiken-mit-ggplot2.html#cb269-17"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Races of superheros&quot;</span>,</span>
+<span id="cb269-18"><a href="graphiken-mit-ggplot2.html#cb269-18"></a>       <span class="dt">subtitle =</span> <span class="st">&quot;X-Men, Avengers and Guardians of the Galaxy&quot;</span>,</span>
+<span id="cb269-19"><a href="graphiken-mit-ggplot2.html#cb269-19"></a>         <span class="dt">x =</span> <span class="st">&quot;Count&quot;</span>, </span>
+<span id="cb269-20"><a href="graphiken-mit-ggplot2.html#cb269-20"></a>         <span class="dt">y =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb269-21"><a href="graphiken-mit-ggplot2.html#cb269-21"></a>         <span class="dt">caption =</span> <span class="st">&quot;dataset source: https://github.com/cosmoduende/r-marvel-vs-dc&quot;</span> ) <span class="op">+</span></span>
+<span id="cb269-22"><a href="graphiken-mit-ggplot2.html#cb269-22"></a><span class="st">  </span></span>
+<span id="cb269-23"><a href="graphiken-mit-ggplot2.html#cb269-23"></a><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>()              <span class="co"># verwende Farben aus viridis</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-131-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="variablenskalen" class="section level3">
+<h3><span class="header-section-number">6.6.7</span> Variablenskalen</h3>
+<p>Mit <code>ggplot2</code> können Variablen einfach auf unterschiedliche
+<span style="color:#31688e">Skalen</span> übertragen werden. Diese Funktionalität
+kann mit x oder y verwendet werden, zB:</p>
+<ul>
+<li><p><code>scale_x_log10()</code></p></li>
+<li><p><code>scale_x_sqrt()</code></p></li>
+<li><p><code>scale_x_reverse()</code></p></li>
+</ul>
+</div>
+</div>
+<div id="facetten" class="section level2">
+<h2><span class="header-section-number">6.7</span> Facetten</h2>
+<p><span style="color:#31688e">Facettierung</span> bedeutet, dass ein Plot in mehrere
+Plots aufgeteilt wird, abhängig von den Werten einer oder mehrerer
+diskreter Variablen. zB kann man das <span style="color:#21918d">Histogramm</span>
+von oben auch zusätzlich nach Publisher
+<span style="color:#31688e">facettieren</span>, um noch mehr Information
+aufzunehmen. Der einfachste Weg geht über <code>facet_wrap()</code>. Jetzt
+erweitern wir das Balkendiagramm, welches uns die Art der Superhelden
+zeigt, um die größten Gegner der Helden. Nachdem wir einen Vektor
+erstellt haben, in dem unsere größten Helden und Bösewichte sind,
+erstellen wir unterschiedliche Grids für die Guten und die Bösen:</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="graphiken-mit-ggplot2.html#cb270-1"></a><span class="co"># Gegner der X-Men, der Guardians of the Galaxy und der Avengers</span></span>
+<span id="cb270-2"><a href="graphiken-mit-ggplot2.html#cb270-2"></a>VXMen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Magneto&quot;</span>, <span class="st">&quot;Gambit&quot;</span>, <span class="st">&quot;Apocalypse&quot;</span>, <span class="st">&quot;Mystique&quot;</span>)</span>
+<span id="cb270-3"><a href="graphiken-mit-ggplot2.html#cb270-3"></a>VGoG &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Ronin&quot;</span>, <span class="st">&quot;Thanos&quot;</span>)</span>
+<span id="cb270-4"><a href="graphiken-mit-ggplot2.html#cb270-4"></a>VAvengers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Loki&quot;</span>, <span class="st">&quot;Ultron&quot;</span>, <span class="st">&quot;Doctor Doom&quot;</span>, <span class="st">&quot;Galactus&quot;</span>)</span>
+<span id="cb270-5"><a href="graphiken-mit-ggplot2.html#cb270-5"></a></span>
+<span id="cb270-6"><a href="graphiken-mit-ggplot2.html#cb270-6"></a><span class="co"># ein Vektor mit den coolsten Superhelden und ihren größten Gegnern</span></span>
+<span id="cb270-7"><a href="graphiken-mit-ggplot2.html#cb270-7"></a>HerosVillains &lt;-<span class="st"> </span><span class="kw">c</span>(BestHeros, VXMen, VGoG, VAvengers)</span>
+<span id="cb270-8"><a href="graphiken-mit-ggplot2.html#cb270-8"></a></span>
+<span id="cb270-9"><a href="graphiken-mit-ggplot2.html#cb270-9"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb270-10"><a href="graphiken-mit-ggplot2.html#cb270-10"></a><span class="st">  </span><span class="kw">filter</span>(Name <span class="op">%in%</span><span class="st"> </span>HerosVillains) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># Nur wenn in &#39;HerosVillains&#39;</span></span>
+<span id="cb270-11"><a href="graphiken-mit-ggplot2.html#cb270-11"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Race,                 <span class="co"># y soll &#39;Race&#39; sein</span></span>
+<span id="cb270-12"><a href="graphiken-mit-ggplot2.html#cb270-12"></a>             <span class="dt">fill=</span> Race)) <span class="op">+</span><span class="st">            </span><span class="co"># vergebe Füllfarbe nach &#39;Race&#39;</span></span>
+<span id="cb270-13"><a href="graphiken-mit-ggplot2.html#cb270-13"></a><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st">                         </span><span class="co"># stelle als Balken dar</span></span>
+<span id="cb270-14"><a href="graphiken-mit-ggplot2.html#cb270-14"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st">                         </span><span class="co"># in scharz-weißem Thema</span></span>
+<span id="cb270-15"><a href="graphiken-mit-ggplot2.html#cb270-15"></a><span class="st">  </span></span>
+<span id="cb270-16"><a href="graphiken-mit-ggplot2.html#cb270-16"></a><span class="st">  </span><span class="co"># Beschrifte</span></span>
+<span id="cb270-17"><a href="graphiken-mit-ggplot2.html#cb270-17"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Races of superheros and their villains&quot;</span>,</span>
+<span id="cb270-18"><a href="graphiken-mit-ggplot2.html#cb270-18"></a>       <span class="dt">subtitle =</span> <span class="st">&quot;X-Men, Avengers and Guardians of the Galaxy&quot;</span>,</span>
+<span id="cb270-19"><a href="graphiken-mit-ggplot2.html#cb270-19"></a>         <span class="dt">x =</span> <span class="st">&quot;Count&quot;</span>, </span>
+<span id="cb270-20"><a href="graphiken-mit-ggplot2.html#cb270-20"></a>         <span class="dt">y =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb270-21"><a href="graphiken-mit-ggplot2.html#cb270-21"></a>         <span class="dt">caption =</span> <span class="st">&quot;dataset source: https://github.com/cosmoduende/r-marvel-vs-dc&quot;</span> ) <span class="op">+</span></span>
+<span id="cb270-22"><a href="graphiken-mit-ggplot2.html#cb270-22"></a><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span><span class="st">             </span><span class="co"># verwende Farben aus viridis</span></span>
+<span id="cb270-23"><a href="graphiken-mit-ggplot2.html#cb270-23"></a><span class="st">  </span></span>
+<span id="cb270-24"><a href="graphiken-mit-ggplot2.html#cb270-24"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Alignment)              <span class="co"># trenne Grids nach &#39;Alignment&#39;</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-132-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>Damit haben ein eine vollständigen, beschrifteten und hübschen Plot</p>
+</div>
+<div id="zwischenübungen" class="section level2">
+<h2><span class="header-section-number">6.8</span> Zwischenübungen</h2>
+<ol style="list-style-type: decimal">
+<li><p>Welches Universum hat mehr Helden, welches mehr Bösewichte?
+Veranschauliche die Verhältnisse.</p></li>
+<li><p>Unterscheidet sich die Verteilung von Intelligenz zwischen Helden
+und Bösewichten? Stelle in einem Histogramm dar.</p></li>
+<li><p>Stelle die Intelligenz getrennt nach Helden und Bösewichten in einem
+<span style="color:#21918d">Violinenplot</span> dar.</p></li>
+</ol>
+<div id="lösung-zwischenübungen" class="section level3">
+<h3><span class="header-section-number">6.8.1</span> Lösung Zwischenübungen</h3>
+<ol style="list-style-type: decimal">
+<li>Welches Universum hat mehr Helden, welches mehr Bösewichte?
+Veranschauliche die Verhältnisse.</li>
+</ol>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="graphiken-mit-ggplot2.html#cb271-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb271-2"><a href="graphiken-mit-ggplot2.html#cb271-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Publisher, </span>
+<span id="cb271-3"><a href="graphiken-mit-ggplot2.html#cb271-3"></a>             <span class="dt">fill =</span> Alignment)) <span class="op">+</span></span>
+<span id="cb271-4"><a href="graphiken-mit-ggplot2.html#cb271-4"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-133-1.png" width="576" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Unterscheidet sich die Verteilung von Intelligenz zwischen Helden
+und Bösewichten? Stelle in einem <span style="color:#21918d">Histogramm</span>
+dar.</li>
+</ol>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="graphiken-mit-ggplot2.html#cb272-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb272-2"><a href="graphiken-mit-ggplot2.html#cb272-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Alignment), </span>
+<span id="cb272-3"><a href="graphiken-mit-ggplot2.html#cb272-3"></a>         Alignment <span class="op">!=</span><span class="st"> &quot;neutral&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb272-4"><a href="graphiken-mit-ggplot2.html#cb272-4"></a><span class="st">  </span></span>
+<span id="cb272-5"><a href="graphiken-mit-ggplot2.html#cb272-5"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Intelligence, </span>
+<span id="cb272-6"><a href="graphiken-mit-ggplot2.html#cb272-6"></a>             <span class="dt">fill =</span> Alignment)) <span class="op">+</span></span>
+<span id="cb272-7"><a href="graphiken-mit-ggplot2.html#cb272-7"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>,</span>
+<span id="cb272-8"><a href="graphiken-mit-ggplot2.html#cb272-8"></a>                 <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, </span>
+<span id="cb272-9"><a href="graphiken-mit-ggplot2.html#cb272-9"></a>                 <span class="dt">alpha =</span> <span class="fl">0.6</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-134-1.png" width="576" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Stelle die Intelligenz getrennt nach Helden und Bösewichten in einem
+<span style="color:#21918d">Violinenplot</span> dar.</li>
+</ol>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="graphiken-mit-ggplot2.html#cb273-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb273-2"><a href="graphiken-mit-ggplot2.html#cb273-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Alignment), </span>
+<span id="cb273-3"><a href="graphiken-mit-ggplot2.html#cb273-3"></a>         Alignment <span class="op">!=</span><span class="st"> &quot;neutral&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb273-4"><a href="graphiken-mit-ggplot2.html#cb273-4"></a><span class="st">  </span></span>
+<span id="cb273-5"><a href="graphiken-mit-ggplot2.html#cb273-5"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Alignment, <span class="dt">y =</span> Intelligence, </span>
+<span id="cb273-6"><a href="graphiken-mit-ggplot2.html#cb273-6"></a>             <span class="dt">fill =</span> Alignment)) <span class="op">+</span></span>
+<span id="cb273-7"><a href="graphiken-mit-ggplot2.html#cb273-7"></a><span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">trim =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb273-8"><a href="graphiken-mit-ggplot2.html#cb273-8"></a>              <span class="dt">alpha =</span> <span class="fl">0.2</span>) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-135-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="aufgaben-bis-zum-nächsten-mal" class="section level2">
+<h2><span class="header-section-number">6.9</span> Aufgaben bis zum nächsten Mal</h2>
+<ol style="list-style-type: decimal">
+<li><p>Erstelle einen Barplot (<code>geom_bar</code>) mit vertikalen bars getrennt für
+die Geschlechter. Marvel und DC sollen durch Farben kodiert sein.</p></li>
+<li><p>Erstelle ein Histogramm von <code>Durability</code>. Wähle eine adäquate Anzahl
+an <code>bins</code> aus.</p></li>
+<li><p>Facettiere den Plot aus Aufgabe 2 nach Publisher.</p></li>
+<li><p>Beschrifte den Plot aus Aufgabe 3, wähle persönliche Einstellungen
+für:</p></li>
+</ol>
+<ul>
+<li>Farbskala</li>
+<li>Thema</li>
+<li>Legendenposition</li>
+</ul>
+<p><em>Zusatzaufgabe: Wähle einen adäquaten Plot um die folgende inhaltliche
+Frage zu beantworten. Gibt es bei Marvel Comics einen positiven
+Zusammenhang zwischen der Intelligenz und der totalen Superhelden-Kraft?
+- Google wie man auch den Regressionskoeffizienten im Plot angezeigt
+bekommt.</em></p>
+<div id="lösung-aufgaben-bis-zum-nächsten-mal" class="section level3">
+<h3><span class="header-section-number">6.9.1</span> Lösung Aufgaben bis zum nächsten Mal</h3>
+<ol style="list-style-type: decimal">
+<li>Erstelle einen <span style="color:#21918d">Barplot</span> (<code>geom_bar</code>) mit
+vertikalen bars getrennt für die Geschlechter. Marvel und DC sollen
+soll durch <span style="color:#35b779">Farben</span> kodiert sein.</li>
+</ol>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="graphiken-mit-ggplot2.html#cb274-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb274-2"><a href="graphiken-mit-ggplot2.html#cb274-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Gender, </span>
+<span id="cb274-3"><a href="graphiken-mit-ggplot2.html#cb274-3"></a>             <span class="dt">fill =</span> Publisher)) <span class="op">+</span></span>
+<span id="cb274-4"><a href="graphiken-mit-ggplot2.html#cb274-4"></a><span class="st">  </span><span class="kw">geom_bar</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-136-1.png" width="576" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Erstelle ein <span style="color:#21918d">Histogramm</span> von <code>Durability</code>.
+Wähle eine adäquate Anzahl an <code>bins</code> aus.</li>
+</ol>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="graphiken-mit-ggplot2.html#cb275-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb275-2"><a href="graphiken-mit-ggplot2.html#cb275-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Durability)) <span class="op">+</span></span>
+<span id="cb275-3"><a href="graphiken-mit-ggplot2.html#cb275-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-137-1.png" width="384" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li><span style="color:#31688e">Facettiere</span> den Plot aus Aufgabe 2 nach
+Publisher.</li>
+</ol>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="graphiken-mit-ggplot2.html#cb276-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb276-2"><a href="graphiken-mit-ggplot2.html#cb276-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Durability, </span>
+<span id="cb276-3"><a href="graphiken-mit-ggplot2.html#cb276-3"></a>             <span class="dt">fill =</span> Publisher)) <span class="op">+</span></span>
+<span id="cb276-4"><a href="graphiken-mit-ggplot2.html#cb276-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>) <span class="op">+</span></span>
+<span id="cb276-5"><a href="graphiken-mit-ggplot2.html#cb276-5"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Publisher)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-138-1.png" width="672" style="display: block; margin: auto 0 auto auto;" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li><span style="color:#31688e">Beschrifte</span> den Plot aus Aufgabe 3, wähle
+persönliche Einstellungen für:</li>
+</ol>
+<ul>
+<li><span style="color:#31688e">Farbskala</span></li>
+<li><span style="color:#31688e">Thema</span></li>
+<li><span style="color:#31688e">Legendenposition</span></li>
+</ul>
+<p>Beispielsweise:</p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="graphiken-mit-ggplot2.html#cb277-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb277-2"><a href="graphiken-mit-ggplot2.html#cb277-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Durability, </span>
+<span id="cb277-3"><a href="graphiken-mit-ggplot2.html#cb277-3"></a>             <span class="dt">fill =</span> Publisher)) <span class="op">+</span></span>
+<span id="cb277-4"><a href="graphiken-mit-ggplot2.html#cb277-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>) <span class="op">+</span></span>
+<span id="cb277-5"><a href="graphiken-mit-ggplot2.html#cb277-5"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Publisher) <span class="op">+</span></span>
+<span id="cb277-6"><a href="graphiken-mit-ggplot2.html#cb277-6"></a><span class="st">  </span></span>
+<span id="cb277-7"><a href="graphiken-mit-ggplot2.html#cb277-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;The durability of superheros&quot;</span>,</span>
+<span id="cb277-8"><a href="graphiken-mit-ggplot2.html#cb277-8"></a>         <span class="dt">subtitle =</span> <span class="st">&quot;separate for Marvel Comics and DC Comics&quot;</span>,</span>
+<span id="cb277-9"><a href="graphiken-mit-ggplot2.html#cb277-9"></a>         <span class="dt">x =</span> <span class="st">&quot;Durability&quot;</span>, </span>
+<span id="cb277-10"><a href="graphiken-mit-ggplot2.html#cb277-10"></a>         <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>,</span>
+<span id="cb277-11"><a href="graphiken-mit-ggplot2.html#cb277-11"></a>         <span class="dt">caption =</span> <span class="st">&quot;dataset source: https://github.com/cosmoduende/r-marvel-vs-dc&quot;</span> ) <span class="op">+</span></span>
+<span id="cb277-12"><a href="graphiken-mit-ggplot2.html#cb277-12"></a><span class="st">  </span><span class="kw">theme_dark</span>() <span class="op">+</span></span>
+<span id="cb277-13"><a href="graphiken-mit-ggplot2.html#cb277-13"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;left&quot;</span>) <span class="op">+</span></span>
+<span id="cb277-14"><a href="graphiken-mit-ggplot2.html#cb277-14"></a><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>(<span class="dt">option =</span> <span class="st">&quot;inferno&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-139-1.png" width="672" style="display: block; margin: auto auto auto 0;" /></p>
+<p>Oder:</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="graphiken-mit-ggplot2.html#cb278-1"></a>MarvelDC <span class="op">%&gt;%</span></span>
+<span id="cb278-2"><a href="graphiken-mit-ggplot2.html#cb278-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Durability, </span>
+<span id="cb278-3"><a href="graphiken-mit-ggplot2.html#cb278-3"></a>             <span class="dt">fill =</span> Publisher)) <span class="op">+</span></span>
+<span id="cb278-4"><a href="graphiken-mit-ggplot2.html#cb278-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>) <span class="op">+</span></span>
+<span id="cb278-5"><a href="graphiken-mit-ggplot2.html#cb278-5"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Publisher) <span class="op">+</span></span>
+<span id="cb278-6"><a href="graphiken-mit-ggplot2.html#cb278-6"></a><span class="st">  </span></span>
+<span id="cb278-7"><a href="graphiken-mit-ggplot2.html#cb278-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;The durability of superheros&quot;</span>,</span>
+<span id="cb278-8"><a href="graphiken-mit-ggplot2.html#cb278-8"></a>         <span class="dt">subtitle =</span> <span class="st">&quot;separate for Marvel Comics and DC Comics&quot;</span>,</span>
+<span id="cb278-9"><a href="graphiken-mit-ggplot2.html#cb278-9"></a>         <span class="dt">x =</span> <span class="st">&quot;Durability&quot;</span>, </span>
+<span id="cb278-10"><a href="graphiken-mit-ggplot2.html#cb278-10"></a>         <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>,</span>
+<span id="cb278-11"><a href="graphiken-mit-ggplot2.html#cb278-11"></a>         <span class="dt">caption =</span> <span class="st">&quot;dataset source: https://github.com/cosmoduende/r-marvel-vs-dc&quot;</span> ) <span class="op">+</span></span>
+<span id="cb278-12"><a href="graphiken-mit-ggplot2.html#cb278-12"></a><span class="st">  </span><span class="kw">theme_gray</span>() <span class="op">+</span></span>
+<span id="cb278-13"><a href="graphiken-mit-ggplot2.html#cb278-13"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span></span>
+<span id="cb278-14"><a href="graphiken-mit-ggplot2.html#cb278-14"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-140-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><em>Zusatzaufgabe: Wähle einen adäquaten Plot um die folgende inhaltliche
+Frage zu beantworten. Gibt es bei Marvel Comics einen positiven
+Zusammenhang zwischen der Intelligenz und der totalen Superhelden-Kraft?
+- Google wie man auch den Regressionskoeffizienten im Plot angezeigt
+bekommt.</em></p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="graphiken-mit-ggplot2.html#cb279-1"></a><span class="co"># Paket um Korrelationskoeffizienten hinzuzufügen:</span></span>
+<span id="cb279-2"><a href="graphiken-mit-ggplot2.html#cb279-2"></a><span class="kw">library</span>(ggpubr)</span>
+<span id="cb279-3"><a href="graphiken-mit-ggplot2.html#cb279-3"></a></span>
+<span id="cb279-4"><a href="graphiken-mit-ggplot2.html#cb279-4"></a>MarvelDC <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb279-5"><a href="graphiken-mit-ggplot2.html#cb279-5"></a><span class="st">  </span><span class="kw">filter</span>(Publisher <span class="op">==</span><span class="st"> &quot;Marvel Comics&quot;</span>) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># nur Marvel</span></span>
+<span id="cb279-6"><a href="graphiken-mit-ggplot2.html#cb279-6"></a><span class="st">  </span></span>
+<span id="cb279-7"><a href="graphiken-mit-ggplot2.html#cb279-7"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Intelligence, <span class="dt">y =</span> Total)) <span class="op">+</span><span class="st">  </span><span class="co"># Intelligence gegen Total</span></span>
+<span id="cb279-8"><a href="graphiken-mit-ggplot2.html#cb279-8"></a><span class="st">  </span><span class="kw">geom_point</span>()    <span class="op">+</span><span class="st">                           </span><span class="co"># stelle als Scatterplot dar</span></span>
+<span id="cb279-9"><a href="graphiken-mit-ggplot2.html#cb279-9"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>,                  <span class="co"># fitte lineares Modell...</span></span>
+<span id="cb279-10"><a href="graphiken-mit-ggplot2.html#cb279-10"></a>              <span class="dt">formula =</span> <span class="st">&#39;y ~ x&#39;</span>,              <span class="co"># ...sage y duch x vorher...</span></span>
+<span id="cb279-11"><a href="graphiken-mit-ggplot2.html#cb279-11"></a>              <span class="dt">se =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st">                    </span><span class="co"># ...und zeige SE-Intervall</span></span>
+<span id="cb279-12"><a href="graphiken-mit-ggplot2.html#cb279-12"></a><span class="st">  </span></span>
+<span id="cb279-13"><a href="graphiken-mit-ggplot2.html#cb279-13"></a><span class="st">  </span><span class="co"># um Korrelationskoeffizienten hinzuzufügen:</span></span>
+<span id="cb279-14"><a href="graphiken-mit-ggplot2.html#cb279-14"></a><span class="st">  </span><span class="kw">stat_cor</span>(<span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">label.x =</span> <span class="dv">3</span>, <span class="dt">label.y =</span> <span class="dv">550</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-141-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Ja, es gibt einen positiven Zusammenhang (<em>r</em>= 0.52).</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="datenaufbereitung-mit-dplyr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
