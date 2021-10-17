@@ -26,7 +26,7 @@ Veranstaltungen.</p>" />
 
 
 
-<meta name="date" content="2021-10-15" />
+<meta name="date" content="2021-10-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1075,14 +1075,13 @@ kann mit x oder y verwendet werden, zB:</p>
 <h2><span class="header-section-number">6.7</span> Facetten</h2>
 <p><span style="color:#31688e">Facettierung</span> bedeutet, dass ein Plot in mehrere
 Plots aufgeteilt wird, abhängig von den Werten einer oder mehrerer
-diskreter Variablen. zB kann man das <span style="color:#21918d">Histogramm</span>
-von oben auch zusätzlich nach Publisher
-<span style="color:#31688e">facettieren</span>, um noch mehr Information
-aufzunehmen. Der einfachste Weg geht über <code>facet_wrap()</code>. Jetzt
-erweitern wir das Balkendiagramm, welches uns die Art der Superhelden
-zeigt, um die größten Gegner der Helden. Nachdem wir einen Vektor
-erstellt haben, in dem unsere größten Helden und Bösewichte sind,
-erstellen wir unterschiedliche Grids für die Guten und die Bösen:</p>
+diskreter Variablen. Der einfachste Weg geht über <code>facet_wrap()</code>. zB
+erweitern wir das <span style="color:#21918d">Balkendiagramm</span> von oben,
+welches uns die Art der Superhelden zeigt, um die größten Gegner dieser
+Helden. Nachdem wir einen Vektor erstellt haben, in dem unsere größten
+Helden und Bösewichte sind, <span style="color:#31688e">facettieren</span> wir
+nach <code>Alignment</code>, dh wir erstellen unterschiedliche Grids für die Guten
+und die Bösen:</p>
 <div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="graphiken-mit-ggplot2.html#cb270-1"></a><span class="co"># Gegner der X-Men, der Guardians of the Galaxy und der Avengers</span></span>
 <span id="cb270-2"><a href="graphiken-mit-ggplot2.html#cb270-2"></a>VXMen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Magneto&quot;</span>, <span class="st">&quot;Gambit&quot;</span>, <span class="st">&quot;Apocalypse&quot;</span>, <span class="st">&quot;Mystique&quot;</span>)</span>
 <span id="cb270-3"><a href="graphiken-mit-ggplot2.html#cb270-3"></a>VGoG &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Ronin&quot;</span>, <span class="st">&quot;Thanos&quot;</span>)</span>
