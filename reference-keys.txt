@@ -43,13 +43,12 @@ datensätze-dat-anschauen
 datenaufbereitung-mit-dplyr
 einführung-in-dplyr-und-tidyverse
 dplyr-die-wichtigsten-befehle
-übung-1
+beispiel-filtern-von-beobachtungen-mit-filter
+filtern-von-strings-factors
 dplyr-der-piping-operator
 beispiel
-übung-2
 dplyr-neue-variablen-mit-mutate-berechnen
 beispiel-1
-aufgabe-bis-zum-nächsten-mal
 graphiken-mit-ggplot2
 exkurs-warum-viridis
 ggplot2---einführung

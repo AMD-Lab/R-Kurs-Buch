@@ -191,13 +191,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung mit dplyr</a><ul>
 <li class="chapter" data-level="5.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#einführung-in-dplyr-und-tidyverse"><i class="fa fa-check"></i><b>5.1</b> Einführung in Dplyr und tidyverse</a></li>
 <li class="chapter" data-level="5.2" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-die-wichtigsten-befehle"><i class="fa fa-check"></i><b>5.2</b> Dplyr: Die wichtigsten Befehle</a></li>
-<li class="chapter" data-level="5.3" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#übung-1"><i class="fa fa-check"></i><b>5.3</b> Übung 1</a></li>
+<li class="chapter" data-level="5.3" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-filtern-von-beobachtungen-mit-filter"><i class="fa fa-check"></i><b>5.3</b> Beispiel: Filtern von Beobachtungen mit <code>filter()</code></a><ul>
+<li class="chapter" data-level="5.3.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#filtern-von-strings-factors"><i class="fa fa-check"></i><b>5.3.1</b> Filtern von Strings / Factors</a></li>
+</ul></li>
 <li class="chapter" data-level="5.4" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-der-piping-operator"><i class="fa fa-check"></i><b>5.4</b> Dplyr: Der Piping Operator</a></li>
 <li class="chapter" data-level="5.5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel"><i class="fa fa-check"></i><b>5.5</b> Beispiel</a></li>
-<li class="chapter" data-level="5.6" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#übung-2"><i class="fa fa-check"></i><b>5.6</b> Übung 2</a></li>
-<li class="chapter" data-level="5.7" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-neue-variablen-mit-mutate-berechnen"><i class="fa fa-check"></i><b>5.7</b> Dplyr : Neue Variablen mit <code>mutate()</code> berechnen</a></li>
-<li class="chapter" data-level="5.8" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-1"><i class="fa fa-check"></i><b>5.8</b> Beispiel</a></li>
-<li class="chapter" data-level="5.9" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#aufgabe-bis-zum-nächsten-mal"><i class="fa fa-check"></i><b>5.9</b> Aufgabe bis zum nächsten Mal</a></li>
+<li class="chapter" data-level="5.6" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-neue-variablen-mit-mutate-berechnen"><i class="fa fa-check"></i><b>5.6</b> Dplyr : Neue Variablen mit <code>mutate()</code> berechnen</a></li>
+<li class="chapter" data-level="5.7" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-1"><i class="fa fa-check"></i><b>5.7</b> Beispiel</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Graphiken mit ggplot2</a><ul>
 <li class="chapter" data-level="6.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#exkurs-warum-viridis"><i class="fa fa-check"></i><b>6.1</b> Exkurs: Warum viridis?</a></li>
@@ -256,12 +256,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">5</span> Datenaufbereitung mit dplyr</h1>
 <div id="einführung-in-dplyr-und-tidyverse" class="section level2">
 <h2><span class="header-section-number">5.1</span> Einführung in Dplyr und tidyverse</h2>
-<p>Dplyr ist Teil des tidyverse Packages und ermöglicht es, Daten sehr einfach zu manipulieren und in eine Form zu bringen, um diese dann zu analysieren. Um das zu tun greifen wir auf den Star Wars Datensatz zurück, den das dplyr Package mitliefert:</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="datenaufbereitung-mit-dplyr.html#cb194-1"></a><span class="co"># Lest die Daten bitte ein, der Datensatz heisst &quot;starwars.RDS&quot; und befindet sich in eurem Projektordner, diesmal benutzen wir den readRDS() Befehl.</span></span>
-<span id="cb194-2"><a href="datenaufbereitung-mit-dplyr.html#cb194-2"></a></span>
-<span id="cb194-3"><a href="datenaufbereitung-mit-dplyr.html#cb194-3"></a>starwars &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;starwars.RDS&quot;</span>)</span></code></pre></div>
-<p>Der Datensatz enthält Informationen über unsere Star Wars Helden, ähnlich dem Datensatz, den wir uns in der letzten Sitzung ausgedacht haben:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="datenaufbereitung-mit-dplyr.html#cb195-1"></a><span class="kw">head</span>(starwars,<span class="dv">5</span>) <span class="co"># Wir lassen uns erstmal die ersten 5 Zeilen des Datensatzes ausgeben</span></span></code></pre></div>
+<p>Dplyr ist Teil des tidyverse Packages und ermöglicht es, Daten sehr einfach zu manipulieren und in eine Form zu bringen, um diese zu analysieren. Der größte Vorteil dabei ist die einfache Syntax des Packages. Diese ermöglicht es, komplexe Operationen und Umformungen mit relativ wenigen Codezeilen zu realisieren. Um <code>dplyr</code> kennenzulernen, werden wir mit dem <code>Starwars</code> Datensatz arbeiten. Dieser enthält verschiedenen Informationen zu unterschiedlichen Charakteren der Star Wars Saga, wie zum Beispiel das Alter, Geschlecht, Heimatplanet oder Alienrasse. Zunächst lesen wir den Datensatz mit <code>readRDS()</code> ein und verschaffen uns dann einen ersten Überblick über den Datensatz:</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="datenaufbereitung-mit-dplyr.html#cb194-1"></a><span class="co"># Der Datensatz befindet sich im Buch im Verzeichnis &quot;Data&quot;. </span></span>
+<span id="cb194-2"><a href="datenaufbereitung-mit-dplyr.html#cb194-2"></a><span class="co"># Daher muss der Pfad beim einlesen des Datensatzes mit angegeben werden.</span></span>
+<span id="cb194-3"><a href="datenaufbereitung-mit-dplyr.html#cb194-3"></a></span>
+<span id="cb194-4"><a href="datenaufbereitung-mit-dplyr.html#cb194-4"></a>starwars &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;starwars.RDS&quot;</span>)</span></code></pre></div>
+<p>Wir benutzen den <code>head()</code> Befehl, um uns die ersten 5 Zeilen des Datensatzes anzeigen zu lassen.</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="datenaufbereitung-mit-dplyr.html#cb195-1"></a><span class="co"># Wir lassen uns zunächst die ersten 5 Zeilen des Datensatzes ausgeben. </span></span>
+<span id="cb195-2"><a href="datenaufbereitung-mit-dplyr.html#cb195-2"></a></span>
+<span id="cb195-3"><a href="datenaufbereitung-mit-dplyr.html#cb195-3"></a></span>
+<span id="cb195-4"><a href="datenaufbereitung-mit-dplyr.html#cb195-4"></a><span class="kw">head</span>(starwars,<span class="dv">5</span>) </span></code></pre></div>
 <pre><code>## # A tibble: 5 × 11
 ##   name           height  mass hair_color skin_color  eye_color   Age sex   gender
 ##   &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;      &lt;fct&gt;       &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt; 
@@ -271,8 +275,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Darth Vader       202   136 none       white       yellow     41.9 male  mascu…
 ## 5 Leia Organa       150    49 brown      light       brown      19   fema… femin…
 ## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
-<p>Bevor wir einsteigen, schaut euch an, wie die einzelnen Variablen im Datensatz verteilt sind. Benutzt dazu den den <code>summary()</code> Befehl, was fällt euch auf ?</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="datenaufbereitung-mit-dplyr.html#cb197-1"></a><span class="kw">summary</span>(starwars)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="datenaufbereitung-mit-dplyr.html#cb197-1"></a><span class="co"># Analog können wir auch mit den Befehl `tail()`, die letzten n Zeilen eines Datensatzes anzeigen.</span></span>
+<span id="cb197-2"><a href="datenaufbereitung-mit-dplyr.html#cb197-2"></a></span>
+<span id="cb197-3"><a href="datenaufbereitung-mit-dplyr.html#cb197-3"></a></span>
+<span id="cb197-4"><a href="datenaufbereitung-mit-dplyr.html#cb197-4"></a><span class="kw">tail</span>(starwars,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 11
+##   name           height  mass hair_color skin_color eye_color   Age sex    gender
+##   &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;      &lt;fct&gt;      &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt; 
+## 1 Rey                NA    NA brown      light      hazel        NA female femin…
+## 2 Poe Dameron        NA    NA brown      light      brown        NA male   mascu…
+## 3 BB8                NA    NA none       none       black        NA none   mascu…
+## 4 Captain Phasma     NA    NA unknown    unknown    unknown      NA &lt;NA&gt;   &lt;NA&gt;  
+## 5 Padmé Amidala     165    45 brown      light      brown        46 female femin…
+## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+<p>Nachdem wir nun eine erste “Augapfeldiagnostik” des Datensatzes betrieben haben, sollten wir uns nun die einzelnen Variablen genauer ansehen. Um einen ersten Überblick in die unterschiedlichen Parameter der Variablen zu bekommen, eignet sich der <code>summary()</code> Befehl. Dieser berechnet die wichtigstens Kennwerte der im Datensatz enthaltenen Variablen wie Mittelwert, Median, Quantile, Minimum, Maximum und fehlende Werte.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="datenaufbereitung-mit-dplyr.html#cb199-1"></a><span class="kw">summary</span>(starwars)</span></code></pre></div>
 <pre><code>##      name               height           mass           hair_color   skin_color
 ##  Length:87          Min.   : 66.0   Min.   :  15.00   none   :37   fair   :17  
 ##  Class :character   1st Qu.:167.0   1st Qu.:  55.60   brown  :18   light  :11  
@@ -297,9 +314,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                                       
 ##                                       
 ## </code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="datenaufbereitung-mit-dplyr.html#cb201-1"></a><span class="co"># Wir sehen nun die Unterschiedlichen Verteilungsinformationen jeder Variablen. Für factors bzw. character Variablen, werden hier die Häufigkeiten der einzelnen Kategorien angezeigt. </span></span></code></pre></div>
 </div>
 <div id="dplyr-die-wichtigsten-befehle" class="section level2">
 <h2><span class="header-section-number">5.2</span> Dplyr: Die wichtigsten Befehle</h2>
+<p>Wie am Anfang des Kapitels bereits erwähnt, ermöglicht es <code>dplyr</code> mit relativ einfachen Mitteln, komplexe Operationen und Transformationen in Datensätzen vorzunehmen. Hierzu hat <code>dplyr</code> eine eigene Syntax entwickelt, die sich sehr stark von der ursprünglichen R-Syntax unterscheidet. Diese baut auf wenigen, relativ intuitiven Befehlen auf, welche verkettet werden können. Zunächst eine Übersicht der wichtigsten Befehle:</p>
 <ul>
 <li><p>Filtern von Beobachtungen nach Wert (<a href="https://rdrr.io/r/stats/filter.html"><code>filter()</code></a>).</p></li>
 <li><p>Reihen neu Sortieren (<code>arrange()</code>).</p></li>
@@ -307,32 +326,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Erstellen von neuen Variablen aus bereits existierenden (<code>mutate()</code>).</p></li>
 <li><p>Viele Werte zu einem einzelnen Wert zusammenfassen (<code>summarise()</code>).</p></li>
 </ul>
-<p>Der vielleicht wichtigste Befehl ist der <code>group_by()</code> Befehl, mit dem Ihr die oben genannten Befehle auf einzelne Gruppen innerhalb eines Datensatzes anwenden könnt.</p>
-<p>Diese 6 sogennaten “Verben” bilden die Grundlage für tidyverse.Damit ist es möglichmehrere einfache Schritte miteinander zu verketten, um ein komplexes Ergebnis zu erzielen. Alles Befehle funktionieren auf die gleiche Art und Weise:</p>
+<p>Der vielleicht wichtigste Befehl ist der <code>group_by()</code> Befehl, mit dem die oben genannten Befehle auf einzelne Gruppen innerhalb eines Datensatzes anwendbar sind.</p>
+<p>Diese 6 sogennaten “Verben” bilden die Grundlage von <code>dplyr</code>. Mit ihnen ist es möglich mehrere einfache Schritte miteinander zu verketten, um ein komplexes Ergebnis zu erzielen. Alles Befehle funktionieren auf die gleiche Art und Weise. Jede Operation ist durch die gleiche Struktur gekennzeichnet:</p>
 <ol style="list-style-type: decimal">
 <li><p>Das erste Argument ist ein Dataframe.</p></li>
 <li><p>Die nachfolgenden Argumente beschreiben, was mit dem Dataframe geschehen soll, wobei die Variablennamen (ohne Anführungszeichen) verwendet werden.</p></li>
 <li><p>Das Ergebnis ist ein neuer Dataframe</p></li>
 </ol>
-<p>Hier ein Beispiel, zum <code>filter()</code> Befehl, dazu müsst ihr auch wissen, wie Ihr die gewünschten Beobachtungen mit Hilfe der Vergleichsoperatoren auswählen können. R bietet euch hier die Standardoperatoren:</p>
-<ol style="list-style-type: decimal">
-<li><p><code>&gt;</code> (größer)</p></li>
-<li><p><code>&gt;=</code> (größer gleich)</p></li>
-<li><p><code>&lt;</code> (kleiner)</p></li>
-<li><p><code>&lt;=</code> (kleiner gleich)</p></li>
-<li><p><code>!=</code> (nicht gleich)</p></li>
-<li><p><code>==</code>(gleich)</p></li>
-</ol>
-<p>Anmerkung: Es gibt auch noch logische Operatoren, also “und”, “oder” etc. Diese Besprechen wir nicht im Detail, da das sonst zu viel würde. Die Logik der Anwendungen ist aber genau gleich wie bei den Vergleichsoperatoren, hier nur der Vollstädigkeit halber eine übersicht über diese Operatoren:<br />
-</p>
-<div class="figure">
-<img src="https://d33wubrfki0l68.cloudfront.net/01f4b6d39d2be8269740a3ad7946faa79f7243cf/8369a/diagrams/transform-logical.png" title="Logische Operatoren und Ihre Aussage" width="800" alt="" />
-<p class="caption">Logische Operatoren in R</p>
 </div>
-<p>Beispiel</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="datenaufbereitung-mit-dplyr.html#cb199-1"></a><span class="co"># Wenn wir zum Beispiel wissen wollen, wer die größten und schwersten Charaktere aus Starwars sind, dann könnten wir dies so machen:</span></span>
-<span id="cb199-2"><a href="datenaufbereitung-mit-dplyr.html#cb199-2"></a></span>
-<span id="cb199-3"><a href="datenaufbereitung-mit-dplyr.html#cb199-3"></a><span class="kw">filter</span>(starwars, height <span class="op">&gt;</span><span class="st"> </span><span class="dv">190</span>, mass <span class="op">&gt;</span><span class="st"> </span><span class="dv">90</span>)</span></code></pre></div>
+<div id="beispiel-filtern-von-beobachtungen-mit-filter" class="section level2">
+<h2><span class="header-section-number">5.3</span> Beispiel: Filtern von Beobachtungen mit <code>filter()</code></h2>
+<p>Um effektiv nach bestimmten Werten zu filtern, müssen für jede Operation die Kriterien nach denen gefiltetert werden soll definiert werden. Dies geschiet mit Hilfe der bereits eingeführten logischen Operatoren. Im ersten Beispiel sollen alle Beobachtungen, in welchen die Variablen <code>height</code> und <code>mass</code> größer als <code>190</code> bzw. <code>90</code> sind angezeigt werden:</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="datenaufbereitung-mit-dplyr.html#cb202-1"></a><span class="co"># Es werden hier nun alle Helden aus dem Datensatz ausgegeben, die größer als 1,90 m und schwerer als 90 Kilogramm sind</span></span>
+<span id="cb202-2"><a href="datenaufbereitung-mit-dplyr.html#cb202-2"></a></span>
+<span id="cb202-3"><a href="datenaufbereitung-mit-dplyr.html#cb202-3"></a><span class="kw">filter</span>(starwars, height <span class="op">&gt;</span><span class="st"> </span><span class="dv">190</span>, mass <span class="op">&gt;</span><span class="st"> </span><span class="dv">90</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 11
 ##   name            height  mass hair_color skin_color eye_color   Age sex   gender
 ##   &lt;chr&gt;            &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;      &lt;fct&gt;      &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt; 
@@ -343,10 +350,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Grievous           216   159 none       brown, wh… green, y…  NA   male  mascu…
 ## 6 Tarfful            234   136 brown      brown      blue       NA   male  mascu…
 ## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="datenaufbereitung-mit-dplyr.html#cb201-1"></a><span class="co"># Wir filtern hier alle heraus, die größer sind als 190 und mehr als 90 Kilo wiegen</span></span></code></pre></div>
-<p>Wenn man mit Strings arbeitet sucht man häufig nach bestimmen <code>pattern</code> in den Strings, wie hier bei den Namen. Wollen wir nun alle Skywalkers filtern, müssen wir die <code>grepl()</code> Funktion aus R nutzen. Diese prüft, ob eine Zeichenfolge vorhanden ist oder nicht und gibt dann entsprechend TRUE oder FALSE aus, also perfekt für <code>filter()</code> . Bei Strings die nur aus einem Wort bestehen, funktioniert aber auch <code>filter(starwars, species=="human").</code></p>
-<p>Beispiel:</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="datenaufbereitung-mit-dplyr.html#cb202-1"></a><span class="kw">filter</span>(starwars, species <span class="op">==</span><span class="st"> &quot;Human&quot;</span>)</span></code></pre></div>
+<div id="filtern-von-strings-factors" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Filtern von Strings / Factors</h3>
+<p>Logische Operatoren lassen sich sehr gut auf numerische / bzw. kontinuierliche Variablen anwenden, um diese nach bestimmten Kriterien zu filtern. Wenn mit Strings oder Factors gearbeitet wird, sucht man häufig nach bestimmen <code>pattern</code> in den Strings, wie hier bei den Namen.</p>
+<p>Sollen nun alle Beobachtungen mit “Skywalker” im Namen gefiltert werden, kann die <code>grepl()</code> Funktion aus R genutzt werden. Diese prüft, ob eine Zeichenfolge vorhanden ist oder nicht und gibt dann entsprechend <code>TRUE</code> oder <code>FALSE</code> aus, was ein filtern ermöglicht. Dies ist vorallem bei Strings, die aus mehr als einem Wort bestehen, dass durch ein Leerzeichen getrennt ist sehr praktisch. Bei Strings die nur aus einem Wort bestehen oder Factors, kann auch mit einem einfach <code>==</code> Vergleich gearbeitet werden: Beispiel:</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="datenaufbereitung-mit-dplyr.html#cb204-1"></a><span class="co"># Hier werden alle Beobachtungen mit der Spezies &quot;Human&quot; gefiltert. </span></span>
+<span id="cb204-2"><a href="datenaufbereitung-mit-dplyr.html#cb204-2"></a></span>
+<span id="cb204-3"><a href="datenaufbereitung-mit-dplyr.html#cb204-3"></a><span class="kw">filter</span>(starwars, species <span class="op">==</span><span class="st"> &quot;Human&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 35 × 11
 ##    name        height  mass hair_color  skin_color eye_color   Age sex   gender 
 ##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;       &lt;fct&gt;      &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;  
@@ -361,22 +371,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Wilhuff Ta…    180    NA auburn, gr… fair       blue       64   male  mascul…
 ## 10 Han Solo       180    80 brown       fair       brown      29   male  mascul…
 ## # … with 25 more rows, and 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="datenaufbereitung-mit-dplyr.html#cb204-1"></a><span class="co"># Alle Helden, mit dem Nachnamen Skywalker</span></span>
-<span id="cb204-2"><a href="datenaufbereitung-mit-dplyr.html#cb204-2"></a></span>
-<span id="cb204-3"><a href="datenaufbereitung-mit-dplyr.html#cb204-3"></a><span class="kw">filter</span>(starwars, <span class="kw">grepl</span>(<span class="st">&quot;Skywalker&quot;</span>, name))</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 11
-##   name         height  mass hair_color skin_color eye_color   Age sex    gender 
-##   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;      &lt;fct&gt;      &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;  
-## 1 Luke Skywal…    172    77 blond      fair       blue       19   male   mascul…
-## 2 Anakin Skyw…    188    84 blond      fair       blue       41.9 male   mascul…
-## 3 Shmi Skywal…    163    NA black      fair       brown      72   female femini…
-## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="datenaufbereitung-mit-dplyr.html#cb206-1"></a><span class="co"># Es wird im Datensatz starwars nach dem String &quot;Skywalker&quot; in der Spalte name gesucht. </span></span>
-<span id="cb206-2"><a href="datenaufbereitung-mit-dplyr.html#cb206-2"></a><span class="co"># Das Ergebnis sieht dann so aus: </span></span></code></pre></div>
-<p>Wichtig ist natürlich für uns auch der Umgang mit Faktoren. Glücklicherweise ist das viel einfacher als mit Strings:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="datenaufbereitung-mit-dplyr.html#cb207-1"></a><span class="co"># Wenn wir nun nach einem bestimmten Faktor-Level Filtern wollen geht das genauso wie mit numerischen Werten:</span></span>
-<span id="cb207-2"><a href="datenaufbereitung-mit-dplyr.html#cb207-2"></a></span>
-<span id="cb207-3"><a href="datenaufbereitung-mit-dplyr.html#cb207-3"></a><span class="kw">filter</span>(starwars, sex <span class="op">==</span><span class="st"> &quot;male&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="datenaufbereitung-mit-dplyr.html#cb206-1"></a><span class="co"># Analog hierzu kann genau so auch nach bestimmten Faktorstufen gefiltert werden:</span></span>
+<span id="cb206-2"><a href="datenaufbereitung-mit-dplyr.html#cb206-2"></a></span>
+<span id="cb206-3"><a href="datenaufbereitung-mit-dplyr.html#cb206-3"></a><span class="kw">filter</span>(starwars, sex <span class="op">==</span><span class="st"> &quot;male&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 60 × 11
 ##    name        height  mass hair_color  skin_color eye_color   Age sex   gender 
 ##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;       &lt;fct&gt;      &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;  
@@ -391,78 +388,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Han Solo       180    80 brown       fair       brown      29   male  mascul…
 ## 10 Greedo         173    74 &lt;NA&gt;        green      black      44   male  mascul…
 ## # … with 50 more rows, and 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="datenaufbereitung-mit-dplyr.html#cb208-1"></a><span class="co"># Um komplexere Strings zu filtern, kann die grepl() funktion integriert werden. Hier werden alle Beocbachtungen gefiltert, welche innerhalb der Variable &quot;name&quot; den String &quot;Skywalker&quot; enthalten. So erhalten wir alle Skywalker Charaktere, die im Datensatz vorhanden sind:</span></span>
+<span id="cb208-2"><a href="datenaufbereitung-mit-dplyr.html#cb208-2"></a></span>
+<span id="cb208-3"><a href="datenaufbereitung-mit-dplyr.html#cb208-3"></a><span class="kw">filter</span>(starwars, <span class="kw">grepl</span>(<span class="st">&quot;Skywalker&quot;</span>, name))</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 11
+##   name         height  mass hair_color skin_color eye_color   Age sex    gender 
+##   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;      &lt;fct&gt;      &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;  
+## 1 Luke Skywal…    172    77 blond      fair       blue       19   male   mascul…
+## 2 Anakin Skyw…    188    84 blond      fair       blue       41.9 male   mascul…
+## 3 Shmi Skywal…    163    NA black      fair       brown      72   female femini…
+## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
 </div>
-<div id="übung-1" class="section level2">
-<h2><span class="header-section-number">5.3</span> Übung 1</h2>
-<p>Filtert nun selbst den Datensatz nach bestimmten Kriterien</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="datenaufbereitung-mit-dplyr.html#cb209-1"></a><span class="co"># 1.) Filtert alle Helden, die Älter sind als 20 und größer als 160 sind</span></span>
-<span id="cb209-2"><a href="datenaufbereitung-mit-dplyr.html#cb209-2"></a></span>
-<span id="cb209-3"><a href="datenaufbereitung-mit-dplyr.html#cb209-3"></a>fat_starwars &lt;-<span class="st"> </span><span class="kw">filter</span>(starwars, Age <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>, height <span class="op">&gt;</span><span class="st"> </span><span class="dv">160</span>)</span>
-<span id="cb209-4"><a href="datenaufbereitung-mit-dplyr.html#cb209-4"></a></span>
-<span id="cb209-5"><a href="datenaufbereitung-mit-dplyr.html#cb209-5"></a><span class="co"># 2.) Filtert alle Helden, die Blaue Augen haben und männlich sind</span></span>
-<span id="cb209-6"><a href="datenaufbereitung-mit-dplyr.html#cb209-6"></a></span>
-<span id="cb209-7"><a href="datenaufbereitung-mit-dplyr.html#cb209-7"></a><span class="kw">filter</span>(starwars, eye_color <span class="op">==</span><span class="st"> &quot;blue&quot;</span>, sex <span class="op">==</span><span class="st"> &quot;male&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 12 × 11
-##    name        height  mass hair_color  skin_color eye_color   Age sex   gender 
-##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;       &lt;fct&gt;      &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;  
-##  1 Luke Skywa…    172    77 blond       fair       blue       19   male  mascul…
-##  2 Owen Lars      178   120 brown, grey light      blue       52   male  mascul…
-##  3 Anakin Sky…    188    84 blond       fair       blue       41.9 male  mascul…
-##  4 Wilhuff Ta…    180    NA auburn, gr… fair       blue       64   male  mascul…
-##  5 Chewbacca      228   112 brown       unknown    blue      200   male  mascul…
-##  6 Jek Tono P…    180   110 brown       fair       blue       NA   male  mascul…
-##  7 Lobot          175    79 none        light      blue       37   male  mascul…
-##  8 Qui-Gon Ji…    193    89 brown       fair       blue       92   male  mascul…
-##  9 Finis Valo…    170    NA blond       fair       blue       91   male  mascul…
-## 10 Mas Amedda     196    NA none        blue       blue       NA   male  mascul…
-## 11 Cliegg Lars    183    NA brown       fair       blue       82   male  mascul…
-## 12 Tarfful        234   136 brown       brown      blue       NA   male  mascul…
-## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="datenaufbereitung-mit-dplyr.html#cb211-1"></a><span class="co"># 3.) Filtert alle, die zur Spezies Droid gehören</span></span>
-<span id="cb211-2"><a href="datenaufbereitung-mit-dplyr.html#cb211-2"></a></span>
-<span id="cb211-3"><a href="datenaufbereitung-mit-dplyr.html#cb211-3"></a><span class="kw">filter</span>(starwars, species<span class="op">==</span><span class="st">&quot;Droid&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 11
-##   name   height  mass hair_color skin_color  eye_color   Age sex   gender   
-##   &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;      &lt;fct&gt;       &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;    
-## 1 C-3PO     167    75 &lt;NA&gt;       gold        yellow      112 none  masculine
-## 2 R2-D2      96    32 &lt;NA&gt;       white, blue red          33 none  masculine
-## 3 R5-D4      97    32 &lt;NA&gt;       white, red  red          NA none  masculine
-## 4 IG-88     200   140 none       metal       red          15 none  masculine
-## 5 R4-P17     96    NA none       silver, red red, blue    NA none  feminine 
-## 6 BB8        NA    NA none       none        black        NA none  masculine
-## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
 </div>
 <div id="dplyr-der-piping-operator" class="section level2">
 <h2><span class="header-section-number">5.4</span> Dplyr: Der Piping Operator</h2>
-<p>Jetzt wisst ihr, wie man Daten filtert. Das ist aber nur eine der Basisfunktionen von dplyr. Die vielleicht wichtigste Funktion der sogenannte “piping operator” <code>%&gt;%</code> Mit diesem könnt ihr die Befehle kombinieren, oder auch “verketten” um die Datensätze nach euren Wünschen umzugestalten. Das funktioniert auch immer nach den oben genannten Prinzipien:</p>
+<p>Die vielleicht wichtigste Funktion in <code>dplyr</code> ist der sogenannte “piping operator” <code>%&gt;%</code>. Mit diesem können beliebig viele Befehle kombiniert, oder auch “verkettet” werden, um einen Datensatz umzuformen. Hierbei bleiben die oben vorgestellten Prinzipien gültig:</p>
 <ol style="list-style-type: decimal">
 <li><p>Das erste Argument ist ein Dataframe.</p></li>
 <li><p>Die nachfolgenden Argumente beschreiben, was mit dem Dataframe geschehen soll, wobei die Variablennamen (ohne Anführungszeichen) verwendet werden.</p></li>
 <li><p>Das Ergebnis ist ein neuer Dataframe</p></li>
 </ol>
-<p>Wir werden hier erstmal nur die basis dplyr-Funktionen besprechen. Aber auch alle anderen Befehle lassen sich in eine “Pipeline” integrieren. Hier mal ein sehr fortgeschrittenes Beispiel, wie das aussehen kann:</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="datenaufbereitung-mit-dplyr.html#cb213-1"></a><span class="co"># df_clean %&gt;% group_by(N,K,Retrievals) %&gt;%  </span></span>
-<span id="cb213-2"><a href="datenaufbereitung-mit-dplyr.html#cb213-2"></a><span class="co">#   summarise(corA = cor(mu_est_a, mu_real_a),</span></span>
-<span id="cb213-3"><a href="datenaufbereitung-mit-dplyr.html#cb213-3"></a><span class="co">#             corC = cor(mu_est_c, mu_real_c)) %&gt;%</span></span>
-<span id="cb213-4"><a href="datenaufbereitung-mit-dplyr.html#cb213-4"></a><span class="co">#   mutate(z_a = fisherz(corA), z_c = fisherz(corC)) %&gt;% </span></span>
-<span id="cb213-5"><a href="datenaufbereitung-mit-dplyr.html#cb213-5"></a><span class="co">#   filter(Retrievals== 100) %&gt;%</span></span>
-<span id="cb213-6"><a href="datenaufbereitung-mit-dplyr.html#cb213-6"></a><span class="co">#   group_by(N,K) %&gt;%  </span></span>
-<span id="cb213-7"><a href="datenaufbereitung-mit-dplyr.html#cb213-7"></a><span class="co">#   summarise(mean_a_100 = mean(z_a),</span></span>
-<span id="cb213-8"><a href="datenaufbereitung-mit-dplyr.html#cb213-8"></a><span class="co">#             mean_c_100 = mean(z_c),</span></span>
-<span id="cb213-9"><a href="datenaufbereitung-mit-dplyr.html#cb213-9"></a><span class="co">#             range_cor = range(mean_a_100),</span></span>
-<span id="cb213-10"><a href="datenaufbereitung-mit-dplyr.html#cb213-10"></a><span class="co">#             range_cor = range(mean_a_100)) %&gt;%</span></span>
-<span id="cb213-11"><a href="datenaufbereitung-mit-dplyr.html#cb213-11"></a><span class="co">#   mutate(meanCorA_100 = fisherz2r(mean_a_100),</span></span>
-<span id="cb213-12"><a href="datenaufbereitung-mit-dplyr.html#cb213-12"></a><span class="co">#          meanCorC_100 = fisherz2r(mean_c_100)) %&gt;%</span></span>
-<span id="cb213-13"><a href="datenaufbereitung-mit-dplyr.html#cb213-13"></a><span class="co">#   select(-c(mean_a_100, mean_c_100))</span></span></code></pre></div>
+<p>In diesem Kapitel werden nur die basis dplyr-Funktionen besprochen und wie diese in einer Pipline integriert werden können. Prinzipiell lassen sich jedoch auch alle anderen R-Befehle in eine “Pipeline” integrieren, wie zum Beispiel statistische Transformationen. Es spielt keine Rolle, welche Befehle innerhalb einer Pipeline ausgeführt werden, solange die oben genannten Prinzipien eingehalten werden.</p>
+<p>Hier ein sehr fortgeschrittenes Beispiel, wie dies aussehen kann. Es wurden in diesem Beispiel Funktionen aus unterschiedlichen Paketen verwendet (z.B. <code>fisherz()</code> aus dem <code>psych</code> Package), als auch Funktionen von R (<code>cor()</code>) um aus einem sehr großen Datensatz mit 1 Millionen Beobachtungen, mittlere Korrelationen zwischen unterschiedlichen Variablen zu berechnen:</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="datenaufbereitung-mit-dplyr.html#cb210-1"></a><span class="co"># df_clean %&gt;% group_by(N,K,Retrievals) %&gt;%  </span></span>
+<span id="cb210-2"><a href="datenaufbereitung-mit-dplyr.html#cb210-2"></a><span class="co">#   summarise(corA = cor(mu_est_a, mu_real_a),</span></span>
+<span id="cb210-3"><a href="datenaufbereitung-mit-dplyr.html#cb210-3"></a><span class="co">#             corC = cor(mu_est_c, mu_real_c)) %&gt;%</span></span>
+<span id="cb210-4"><a href="datenaufbereitung-mit-dplyr.html#cb210-4"></a><span class="co">#   mutate(z_a = fisherz(corA), z_c = fisherz(corC)) %&gt;% </span></span>
+<span id="cb210-5"><a href="datenaufbereitung-mit-dplyr.html#cb210-5"></a><span class="co">#   filter(Retrievals== 100) %&gt;%</span></span>
+<span id="cb210-6"><a href="datenaufbereitung-mit-dplyr.html#cb210-6"></a><span class="co">#   group_by(N,K) %&gt;%  </span></span>
+<span id="cb210-7"><a href="datenaufbereitung-mit-dplyr.html#cb210-7"></a><span class="co">#   summarise(mean_a_100 = mean(z_a),</span></span>
+<span id="cb210-8"><a href="datenaufbereitung-mit-dplyr.html#cb210-8"></a><span class="co">#             mean_c_100 = mean(z_c),</span></span>
+<span id="cb210-9"><a href="datenaufbereitung-mit-dplyr.html#cb210-9"></a><span class="co">#             range_cor = range(mean_a_100),</span></span>
+<span id="cb210-10"><a href="datenaufbereitung-mit-dplyr.html#cb210-10"></a><span class="co">#             range_cor = range(mean_a_100)) %&gt;%</span></span>
+<span id="cb210-11"><a href="datenaufbereitung-mit-dplyr.html#cb210-11"></a><span class="co">#   mutate(meanCorA_100 = fisherz2r(mean_a_100),</span></span>
+<span id="cb210-12"><a href="datenaufbereitung-mit-dplyr.html#cb210-12"></a><span class="co">#          meanCorC_100 = fisherz2r(mean_c_100)) %&gt;%</span></span>
+<span id="cb210-13"><a href="datenaufbereitung-mit-dplyr.html#cb210-13"></a><span class="co">#   select(-c(mean_a_100, mean_c_100))</span></span></code></pre></div>
 </div>
 <div id="beispiel" class="section level2">
 <h2><span class="header-section-number">5.5</span> Beispiel</h2>
-<p>Stellt euch vor, ihr wollte gerne den Mittelwert des Alters der Helden aus dem Starwars Datensatz berechnen, und das für unterschiedliche Heimatwelten und Spezies:</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="datenaufbereitung-mit-dplyr.html#cb214-1"></a><span class="co"># Dazu benutzen wir den Piping Operator %&gt;%, um die Befehle zu verketten:</span></span>
-<span id="cb214-2"><a href="datenaufbereitung-mit-dplyr.html#cb214-2"></a></span>
-<span id="cb214-3"><a href="datenaufbereitung-mit-dplyr.html#cb214-3"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb214-4"><a href="datenaufbereitung-mit-dplyr.html#cb214-4"></a><span class="st">  </span><span class="kw">group_by</span>(species, homeworld) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb214-5"><a href="datenaufbereitung-mit-dplyr.html#cb214-5"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Age=</span><span class="kw">mean</span>(Age))</span></code></pre></div>
+<p>Um nun verschiedene Operationen zu einer Pipeline zu verketten, können wir zwischen die einzelnen <code>dplyr</code> Befehle den Pining Operator <code>%&gt;%</code> schalten.</p>
+<p>Soll zum Beispiel der Mittelwert des Alters der Helden aus dem Starwars Datensatz für verschiedene Gruppen (hier Heimatwelten und Spezies) berechnet werden, können hierfür der <code>group_by()</code> und der <code>summarise()</code> Befehl kombiniert werden. Zunächst Gruppieren wir den Datensatz nach den Variablen <code>species</code> und <code>homeworld</code> und berechnen dann mit <code>summarise()</code> eine neue Variable <code>mean_Age</code> für jede Gruppenkombination. Hierbei wird innerhalb von <code>summarise()</code> der Mittelwert der <code>Age</code> Variablen berechnet und in der neuen Variablen <code>mean_Age</code> gespeichert. Hierbei gelten die oben genannten Prinzipien, welche dann mit <code>%&gt;%</code> verkettet werden:</p>
+<ol style="list-style-type: decimal">
+<li><p>Das erste Argument ist ein Dataframe: hier <code>starwars</code></p></li>
+<li><p>Die nachfolgenden Argumente beschreiben, was mit dem Dataframe geschehen soll: <code>group_by(species, homeworld)</code> und <code>summarise(mean_Age=mean(Age))</code></p></li>
+<li><p>Das Ergebnis ist ein neuer Dataframe, der nur noch die Gruppenvariablen <code>Homeworld</code> und <code>Species</code>, sowie die neu berechnete Variable <code>mean_Ages</code> enthält:</p></li>
+</ol>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="datenaufbereitung-mit-dplyr.html#cb211-1"></a><span class="co"># Dazu benutzen wir den Piping Operator %&gt;%, um die Befehle zu verketten:</span></span>
+<span id="cb211-2"><a href="datenaufbereitung-mit-dplyr.html#cb211-2"></a></span>
+<span id="cb211-3"><a href="datenaufbereitung-mit-dplyr.html#cb211-3"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb211-4"><a href="datenaufbereitung-mit-dplyr.html#cb211-4"></a><span class="st">  </span><span class="kw">group_by</span>(species, homeworld) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb211-5"><a href="datenaufbereitung-mit-dplyr.html#cb211-5"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Age=</span><span class="kw">mean</span>(Age))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;species&#39;. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 58 × 3
 ## # Groups:   species [38]
@@ -479,7 +454,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Dug      Malastare         NA
 ## 10 Ewok     Endor              8
 ## # … with 48 more rows</code></pre>
-<p>Wir schreiben hier im Prinzip:</p>
+<p>Natürlichsprachlich dargestellt werden also folgende Operationen ausgeführt:</p>
 <ol style="list-style-type: decimal">
 <li>Nehme den Datensatz starwars (1. Zuerst der Dataframe):</li>
 </ol>
@@ -492,64 +467,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <!-- -->
 <pre><code>`summarise(meanAge=mean(Age)`</code></pre>
-<p>Da wir nun den Piping Operator benutzen der vom Dataframe starwars ausgeht, müssen wir auch nicht mehr bei jedem Befehl den Datensatz angeben, es reicht dies am Anfang der “Pipeline” zu tun.</p>
-<p>Problem: Wir haben noch viele fehlende Beobachtungen. Diese müssen wir zunächst entfehrnen. Auch das können wir nun innerhalb der “Pipeline” tun. Dazu bietet R den Befehl <code>drop_na()</code> an. Dieser entfehrnt alle fehlenden Werte eines Datensatzes.</p>
-<p>Wir müssen diesen Befehl nun einfach an eine Stelle in der Pipe einfügen, an der es Sinn macht, die Fehlenden Werte zu entfehrnen:</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="datenaufbereitung-mit-dplyr.html#cb219-1"></a><span class="co"># Wo könnte das hier sein ? </span></span>
-<span id="cb219-2"><a href="datenaufbereitung-mit-dplyr.html#cb219-2"></a></span>
-<span id="cb219-3"><a href="datenaufbereitung-mit-dplyr.html#cb219-3"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span></span>
-<span id="cb219-4"><a href="datenaufbereitung-mit-dplyr.html#cb219-4"></a><span class="st">  </span><span class="kw">group_by</span>(species, homeworld) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb219-5"><a href="datenaufbereitung-mit-dplyr.html#cb219-5"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Age=</span><span class="kw">mean</span>(Age))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;species&#39;. You can override using the `.groups` argument.</code></pre>
-<pre><code>## # A tibble: 21 × 3
-## # Groups:   species [11]
-##    species homeworld    mean_Age
-##    &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;
-##  1 Cerean  Cerea            92  
-##  2 Ewok    Endor             8  
-##  3 Gungan  Naboo            52  
-##  4 Human   Alderaan         19  
-##  5 Human   Bespin           37  
-##  6 Human   Concord Dawn     66  
-##  7 Human   Corellia         25  
-##  8 Human   Haruun Kal       72  
-##  9 Human   Kamino           31.5
-## 10 Human   Naboo            64  
-## # … with 11 more rows</code></pre>
-<p>Nun haben wir nach verschiedenen Gruppen die Altersmittelwerte, bereinigt von den fehlenden Werten. Und das mit nur 2 Zeilen Code :)</p>
-</div>
-<div id="übung-2" class="section level2">
-<h2><span class="header-section-number">5.6</span> Übung 2</h2>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="datenaufbereitung-mit-dplyr.html#cb222-1"></a><span class="co"># 1.) Gruppiert die Daten nach der Haarfarbe und berechnet für alle vollständigen Werte den Mittelwert und die Standardabweichung für die Größe und das Gewicht. Benutzt dafür wie im vorigen Beispiel die summarise() Funktion. Mit dieser könnt ihr auch mehrere Variablen berechnen. Bindet auch den drop_na() ein. Am Ende sollte es keine NA-Werte mehr in der Ausgabe geben. </span></span>
-<span id="cb222-2"><a href="datenaufbereitung-mit-dplyr.html#cb222-2"></a></span>
-<span id="cb222-3"><a href="datenaufbereitung-mit-dplyr.html#cb222-3"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(hair_color) <span class="op">%&gt;%</span></span>
-<span id="cb222-4"><a href="datenaufbereitung-mit-dplyr.html#cb222-4"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Height =</span> <span class="kw">mean</span>(height),</span>
-<span id="cb222-5"><a href="datenaufbereitung-mit-dplyr.html#cb222-5"></a>            <span class="dt">sd_Height=</span> <span class="kw">sd</span>(height),</span>
-<span id="cb222-6"><a href="datenaufbereitung-mit-dplyr.html#cb222-6"></a>            <span class="dt">mean_Mass =</span> <span class="kw">mean</span>(mass),</span>
-<span id="cb222-7"><a href="datenaufbereitung-mit-dplyr.html#cb222-7"></a>            <span class="dt">sd_Mass =</span> <span class="kw">sd</span>(mass)) </span></code></pre></div>
-<pre><code>## # A tibble: 8 × 5
-##   hair_color    mean_Height sd_Height mean_Mass sd_Mass
-##   &lt;fct&gt;               &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 auburn, white        182      NA         77     NA   
-## 2 black                177       7.46      71.1   14.2 
-## 3 blond                180      11.3       80.5    4.95
-## 4 brown                164.     41.6       65.4   29.9 
-## 5 brown, grey          178      NA        120     NA   
-## 6 grey                 170      NA         75     NA   
-## 7 none                 186.      9.50      86.2   24.3 
-## 8 white                196.      3.54      81      1.41</code></pre>
+<p>Da nun den Piping-Operator die einzelnen Elemente miteinander verkettet, ist es nicht mehr notwendig, den Datensatz innerhalb der einzelnen Befehle als Argument anzugeben, so wie im Beipsiel von <code>filter()</code>. Es muss lediglich der Ausgangsdatensatz am Anfang der Pipeline angeben werden.</p>
 </div>
 <div id="dplyr-neue-variablen-mit-mutate-berechnen" class="section level2">
-<h2><span class="header-section-number">5.7</span> Dplyr : Neue Variablen mit <code>mutate()</code> berechnen</h2>
-<p>Der letzte wichtige Befehl in dplyr ist <code>mutate()</code> bzw. <code>across()</code>. Letztes mal haben wir in dem Beispiel der Matrix zwei Variablen miteinander kombiniert und daraus einen neue berechnet (Größe*5). Mit <code>mutate()</code> können wir eine Variable und mit <code>across()</code> gleich mehrere Variablen umformen, oder neu berechnen. Hier möchte ich es am Beispiel einer z-Tranformation erläutern. Diese werden wir mit dem Befehl <code>scale()</code> tun, der standardmäßig in R vorhanden ist.</p>
+<h2><span class="header-section-number">5.6</span> Dplyr : Neue Variablen mit <code>mutate()</code> berechnen</h2>
+<p>Der letzte wichtige Befehl in <code>dplyr</code> ist <code>mutate()</code> bzw. <code>across()</code>. Mit <code>mutate()</code> bzw. <code>across()</code> ist es möglich eine Variable bzw. mehrere Variablen umzuformen, oder neu zu berechnen. Dies wird hier anhand einer z-Tranformation erläutert. Dies ermöglicht der Befehl <code>scale()</code>, der standardmäßig in R vorhanden ist.</p>
 </div>
 <div id="beispiel-1" class="section level2">
-<h2><span class="header-section-number">5.8</span> Beispiel</h2>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="datenaufbereitung-mit-dplyr.html#cb224-1"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb224-2"><a href="datenaufbereitung-mit-dplyr.html#cb224-2"></a><span class="st">  </span><span class="kw">select</span>(height,mass) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb224-3"><a href="datenaufbereitung-mit-dplyr.html#cb224-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">z_height =</span> <span class="kw">scale</span>(height),</span>
-<span id="cb224-4"><a href="datenaufbereitung-mit-dplyr.html#cb224-4"></a>         <span class="dt">z_mass =</span> <span class="kw">scale</span>(mass)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb224-5"><a href="datenaufbereitung-mit-dplyr.html#cb224-5"></a><span class="st">  </span><span class="kw">drop_na</span>()</span></code></pre></div>
+<h2><span class="header-section-number">5.7</span> Beispiel</h2>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="datenaufbereitung-mit-dplyr.html#cb216-1"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb216-2"><a href="datenaufbereitung-mit-dplyr.html#cb216-2"></a><span class="st">  </span><span class="kw">select</span>(height,mass) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb216-3"><a href="datenaufbereitung-mit-dplyr.html#cb216-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">z_height =</span> <span class="kw">scale</span>(height),</span>
+<span id="cb216-4"><a href="datenaufbereitung-mit-dplyr.html#cb216-4"></a>         <span class="dt">z_mass =</span> <span class="kw">scale</span>(mass)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb216-5"><a href="datenaufbereitung-mit-dplyr.html#cb216-5"></a><span class="st">  </span><span class="kw">drop_na</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 59 × 4
 ##    height  mass z_height[,1] z_mass[,1]
 ##     &lt;int&gt; &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -564,9 +494,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9    183    84       0.249     -0.0786
 ## 10    182    77       0.220     -0.120 
 ## # … with 49 more rows</code></pre>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="datenaufbereitung-mit-dplyr.html#cb226-1"></a> starwars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(height,mass) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb226-2"><a href="datenaufbereitung-mit-dplyr.html#cb226-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="kw">across</span>(<span class="kw">c</span>(height,mass), <span class="kw">list</span>(<span class="dt">z=</span>scale))) <span class="op">%&gt;%</span></span>
-<span id="cb226-3"><a href="datenaufbereitung-mit-dplyr.html#cb226-3"></a><span class="st">  </span><span class="kw">drop_na</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="datenaufbereitung-mit-dplyr.html#cb218-1"></a> starwars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(height,mass) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb218-2"><a href="datenaufbereitung-mit-dplyr.html#cb218-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="kw">across</span>(<span class="kw">c</span>(height,mass), <span class="kw">list</span>(<span class="dt">z=</span>scale))) <span class="op">%&gt;%</span></span>
+<span id="cb218-3"><a href="datenaufbereitung-mit-dplyr.html#cb218-3"></a><span class="st">  </span><span class="kw">drop_na</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 59 × 4
 ##    height  mass height_z[,1] mass_z[,1]
 ##     &lt;int&gt; &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -581,75 +511,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9    183    84       0.249     -0.0786
 ## 10    182    77       0.220     -0.120 
 ## # … with 49 more rows</code></pre>
-<p>In diesem Beispiel haben wir zunächste nur <code>height</code> und <code>mass</code> mit dem <code>select()</code> Befehl ausgewählt, daher werden auch nur diese beiden Spalten am Ende der Pipline im Datensatz angezeigt. Dies kann hilfreich sein, wenn man einen Datensatz mit sehr vielen Variablen analysieren muss, von denen nur einige wenige interessant sind. Dies ist meiner Erfahrung nach zum Beispiel bei Fragebögen der Fall, die unterschiedliche Facetten erfassen.</p>
-<p>Der nächste Befehl <code>mutate()</code> besteht immer aus einer Operation, die mit einer Spalte im Datensatz durchgeführt wird. Im Beispiel oben fügen wir also die Spalten <code>z_height</code> und <code>z_mass</code> hinzu, die sich jeweils aus <code>scale(SPALTENNAME)</code> berechnen und die z-Werte der jeweiligen Variablen berechnen.</p>
-<p>Wir können auch anstatt die Variablen einzeln umzurechnen, den Befehl <code>scale()</code> direkt auf mehrere Spalten anwenden. Dazu können wir den <code>across()</code> Befehl verwenden. Hier müssen wir innerhalb von <code>mutate()</code> einfach mit <code>across(c(SPALTE1, SPALTE2))</code> einen Vektor der gewünschten Spalten übergeben und dann die Funktion(en), welche auf die Spalten angewand werden soll. Dies muss dann so definiert werden:</p>
+<p>In diesem Beispiel wurden zunächst nur <code>height</code> und <code>mass</code> mit dem <code>select()</code> Befehl ausgewählt, daher werden auch nur diese beiden Spalten am Ende der Pipline im Datensatz angezeigt. Dies kann hilfreich sein, wenn man einen Datensatz mit sehr vielen Variablen analysieren muss, von denen nur einige wenige interessant sind. Dies ist z.B. bei Fragebögen der Fall, die unterschiedliche Facetten erfassen.</p>
+<p>Der nächste Befehl <code>mutate()</code> besteht immer aus einer Operation, die mit einer Spalte im Datensatz durchgeführt wird. Im Beispiel oben fügen werden die Spalten <code>z_height</code> und <code>z_mass</code> berechnet, die sich jeweils aus <code>scale(SPALTENNAME)</code> zusammensetzen und die z-Werte der jeweiligen Variablen ausgeben.</p>
+<p>Anstatt beide Variablen einzeln zu transformieren, kann den Befehl <code>scale()</code> auch direkt auf mehrere Spalten angewendet werden. Dazu kann der <code>across()</code> Befehl verwendet werden. Hier muss innerhalb von <code>mutate()</code> einfach mit <code>across(c(SPALTE1, SPALTE2))</code> ein Vektor der zu tranformierenden Spalten übergeben werden, sowie die Funktion(en), welche auf die Spalten angewand werden soll. Dies muss dann wie folgt definiert werden:</p>
 <p><code>mutate(across(c(height,mass), list(z=scale)))</code></p>
-<p>Diese Schreibweise hat den Vorteil das ihr</p>
+<p>Diese Schreibweise hat den Vorteil das</p>
 <ol style="list-style-type: decimal">
-<li><p>In der <code>list()</code> mehrere Befehle übergeben könnt</p></li>
+<li><p>In der <code>list()</code> mehrere Befehle übergeben werden können</p></li>
 <li><p>Die Originalspalten beibehalten werden</p></li>
-<li><p>Ihr den neuen Spalten direkt einen Suffix geben könnt.<br />
-Dieser wird automatisch als “_suffix” an die neue Variable angehängt.</p>
-<p><code>mutate(across(c(height,mass), list(z=scale)))</code> würde also zusätzliche zu Spalte1 und Spalte2 noch Spalte1_z und Spalte2_z, die den z-Wert der jeweiligen Variablen</p></li>
+<li><p>Den neuen Spalten direkt einen Suffix zugewiesen werden kann.<br />
+Dieser wird automatisch als “_suffix” an die neue Variable angehängt.</p></li>
 </ol>
-</div>
-<div id="aufgabe-bis-zum-nächsten-mal" class="section level2">
-<h2><span class="header-section-number">5.9</span> Aufgabe bis zum nächsten Mal</h2>
-<p>Übersetzt diese Anweisungen in dplyr-Sprache:</p>
-<ol style="list-style-type: decimal">
-<li>Dataframe starwars</li>
-<li>Gruppiert diesen nach Spezies</li>
-<li>Entfehrnt alle fehlenden Werte</li>
-<li>Fasst die Variablen Age und Height zu nur einem Mittelwert zusammen</li>
-<li>z-Transformiert die Mittelwerte beider Spalten.</li>
-</ol>
-<p>Befehle die Ihr dazu braucht:</p>
-<p><code>drop_na(), across()</code> ,<code>scale(), mutate(), group_by(), summarise(), mean()</code></p>
-<p>Wenn ihr es Richtig gemacht habt, sollte der Datensatz am Ende so aussehen:</p>
-<p><img src="Merged_Data.png" /></p>
-<p><em>Zusatzaufgabe:</em></p>
-<p><em>Ihr könnt den <code>summarise()</code> Befehl auch mit <code>across()</code> umsetzen und automatisch einen Suffix für die zusammengefassten Variablen erstellen, hierdurch spart man sich einige Tipparbeit. Das Ergebnis ist das gleiche, nur mit unterschiedlichen Spaltenamen für die “mean” Variablen.</em></p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="datenaufbereitung-mit-dplyr.html#cb228-1"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span></span>
-<span id="cb228-2"><a href="datenaufbereitung-mit-dplyr.html#cb228-2"></a><span class="st">  </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span></span>
-<span id="cb228-3"><a href="datenaufbereitung-mit-dplyr.html#cb228-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Age =</span> <span class="kw">mean</span>(Age),</span>
-<span id="cb228-4"><a href="datenaufbereitung-mit-dplyr.html#cb228-4"></a>            <span class="dt">mean_Height =</span> <span class="kw">mean</span>(height)) <span class="op">%&gt;%</span></span>
-<span id="cb228-5"><a href="datenaufbereitung-mit-dplyr.html#cb228-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mean_Age_z =</span> <span class="kw">scale</span>(mean_Age),</span>
-<span id="cb228-6"><a href="datenaufbereitung-mit-dplyr.html#cb228-6"></a>         <span class="dt">mean_Height_z =</span> <span class="kw">scale</span>(mean_Height))</span></code></pre></div>
-<pre><code>## # A tibble: 11 × 5
-##    species      mean_Age mean_Height mean_Age_z[,1] mean_Height_z[,1]
-##    &lt;chr&gt;           &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;             &lt;dbl&gt;
-##  1 Cerean           92           198          0.622            0.561 
-##  2 Ewok              8            88         -1.03            -2.66  
-##  3 Gungan           52           196         -0.166            0.503 
-##  4 Human            45.5         178         -0.293           -0.0239
-##  5 Kel Dor          22           188         -0.757            0.269 
-##  6 Mirialan         49           168         -0.225           -0.317 
-##  7 Mon Calamari     41           180         -0.382            0.0346
-##  8 Trandoshan       53           190         -0.146            0.327 
-##  9 Twi&#39;lek          48           178         -0.245           -0.0239
-## 10 Wookiee         200           228          2.75             1.44  
-## 11 Zabrak           54           175         -0.126           -0.112</code></pre>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="datenaufbereitung-mit-dplyr.html#cb230-1"></a><span class="co"># mit across()</span></span>
-<span id="cb230-2"><a href="datenaufbereitung-mit-dplyr.html#cb230-2"></a></span>
-<span id="cb230-3"><a href="datenaufbereitung-mit-dplyr.html#cb230-3"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span></span>
-<span id="cb230-4"><a href="datenaufbereitung-mit-dplyr.html#cb230-4"></a><span class="st">  </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span></span>
-<span id="cb230-5"><a href="datenaufbereitung-mit-dplyr.html#cb230-5"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="kw">across</span>(<span class="kw">c</span>(Age, height), <span class="kw">list</span>(<span class="dt">mean=</span> mean))) <span class="op">%&gt;%</span></span>
-<span id="cb230-6"><a href="datenaufbereitung-mit-dplyr.html#cb230-6"></a><span class="st">           </span><span class="kw">mutate</span>(<span class="kw">across</span>(<span class="kw">c</span>(Age_mean, height_mean), <span class="kw">list</span>(<span class="dt">z=</span>scale)))</span></code></pre></div>
-<pre><code>## # A tibble: 11 × 5
-##    species      Age_mean height_mean Age_mean_z[,1] height_mean_z[,1]
-##    &lt;chr&gt;           &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;             &lt;dbl&gt;
-##  1 Cerean           92           198          0.622            0.561 
-##  2 Ewok              8            88         -1.03            -2.66  
-##  3 Gungan           52           196         -0.166            0.503 
-##  4 Human            45.5         178         -0.293           -0.0239
-##  5 Kel Dor          22           188         -0.757            0.269 
-##  6 Mirialan         49           168         -0.225           -0.317 
-##  7 Mon Calamari     41           180         -0.382            0.0346
-##  8 Trandoshan       53           190         -0.146            0.327 
-##  9 Twi&#39;lek          48           178         -0.245           -0.0239
-## 10 Wookiee         200           228          2.75             1.44  
-## 11 Zabrak           54           175         -0.126           -0.112</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="datenaufbereitung-mit-dplyr.html#cb220-1"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="kw">across</span>(<span class="kw">c</span>(height,mass), <span class="kw">list</span>(<span class="dt">z=</span>scale)))</span></code></pre></div>
+<pre><code>## # A tibble: 87 × 13
+##    name       height  mass hair_color   skin_color eye_color   Age sex   gender 
+##    &lt;chr&gt;       &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;        &lt;fct&gt;      &lt;fct&gt;     &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;  
+##  1 Luke Skyw…    172    77 blond        fair       blue       19   male  mascul…
+##  2 C-3PO         167    75 &lt;NA&gt;         gold       yellow    112   none  mascul…
+##  3 R2-D2          96    32 &lt;NA&gt;         white, bl… red        33   none  mascul…
+##  4 Darth Vad…    202   136 none         white      yellow     41.9 male  mascul…
+##  5 Leia Orga…    150    49 brown        light      brown      19   fema… femini…
+##  6 Owen Lars     178   120 brown, grey  light      blue       52   male  mascul…
+##  7 Beru Whit…    165    75 brown        light      blue       47   fema… femini…
+##  8 R5-D4          97    32 &lt;NA&gt;         white, red red        NA   none  mascul…
+##  9 Biggs Dar…    183    84 black        light      brown      24   male  mascul…
+## 10 Obi-Wan K…    182    77 auburn, whi… fair       blue-gray  57   male  mascul…
+## # … with 77 more rows, and 4 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
+## #   height_z &lt;dbl[,1]&gt;, mass_z &lt;dbl[,1]&gt;</code></pre>
 
 </div>
 </div>
