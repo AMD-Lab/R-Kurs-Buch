@@ -7,7 +7,7 @@
 +-----------------+-------------------------------------------------------+
 | Hilfe           | *help-Fenster, ?*                                     |
 +-----------------+-------------------------------------------------------+
-| Werte, Vektoren | *chr, num, logi, c(), list(), mode(), coercion,       |
+| Werte, Vektoren | *chr, num, log, c(), list(), mode(), coercion,        |
 |      & Listen   |   Abruf von Elementen, list(list())*                  |
 +-----------------+-------------------------------------------------------+
 | Workspace       | *rm(), Besen*                                         |
