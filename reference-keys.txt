@@ -1,4 +1,5 @@
-über-dieses-buch
+über-dieses-skript
+feedback
 einführung
 installation
 erste-schritte
