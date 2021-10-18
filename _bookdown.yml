@@ -8,5 +8,7 @@ rmd_files:
     "index.Rmd",
     "./chapters/00-Einfuehrung.Rmd",
     "./chapters/01-Erste_Schritte.Rmd",
-    "./chapters/02-Datenstruktur.Rmd"
+    "./chapters/02-Datenstruktur.Rmd",
+    "./chapters/03-Datenaufbereitung.Rmd",
+    "./chapters/05-Graphiken.Rmd"
   ]

@@ -1,5 +1,6 @@
+# Datenaufbereitung mit dplyr
 
-```{r setup, include=FALSE}
+```{r include=FALSE}
 library(tidyverse)
 library(psych)
 knitr::opts_chunk$set(echo = TRUE)
