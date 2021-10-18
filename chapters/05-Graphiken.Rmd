@@ -1,6 +1,10 @@
-# Graphiken mit ggplot2
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
 
-(Cordula Hunt)
+# Graphiken mit ggplot2
 
 ```{r setup, include=FALSE}
 library(tidyverse)
@@ -901,14 +905,13 @@ kann mit x oder y verwendet werden, zB:
 
 [Facettierung]{style="color:#31688e"} bedeutet, dass ein Plot in mehrere
 Plots aufgeteilt wird, abhängig von den Werten einer oder mehrerer
-diskreter Variablen. zB kann man das [Histogramm]{style="color:#21918d"}
-von oben auch zusätzlich nach Publisher
-[facettieren]{style="color:#31688e"}, um noch mehr Information
-aufzunehmen. Der einfachste Weg geht über `facet_wrap()`. Jetzt
-erweitern wir das Balkendiagramm, welches uns die Art der Superhelden
-zeigt, um die größten Gegner der Helden. Nachdem wir einen Vektor
-erstellt haben, in dem unsere größten Helden und Bösewichte sind,
-erstellen wir unterschiedliche Grids für die Guten und die Bösen:
+diskreter Variablen. Der einfachste Weg geht über `facet_wrap()`. zB
+erweitern wir das [Balkendiagramm]{style="color:#21918d"} von oben,
+welches uns die Art der Superhelden zeigt, um die größten Gegner dieser
+Helden. Nachdem wir einen Vektor erstellt haben, in dem unsere größten
+Helden und Bösewichte sind, [facettieren]{style="color:#31688e"} wir
+nach `Alignment`, dh wir erstellen unterschiedliche Grids für die Guten
+und die Bösen:
 
 ```{r, fig.width=8, fig.asp=0.6, fig.align='center'}
 # Gegner der X-Men, der Guardians of the Galaxy und der Avengers
