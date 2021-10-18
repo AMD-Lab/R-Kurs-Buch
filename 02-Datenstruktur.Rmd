@@ -5,7 +5,7 @@
 +:===============:+:=====================================================:+
 | RMarkdown       | *Titel, Chunks, knitten*                              |
 +-----------------+-------------------------------------------------------+
-| Hilfe           | *help-Fenster, ?*                |
+| Hilfe           | *help-Fenster, ?*                                     |
 +-----------------+-------------------------------------------------------+
 | Werte, Vektoren | *chr, num, log, c(), list(), mode(), coercion,        |
 |      & Listen   |   Abruf von Elementen, list(list())*                  |
