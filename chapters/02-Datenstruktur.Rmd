@@ -3,10 +3,6 @@
 +-----------------+-------------------------------------------------------+
 | Thema           | Inhalte                                               |
 +:===============:+:=====================================================:+
-| RMarkdown       | *Titel, Chunks, knitten*                              |
-+-----------------+-------------------------------------------------------+
-| Hilfe           | *help-Fenster, ?*                                     |
-+-----------------+-------------------------------------------------------+
 | Werte, Vektoren | *chr, num, logi, c(), list(), mode(), coercion,       |
 |      & Listen   |   Abruf von Elementen, list(list())*                  |
 +-----------------+-------------------------------------------------------+
@@ -136,11 +132,7 @@ Ich habe jetzt mehrere Variablen (Values, Vektoren, Listen) definiert, sie sind 
 Rechts oben im Fenster ist das `Environment`-tab. Hier sieht man alle im `globale Workspace` definierten Objekte (Datenstrukturen: Werte, Vektoren, Matrizen, Arrays, Listen, `data.frames`, `tibbles`; und Funktionen) aufgelistet:
 
 ![](_static/Workspace.png){width="60%"}
-
-Per Doppelklick können Sie die Objekte jeweils einzeln oben links im extra Fenster (`Datenansicht-tab` ) anschauen. `rm(Objektname)` ist die Funktion zum Entfernen einzelner Objekte aus dem `globalen Workspace`. Das `Besensymbol` im `Environment`-tab oben rechts fegt den `globalen Workspace` leer. Es ist zu beachten, dass R Markdown beim `knitten` nicht auf den `globalen Workspace` zugreift, sondern einen eigenen Workspace aus dem Code in den `Chunks` erstellt. Beim Ausführen
-einzelner `Chunks` per Markieren und `STRG/CTRL`&`Enter` oder `grüner Pfeil rechts` wird jedoch auf den `globalen Workspace`
-zugegriffen. Beim Schließen von RStudio werden Sie gefragt, ob Sie den `globalen Workspace` in die `.RData` als img speichern lassen, dann stehen die Objekte in der nächsten Sitzung wieder zur Verfügung, solange Sie dieselbe Projektdatei öffnen. Offene Skipte und offene `Datenansicht`-tabs werden beim Schließen ebenfalls mit der Projektdatei assoziiert. Geladene Packages gehen leider verloren, diese müssen Sie jedes Mal beim Starten von RStudio neu laden: `library(Packagename)`. Deshalb ist es Konvention am Anfang jedes Skriptes erstmal die Packages zu laden. Haben Sie Objekte im Workspace gespeichert, können Sie deren
-Namen verwenden, um sich auf diese zu beziehen und z.B. weitere Berechnungen vorzunehmen.
+Bei Werten, Vektoren und Matrizen steht sogar der Datentyp des Objektes mit dabei. Per Doppelklick können Sie die Objekte jeweils einzeln oben links im extra Fenster (`Datenansicht-tab` ) anschauen. `rm(Objektname)` ist die Funktion zum Entfernen einzelner Objekte aus dem `globalen Workspace`. Das `Besensymbol` im `Environment`-tab oben rechts fegt den `globalen Workspace` leer. Es ist zu beachten, dass R Markdown beim `knitten` nicht auf den `globalen Workspace` zugreift, sondern einen eigenen Workspace aus dem Code in den `Chunks` erstellt. Beim Ausführen einzelner `Chunks` per Markieren und `STRG/CTRL`&`Enter` oder `grüner Pfeil rechts` wird jedoch auf den `globalen Workspace` zugegriffen. Beim Schließen von RStudio werden Sie gefragt, ob Sie den `globalen Workspace` in die `.RData` als img speichern lassen, dann stehen die Objekte in der nächsten Sitzung wieder zur Verfügung, solange Sie dieselbe Projektdatei öffnen. Offene Skipte und offene `Datenansicht`-tabs werden beim Schließen ebenfalls mit der Projektdatei assoziiert. Geladene Packages gehen leider verloren, diese müssen Sie jedes Mal beim Starten von RStudio neu laden: `library(Packagename)`. Deshalb ist es Konvention am Anfang jedes Skriptes erstmal die Packages zu laden. Haben Sie Objekte im Workspace gespeichert, können Sie deren Namen verwenden, um sich auf diese zu beziehen und z.B. weitere Berechnungen vorzunehmen.
 
 ## Wiederholung: Einfache Berechnungen
 
@@ -305,6 +297,8 @@ Es gibt eine Konvention dafür, wie man Datensätze, die mehreren Beobachtungsei
 | Fall4 |  Wert41   |  Wert42   |             eindeutige Namen             |
 | Fall5 |  Wert51   |  Wert52   |                Konsistenz                |
 | Fall6 |  Wert61   |  Wert62   |                   ...                    |
+
+![Illustration by Allison Horst](_static/tidydata_2.png){width="60%"}
 
 Es gibt noch weitere Regeln für konsistentes und ordentliches Arbeiten in R und mit Datensätzen im Allgemeinen, z.B. dass man keine Farbcodierungen verwenden sollte. Vorerst genügt es, wenn Sie sich an die Basics hier halten. Diese Art Daten zu strukturieren lässt sich im `data.frame` und noch besser im `tibble` umsetzen: Beides sind Tabellen mit Spaltenvektoren, die jeweils verschiedene Datentypen enthalten können. Deswegen stellen beide das bevorzugte und für unsere Zwecke wichtigste Datenformat dar.
 
