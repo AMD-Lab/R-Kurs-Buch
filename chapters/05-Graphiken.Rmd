@@ -17,7 +17,7 @@ Praktisch bedeutet das, die Farbkarten sind:
 
 -   **farbenfroh**: sie umspannen weite Teile der Farbpalette damit Unterschiede einfach zu erkennen sind
 -   **einheitlich**: Punkte nah beieinander haben ähnliche Farben und Punkte weit auseinander stark unterschiedliche Farben - und das möglichst konsistent über den gesamten Farbraum hinweg\
-    $\rightarrow$ *ein fester Abstand wird also an verschiedenen Stellen im Farbraum als perzeptuell gleich wahrgenommen, dh. keine mal schnellen mal langsamen Farbton- oder Helligkeitsänderungen*
+    $\rightarrow$ *ein fester Abstand wird also an verschiedenen Stellen im Farbraum als perzeptuell gleich wahrgenommen, d.h. keine mal schnellen mal langsamen Farbton- oder Helligkeitsänderungen*
 
 Gerade die Einheitlichkeit ist wichtig, sie sorgt dafür, dass keine Gebiete überbetont werden, während Kontrast an anderen Strellen nicht gegeben ist. Hier die viridis Farbskala oben und jet (langjährig die Standardfarben in Matlab) unten:
 
@@ -70,7 +70,7 @@ source: [viridis Dokumentation](https://www.rstudio.com/resources/cheatsheets/)
     -   Linienplot - `geom_line()`
     -   ...
 
--   Ggf. weitere [Details]{style="color:#31688e"} definieren, wie zB die Achsenlabel
+-   Ggf. weitere [Details]{style="color:#31688e"} definieren, wie z.B. die Achsenlabel
 
 Um eine Graphik zu "bauen" kann man also dieser Struktur folgen:
 
@@ -100,7 +100,7 @@ source: [ggplot2 Cheat Sheet](https://www.rstudio.com/resources/cheatsheets/)
 
 ## Vor der Visualisierung: Die Daten
 
-Wir arbeiten mit einem Datensatz, der die Superhelden von Marvel und DC miteinander vergleicht. Die Daten finden sich auf GitHub ("<https://github.com/cosmoduende/r-marvel-vs-dc>"), sind aber auf zwei Files aufgeteilt, die wir erst einzeln laden und dann zusammenführen müssen. Um eine Vorlage zu geben, ist der Code dafür hier aufgenommen, ist aber zu fortgeschritten für den meisten Gebrauch, und kann für dieses Kapitel auch ignoriert werden.
+Das Kapitel arbeitet mit einem Datensatz, der die Superhelden von Marvel und DC miteinander vergleicht. Die Daten finden sich auf GitHub ("<https://github.com/cosmoduende/r-marvel-vs-dc>"), sind aber auf zwei Files aufgeteilt, die erst einzeln geladen und dann zusammengeführt werden müssen.
 
 Erst werden die zwei Files von GitHub heruntergeladen und den Variablen `MarvelCharacters` und `MarvelStats` zugewiesen. Dabei werden fehlende Werte als `NA` kodiert:
 
@@ -111,7 +111,7 @@ MarvelCharacters <- read_csv("https://raw.github.com/cosmoduende/r-marvel-vs-dc/
 MarvelStats <- read_csv("https://raw.github.com/cosmoduende/r-marvel-vs-dc/main/dataset_shdb/charactersStats.csv")
 ```
 
-Wir wählen nur die Charaktere aus Marvel und DC aus und machen ein bisschen weiteres preprocessing:
+Dann werden nur die Charaktere aus Marvel und DC ausgewählt und die `MarvelCharacters`Daten werden vorbearbeitet:
 
 ```{r}
 # Preprocessing der Daten `MarvelCharacters`
@@ -120,11 +120,11 @@ marvelDcInfo <- MarvelCharacters %>%
   filter(Publisher == "Marvel Comics" |    # nur Marvel oder... 
            Publisher == "DC Comics")  %>%  # ... DC
   filter(!duplicated(Name)) %>%            # Duplikate löschen
-  # nur bestimmte Spalten (es gibt zB auch Augenfarbe)
+  # nur bestimmte Spalten (es gibt z.B. auch Augenfarbe)
   select(Name, Gender, Race, Publisher, Weight, Height) 
 ```
 
-Dann fügen wir die Datensätze zusammen:
+Dann werden die beiden Datensätze zusammengefügt:
 
 ```{r}
 # Zusammenführen der beiden Datensätze
@@ -136,9 +136,9 @@ MarvelDC<- MarvelDC %>%
   filter(Intelligence > 1) 
 ```
 
-Damit haben wir einen Datensatz `MarvelDC`mit dem wir weiterarbeiten können!
+Damit ist der Datensatz `MarvelDC` entstanden, mit dem wir weiterarbeiten können!
 
-Um `ggplot` [Daten]{style="color:#8fd744"} zu geben können wir sie entweder in den Klammern definieren:
+Um `ggplot` [Daten]{style="color:#8fd744"} zu geben, kann man sie entweder in den Klammern definieren:
 
     ggplot(data = MarvelDC)   # "data = " kann auch weggelassen werden
 
@@ -147,7 +147,7 @@ Oder man gibt sie via Pipeline an `ggplot` weiter - beides ist äquivalent:
     MarvelDC %>%
     ggplot()
 
-Dieser Code funktioniert allerdings noch nicht, da wir nur die [Daten]{style="color:#8fd744"} haben, aber noch keine [MAPPINGS]{style="color:#35b779"} und auch keine [GEOM_FUNCTION]{style="color:#21918d"} - die beiden anderen erforderlichen Angaben.
+Dieser Code funktioniert allerdings noch nicht, da wir bisher nur die [Daten]{style="color:#8fd744"} definiert haben, aber noch keine [MAPPINGS]{style="color:#35b779"} und auch keine [GEOM_FUNCTION]{style="color:#21918d"} - die beiden anderen erforderlichen Angaben.
 
 ## Ästhetische Mapping
 
@@ -176,7 +176,7 @@ ggplot(data = MarvelDC, aes(x = Publisher, y = Combat)) +
   geom_boxplot()    
 ```
 
-Um eine [farbliche]{style="color:#35b779"} Trennung nach Geschlecht zu haben, erweitern wir das Beispiel: "Nehme MarvelDC als [Daten]{style="color:#8fd744"}. Die [x-Achse]{style="color:#35b779"} soll `Publisher` sein und die [y-Achse]{style="color:#35b779"} `Combat`. Stelle das in einem [Boxplot]{style="color:#21918d"} dar. Wähle unterschiedliche [Farben]{style="color:#35b779"} für `Gender` und fülle die Plots damit."
+Um eine [farbliche]{style="color:#35b779"} Trennung nach Geschlecht zu haben, kann das Beispiel erweitert werden: "Nehme MarvelDC als [Daten]{style="color:#8fd744"}. Die [x-Achse]{style="color:#35b779"} soll `Publisher` sein und die [y-Achse]{style="color:#35b779"} `Combat`. Stelle das in einem [Boxplot]{style="color:#21918d"} dar. Wähle unterschiedliche [Farben]{style="color:#35b779"} für `Gender` und fülle die Plots damit."
 
 ```{r, fig.width=6, fig.asp=0.7, fig.align='center'}
 ggplot(data = MarvelDC, aes(x = Publisher, y = Combat)) +
@@ -217,7 +217,7 @@ ggplot(data = MarvelDC,        # Nehme Daten MarcelDC
   geom_bar()                   # stelle in einem Barplot dar
 ```
 
-Marvel hat doppelt soviele Superhelden wie DC! Wollen wir wissen, wie viele es genau sind, können wir mithilfe eines [Graphik-Labels]{style="color:#21918d"} die Zählung hinzufügen:
+Marvel hat doppelt soviele Superhelden wie DC! Will man wissen, wie viele es genau sind, kann man mithilfe eines [Graphik-Labels]{style="color:#21918d"} die Zählung hinzufügen:
 
 ```{r, fig.dim=c(4, 4), fig.align='center'}
 ggplot(data = MarvelDC, 
@@ -229,7 +229,7 @@ ggplot(data = MarvelDC,
              aes(label = ..count..)) 
 ```
 
-Indem wir eine [Farbkodierung]{style="color:#35b779"} vergeben, können wir in diesem Säulendiagramm das Geschlechterverhältnis beurteilen. Da hier mit [Farben gefüllt]{style="color:#35b779"} wird, ist das Argument `fill`.
+Indem man eine [Farbkodierung]{style="color:#35b779"} vergibt, kann man in diesem Säulendiagramm das Geschlechterverhältnis beurteilen. Da hier mit [Farben gefüllt]{style="color:#35b779"} wird, ist das Argument `fill`.
 
 ```{r, fig.dim=c(5, 4), fig.align='center'}
 ggplot(data = MarvelDC,      
@@ -238,7 +238,7 @@ ggplot(data = MarvelDC,
   geom_bar()                 
 ```
 
-In der Graphik oben haben wir den default-Parameter für [Position]{style="color:#31688e"} verwendet, weil wir nichts anderes definiert haben. Das ist `stack`. Bei `stack`werden die Teile übereinander "gestapelt" dargestellt. Da weit mehr Charaktere aus Marvel stammen, kann die [Position]{style="color:#31688e"} `fill` dafür sorgen, dass wir das Geschlechterverhältnis besser beurteilen können. `fill` erstellt Balken gleicher Länge, sodass eine Beurteilung der relativen Anteile leichter fällt. Erst nehmen wir allerdings die `NA` Fälle heraus, damit wir bei Marvel und DC je nur zwei Kategorien haben.
+In der Graphik oben wurde der default-Parameter für [Position]{style="color:#31688e"} verwendet, weil nichts anderes definiert wurde. Das ist `stack`. Bei `stack`werden die Teile übereinander "gestapelt" dargestellt. Da weit mehr Charaktere aus Marvel stammen, kann die [Position]{style="color:#31688e"} `fill` dafür sorgen, dass man das Geschlechterverhältnis besser beurteilen kann. `fill` erstellt Balken gleicher Länge, sodass eine Beurteilung der relativen Anteile leichter fällt. Erst sollten allerdings die `NA` Fälle herausgenommen werden, damit es bei Marvel und DC je nur zwei Kategorien gibt.
 
 ```{r, fig.dim=c(5, 4), fig.align='center'}
 MarvelDC %>%                  
@@ -248,7 +248,7 @@ MarvelDC %>%
   geom_bar(position = "fill")   # mache alle Balken gleich lang
 ```
 
-Die [x]{style="color:#35b779"} oder [y]{style="color:#35b779"} Angabe entscheidet darüber, ob ein [Säulen-]{style="color:#21918d"} oder [Balkendiagramm]{style="color:#21918d"} entsteht. Oben haben wir die Daten als `x` an die Funktion gegeben und ein [Säulendiagramm]{style="color:#21918d"} erhalten. Geben wir die Daten als `y` weiter, erhalten wir ein [Balkendiagramm]{style="color:#21918d"}:
+Die [x]{style="color:#35b779"} oder [y]{style="color:#35b779"} Angabe entscheidet darüber, ob ein [Säulen-]{style="color:#21918d"} oder [Balkendiagramm]{style="color:#21918d"} entsteht. Oben wurden die Daten als `x` an die Funktion gegeben und ein [Säulendiagramm]{style="color:#21918d"} ist entstanden. Werden die Daten als `y` angegeben, so entsteht ein [Balkendiagramm]{style="color:#21918d"}:
 
 ```{r, fig.dim=c(6, 3), fig.align='center'}
 MarvelDC %>%               
@@ -258,7 +258,7 @@ MarvelDC %>%
   geom_bar(position = "fill")
 ```
 
-Dieselbe Information können wir auch in Kreisform darstellen, in sogenannten [Polarkoordinaten]{style="color:#31688e"}:
+Dieselbe Information kann auch in Kreisform dargestellt werden, in sogenannten [Polarkoordinaten]{style="color:#31688e"}:
 
 ```{r, fig.dim=c(6, 6), fig.align='center'}
 MarvelDC %>%
@@ -269,11 +269,11 @@ MarvelDC %>%
   coord_polar()                 # stelle das in Polarkoordinaten dar
 ```
 
-Hier sieht man, dass bei DC Comics weniger als ein Viertel aller Helden weiblich sind, während es bei Marvel etwas mehr als ein Viertel sind.
+Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weiblich sind, während es bei Marvel etwas mehr als ein Viertel sind.
 
 ### Histogramm
 
-`geom_histogram` ist eine [graphische Funktion]{style="color:#21918d"} um Häufigkeiten einer kontinuierlichen Variable zu visualisieren. Beispielsweise können wir schauen, wie schnell die Superhelden unterwegs sind:
+`geom_histogram` ist eine [graphische Funktion]{style="color:#21918d"} um Häufigkeiten einer kontinuierlichen Variable zu visualisieren. Beispielsweise kann man schauen, wie schnell die Superhelden unterwegs sind:
 
 ```{r, fig.dim=c(5, 4), fig.align='center'}
 ggplot(MarvelDC,                
@@ -295,11 +295,11 @@ ggplot(MarvelDC,
 
 Offensichtlich nicht, die Verteilungen sind sich relativ ähnlich.
 
-Bei `Speed` fällt uns allerdings direkt auf, dass es nicht sehr normalverteilt aussieht. Ein [Histogramm]{style="color:#21918d"} lässt hier einen ersten Eindruck zu, aber eine visuelle Prüfung der Normalverteilung sollten wir lieber über einen [qq-Plot]{style="color:#21918d"} vornehmen.
+Bei `Speed` fällt allerdings direkt auf, dass es nicht sehr normalverteilt aussieht. Ein [Histogramm]{style="color:#21918d"} lässt hier einen ersten Eindruck zu, aber eine visuelle Prüfung der Normalverteilung sollte lieber über einen [qq-Plot]{style="color:#21918d"} vorgenommen werden.
 
 ### QQ-Plot
 
-Also erstellen wir einen [qq-Plot]{style="color:#21918d"} von `Speed`, sowohl mit Punkten als auch mit Vergleichslinie:
+Bei einem [qq-Plot]{style="color:#21918d"} kann und muss man [Punkte]{style="color:#21918d"} und [Vergleichslinie]{style="color:#21918d"} getrennt definieren:
 
 ```{r, fig.dim=c(5, 4), fig.align='center'}
 ggplot(MarvelDC, 
@@ -308,7 +308,7 @@ ggplot(MarvelDC,
   geom_qq_line()               # erstelle QQ-Plot Vergleichslinie
 ```
 
-Bei `Speed` zeigen sich deutliche Abweichungen von einer Normalverteilung. Diese Variable ist nicht normalverteilt. Das gilt auch für alle anderen Eigenschaften (hier nicht gezeigt). Nur der Summenscore, `Total`, zeigt im [qq-Plot]{style="color:#21918d"} eine Verteilung nahe der Normalverteilung:
+Bei `Speed` zeigen sich deutliche Abweichungen von einer Normalverteilung. Das gilt auch für alle anderen Eigenschaften (hier nicht gezeigt). Nur der Summenscore, `Total`, zeigt im [qq-Plot]{style="color:#21918d"} eine Verteilung nahe der Normalverteilung:
 
 ```{r, fig.dim=c(5, 4), fig.align='center'}
 ggplot(MarvelDC, 
@@ -319,7 +319,7 @@ ggplot(MarvelDC,
 
 ### Boxplot
 
-`geom_boxplot`ist eine [graphische Funktion]{style="color:#21918d"} um kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung darzustellen. Die Frage, die wir beantworten wollen lautet: Hat Marvel oder DC die stärkeren Superhelden? - Dafür betrachten wir den `Total` Wert jedes Helden.
+`geom_boxplot`ist eine [graphische Funktion]{style="color:#21918d"} um kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung darzustellen. Hat Marvel oder DC die stärkeren Superhelden? - Dafür betrachten wir den `Total` Wert jedes Helden.
 
 ```{r, fig.dim=c(4, 4), fig.align='center'}
 ggplot(MarvelDC, 
@@ -336,11 +336,11 @@ ggplot(MarvelDC,
   geom_boxplot()
 ```
 
-Betrachten wir `Total` aufgespalten nach Geschlecht, so scheint Marvel etwas stärkere Männer und schwächere Frauen zu haben - allerdings sind die Unterschiede so gering, dass es sich wahrscheinlich um zufällige Schwankungen und nicht um belastbare Effekte handelt! Wir gehen also davon aus, dass keins der Universen dem anderen überlegen ist.
+Betrachtet man `Total` aufgespalten nach Geschlecht, so scheint Marvel etwas stärkere Männer und schwächere Frauen zu haben - allerdings sind die Unterschiede so gering, dass es sich wahrscheinlich um zufällige Schwankungen und nicht um belastbare Effekte handelt! Keins der Universen scheint also dem anderen überlegen zu sein.
 
 ### Violinen-Plot
 
-`geom_violin` ist ebenfalls eine [graphische Funktion]{style="color:#21918d"} um kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung darzustellen - und lässt etwas mehr Aufschluss auf die Daten zu (zB wie die grobe Verteilung der Werte ist).
+`geom_violin` ist ebenfalls eine [graphische Funktion]{style="color:#21918d"} um kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung darzustellen - und lässt etwas mehr Aufschluss auf die Daten zu (z.B. wie die grobe Verteilung der Werte ist).
 
 ```{r, fig.width=6, fig.asp=0.7, fig.align='center'}
 ggplot(MarvelDC, 
@@ -364,11 +364,11 @@ MarvelDC %>%
   geom_quasirandom(dodge.width = 1)   # stelle als beeswarm dar
 ```
 
-Weder [Violinen-Plot]{style="color:#21918d"} noch [Beeswarm-Plot]{style="color:#21918d"} deuten darauf hin, dass Marvels Superhelden stärker und cooler sind, als die von DC. Wir müssen also weiterhin bei der Annahme bleiben, dass beide Universen gleich gut sind.
+Weder [Violinen-Plot]{style="color:#21918d"} noch [Beeswarm-Plot]{style="color:#21918d"} deuten darauf hin, dass Marvels Superhelden stärker und cooler sind, als die von DC. Ohne gegenteilige Hinweise bleibt es also bei der Annahme, dass beide Universen gleich gut sind.
 
 ### Scatterplot
 
-Ein [Scatterplot]{style="color:#21918d"} mit `geom_point` stellt die [Daten]{style="color:#8fd744"} als Punkte im Raum zweier kontinuierlicher Variablen dar. Beispielsweise können wir `Power` und `Durability` aller Helden gegeneinander darstellen:
+Ein [Scatterplot]{style="color:#21918d"} mit `geom_point` stellt die [Daten]{style="color:#8fd744"} als Punkte im Raum zweier kontinuierlicher Variablen dar. Beispielsweise kann man `Power` und `Durability` aller Helden gegeneinander darstellen:
 
 ```{r, fig.width=6, fig.asp=0.8, fig.align='center', warning=FALSE}
 ggplot(data = MarvelDC, 
@@ -376,7 +376,7 @@ ggplot(data = MarvelDC,
   geom_point()                          # stelle als Scatterplot dar
 ```
 
-Auch diese Graphik können wir einfach nach Publisher [farblich]{style="color:#35b779"} kodieren. Hier sollen die Punkte [Farbe]{style="color:#35b779"} haben, aber es wird nichts mit Farbe gefüllt, deswegen ist das Argument hier `color`:
+Auch diese Graphik kann einfach nach `Publisher`[farblich]{style="color:#35b779"} kodiert werden. Hier sollen die Punkte [Farbe]{style="color:#35b779"} haben, aber es wird nichts mit Farbe gefüllt, deswegen ist das Argument hier `color`:
 
 ```{r, fig.width=7, fig.asp=0.7, fig.align='center', warning=FALSE}
 ggplot(data = MarvelDC, 
@@ -387,7 +387,7 @@ ggplot(data = MarvelDC,
 
 Die Daten beider `Publisher`sind weit verteilt, es ist also keineswegs so, dass DCs Superhelden weniger `Power`haben, als die von Marvel.
 
-Wollen wir zusätzlich nach Geschlecht unterscheiden, so geht das beispielsweise über die [Form]{style="color:#35b779"} der Punkte mithilfe des Arguments `shape`:
+Will man zusätzlich nach Geschlecht unterscheiden, so geht das beispielsweise über die [Form]{style="color:#35b779"} der Punkte mithilfe des Arguments `shape`:
 
 ```{r, fig.width=7, fig.asp=0.7, fig.align='center', warning=FALSE}
 ggplot(data = MarvelDC, 
@@ -399,7 +399,7 @@ ggplot(data = MarvelDC,
 
 ### (Linearer) Fit
 
-Die `Power` und `Durability`Daten können wir mit einer Funktion fitten. Damit können wir visuell prüfen, ob es bei Marvel und DC einen anderen Zusammenhang zwischen `Power`und `Durability`gibt. Dafür verwendet man die [graphischen Funktion]{style="color:#21918d"} `geom_smooth`. Um ein **lineares** Modell zu erhalten, müssen wir das Argument `method = "lm"` für "linear model" setzen. Um y durch x vorherzusagen, brauchen wir die Formel `y ~ x`:
+Die `Power` und `Durability`Daten können mit einer Funktion gefittet werden. So kann man visuell prüfen, ob es bei Marvel und DC jeweils einen anderen Zusammenhang zwischen `Power`und `Durability`gibt. Dafür wird die [graphischen Funktion]{style="color:#21918d"} `geom_smooth` verwendet. Um ein **lineares** Modell zu erhalten, muss das Argument `method = "lm"` für "linear model" gesetzt werden. Um y durch x vorherzusagen, braucht es die Formel `y ~ x`:
 
 ```{r, fig.width=7, fig.asp=0.7, fig.align='center', warning=FALSE}
 ggplot(data = MarvelDC, 
@@ -412,9 +412,9 @@ ggplot(data = MarvelDC,
               se = FALSE)         # keine Fehlerbalken
 ```
 
-Jetzt haben wir aber 5 Fits! Je für Geschlecht und Publisher - nicht nur für die beiden Publisher wie wir wollten!
+Das sind aber 5 Fits - je für Geschlecht und Publisher. Nicht nur für die beiden Publisher wie geplant.
 
-Das liegt daran, dass wir sowohl [Farbe]{style="color:#35b779"} als auch [Form]{style="color:#35b779"} innerhalb von `ggplot`bei den allgemeinen `aesthetics` definiert haben. Um nur einen linearen Fit für jeden Publisher zu erhalten, nicht aber nach Geschlecht aufgespalten, müssen wir die [Form]{style="color:#35b779"}-Kennung für Geschlecht nur an `geom_point` geben. Auf diese Weise kann sie nicht mehr an `geom_smooth` weitergegeben werden. Die [Farb]{style="color:#35b779"}-Kennung für Publisher geben wir nur an die Linien, also nur an `geom_smooth`. Mit `se=TRUE` erstellen wir zusätzlich Fehlerintervalle um die linearen Fit-Funktionen herum. So erhalten wir einen linearen Fit der `Power` und `Durability`der Superhelden farblich getrennt nach Marvel und DC:
+Das liegt daran, dass sowohl [Farbe]{style="color:#35b779"} als auch [Form]{style="color:#35b779"} innerhalb von `ggplot`bei den allgemeinen `aesthetics` definiert sind. Um nur einen [linearen Fit]{style="color:#21918d"} für jeden Publisher zu erhalten, nicht aber nach Geschlecht aufgespalten, muss man die [Form]{style="color:#35b779"}-Kennung für Geschlecht nur an `geom_point` geben. Auf diese Weise kann sie nicht mehr an `geom_smooth` weitergegeben werden. Gibt man die [Farb]{style="color:#35b779"}-Kennung für Publisher nur an die [Linien]{style="color:#21918d"}, also nur an `geom_smooth`, so erhält man nur eine [farbliche]{style="color:#35b779"} Trennung bei den [Fit-Linien]{style="color:#21918d"}, nicht aber bei den zugrunde liegenden [Punkten]{style="color:#21918d"}. Mit `se=TRUE` werden die Fehlerintervalle um die linearen [Fit-Funktionen]{style="color:#21918d"} herum dargestellt. Der folgende Code liefert einen [linearen Fit]{style="color:#21918d"} der `Power` und `Durability`der Superhelden [farblich]{style="color:#35b779"} getrennt nach Marvel und DC:
 
 ```{r, fig.width=7, fig.asp=0.7, fig.align='center', warning=FALSE}
 ggplot(data = MarvelDC, 
@@ -426,11 +426,11 @@ ggplot(data = MarvelDC,
               se = TRUE)         
 ```
 
-Auch hier zeigen sich weiterhin keine Unterschiede zwischen den Publishern. Wir müssen wohl endgültig annehmen, dass Mavel nicht das alleinige Recht auf coole Superhelden hat.
+Auch hier zeigen sich weiterhin keine Unterschiede zwischen den Publishern. Es muss wohl endgültig davon ausgegangen werden, dass Marvel nicht das alleinige Recht auf coole Superhelden hat. Unsere Daten geben keine Hinweise auf die Überlegenheit des einen oder anderen Superhelden-Universums.
 
 ### Linienplot
 
-Um [Linienplots]{style="color:#21918d"} zu veranschaulichen, wählen wir eine übersichtliche Menge an Datenpunkten aus, zB einige der X-Men. Die Datenpunkte trennen wir [farblich]{style="color:#35b779"} nach Geschlecht und verbinden alle Punkte durch eine [Linie]{style="color:#21918d"}.
+[Linienplots]{style="color:#21918d"} lassen sich am besten an einer überschaubaren Anzahl Punkte veranschaulichen, z.B. eignet sich eine Auswahl der X-Men. Die [Datenpunkte]{style="color:#21918d"} werden [farblich]{style="color:#35b779"} nach Geschlecht getrennt - dann werden alle Punkte durch eine [Linie]{style="color:#21918d"} verbunden:
 
 ```{r, fig.width=5, fig.asp=0.7, fig.align='center'}
 # Erstelle Vektor der X-Men Charaktere: 
@@ -447,7 +447,7 @@ MarvelDC %>%
   geom_line()                 # verbinde Punkte mit Linie
 ```
 
-Da wir die [Farbe]{style="color:#35b779"} innerhalb von `geom_point` definiert haben, haben wir in den allgemeinen `aesthetics`keine Gruppierung enthalten. Deswegen verbindet die [Linie]{style="color:#21918d"} einfach alle Datenpunkte. Informativer ist es natürlich, wenn wir getrennte Linien für die Geschlechter haben, das erreichen wir, indem wir die [Farbdefinition]{style="color:#35b779"} in den allgemeinen `aesthetics`durchführen und nicht innerhalb von `geom_point`:
+Da [Farbe]{style="color:#35b779"} innerhalb von `geom_point` definiert ist, enthalten die allgemeinen `aesthetics`keine Gruppierung. Deswegen verbindet die [Linie]{style="color:#21918d"} einfach alle [Datenpunkte]{style="color:#21918d"}. Informativer ist es natürlich, getrennte Linien für die Geschlechter zu haben. Dazu muss die [Farbdefinition]{style="color:#35b779"} in den allgemeinen `aesthetics`erfolgen und nicht innerhalb von `geom_point`:
 
 ```{r, fig.width=5, fig.asp=0.7, fig.align='center'}
 XMen <- c("Wolverine", "Jean Grey", "Storm", "Beast", 
@@ -463,7 +463,7 @@ MarvelDC %>%
   geom_line(aes(linetype = Gender)) # zusätzlich Linentyp nach Gender
 ```
 
-Wollen wir ablesen, welcher Charakter welche Werte aufweist, können wir mit `geom_label`[Textlabels]{style="color:#21918d"} zu unserem Plot hinzufügen. Außerdem [skalieren]{style="color:#31688e"} wir die Achsen so, dass wir den absoluten Null Punkt sehen und beide Achsen symmetrisch laufen.
+Will man wissen, welcher Charakter welche Werte aufweist, fügt `geom_label`[Textlabel]{style="color:#21918d"} zu dem Plot hinzu. Außerdem können die Achsen so [skaliert]{style="color:#31688e"} werden, dass der absolute Null Punkt enthalten ist und beide Achsen symmetrisch laufen:
 
 ```{r, fig.width=5, fig.asp=0.7, fig.align='center'}
 XMen <- c("Wolverine", "Jean Grey", "Storm", "Beast", 
@@ -486,7 +486,7 @@ MarvelDC %>%
 
 ### Labels
 
-[Label]{style="color:#31688e"} sind die wahrscheilich wichtigste zusätzliche Funktionalität, die fast immer benötigt wird um einen Plot allgemein verständlich zu machen. Mithilfe von `labs()` können Titel, Untertitel, Achsenbeschriftungen und eine Caption zu einem Plot hinzugefügt werden. zB für den Plot der X-Men:
+[Label]{style="color:#31688e"} sind die wahrscheinlich wichtigste zusätzliche Funktionalität, die fast immer benötigt wird, um einen Plot allgemein verständlich zu machen. Mithilfe von `labs()` können Titel, Untertitel, Achsenbeschriftungen und eine Caption zu einem Plot hinzugefügt werden. Z.B. für den Plot der X-Men:
 
 ```{r, fig.width=5, fig.asp=0.7, fig.align='center'}
 XMen <- c("Wolverine", "Jean Grey", "Storm", "Beast", 
@@ -562,9 +562,9 @@ ggplot(MarvelDC, aes(x = Publisher, y = Total, fill= Gender)) +
 
 ### Position
 
-Mit `position` kann die [Positionierung]{style="color:#31688e"} graphischer Elemente zueinander eingestellt werden. Positionsarten sind zB:
+Mit `position` kann die [Positionierung]{style="color:#31688e"} graphischer Elemente zueinander eingestellt werden. Positionsarten sind z.B.:
 
--   `identity` - wahre Werte an wahrer Position, hier kann man Plots zB durch den alpha Parameter entzerren
+-   `identity` - wahre Werte an wahrer Position, hier kann man Plots z.B. durch den alpha Parameter entzerren
 
 -   `stack` - Elemente aufeinander schichten (default)
 
@@ -634,13 +634,13 @@ ggplot(MarvelDC, aes(x = Publisher, y = Total,
 
 ### Koordinatensysteme
 
-Das wichtigste [Koordinatensystem]{style="color:#31688e"} ist zweifellos das kartesische. In R kann man aber zB auch [Polarkoordinaten]{style="color:#31688e"} verwenden, oder das [kartesische System "drehen"]{style="color:#31688e"}
+Das wichtigste [Koordinatensystem]{style="color:#31688e"} ist zweifellos das kartesische. In R kann man aber z.B. auch [Polarkoordinaten]{style="color:#31688e"} verwenden, oder das [kartesische System "drehen"]{style="color:#31688e"}:
 
 -   `coord_flip` - [dreht ein kartesisches Koordinatensystem]{style="color:#31688e"} um (x wird zu y und umgekehrt) - empfohlen ist allerdings, das über die Definition von [x]{style="color:#35b779"} und [y]{style="color:#35b779"} direkt zu lösen.
 
 -   `coord_polar` - [Polarkoordinaten]{style="color:#31688e"}
 
-Polarkoordinaten haben wir vorne beim Balkendiagramm schon gesehen.
+[Polarkoordinaten]{style="color:#31688e"} wurden bereits beim Balkendiagramm gezeigt.
 
 ### Farbskalen
 
@@ -660,9 +660,9 @@ Neben dem viridis Package gibt es auch den ColorBrewer in R, der unter anderem f
 
 -   `scale_fill_brewer(palette="Set1")` andere mögliche Einstellungen für `palette`: `"Set2", "Set3", "Accent", "Dark2", "Pastel1", "Pastel2"`
 
-Wenn man allerdings schon ein Farbspektrum selbst definiert, ist es empfehlenswert ein *colorblind friendly* Schema wie alle Skalen aus dem `viridis` Package zu benutzen.
+Wenn man allerdings schon ein [Farbspektrum]{style="color:#31688e"} selbst definiert, ist es empfehlenswert ein *colorblind friendly* Schema wie alle Skalen aus dem `viridis` Package zu benutzen.
 
-Im folgenden Beispiel erstellen wir eine Liste der besten Superhelden der X-Men, der Avengers und der Guardians of the Galaxy. Dann veranschaulichen wir in einem Balkendiagramm welcher Art sie angehören. Also ob es Menschen sind, oder Mutanten, oder Androiden.
+Im folgenden Beispiel werden verschiedene Einstellungen zusammengeführt um eine ansprechende und informative Graphik zu erhalten. Erst wird eine Liste der besten Superhelden der X-Men, der Avengers und der Guardians of the Galaxy erstellt. Dann veranschaulicht ein [Balkendiagramm]{style="color:#21918d"} welcher Art sie angehören. Also ob es Menschen sind, oder Mutanten, oder Androiden... Dann wird die Graphik informativ [beschriftet]{style="color:#31688e"}, so dass sie auch ohne den zugehörigen Code verständlich ist, und als letztes wird ein diskretes [viridis Spektrum ]{style="color:#31688e"}als die [Farbskala]{style="color:#31688e"} bestimmt, die R verwenden soll:
 
 ```{r, fig.width=6, fig.asp=0.7, fig.align='center'}
 # Charaktere der X-Men, der Guardians of the Galaxy und der Avengers
@@ -694,7 +694,7 @@ MarvelDC %>%
 
 ### Variablenskalen
 
-Mit `ggplot2` können Variablen einfach auf unterschiedliche [Skalen]{style="color:#31688e"} übertragen werden. Diese Funktionalität kann mit x oder y verwendet werden, zB:
+Mit `ggplot2` können Variablen einfach auf unterschiedliche [Skalen]{style="color:#31688e"} übertragen werden. Diese Funktionalität kann mit [x]{style="color:#35b779"} oder [y]{style="color:#35b779"} verwendet werden, z.B.:
 
 -   `scale_x_log10()`
 
@@ -704,7 +704,7 @@ Mit `ggplot2` können Variablen einfach auf unterschiedliche [Skalen]{style="col
 
 ## Facetten
 
-[Facettierung]{style="color:#31688e"} bedeutet, dass ein Plot in mehrere Plots aufgeteilt wird, abhängig von den Werten einer oder mehrerer diskreter Variablen. Der einfachste Weg geht über `facet_wrap()`. zB erweitern wir das [Balkendiagramm]{style="color:#21918d"} von oben, welches uns die Art der Superhelden zeigt, um die größten Gegner dieser Helden. Nachdem wir einen Vektor erstellt haben, in dem unsere größten Helden und Bösewichte sind, [facettieren]{style="color:#31688e"} wir nach `Alignment`, dh wir erstellen unterschiedliche Grids für die Guten und die Bösen:
+[Facettierung]{style="color:#31688e"} bedeutet, dass ein Plot in mehrere Plots aufgespalten wird, abhängig von den Werten einer oder mehrerer diskreter Variablen. Der einfachste Weg geht über `facet_wrap()`. Beispielsweise kann man das [Balkendiagramm]{style="color:#21918d"} von oben, welches die Art der Superhelden zeigt, um die größten Gegner dieser Helden erweitern. Erst definiert man in einem Vektor, wer die größten Helden und Bösewichte sind. Dann [facettiert]{style="color:#31688e"} man das [Balkendiagramm]{style="color:#21918d"} nach `Alignment`, es werden also unterschiedliche Grids für die Guten und die Bösen erstellt:
 
 ```{r, fig.width=8, fig.asp=0.6, fig.align='center'}
 # Gegner der X-Men, der Guardians of the Galaxy und der Avengers
@@ -732,3 +732,5 @@ MarvelDC %>%
   
   facet_wrap(~ Alignment)              # trenne Grids nach 'Alignment'
 ```
+
+Dieser Plot enthält viele der sonstigen Funktionalitäten von `ggplot2`. Auch wenn es anfangs wie unnötige Arbeit erscheint: gerade die richtige [Beschriftung]{style="color:#31688e"} eines Plots ist unerlässlich! [Farbskala]{style="color:#31688e"} und [Thema]{style="color:#31688e"} hingegen sind nett zu haben, aber nicht unbedingt ab der ersten Version eines Plots erforderlich.
