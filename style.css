@@ -12,3 +12,15 @@ pre {
 pre code {
   white-space: inherit;
 }
+
+#content figcaption {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-size: 9px;
+  text-shadow: none;
+  color: DarkGray;
+  text-align: justify;
+  height: auto;
+  word-wrap: break-word;
+  width:500px;
+}
