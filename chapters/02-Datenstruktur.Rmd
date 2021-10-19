@@ -112,7 +112,7 @@ vec_4[2]            # Abruf des 2. Elements von vec_4
 Das geht auch in verschachtelten Listen:
 ```{r, echo=TRUE}
 # Definiere eine Liste, die eine Liste und einen Vektor enthält:
-# (Anm.: hier habe ich keine Namen für die Elemente vergeben)
+# (Anm.: hier habe ich keine Namen für die Elemente der Listen vergeben)
 
 mylist <- list(list(1,"a"),  
                vec_4)        
