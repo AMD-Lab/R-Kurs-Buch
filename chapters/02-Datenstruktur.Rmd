@@ -156,24 +156,23 @@ Es gibt eine ganze Reihe vorgefertigter Funktionen, um mit Vektoren zu rechnen:
 
 Folgende Funktionen können Sie auf `num`-Vektoren und Matrizen anwenden, je nach Funktion auch auf `chr` Vektoren oder Datensätze, wobei diese sich dann meist nur auf die Einträge in der oberen Ebene, z.B. auf die Anzahl der Spalten und nicht auf die Spalteneinträge beziehen.
 
-+-----------------+----------------+-----------------+-----------------+
-| Funktion        | Bedeutung      | Funktion        | Bedeutung       |
-+:===============:+:==============:+:===============:+:===============:+
-| **min(x)**      | Minimum        | **mean(x)**     | Mittelwert      |
-+-----------------+----------------+-----------------+-----------------+
-| **max(x)**      | Maximum        | **median(x)**   | Median          |
-+-----------------+----------------+-----------------+-----------------+
-| **range(x)**    | Range          | **var(x)**      | Varianz         |
-+-----------------+----------------+-----------------+-----------------+
-| **sort(x)**     | sortiert x     | **sd(x)**       | Sta             |
-|                 |                |                 | ndardabweichung |
-+-----------------+----------------+-----------------+-----------------+
-| **sum(x)**      | Summe aller    | **quantile(x)** | Quantile von x  |
-|                 | Elemente       |                 |                 |
-+-----------------+----------------+-----------------+-----------------+
-| **cor(x,y)**    | Korrelation    | **length()**    | Länge von x     |
-|                 | von x und y    |                 |                 |
-+-----------------+----------------+-----------------+-----------------+
++------------------+----------------+------------------+------------------+
+| Funktion         | Bedeutung      |  Funktion        |  Bedeutung       |
++:================:+:==============:+:================:+:================:+
+| **min(x)**       | Minimum        |  **mean(x)**     |  Mittelwert      |
++------------------+----------------+------------------+------------------+
+| **max(x)**       | Maximum        |  **median(x)**   |  Median          |
++------------------+----------------+------------------+------------------+
+| **range(x)**     | Range          |  **var(x)**      |  Varianz         |
++------------------+----------------+------------------+------------------+
+| **sort(x)**      | sortiert x     | **sd(x)**        |Standardabweichung|
++------------------+----------------+------------------+------------------+
+| **sum(x)**       | Summe aller    | **quantile(x)**  |  Quantile von x  |
+|                  | Elemente       |                  |                  |
++------------------+----------------+------------------+------------------+
+| **cor(x,y)**     | Korrelation    | **length()**     |  Länge von x     |
+|                  | von x und y    |                  |                  |
++------------------+----------------+------------------+------------------+
 
 #### Beispiel einer z-Standardisierung eines Vektors mit 3 Einträgen
 
