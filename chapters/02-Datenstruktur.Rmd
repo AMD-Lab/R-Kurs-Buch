@@ -17,7 +17,7 @@
 | tidyverse       | *Installation und library (package)*                  |
 +-----------------+-------------------------------------------------------+
 | data.frame &    | *Unterschiede, as.data.frame(), as_tibble(), \$, [],  |
-| tibble          | Zugriff auf Zeile, Spalte & Zelle, Reihennamen*       |
+| tibble          | Zugriff auf Zeile, Spalte & Zelle, Zeilennamen*       |
 +-----------------+-------------------------------------------------------+
 | Daten laden     | *Import per klick, read./\_, sep=,                    |
 | & speichern     | dec=, .xlsx, .svs, write./\_csv()*                    |
@@ -150,7 +150,7 @@ z <- x+y
 
 e <- vec_4*5   
 ```
-Es gibt eine ganze Reihe vorgefertigter Funktionen, um mit Vektoren zu rechnen:
+In R gibt es einige bereits programmierte Funktionen, um mit Vektoren zu rechnen:
 
 ### Übersicht Berechnungsfunktionen
 
@@ -311,7 +311,7 @@ Bevor wir uns dem übersichtlichsten Datenformat, den `tibble`s widmen, müssen 
 
 #install.packages("tidyverse")  
 ```
-Das Package `tidyverse` enthält eine Reihe nützlicher Packages, die eine saubere Datenverarbeitung zum Ziel haben. Packages müssen bei jeder Sitzung neu aktiviert bzw. angehängt werden. Für Sie relevante Packages im tidyverse sind `tibble`, `readr`, `stringr`, `dplyr`, `purr` und `ggplot2`.
+Das Package `tidyverse` enthält mehrere nützliche Packages, die eine saubere Datenverarbeitung zum Ziel haben. Packages müssen bei jeder Sitzung neu aktiviert bzw. angehängt werden. Für Sie relevante Packages im tidyverse sind `tibble`, `readr`, `stringr`, `dplyr`, `purr` und `ggplot2`.
 ```{r, echo=T, message=F}
 # Bitte gewöhnen Sie sich an, Packages am Anfang eines Skriptes zu laden, 
 # da Sie dies nach jedem Neustart einer R Session wiederholen müssen:
@@ -331,7 +331,7 @@ Es gibt mehr Gemeinsamkeiten als Unterschiede zwischen beiden Datenformaten. Bei
 | Auswählen einer Variable  |             df\$var             |        tib\$var      |
 | Auswählen eines Bereiches |           df[rowIdx,colIdx]     | tib[rowIdx,colIdx]   |
 | Definieren neuer Variablen|      df\$var_neu <- c(...)      |tib\$var_neu <- c(...)|
-|   Reihennamen vergeben    | row.names(df) \<-c("name1",...) | relocate(tib,var)    |
+|   Zeilennamen vergeben    | row.names(df) \<-c("name1",...) | relocate(tib,var)    |
 
 Sie können die beiden Datensatz-Formate einfach in das jeweils andere konvertieren. Datensätze lassen sich auch per Formel definieren: `data.frame()` oder `tibble()`, wobei hier die Spaltenvektoren aneinandergereiht werden. Es bietet sich an, dabei direkt Namen für die Spaltenvektoren zu vergeben:
 ```{r}
@@ -419,7 +419,7 @@ Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen vorsichtig hier
 ```{r}
 tickets_2022$Priorität <- NULL # Entfernt die Spalte 
 ```
-Ein weiterer Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Reihennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Reihennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. var_name) behelfen, die Sie mit `relocate(tib,var)` an den Anfang des Datensatzes stellen.
+Ein weiterer Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Zeilennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Zeilennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. var_name) behelfen, die Sie mit `relocate(tib,var)` an den Anfang des Datensatzes stellen.
 
 Mit dem Hinzufügen und Abändern von Spaltenvektoren haben wir schon ein bisschen an der Oberfläche der Möglichkeiten zur Datenaufbereitung gekratzt, die in der nächsten Sitzung ausführlich behandelt werden. Jetzt, wo Sie mit dem Management von Datensätzen vertraut sind, wollen wir vorhandene Datensätze einlesen:  
 
