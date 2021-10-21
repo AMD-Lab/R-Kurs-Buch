@@ -71,7 +71,3 @@ koordinatensysteme
 farbskalen
 variablenskalen
 facetten
-zwischenübungen
-lösung-zwischenübungen
-aufgaben-bis-zum-nächsten-mal
-lösung-aufgaben-bis-zum-nächsten-mal
