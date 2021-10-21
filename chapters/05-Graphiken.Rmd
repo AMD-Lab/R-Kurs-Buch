@@ -5,6 +5,12 @@ library(tidyverse)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<center>
+
+![](_static/ggplot2_masterpiece.png){width="500"} <br> Artwork by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
+
+</center>
+
 ## Exkurs: Warum viridis?
 
 Das `viridis` Paket in R stellt eine Reihe an Colormaps bereit, die folgenden Anspruch an sich stellen:
@@ -43,7 +49,7 @@ Im `viridis` Paket gibt es 8 Colormaps, aus denen man wählen kann und die alle 
 
 <center>
 
-![viridis_map](_static/viridis.png){width="80%"}
+![](_static/viridis.png){width="80%"}
 
 </center>
 
