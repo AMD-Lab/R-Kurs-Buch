@@ -1,10 +1,10 @@
 # Datenaufbereitung mit \`dplyr\`
 
-![](images/dplyr_hex-02.png){width="232"}
+![](_static/dplyr_hex.png){width="232"}
 
-![](images/data_wrangler-01.png){width="419"}
+![](_static/data_wrangler.png){width="419"}
 
-```{r setup, include=FALSE}
+```{r include=FALSE}
 library(tidyverse)
 library(psych)
 knitr::opts_chunk$set(echo = TRUE)
@@ -89,7 +89,7 @@ filter(starwars, height > 190 & mass > 90)
 
 Logische Operatoren lassen sich sehr gut auf numerische / bzw. kontinuierliche Variablen anwenden, um diese nach bestimmten Kriterien zu filtern. Wenn mit Strings oder Factors gearbeitet wird, sucht man häufig nach bestimmen `pattern` in den Strings, wie hier bei den Namen.
 
-![](images/dplyr_filter_sm-03.png)
+![](_static/dplyr_filter_sm.png)
 
 Sollen nun alle Beobachtungen mit "Skywalker" im Namen gefiltert werden, kann die `grepl()` Funktion aus R genutzt werden. Diese prüft, ob eine Zeichenfolge vorhanden ist oder nicht und gibt dann entsprechend `TRUE` oder `FALSE` aus, was ein filtern ermöglicht. Dies ist vorallem bei Strings, die aus mehr als einem Wort bestehen, dass durch ein Leerzeichen getrennt ist sehr praktisch. Bei Strings die nur aus einem Wort bestehen oder Factors, kann auch mit einem einfach `==` Vergleich gearbeitet werden: Beispiel:
 
@@ -189,7 +189,7 @@ Da nun der Piping-Operator die einzelnen Elemente miteinander verkettet, ist es 
 
 ## Dplyr : Neue Variablen mit `mutate()` berechnen
 
-![](images/dplyr_mutate-01.png)
+![](images/dplyr_mutate.png)
 
 Der letzte wichtige Befehl in `dplyr` ist `mutate()` bzw. `across()`. Mit `mutate()` bzw. `across()` ist es möglich eine Variable bzw. mehrere Variablen umzuformen, oder neu zu berechnen. Dies wird hier anhand einer z-Tranformation erläutert. Dies ermöglicht der Befehl `scale()`, der standardmäßig in R vorhanden ist.
 
@@ -213,7 +213,7 @@ Der nächste Befehl `mutate()` besteht immer aus einer Operation, die mit einer 
 
 Anstatt beide Variablen einzeln zu transformieren, kann den Befehl `scale()` auch direkt auf mehrere Spalten angewendet werden. Dazu kann der `across()` Befehl verwendet werden.
 
-![](images/dplyr_across_where-01.jpeg)
+![](_static/dplyr_across_where.jpeg)
 
 Hier muss innerhalb von `mutate()` einfach mit `across(c(SPALTE1, SPALTE2))` ein Vektor der zu tranformierenden Spalten übergeben werden, sowie die Funktion(en), welche auf die Spalten angewand werden soll. Dies muss dann wie folgt definiert werden:
 
