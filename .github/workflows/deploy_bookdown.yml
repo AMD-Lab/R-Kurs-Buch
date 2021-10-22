@@ -19,7 +19,9 @@ jobs:
         run: |
           options(pkgType = "binary")
           options(install.packages.check.source = "no")
-          install.packages(c("rmarkdown","bookdown", "tidyverse", "psych", "palmerpenguins", "ggbeeswarm", "ggpubr", "tinytex"))
+          install.packages(c("rmarkdown","bookdown", "tidyverse", "psych", "palmerpenguins", "ggbeeswarm", "ggpubr"))
+          install.packages(c("remotes", "bookdown", "tinytex", "webshot"))
+          remotes::install_deps(dependencies = TRUE)
           tinytex::install_tinytex()
           tinytex::tlmgr_install(c("tex-gyre", "tex-gyre-math"))
           tinytex::tlmgr_install("hyphen-french")
