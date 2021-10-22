@@ -17,7 +17,7 @@
 | tidyverse       | *Installation und library (package)*                  |
 +-----------------+-------------------------------------------------------+
 | data.frame &    | *Unterschiede, as.data.frame(), as_tibble(), \$, [],  |
-| tibble          | Zugriff auf Zeile, Spalte & Zelle, Reihennamen*       |
+| tibble          | Zugriff auf Zeile, Spalte & Zelle, Zeilennamen*       |
 +-----------------+-------------------------------------------------------+
 | Daten laden     | *Import per klick, read./\_, sep=,                    |
 | & speichern     | dec=, .xlsx, .svs, write./\_csv()*                    |
@@ -53,12 +53,9 @@ Das R Markdown Skript ist ein besonderes Dateiformat für R Skripte. Es enthält
 
 ## Hilfe
 
-Sie merken, dass die Befehle und Funktionen zum Teil sehr spezifisch sind und Sie sich kaum alles behalten können. Am wichtigsten ist die Reihenfolge und Vollständigkeit der Zeichen: Vergessen Sie ein Komma, ein Backtick oder eine Klammer zu setzen, dann kann R den Code schon nicht interpretieren. Zum Glück erkennt R Studio das oft und weist einen darauf während des
-Codens mit einem `roten x` neben der Zeilennummer hin. Andernfalls dürfen Sie versuchen, die Fehlermeldung beim Ausführen zu verstehen.
+Sie merken, dass die Befehle und Funktionen zum Teil sehr spezifisch sind und Sie sich kaum alles behalten können. Am wichtigsten ist die Reihenfolge und Vollständigkeit der Zeichen: Vergessen Sie ein Komma, ein Backtick oder eine Klammer zu setzen, dann kann R den Code schon nicht interpretieren. Zum Glück erkennt R Studio das oft und weist einen darauf während des Codens mit einem `roten x` neben der Zeilennummer hin. Andernfalls dürfen Sie versuchen, die Fehlermeldung beim Ausführen zu verstehen.
 
-Wenn Sie den Namen einer Funktion oder eines Packages nicht direkt erinnern, können Sie den Anfang des Namens im `Chunk` oder in der `Console` eingeben, RStudio bietet einem nach einem kurzen Moment eine Liste möglicher Optionen an, aus der Sie wählen können. Haben Sie eine Funktion gewählt, können Sie die `Tab`-Taste drücken und es werden die verschiedenen Funktionsargumente angezeigt, um die Funktion zu spezifizieren, was oft sehr hilfreich ist. Möchten Sie wissen, was eine
-Funktion macht oder in welcher Reihenfolge die Funktionsargumente eingegeben werden, können Sie `?FUN` in die `Console` eintippen, wobei FUN Platzhalter für den Funktionsnamen ist. Alternativ können Sie im `Help`-tab unten rechts suchen. Die Dokumentation ist oft sehr ausführlich. Die Möglichkeit einschlägige Suchmaschinen im Internet zu verwenden ist fast zu trivial, um sie hier aufzuführen. Oft werden Sie dabei auf `StackOverflow` weitergeleitet. Auf Englisch gestellte Fragen
-oder Probleme führen zu besseren Treffern. Noch trivialer ist es, im Skript des Kurses oder im eigenen Code nachzuschauen, die Tasten `STRG/CTRL`+`F` habe ich schon 1000 Mal berührt, sie könnten dabei hilfreich sein. Falls Sie bei anderen Autoren nachlesen möchten, gibt es Bücher zu R, die meist sogar kostenlos online zur Verfügung stehen und einem eine Einführung in R geben: Z.B. `R Cookbook` oder `R for Data Science`.
+Wenn Sie den Namen einer Funktion oder eines Packages nicht direkt erinnern, können Sie den Anfang des Namens im `Chunk` oder in der `Console` eingeben, RStudio bietet einem nach einem kurzen Moment eine Liste möglicher Optionen an, aus der Sie wählen können. Haben Sie eine Funktion gewählt, können Sie die `Tab`-Taste drücken und es werden die verschiedenen Funktionsargumente angezeigt, um die Funktion zu spezifizieren, was oft sehr hilfreich ist. Möchten Sie wissen, was eine Funktion macht oder in welcher Reihenfolge die Funktionsargumente eingegeben werden, können Sie `?FUN` in die `Console` eintippen, wobei FUN Platzhalter für den Funktionsnamen ist. Alternativ können Sie im `Help`-tab unten rechts suchen. Die Dokumentation ist oft sehr ausführlich. Die Möglichkeit einschlägige Suchmaschinen im Internet zu verwenden ist fast zu trivial, um sie hier aufzuführen. Oft werden Sie dabei auf `StackOverflow` weitergeleitet. Auf Englisch gestellte Fragen oder Probleme führen zu besseren Treffern. Noch trivialer ist es, im Skript des Kurses oder im eigenen Code nachzuschauen, die Tasten `STRG/CTRL`+`F` habe ich schon 1000 Mal berührt, sie könnten dabei hilfreich sein. Falls Sie bei anderen Autoren nachlesen möchten, gibt es Bücher zu R, die meist sogar kostenlos online zur Verfügung stehen und einem eine Einführung in R geben: Z.B. `R Cookbook` oder `R for Data Science`.
 
 ## Wiederholung: Werte & Vektoren
 
@@ -132,6 +129,7 @@ Ich habe jetzt mehrere Variablen (Values, Vektoren, Listen) definiert, sie sind 
 Rechts oben im Fenster ist das `Environment`-tab. Hier sieht man alle im `globale Workspace` definierten Objekte (Datenstrukturen: Werte, Vektoren, Matrizen, Arrays, Listen, `data.frames`, `tibbles`; und Funktionen) aufgelistet:
 
 ![](_static/Workspace.png){width="60%"}
+
 Bei Werten, Vektoren und Matrizen steht sogar der Datentyp des Objektes mit dabei. Per Doppelklick können Sie die Objekte jeweils einzeln oben links im extra Fenster (`Datenansicht-tab` ) anschauen. `rm(Objektname)` ist die Funktion zum Entfernen einzelner Objekte aus dem `globalen Workspace`. Das `Besensymbol` im `Environment`-tab oben rechts fegt den `globalen Workspace` leer. Es ist zu beachten, dass R Markdown beim `knitten` nicht auf den `globalen Workspace` zugreift, sondern einen eigenen Workspace aus dem Code in den `Chunks` erstellt. Beim Ausführen einzelner `Chunks` per Markieren und `STRG/CTRL`&`Enter` oder `grüner Pfeil rechts` wird jedoch auf den `globalen Workspace` zugegriffen. Beim Schließen von RStudio werden Sie gefragt, ob Sie den `globalen Workspace` in die `.RData` als img speichern lassen, dann stehen die Objekte in der nächsten Sitzung wieder zur Verfügung, solange Sie dieselbe Projektdatei öffnen. Offene Skipte und offene `Datenansicht`-tabs werden beim Schließen ebenfalls mit der Projektdatei assoziiert. Geladene Packages gehen leider verloren, diese müssen Sie jedes Mal beim Starten von RStudio neu laden: `library(Packagename)`. Deshalb ist es Konvention am Anfang jedes Skriptes erstmal die Packages zu laden. Haben Sie Objekte im Workspace gespeichert, können Sie deren Namen verwenden, um sich auf diese zu beziehen und z.B. weitere Berechnungen vorzunehmen.
 
 ## Wiederholung: Einfache Berechnungen
@@ -152,30 +150,29 @@ z <- x+y
 
 e <- vec_4*5   
 ```
-Es gibt eine ganze Reihe vorgefertigter Funktionen, um mit Vektoren zu rechnen:
+In R gibt es einige vorprogrammierte Funktionen um mit Vektoren zu rechnen:
 
 ### Übersicht Berechnungsfunktionen
 
 Folgende Funktionen können Sie auf `num`-Vektoren und Matrizen anwenden, je nach Funktion auch auf `chr` Vektoren oder Datensätze, wobei diese sich dann meist nur auf die Einträge in der oberen Ebene, z.B. auf die Anzahl der Spalten und nicht auf die Spalteneinträge beziehen.
 
-+-----------------+----------------+-----------------+-----------------+
-| Funktion        | Bedeutung      | Funktion        | Bedeutung       |
-+:===============:+:==============:+:===============:+:===============:+
-| **min(x)**      | Minimum        | **mean(x)**     | Mittelwert      |
-+-----------------+----------------+-----------------+-----------------+
-| **max(x)**      | Maximum        | **median(x)**   | Median          |
-+-----------------+----------------+-----------------+-----------------+
-| **range(x)**    | Range          | **var(x)**      | Varianz         |
-+-----------------+----------------+-----------------+-----------------+
-| **sort(x)**     | sortiert x     | **sd(x)**       | Sta             |
-|                 |                |                 | ndardabweichung |
-+-----------------+----------------+-----------------+-----------------+
-| **sum(x)**      | Summe aller    | **quantile(x)** | Quantile von x  |
-|                 | Elemente       |                 |                 |
-+-----------------+----------------+-----------------+-----------------+
-| **cor(x,y)**    | Korrelation    | **length()**    | Länge von x     |
-|                 | von x und y    |                 |                 |
-+-----------------+----------------+-----------------+-----------------+
++------------------+----------------+------------------+------------------+
+| Funktion         | Bedeutung      |  Funktion        |  Bedeutung       |
++:================:+:==============:+:================:+:================:+
+| **min(x)**       | Minimum        |  **mean(x)**     |  Mittelwert      |
++------------------+----------------+------------------+------------------+
+| **max(x)**       | Maximum        |  **median(x)**   |  Median          |
++------------------+----------------+------------------+------------------+
+| **range(x)**     | Range          |  **var(x)**      |  Varianz         |
++------------------+----------------+------------------+------------------+
+| **sort(x)**      | sortiert x     | **sd(x)**        |Standardabweichung|
++------------------+----------------+------------------+------------------+
+| **sum(x)**       | Summe aller    | **quantile(x)**  |  Quantile von x  |
+|                  | Elemente       |                  |                  |
++------------------+----------------+------------------+------------------+
+| **cor(x,y)**     | Korrelation    | **length()**     |  Länge von x     |
+|                  | von x und y    |                  |                  |
++------------------+----------------+------------------+------------------+
 
 #### Beispiel einer z-Standardisierung eines Vektors mit 3 Einträgen
 
@@ -214,13 +211,17 @@ bsp_mat
 ```
 Ich habe eine 4x4 Matrix erstellt, die mit NaNs gefüllt ist. Hätte ich diverse Datentypen zugeordnet, wären diese zum komplexeren `coerced` worden. Matrizen können mit `matrixname[Zeilennummer,Spaltenummer]` manipuliert werden. Praktischerweise stehen die entspechenden Indizes neben der oben angezeigten Matrix. Beispiele zum Auswählen und Zuweisen neuer Werte:
 ```{r}
-# Weil Spalte 1. von mat und vec_4 dieselbe Länge haben, kann ich die Spalte 1 neu zuweisen. Dadurch, dass der Eintrag für die Zeilennummer leer ist, beziehe ich mich auf alle Zeilen:
+# Weil Spalte 1 von bsp_mat und vec_4 dieselbe Länge haben,
+# kann ich der Spalte 1 die Einträge von vec_4 zuweisen.
+# Dadurch, dass der Eintrag für die Zeilennummer leer ist, 
+# beziehe ich mich auf alle Zeilen:
 
 bsp_mat[,1] <- vec_4 
 bsp_mat             
 ```
 ```{r}
-# Recycling: Wird einem Bereich ein einzelner Wert zugeordnet, wird dieser vervielfacht (wie oben bei NaN):
+# Recycling: Wird einem Bereich ein einzelner Wert zugeordnet,
+# wird dieser vervielfacht (wie oben bei NaN):
 
 bsp_mat[,2] <- 8  
 bsp_mat
@@ -298,9 +299,9 @@ Es gibt eine Konvention dafür, wie man Datensätze, die mehreren Beobachtungsei
 | Fall5 |  Wert51   |  Wert52   |                Konsistenz                |
 | Fall6 |  Wert61   |  Wert62   |                   ...                    |
 
-![Illustration by Allison Horst](_static/tidydata_2.png){width="60%"}
+![Illustration by Allison Horst](_static/tidydata_2.png){width="100%"}
 
-Es gibt noch weitere Regeln für konsistentes und ordentliches Arbeiten in R und mit Datensätzen im Allgemeinen, z.B. dass man keine Farbcodierungen verwenden sollte. Vorerst genügt es, wenn Sie sich an die Basics hier halten. Diese Art Daten zu strukturieren lässt sich im `data.frame` und noch besser im `tibble` umsetzen: Beides sind Tabellen mit Spaltenvektoren, die jeweils verschiedene Datentypen enthalten können. Deswegen stellen beide das bevorzugte und für unsere Zwecke wichtigste Datenformat dar.
+Es gibt noch weitere Regeln für konsistentes und ordentliches Arbeiten in R und mit Datensätzen im Allgemeinen, z.B. dass man keine Farbcodierungen verwenden sollte. Vorerst genügt es, wenn Sie sich an die Basics hier halten. Diese Art Daten zu strukturieren lässt sich im `data.frame` und noch besser im `tibble` umsetzen: Beides sind Tabellen mit Spaltenvektoren, die jeweils verschiedene Datentypen enthalten können. Deswegen stellen beide das bevorzugte und für unsere Zwecke wichtigste Datenformat dar. 
 
 ### tidyverse
 
@@ -310,9 +311,10 @@ Bevor wir uns dem übersichtlichsten Datenformat, den `tibble`s widmen, müssen 
 
 #install.packages("tidyverse")  
 ```
-Das Package `tidyverse` enthält eine Reihe nützlicher Packages, die eine saubere Datenverarbeitung zum Ziel haben. Packages müssen bei jeder Sitzung neu aktiviert bzw. angehängt werden. Für Sie relevante Packages im tidyverse sind `tibble`, `readr`, `stringr`, `dplyr`, `purr` und `ggplot2`.
+Das Package `tidyverse` enthält mehrere nützliche Packages, die eine saubere Datenverarbeitung zum Ziel haben. Packages müssen bei jeder Sitzung neu aktiviert bzw. angehängt werden. Für Sie relevante Packages im tidyverse sind `tibble`, `readr`, `stringr`, `dplyr`, `purr` und `ggplot2`.
 ```{r, echo=T, message=F}
-# Bitte gewöhnen Sie sich an, Packages am Anfang eines Skriptes zu laden, da Sie dies nach jedem Neustart einer R Session wiederholen müssen:
+# Bitte gewöhnen Sie sich an, Packages am Anfang eines Skriptes zu laden, 
+# da Sie dies nach jedem Neustart einer R Session wiederholen müssen:
 
 library(tidyverse)   
 ```
@@ -329,11 +331,13 @@ Es gibt mehr Gemeinsamkeiten als Unterschiede zwischen beiden Datenformaten. Bei
 | Auswählen einer Variable  |             df\$var             |        tib\$var      |
 | Auswählen eines Bereiches |           df[rowIdx,colIdx]     | tib[rowIdx,colIdx]   |
 | Definieren neuer Variablen|      df\$var_neu <- c(...)      |tib\$var_neu <- c(...)|
-|   Reihennamen vergeben    | row.names(df) \<-c("name1",...) | relocate(tib,var)    |
+|   Zeilennamen vergeben    | row.names(df) \<-c("name1",...) | relocate(tib,var)    |
 
 Sie können die beiden Datensatz-Formate einfach in das jeweils andere konvertieren. Datensätze lassen sich auch per Formel definieren: `data.frame()` oder `tibble()`, wobei hier die Spaltenvektoren aneinandergereiht werden. Es bietet sich an, dabei direkt Namen für die Spaltenvektoren zu vergeben:
 ```{r}
-# Erzeuge einen data.frame durch Verwendung der Spaltenvektoren aus den vorherigen Matrizen, denen Namen zugewiesen werden (Denken Sie beim Definieren der Spaltenvektoren daran diese mit einem Komma voneinander zu trennen):
+# Erzeuge einen data.frame durch Verwendung der Spaltenvektoren aus vorherigen Matrizen,
+# denen Namen zugewiesen werden (Denken Sie beim Definieren der Spaltenvektoren daran
+# diese mit einem Komma voneinander zu trennen):
 
 test_df <- data.frame("text"=bsp_mat[,4] ,     
                       "ist_Verb"=sav_mat[,3])  
@@ -362,8 +366,9 @@ Die Adressierung einzelner Spalten und Zeilen ermöglicht dann zum Beispiel die 
 ```{r}
 # Definiere ein tibble mit 2 Variablen:
 
-tickets_2022 <- tibble("Artist"=c("Ed Sheeran", "Billy Ellish", "The Weeknd", "Dua Lipa", "Imagine Dragons"),
-                  "Kosten"=c(79.32, 282, 116, 136, 68.71 ))
+tickets_2022 <- tibble("Artist"=c("Ed Sheeran", "Billy Ellish", "The Weeknd", "Dua Lipa",
+                                  "Imagine Dragons"),
+                       "Kosten"=c(79.32, 282, 116, 136, 68.71 ))
 
 # Berechne die Summe einer dieser beiden Variablen:
 
@@ -371,7 +376,8 @@ sum(tickets_2022$Kosten)
 ```
 Der \$-Operator wird für fast alle höheren Datentypen verwendet, um auf diese zuzugreifen. Dies gilt zum Beispiel auch für die meisten Outputs von Funktionen (t-Test, Anova, SEMs) und Listen, es müssen aber wie im tibble, Namen für die Listeneinträge vergeben worden sein:
 ```{r}
-# Erstelle eine Liste mit diversen Objekten aus meinem Workspace und vergebe Namen (über welche Sie auf die Listeneinträge zugreifen können):
+# Erstelle eine Liste mit diversen Objekten aus meinem Workspace und vergebe Namen 
+# (über welche Sie später auch auf die Listeneinträge zugreifen können):
 
 list_of_thingis <- list(tibbi = test_tib,         
                        ticki = tickets_2022,      
@@ -393,7 +399,9 @@ list_of_thingis$ticki$Artist
 ```
 Mir fällt auf, dass ich den Namen einer Künstlerin in tickets_2022 falsch geschrieben habe, das möchte ich ändern:
 ```{r}
-tickets_2022$Artist[2] <- "Billy Eilish"  # $-Operator und Indexing per Nummer lassen sich auch kombinieren
+# $-Operator und Indexing per Nummer lassen sich auch kombinieren:
+
+tickets_2022$Artist[2] <- "Billy Eilish"  
 ```
 Sie können also nicht nur Elemente aus Datensätzen abrufen, sondern diese mit dem `<-` neu zuweisen. Sie können das \$ auch verwenden um ganz neue Spalten in die Datensätze einzufügen:
 ```{r}
@@ -411,7 +419,7 @@ Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen vorsichtig hier
 ```{r}
 tickets_2022$Priorität <- NULL # Entfernt die Spalte 
 ```
-Ein weiterer Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Reihennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Reihennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. var_name) behelfen, die Sie mit `relocate(tib,var)` an den Anfang des Datensatzes stellen.
+Ein weiterer Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Zeilennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Zeilennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. var_name) behelfen, die Sie mit `relocate(tib,var)` an den Anfang des Datensatzes stellen.
 
 Mit dem Hinzufügen und Abändern von Spaltenvektoren haben wir schon ein bisschen an der Oberfläche der Möglichkeiten zur Datenaufbereitung gekratzt, die in der nächsten Sitzung ausführlich behandelt werden. Jetzt, wo Sie mit dem Management von Datensätzen vertraut sind, wollen wir vorhandene Datensätze einlesen:  
 
@@ -428,11 +436,13 @@ Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarct
 
 Nach einmaliger Installation des Packages (`install.packages("palmerpenguins"`) muss es geladen werden:
 ```{r}
-# Jedes Mal beim Durchlaufen des Skripts soll das Package angehängt werden (ohne "", weil R das Package bereits installiert hat und kennt):
+# Jedes Mal beim Durchlaufen des Skripts soll das Package angehängt werden 
+# (ohne "", weil R das Package bereits installiert hat und kennt):
 
 library(palmerpenguins) 
 
-# penguins ist zwar schon ein tibble, aber im Workspace rechts ist es nicht zu sehen, daher weise ich es dem Namen pingus zu:
+# penguins ist zwar schon ein tibble, aber im Workspace rechts ist es nicht zu sehen,
+# daher weise ich es dem Namen pingus zu:
 
 pingus <- penguins      
 ```
