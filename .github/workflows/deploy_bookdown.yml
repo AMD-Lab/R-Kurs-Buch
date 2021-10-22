@@ -25,9 +25,17 @@ jobs:
           tinytex::install_tinytex()
           tinytex::tlmgr_install(c("tex-gyre", "tex-gyre-math"))
           tinytex::tlmgr_install("hyphen-french")
-      - name: Render Book
-        run: Rscript -e 'bookdown::render_book("index.Rmd", output_format = 'all')'
-      - uses: actions/upload-artifact@v1
+        shell: Rscript {0}
+      - name: Render pdf book
+        run: |
+          bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+        shell: Rscript {0}
+      - name: Render gitbook
+        run: |
+          bookdown::render_book("index.Rmd", "bookdown::gitbook")
+        shell: Rscript {0}
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
         with:
           name: docs
           path: docs/
