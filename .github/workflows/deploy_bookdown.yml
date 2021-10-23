@@ -24,17 +24,12 @@ jobs:
           options(install.packages.check.source = "no")
           install.packages(c("rmarkdown","bookdown", "tidyverse", "psych", "palmerpenguins", "ggbeeswarm", "ggpubr", "tinytex"))
           tinytex::install_tinytex()
-          tinytex::tlmgr_install(c("tex-gyre", "tex-gyre-math"))
-          tinytex::tlmgr_install("hyphen-french")
-        shell: Rscript {0}
       - name: Render pdf book
         run: |
           bookdown::render_book("index.Rmd", "bookdown::pdf_book")
-        shell: Rscript {0}
       - name: Render gitbook
         run: |
           bookdown::render_book("index.Rmd", "bookdown::gitbook")
-        shell: Rscript {0}
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
