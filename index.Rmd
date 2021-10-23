@@ -1,12 +1,8 @@
 --- 
 title: "Einführung in R"
 author: |
- José Carlos García Alanis,
- Jan Goettmann,
- Cordula Hunt,
- Florian Kobylka,
- Anna-Lena Schubert,
- Meike Steinhilber,
+ José Carlos García Alanis, Jan Goettmann, Cordula Hunt,  
+ Florian Kobylka, Anna-Lena Schubert, Meike Steinhilber
  
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

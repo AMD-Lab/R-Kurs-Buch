@@ -14,3 +14,6 @@
 _bookdown_files/*
 docs/
 packages.bib
+
+# Latex files
+*.log
