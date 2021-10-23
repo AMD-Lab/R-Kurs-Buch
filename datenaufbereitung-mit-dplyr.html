@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-10-22" />
+<meta name="date" content="2021-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Einführung in R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Über dieses Skript</a><ul>
@@ -224,7 +224,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#facetten"><i class="fa fa-check"></i><b>6.7</b> Facetten</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/AMD-Lab/R-Kurs-Buch" target="blank">
+Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 
 </ul>
 
@@ -470,7 +471,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="dplyr-neue-variablen-mit-mutate-berechnen" class="section level2">
 <h2><span class="header-section-number">5.6</span> Dplyr : Neue Variablen mit <code>mutate()</code> berechnen</h2>
-<p><img src="images/dplyr_mutate.png" /></p>
+<p><img src="_static/dplyr_mutate.png" /></p>
 <p>Der letzte wichtige Befehl in <code>dplyr</code> ist <code>mutate()</code> bzw. <code>across()</code>. Mit <code>mutate()</code> bzw. <code>across()</code> ist es möglich eine Variable bzw. mehrere Variablen umzuformen, oder neu zu berechnen. Dies wird hier anhand einer z-Tranformation erläutert. Dies ermöglicht der Befehl <code>scale()</code>, der standardmäßig in R vorhanden ist.</p>
 </div>
 <div id="beispiel-1" class="section level2">
@@ -562,9 +563,9 @@ Dieser wird automatisch als “_suffix” an die neue Variable angehängt.</p></
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
+"github": true,
+"facebook": false,
+"twitter": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
@@ -589,7 +590,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["_main.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
