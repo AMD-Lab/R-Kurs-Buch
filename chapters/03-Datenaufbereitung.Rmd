@@ -189,7 +189,7 @@ Da nun der Piping-Operator die einzelnen Elemente miteinander verkettet, ist es 
 
 ## Dplyr : Neue Variablen mit `mutate()` berechnen
 
-![](images/dplyr_mutate.png)
+![](_static/dplyr_mutate.png)
 
 Der letzte wichtige Befehl in `dplyr` ist `mutate()` bzw. `across()`. Mit `mutate()` bzw. `across()` ist es möglich eine Variable bzw. mehrere Variablen umzuformen, oder neu zu berechnen. Dies wird hier anhand einer z-Tranformation erläutert. Dies ermöglicht der Befehl `scale()`, der standardmäßig in R vorhanden ist.
 
