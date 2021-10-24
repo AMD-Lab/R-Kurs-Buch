@@ -469,7 +469,7 @@ MarvelDC %>%
   geom_line(aes(linetype = Gender)) # zusätzlich Linentyp nach Gender
 ```
 
-Will man wissen, welcher Charakter welche Werte aufweist, fügt `geom_label`[Textlabel]{style="color:#21918d"} zu dem Plot hinzu. Außerdem können die Achsen so [skaliert]{style="color:#31688e"} werden, dass der absolute Null Punkt enthalten ist und beide Achsen symmetrisch laufen:
+Will man wissen, welcher Charakter welche Werte aufweist, fügt `geom_label` [Textlabel]{style="color:#21918d"} zu dem Plot hinzu. Außerdem können die Achsen so [skaliert]{style="color:#31688e"} werden, dass der absolute Null Punkt enthalten ist und beide Achsen symmetrisch laufen:
 
 ```{r, fig.width=5, fig.asp=0.7, fig.align='center'}
 XMen <- c("Wolverine", "Jean Grey", "Storm", "Beast", 
