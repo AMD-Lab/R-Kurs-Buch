@@ -8,3 +8,4 @@ Aktuell arbeiten die folgenden Veranstaltungen mit diesem Buch:
 
 -   Tutorium Avancierte Testtheorie
 -   Tutorium Fortgeschrittene statistische Methoden II
+-   Seminar Evaluation und Forschungsstrategien
