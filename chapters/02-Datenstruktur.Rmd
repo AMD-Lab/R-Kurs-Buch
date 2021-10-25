@@ -485,7 +485,7 @@ Einen Überlick über die Datenstruktur, inklusive Factor-`levels` (der Faktorst
 
 str(pingus)   
 ```
-Zeile 1 gibt Auskunft über Größe und die Klasse des Objektes, tibbles sind eine Art data.frame. In den weiteren Zeilen werden die Datentypen bzw. Faktorlevel und die ersten Werte der Spaltenvectoren angezeigt.
+Zeile 1 gibt Auskunft über Größe und die Klasse des Objektes, tibbles sind eine Art data.frame. In den weiteren Zeilen werden die Datentypen bzw. Faktorlevel und die ersten Werte der Spaltenvektoren angezeigt.
 
 ### Häufigkeit von Factorlevels
 
