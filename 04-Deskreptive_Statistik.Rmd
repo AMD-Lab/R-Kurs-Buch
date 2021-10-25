@@ -1,3 +1,135 @@
-# Deskreptive Statistik
-(Jose)
+# Deskriptive Statistik
 
+Deskriptive Statistik hat zum Ziel, Daten anhand von Kennzahlen zu beschreiben.
+Diese Kennzahlen werden häufig statistische Mahße oder statistische Parameter
+gennant. Vor allem bei umfangreichen Datensätze können deskritive Statistiken
+hilfreich sein, um einen Überblick über die vorhandene *Datenstruktur* zu gewinnen.
+
+Zu den gängigsten desrkiptiven statistischen Mahßen zählen Lagemahße, wie der 
+**Mittelwert**, welches ein Maß für die zentrale Tendenz einer Häufigkeitsverteilung
+darstellt. Mahße wie die **Standardabweichung** oder die Varianz einer Variable geben
+Auskünft pber die Streuung einr Variable. Es gibt auch andere deskriptive Mahße,
+die Aussagen über Zusammenhänge zwischen verschiedener Variablen (sogenannte Zusammenhangsmaße).
+Hierzu zählt beispielswese die **Korrelation**.
+
+Häufig kommen deskriptive Statistiken im Rahmen von einer *Explorativen Datenanalyse* (EDA) zum
+Einsatz. die EDA steht häufig am Anfang einer meitens komplexere und (häufig) theoriegeleitete
+Datenanalyse und wird dazu verwendet die Qualität und Struktur der Daten zu untersuchen.
+
+Im ersten Teil dieses Abschnitts werden einige des gängisten statistischen Parameter, wie Mittelwert,
+Median und Standardabweichung beschrieben und wie Sie diese in R berechnen können.
+
+## Voraussetzungen
+
+Dieses Kapitel benutzt `\dplyr\` und `\ggplot\` um Fragen und Antworten über einen Datensatzt in
+interkativer Weise zu generieiren.
+
+## Ziele
+
+Das Ziel der EDA ist ein Verstänis über vorliegende Daten zu entwickeln.
+
+Am einfachsten ist es, Fragen als Hilfsmittel zu verwenden, um eine Untersuchung zu steuern.
+Fragen lenken die Aufmerksamkeit auf einen bestimmten Teil des Datensatzes und hilft bei der Entscheidung, welche Parameter oder Dieagrame hilfreich sein könnten.
+
+
+## Dateninformationen
+
+Für den folgenden Abschnitt benötigen Sie den `iris` Datensatz.
+Der Datensatz ist Teil von der Basisinstallation von R und wird automaisch (im Hintergruf) geladen.
+
+```{r}
+# iris in einer neuen Variable names 'dat' speichern
+dat <- iris
+```
+
+
+Benutzen Sie `head()`, um die ersten 5 Zeilen des Datensatzes anzeigen zu lassen.
+
+```{r}
+head(dat)
+```
+
+Benutzen Sie `str()`, um etwas mehr über die Struktur des Datensatzes zu lernen. 
+`str()` steht für *structure*. Der output dieser Funktion zeigt basis Informationen zu den
+Datnsatz, wie die Anzahl and Beobachtugen (i.e., obs. für observations) und 
+Variablen (i.e., variables). Wie Sie wiesen Beobachtungen bilden die Zeilen in einem Datensatz.
+Variablen stehen in den Spalten.
+
+```{r}
+str(dat)
+```
+
+Wie sie oben sehen können, erlaubt `str()` erste einblicke in den Datensatz. Oben können
+Sie einige Informationen zu den Variablen, wie beispielsweise Name (e.g., `Sepal.Length`),
+Variablen-Typ (e.g., `num` für numerisch), sowie typische Werte, die diese Variable annehmen
+kann (e.g., `5.1 4.9 4.7 4.6`).
+
+Wie sie sehen, beinhaltet der Datensatz 150 Beobachtungen und 5 Variablen, die die Länge und Breite
+des Kelch- und des Blütenblattes sowie die Art von 150 Blumen darstellen. Länge und Breite des
+Kelch- und Blütenblattes sind numerische Variablen. 
+Die Art der Blume ist ein Faktor mit 3 Stufen (i.e., `Factor w/ 3 levels`).
+
+## Lagemaße
+
+### Minimum und Maximum
+
+Minimum und Maximum können mit den Funktionen `min()` und `max()` ermittelt werden:
+
+```{r}
+# Min-Wert in Sepal.Length
+min(dat$Sepal.Length)
+```
+
+```{r}
+# Max-Wert in Sepal.Width
+max(dat$Sepal.Width)
+```
+
+Alternativ, können Sie `range()` (Spannweite) benutzen, um Minima und Maxima zu berechnen:
+
+```{r}
+# Min/Max von Sepal.Width
+range(dat$Sepal.Width)
+```
+
+Beachten Sie, dass `range()` eigentlich ein Vektor ausgubt, das das Minimum und das Maximum (in dieser Reihenfolge) enthält.
+
+
+### Mittelwert
+
+Der Mittelwert kann mit `mean()` berechnet werden:
+
+```{r}
+# Mittelwert von Sepal.Width
+mean(dat$Sepal.Width)
+```
+
+Bitte beachten Sie, dass sollte eine Variable mindestens einen fehlenden Wert erhalten, sollten Sie `mean(dat$Sepal.Width, na.rm = TRUE)`, um den Mittelwert unter Ausschluss der fehlenden Werte zu berechnen. 
+Das Argument `na.rm = TRUE` kann für die meisten in diesem Abschnitt vorgestellten Funktionen verwendet werden, nicht nur für den Mittelwert
+
+### Median
+
+Der Median kann mit Hilfe vonn `median()` berechnet werden:
+
+```{r}
+# Mittelwert von Sepal.Width
+median(dat$Sepal.Width)
+```
+
+## Explorative Datenanalyse
+
+Dabei wird ein besonder Fokus aud folgende Punkte gelegt:
+
+1. Wie können Informationen über die Datenstruktur gewonnen werden?
+
+2. Welche Graphiken eignen sich um erste Informationen über den vorliegenden
+Datensatz zu visualisieren?
+
+3. Wie können diese Informationen benutzt werden, um erste Forschungsfragen
+zu beantworten? Was muss dabei beachtet werden? (z.B. gibt es fehlende Werte)
+
+Es gibt keine standarisierte Vorgehensweise, um eine EDA durchzuführen. Vielmehr ist EDA ein 
+(mehr oder weniger) dynamischer Prozess, in dem man einer vielzahl von Ideen untersucht.
+Manche Ideen werden sich weiter entwicklen, während andere nicht weiter verfolgt werden. 
+Im Verlauf der Exploration kritalizieren sich informative Aussagen, die **etwas über das vorliegende
+Datensatz erzählen**.
