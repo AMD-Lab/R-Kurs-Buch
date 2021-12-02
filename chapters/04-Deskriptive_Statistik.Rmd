@@ -1,0 +1,240 @@
+# Deskriptive Statistik
+
+Deskriptive Statistik wird benutzt, um Daten anhand von Kennzahlen zu beschreiben.
+Diese Kennzahlen werden auch häufig *statistische Maße* oder *statistische Parameter*
+gennant. Vor allem bei umfangreichen Datensätze können deskriptive Statistiken
+helfen einen Überblick über die vorhandene *Datenstruktur* zu gewinnen.
+
+Zu den gängigsten (deskriptiven) statistischen Maßen zählen sogenannten *Lagemaße*, wie der 
+**Mittelwert** oder der **Median**, welche Maße für die zentrale Tendenz einer Häufigkeitsverteilung
+darstellen (z.B. der Werte in einer Variable). 
+
+Andere statistische Maße, wie die **Standardabweichung** oder die **Varianz**, erlauben
+dagegen Aussagen über die Streuung der Werte in einer Variable (sogenannte *Streuungsmaße*). 
+
+Es gibt andere deskriptive Maße, die Aussagen über Zusammenhänge zwischen verschiedener 
+Variablen in einem Datensatz geben (sogenannte *Zusammenhangsmaße*). Hierzu zählt beispielsweise die **Korrelation**.
+
+Häufig kommen deskriptive Statistiken im Rahmen von einer **Explorativen Datenanalyse** (EDA) zum
+Einsatz. EDA stellt häufig dein Einstieg in einer meistens komplexeren und (häufig)
+theoriegeleitete Datenanalyse. EDA wird auch häufig dazu verwendet die Qualität und Struktur
+der Daten zu untersuchen.
+
+In diesem Kapitel berechnen wir verschiebe statische Maße, um einen Überblick (oder einen ersten Eindruck)
+der Daten in einem Datensatz zu gewinnen.
+
+## Allgemeine Informationen eines Datensatzes
+
+Für den folgenden Abschnitt benötigen Sie den `iris` Datensatz. Der `iris` Datensatz ist 
+Teil von der Basisinstallation von R und wird automatisch (im Hintergrund) geladen. D.h. Sie
+können auf den Datensatz zugreifen in dem Sie `iris` in die R-Konsole eingeben.
+
+```{r}
+# als erstes speichern wir den iris-Datensatz in einer neuen Variable names 'data'
+data <- iris
+```
+
+Benutzen Sie `head(data)`, um die ersten 5 Zeilen des Datensatzes zu sehen.
+
+```{r}
+head(data)
+```
+
+Eine weitere Funktion, mit der Sie die Struktur eines Datensatzes untersuchen können
+ist `str()`.`str()` steht für *structure*. Der output dieser Funktion zeigt Basisinformationen des
+Datensatzes, wie die Anzahl and Beobachtungen (i.e., `obs.` für observations) und 
+Variablen (i.e., `variables`). Wie Sie wissen, Beobachtungen stehen in den Zeilen und Variablen in den
+Spalten eines Datensatzes.
+
+```{r}
+# untersuchen wir die Struktur des Datensatzes
+str(data)
+```
+`str()` erlaubt erste Einblicke in den Datensatz. Oben sehen Sie einige Informationen,
+wie beispielsweise Name (e.g., `Sepal.Length`), Variablen-Typ (e.g., `num` für numerisch),
+sowie typische Werte, die die verschiede Variablen im Datensatz annehmen können
+(e.g., `5.1 4.9 4.7 4.6`).
+
+Der Datensatz erhält also 150 Beobachtungen und 5 Variablen. Es handelt sich
+um die Länge und Breite des Kelch- und des Blütenblattes sowie die Art von 150 Blumen.
+Länge und Breite des Kelch- und Blütenblattes sind numerische Variablen. 
+Die Art der Blume ist ein Faktor mit 3 Stufen (i.e., `Factor w/ 3 levels`).
+
+## Lagemaße
+
+### Minimum und Maximum
+
+Minimum und Maximum können mit den Funktionen `min()` und `max()` ermittelt werden:
+
+```{r}
+# Berechnen wir das Minimum für die Variable Sepal.Length
+min(data$Sepal.Length)
+```
+
+```{r}
+# Berechnen wir das Maximum für die Variable Sepal.Width
+max(data$Sepal.Width)
+```
+
+Alternativ, können Sie `range()` (Spannweite) benutzen, um Minima und Maxima zu berechnen:
+
+```{r}
+# Berechnen wir die Spannweite von Sepal.Width und speichern
+# wir das Ergebnis in einer neuen Variable namens "width_range"
+width_range <- range(data$Sepal.Width)
+width_range
+```
+
+Wie sie Sehen berechnet `range()` einen Vektor, der das Minimum und das 
+Maximum (in dieser Reihenfolge) enthält.
+Genau genommen müssen Sie diese Werte von einander abziehen, um die Spannweite von 
+`Sepal.width` zu bekommen:
+
+```{r}
+# max - min
+width_range[2] - width_range[1]
+```
+
+Die Spannweite beträgt also `2.4`. Dies bedeutet, dass Unterschied zwischen des breitesten und des dünsten Kelchblattes 2.4 cm beträgt.
+
+### Quantile und Perzentile
+
+Andere häufig eingesetzte deskriptive Parameter sind Quantile oder Perzentile (d.h. welche Werte sind < 25%, < 50%, < 75%, oder > 75%)
+
+Ein häufig verwendetes Perzentil ist der **Median**. Der Median ist  äquivalent zum 50. Perzentil (d.h. 50%) einer Variable, weil 50% der Werte einer Variable unterhalb/oberhalb dieses Wertes liegen.
+
+Der Median kann folgendermaßen berechnet werden:
+
+$$
+(1)\,\,\,\,\,\,\,\,
+\tilde{x}=\left\{\begin{array}{l}
+x_{m+1} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, für \, ungerades \, n \,\,\,=2m+1 \\
+\frac{1}{2}\left(x_{m}+x_{m+1}\right) \,\,\,\,\, für \, gerades \,n \,\,\,= 2m
+\end{array}\right.
+$$
+
+Ein Wert `m` is Median einer Stichprobe, wenn mindestens die Hälfte der Stichprobenelemente nicht 
+größer als `m` und mindestens die Hälfte nicht kleiner als `m` ist.
+
+Sortiert man die Beobachtungswerte der Größe nach, so entspricht der Median bei einer ungeraden Anzahl von Beobachtungen den Wert der in der Mitte dieser Folge liegenden Beobachtung. Bei einer geraden Anzahl von Beobachtungen gibt es kein einzelnes mittleres Element, sondern zwei. Der Median entspricht dann (vereinfacht ausgedruckt), der Mittelwert dieser beiden Beobachtungen.
+
+Sie können diese Annahme mit den Funktionen `median()` und `quantile()`überprüfen.
+
+```{r}
+# median
+median(data$Sepal.Length)
+```
+```{r}
+# 0.5 steht für 50%
+quantile(data$Sepal.Length, 0.5)
+```
+
+Sie können `quantile()` auch benutzen, um unterschiedliche Perzentile auf einmal zu berechnen.
+
+```{r}
+# mir 0.25, 0.5, und 0.75 können wir die Grenzen für die
+# verschiedenen Quartile berechnen
+quantile(data$Sepal.Length, c(0.25, 0.5, 0.75))
+```
+
+Dies bedeutet, dass 25% de Werte sich unterhalb von `5.1`, 50% unterhalb von `5.8` und 75% unterhalb `6.4` befinden. Im Umkehrschluss befinden sich 25% der Werte oberhalb `6.4`.
+
+### Interquantilsabstand (IQA)
+
+Manchmal möchte man wissen wie groß der Abstand zwischen bestimmte Quantile ist, 
+um Aussagen über Beobachtungen, die innerhalb oder außerhalb eines bestimmten 
+Wertebereichs liegen, zu treffen. Häufig wird hierfür der Interquartilsabstand benutzt,
+welches als der Abstand zwischen den 75. und 25. Perzentil definiert ist.
+
+```{r}
+# IQR steht für interquartile range
+IQR(data$Sepal.Length)
+```
+
+Sie können dies überprüfen, indem Sie den IQA selbt berechnen.
+
+$$
+(2)\,\,\,\,\,\,\,\, IQA = X_{0.75} - X{0.25}
+$$
+
+Sie müssen dafür den 3. Quartil (den 75. Perzentil) und den 1. Quartil (den 25. Perzentil) "händisch" berechnen und diese anschließend von einander abziehen.
+
+```{r}
+as.numeric(quantile(data$Sepal.Length, 0.75) - quantile(data$Sepal.Length, 0.25))
+```
+
+Den IQA kann ebenfalls anhand eines Boxplots dargestellt werden. Unten sehen
+Sie den 75. Perzentil (nach unten zeigenden Dreieck), den Median (ein X) und den 25. Perzentil 
+(nach oben zeigenden Dreieck) dargestellt. Den grau schattierten Bereich um den Median, zeigt
+der Wertebereich, in dem sich 50% der Werte einer Verteilung befinden. 
+
+```{r, fig.width = 4, fig.align = "center"}
+# IQR visualisieren anhand einer box-plots
+
+# box-plot
+boxplot(data$Sepal.Length, ylim = c(3, 10))
+# 0.75 Perzentil
+points(quantile(data$Sepal.Length, 0.75), 
+       col = 'red', cex = 2, pch = 6, lwd = 2)
+# 0.50 Perzentil (Median)
+points(quantile(data$Sepal.Length, 0.50), 
+       col='black', cex=2, pch=4, lwd = 2)
+# 0.25 Perzentil
+points(quantile(data$Sepal.Length, 0.25), 
+       col='blue', cex=2, pch=2, lwd = 2)
+```
+
+### Mittelwert
+
+Ähnlich zum Median, stellt der Mittelwert ein wichtiges Maß für die zentralen Tendenz
+einer Variable. Der Mittlwert (i.S. des arithmetischen Mittels) ist die Summe der gegebenen 
+Werte geteilt durch die Anzahl der Werte. 
+
+$$
+(3)\,\,\,\,\,\,\,\,
+\bar{x}=\frac{1}{n}\left(\sum_{i=1}^{n} x_{i}\right)=\frac{x_{1}+x_{2}+\cdots+x_{n}}{n}
+$$
+Sie können den Mittelwert also folgendermaßen berechen.
+
+```{r}
+summe_der_werte <- sum(data$Sepal.Width)
+anzahl_der_werte <- length(data$Sepal.Width)
+
+# Mittelwert von Sepal.Width
+summe_der_werte / anzahl_der_werte
+```
+
+Wir können diese Berechnung mit der R-Funktion `mean()` überprüfen.
+
+```{r}
+mean(data$Sepal.Width)
+```
+
+Bitte beachten Sie, dass sollte eine Variable mindestens einen fehlenden Wert erhalten, sollten Sie `mean(data$Sepal.Width, na.rm = TRUE)`, um den Mittelwert unter Ausschluss der fehlenden Werte zu berechnen. 
+Das Argument `na.rm = TRUE` kann für die meisten in diesem Abschnitt vorgestellten Funktionen verwendet werden, nicht nur für den Mittelwert.
+
+
+## Streuungsmaße
+
+### Standardabweichung
+
+Die Standardabweichung ist ein Maß für die Breite der Streuung der Werte einer Variable rund um deren Mittelwert (arithmetisches Mittel). Vereinfacht gesagt, ist die Standardabweichung die durchschnittliche Entfernung aller gemessenen Ausprägungen eines Merkmals vom Durchschnitt.
+
+Sie kann folgender Maßen berechnet werden:
+
+
+$$
+(4)\,\,\,\,\,\,\,\,
+s_{N}=\sqrt{\frac{1}{N} \sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^{2}}
+$$
+In R also:
+
+```{r}
+sqrt(sum((data$Sepal.Width-mean(data$Sepal.Width))^2/(length(data$Sepal.Width)-1)))
+```
+
+Oder mit Hilfe der R-Funktion `sd()`:
+
+```{r}
+sd(data$Sepal.Width)
+```

@@ -10,5 +10,6 @@ rmd_files:
     "./chapters/01-Erste_Schritte.Rmd",
     "./chapters/02-Datenstruktur.Rmd",
     "./chapters/03-Datenaufbereitung.Rmd",
+    "./chapters/04-Deskriptive_Statistik.Rmd",
     "./chapters/05-Graphiken.Rmd"
   ]
