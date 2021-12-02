@@ -47,6 +47,15 @@ dplyr-der-piping-operator
 beispiel
 dplyr-neue-variablen-mit-mutate-berechnen
 beispiel-1
+deskriptive-statistik
+allgemeine-informationen-eines-datensatzes
+lagemaße
+minimum-und-maximum
+quantile-und-perzentile
+interquantilsabstand-iqa
+mittelwert
+streuungsmaße
+standardabweichung
 graphiken-mit-ggplot2
 exkurs-warum-viridis
 ggplot2---einführung

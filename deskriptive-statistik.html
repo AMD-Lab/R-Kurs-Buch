@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Deskriptive Statistik | Einführung in R</title>
+  <meta name="description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Deskriptive Statistik | Einführung in R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://amd-lab.github.io/R-Kurs-Unterlagen/index.html" />
+  
+  <meta property="og:description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
+  <meta name="github-repo" content="AMD-Lab/R-Kurs-Unterlagen" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Deskriptive Statistik | Einführung in R" />
+  
+  <meta name="twitter:description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
+  
+
+
+
+<meta name="date" content="2021-12-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="datenaufbereitung-mit-dplyr.html"/>
+<link rel="next" href="graphiken-mit-ggplot2.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Einführung in R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Über dieses Skript</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#feedback"><i class="fa fa-check"></i><b>1.1</b> Feedback</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="einführung.html"><a href="einführung.html"><i class="fa fa-check"></i><b>2</b> Einführung</a><ul>
+<li class="chapter" data-level="2.1" data-path="einführung.html"><a href="einführung.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="einführung.html"><a href="einführung.html#erste-schritte"><i class="fa fa-check"></i><b>2.2</b> Erste Schritte</a></li>
+<li class="chapter" data-level="2.3" data-path="einführung.html"><a href="einführung.html#das-r-skript"><i class="fa fa-check"></i><b>2.3</b> Das R-Skript</a></li>
+<li class="chapter" data-level="2.4" data-path="einführung.html"><a href="einführung.html#struktur-des-skripts"><i class="fa fa-check"></i><b>2.4</b> Struktur des Skripts</a></li>
+<li class="chapter" data-level="2.5" data-path="einführung.html"><a href="einführung.html#pakete"><i class="fa fa-check"></i><b>2.5</b> Pakete</a></li>
+<li class="chapter" data-level="2.6" data-path="einführung.html"><a href="einführung.html#working-directory"><i class="fa fa-check"></i><b>2.6</b> Working Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html"><i class="fa fa-check"></i><b>3</b> Erste Schritte</a><ul>
+<li class="chapter" data-level="3.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#variablen"><i class="fa fa-check"></i><b>3.1</b> Variablen</a></li>
+<li class="chapter" data-level="3.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#vektoren"><i class="fa fa-check"></i><b>3.2</b> Vektoren</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-numeric"><i class="fa fa-check"></i><b>3.2.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="3.2.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-character"><i class="fa fa-check"></i><b>3.2.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="3.2.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-logical"><i class="fa fa-check"></i><b>3.2.3</b> Datentyp logical</a></li>
+<li class="chapter" data-level="3.2.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-factor"><i class="fa fa-check"></i><b>3.2.4</b> Datentyp factor</a></li>
+<li class="chapter" data-level="3.2.5" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-na"><i class="fa fa-check"></i><b>3.2.5</b> Datentyp NA</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#auswahl-von-vektorelementen"><i class="fa fa-check"></i><b>3.3</b> Auswahl von Vektorelementen</a></li>
+<li class="chapter" data-level="3.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#logische-vergleiche"><i class="fa fa-check"></i><b>3.4</b> Logische Vergleiche</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-numeric-1"><i class="fa fa-check"></i><b>3.4.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="3.4.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-character-1"><i class="fa fa-check"></i><b>3.4.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="3.4.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-factor-1"><i class="fa fa-check"></i><b>3.4.3</b> Datentyp factor</a></li>
+<li class="chapter" data-level="3.4.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#rekodieren-von-variablen-mit-hilfe-logischer-vergleich"><i class="fa fa-check"></i><b>3.4.4</b> Rekodieren von Variablen mit Hilfe logischer Vergleich</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datenstruktur.html"><a href="datenstruktur.html"><i class="fa fa-check"></i><b>4</b> Datenstruktur</a><ul>
+<li class="chapter" data-level="4.1" data-path="datenstruktur.html"><a href="datenstruktur.html#rmarkdown"><i class="fa fa-check"></i><b>4.1</b> RMarkdown</a></li>
+<li class="chapter" data-level="4.2" data-path="datenstruktur.html"><a href="datenstruktur.html#hilfe"><i class="fa fa-check"></i><b>4.2</b> Hilfe</a></li>
+<li class="chapter" data-level="4.3" data-path="datenstruktur.html"><a href="datenstruktur.html#wiederholung-werte-vektoren"><i class="fa fa-check"></i><b>4.3</b> Wiederholung: Werte &amp; Vektoren</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datenstruktur.html"><a href="datenstruktur.html#coercion-umwandlung-von-typen"><i class="fa fa-check"></i><b>4.3.1</b> Coercion (Umwandlung von Typen)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datenstruktur.html"><a href="datenstruktur.html#aufruf-per-index-von-daten-aus-mehreren-ebenen"><i class="fa fa-check"></i><b>4.3.2</b> Aufruf per Index von Daten aus mehreren Ebenen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="datenstruktur.html"><a href="datenstruktur.html#der-workspace"><i class="fa fa-check"></i><b>4.4</b> Der Workspace</a></li>
+<li class="chapter" data-level="4.5" data-path="datenstruktur.html"><a href="datenstruktur.html#wiederholung-einfache-berechnungen"><i class="fa fa-check"></i><b>4.5</b> Wiederholung: Einfache Berechnungen</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="datenstruktur.html"><a href="datenstruktur.html#übersicht-berechnungsfunktionen"><i class="fa fa-check"></i><b>4.5.1</b> Übersicht Berechnungsfunktionen</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="datenstruktur.html"><a href="datenstruktur.html#matrizen"><i class="fa fa-check"></i><b>4.6</b> Matrizen</a></li>
+<li class="chapter" data-level="4.7" data-path="datenstruktur.html"><a href="datenstruktur.html#tidy-daten"><i class="fa fa-check"></i><b>4.7</b> tidy Daten</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="datenstruktur.html"><a href="datenstruktur.html#tidyverse"><i class="fa fa-check"></i><b>4.7.1</b> tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="datenstruktur.html"><a href="datenstruktur.html#data.frames-df-und-tibbles-tib"><i class="fa fa-check"></i><b>4.8</b> data.frames (df) und tibbles (tib)</a></li>
+<li class="chapter" data-level="4.9" data-path="datenstruktur.html"><a href="datenstruktur.html#einlesen-und-speichern-von-daten"><i class="fa fa-check"></i><b>4.9</b> Einlesen und Speichern von Daten</a></li>
+<li class="chapter" data-level="4.10" data-path="datenstruktur.html"><a href="datenstruktur.html#datensätze-dat-anschauen"><i class="fa fa-check"></i><b>4.10</b> Datensätze (dat) anschauen</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="datenstruktur.html"><a href="datenstruktur.html#häufigkeit-von-factorlevels"><i class="fa fa-check"></i><b>4.10.1</b> Häufigkeit von Factorlevels</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung mit `dplyr`</a><ul>
+<li class="chapter" data-level="5.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#einführung-1"><i class="fa fa-check"></i><b>5.1</b> Einführung</a></li>
+<li class="chapter" data-level="5.2" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-die-wichtigsten-befehle"><i class="fa fa-check"></i><b>5.2</b> `<code>dplyr</code>`: Die wichtigsten Befehle</a></li>
+<li class="chapter" data-level="5.3" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-filtern-von-beobachtungen-mit-filter"><i class="fa fa-check"></i><b>5.3</b> Beispiel: Filtern von Beobachtungen mit <code>filter()</code></a><ul>
+<li class="chapter" data-level="5.3.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#filtern-von-strings-factors"><i class="fa fa-check"></i><b>5.3.1</b> Filtern von Strings / Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-der-piping-operator"><i class="fa fa-check"></i><b>5.4</b> Dplyr: Der Piping Operator `%&gt;%`</a></li>
+<li class="chapter" data-level="5.5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel"><i class="fa fa-check"></i><b>5.5</b> Beispiel</a></li>
+<li class="chapter" data-level="5.6" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-neue-variablen-mit-mutate-berechnen"><i class="fa fa-check"></i><b>5.6</b> Dplyr : Neue Variablen mit <code>mutate()</code> berechnen</a></li>
+<li class="chapter" data-level="5.7" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-1"><i class="fa fa-check"></i><b>5.7</b> Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="6.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#allgemeine-informationen-eines-datensatzes"><i class="fa fa-check"></i><b>6.1</b> Allgemeine Informationen eines Datensatzes</a></li>
+<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#lagemaße"><i class="fa fa-check"></i><b>6.2</b> Lagemaße</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#minimum-und-maximum"><i class="fa fa-check"></i><b>6.2.1</b> Minimum und Maximum</a></li>
+<li class="chapter" data-level="6.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#quantile-und-perzentile"><i class="fa fa-check"></i><b>6.2.2</b> Quantile und Perzentile</a></li>
+<li class="chapter" data-level="6.2.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#interquantilsabstand-iqa"><i class="fa fa-check"></i><b>6.2.3</b> Interquantilsabstand (IQA)</a></li>
+<li class="chapter" data-level="6.2.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#mittelwert"><i class="fa fa-check"></i><b>6.2.4</b> Mittelwert</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#streuungsmaße"><i class="fa fa-check"></i><b>6.3</b> Streuungsmaße</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#standardabweichung"><i class="fa fa-check"></i><b>6.3.1</b> Standardabweichung</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html"><i class="fa fa-check"></i><b>7</b> Graphiken mit ggplot2</a><ul>
+<li class="chapter" data-level="7.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#exkurs-warum-viridis"><i class="fa fa-check"></i><b>7.1</b> Exkurs: Warum viridis?</a></li>
+<li class="chapter" data-level="7.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ggplot2---einführung"><i class="fa fa-check"></i><b>7.2</b> <code>ggplot2</code> - Einführung</a></li>
+<li class="chapter" data-level="7.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#vor-der-visualisierung-die-daten"><i class="fa fa-check"></i><b>7.3</b> Vor der Visualisierung: Die Daten</a></li>
+<li class="chapter" data-level="7.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ästhetische-mapping"><i class="fa fa-check"></i><b>7.4</b> Ästhetische Mapping</a></li>
+<li class="chapter" data-level="7.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#graphischen-funktionen"><i class="fa fa-check"></i><b>7.5</b> Graphischen Funktionen</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#säulen--und-balkendiagramm"><i class="fa fa-check"></i><b>7.5.1</b> Säulen- und Balkendiagramm</a></li>
+<li class="chapter" data-level="7.5.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#histogramm"><i class="fa fa-check"></i><b>7.5.2</b> Histogramm</a></li>
+<li class="chapter" data-level="7.5.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#qq-plot"><i class="fa fa-check"></i><b>7.5.3</b> QQ-Plot</a></li>
+<li class="chapter" data-level="7.5.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#boxplot"><i class="fa fa-check"></i><b>7.5.4</b> Boxplot</a></li>
+<li class="chapter" data-level="7.5.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#violinen-plot"><i class="fa fa-check"></i><b>7.5.5</b> Violinen-Plot</a></li>
+<li class="chapter" data-level="7.5.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#beeswarm-plot-mit-dem-paket-ggbeeswarm"><i class="fa fa-check"></i><b>7.5.6</b> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code></a></li>
+<li class="chapter" data-level="7.5.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#scatterplot"><i class="fa fa-check"></i><b>7.5.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.5.8" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linearer-fit"><i class="fa fa-check"></i><b>7.5.8</b> (Linearer) Fit</a></li>
+<li class="chapter" data-level="7.5.9" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linienplot"><i class="fa fa-check"></i><b>7.5.9</b> Linienplot</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#sonstige-funktionalität"><i class="fa fa-check"></i><b>7.6</b> Sonstige Funktionalität</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#labels"><i class="fa fa-check"></i><b>7.6.1</b> Labels</a></li>
+<li class="chapter" data-level="7.6.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#thema"><i class="fa fa-check"></i><b>7.6.2</b> Thema</a></li>
+<li class="chapter" data-level="7.6.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#position"><i class="fa fa-check"></i><b>7.6.3</b> Position</a></li>
+<li class="chapter" data-level="7.6.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#legenden"><i class="fa fa-check"></i><b>7.6.4</b> Legenden</a></li>
+<li class="chapter" data-level="7.6.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#koordinatensysteme"><i class="fa fa-check"></i><b>7.6.5</b> Koordinatensysteme</a></li>
+<li class="chapter" data-level="7.6.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#farbskalen"><i class="fa fa-check"></i><b>7.6.6</b> Farbskalen</a></li>
+<li class="chapter" data-level="7.6.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#variablenskalen"><i class="fa fa-check"></i><b>7.6.7</b> Variablenskalen</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#facetten"><i class="fa fa-check"></i><b>7.7</b> Facetten</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/AMD-Lab/R-Kurs-Buch" target="blank">
+Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Einführung in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="deskriptive-statistik" class="section level1">
+<h1><span class="header-section-number">6</span> Deskriptive Statistik</h1>
+<p>Deskriptive Statistik wird benutzt, um Daten anhand von Kennzahlen zu beschreiben.
+Diese Kennzahlen werden auch häufig <em>statistische Maße</em> oder <em>statistische Parameter</em>
+gennant. Vor allem bei umfangreichen Datensätze können deskriptive Statistiken
+helfen einen Überblick über die vorhandene <em>Datenstruktur</em> zu gewinnen.</p>
+<p>Zu den gängigsten (deskriptiven) statistischen Maßen zählen sogenannten <em>Lagemaße</em>, wie der
+<strong>Mittelwert</strong> oder der <strong>Median</strong>, welche Maße für die zentrale Tendenz einer Häufigkeitsverteilung
+darstellen (z.B. der Werte in einer Variable).</p>
+<p>Andere statistische Maße, wie die <strong>Standardabweichung</strong> oder die <strong>Varianz</strong>, erlauben
+dagegen Aussagen über die Streuung der Werte in einer Variable (sogenannte <em>Streuungsmaße</em>).</p>
+<p>Es gibt andere deskriptive Maße, die Aussagen über Zusammenhänge zwischen verschiedener
+Variablen in einem Datensatz geben (sogenannte <em>Zusammenhangsmaße</em>). Hierzu zählt beispielsweise die <strong>Korrelation</strong>.</p>
+<p>Häufig kommen deskriptive Statistiken im Rahmen von einer <strong>Explorativen Datenanalyse</strong> (EDA) zum
+Einsatz. EDA stellt häufig dein Einstieg in einer meistens komplexeren und (häufig)
+theoriegeleitete Datenanalyse. EDA wird auch häufig dazu verwendet die Qualität und Struktur
+der Daten zu untersuchen.</p>
+<p>In diesem Kapitel berechnen wir verschiebe statische Maße, um einen Überblick (oder einen ersten Eindruck)
+der Daten in einem Datensatz zu gewinnen.</p>
+<div id="allgemeine-informationen-eines-datensatzes" class="section level2">
+<h2><span class="header-section-number">6.1</span> Allgemeine Informationen eines Datensatzes</h2>
+<p>Für den folgenden Abschnitt benötigen Sie den <code>iris</code> Datensatz. Der <code>iris</code> Datensatz ist
+Teil von der Basisinstallation von R und wird automatisch (im Hintergrund) geladen. D.h. Sie
+können auf den Datensatz zugreifen in dem Sie <code>iris</code> in die R-Konsole eingeben.</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="deskriptive-statistik.html#cb222-1"></a><span class="co"># als erstes speichern wir den iris-Datensatz in einer neuen Variable names &#39;data&#39;</span></span>
+<span id="cb222-2"><a href="deskriptive-statistik.html#cb222-2"></a>data &lt;-<span class="st"> </span>iris</span></code></pre></div>
+<p>Benutzen Sie <code>head(data)</code>, um die ersten 5 Zeilen des Datensatzes zu sehen.</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="deskriptive-statistik.html#cb223-1"></a><span class="kw">head</span>(data)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<p>Eine weitere Funktion, mit der Sie die Struktur eines Datensatzes untersuchen können
+ist <code>str()</code>.<code>str()</code> steht für <em>structure</em>. Der output dieser Funktion zeigt Basisinformationen des
+Datensatzes, wie die Anzahl and Beobachtungen (i.e., <code>obs.</code> für observations) und
+Variablen (i.e., <code>variables</code>). Wie Sie wissen, Beobachtungen stehen in den Zeilen und Variablen in den
+Spalten eines Datensatzes.</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="deskriptive-statistik.html#cb225-1"></a><span class="co"># untersuchen wir die Struktur des Datensatzes</span></span>
+<span id="cb225-2"><a href="deskriptive-statistik.html#cb225-2"></a><span class="kw">str</span>(data)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<p><code>str()</code> erlaubt erste Einblicke in den Datensatz. Oben sehen Sie einige Informationen,
+wie beispielsweise Name (e.g., <code>Sepal.Length</code>), Variablen-Typ (e.g., <code>num</code> für numerisch),
+sowie typische Werte, die die verschiede Variablen im Datensatz annehmen können
+(e.g., <code>5.1 4.9 4.7 4.6</code>).</p>
+<p>Der Datensatz erhält also 150 Beobachtungen und 5 Variablen. Es handelt sich
+um die Länge und Breite des Kelch- und des Blütenblattes sowie die Art von 150 Blumen.
+Länge und Breite des Kelch- und Blütenblattes sind numerische Variablen.
+Die Art der Blume ist ein Faktor mit 3 Stufen (i.e., <code>Factor w/ 3 levels</code>).</p>
+</div>
+<div id="lagemaße" class="section level2">
+<h2><span class="header-section-number">6.2</span> Lagemaße</h2>
+<div id="minimum-und-maximum" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Minimum und Maximum</h3>
+<p>Minimum und Maximum können mit den Funktionen <code>min()</code> und <code>max()</code> ermittelt werden:</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="deskriptive-statistik.html#cb227-1"></a><span class="co"># Berechnen wir das Minimum für die Variable Sepal.Length</span></span>
+<span id="cb227-2"><a href="deskriptive-statistik.html#cb227-2"></a><span class="kw">min</span>(data<span class="op">$</span>Sepal.Length)</span></code></pre></div>
+<pre><code>## [1] 4.3</code></pre>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="deskriptive-statistik.html#cb229-1"></a><span class="co"># Berechnen wir das Maximum für die Variable Sepal.Width</span></span>
+<span id="cb229-2"><a href="deskriptive-statistik.html#cb229-2"></a><span class="kw">max</span>(data<span class="op">$</span>Sepal.Width)</span></code></pre></div>
+<pre><code>## [1] 4.4</code></pre>
+<p>Alternativ, können Sie <code>range()</code> (Spannweite) benutzen, um Minima und Maxima zu berechnen:</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="deskriptive-statistik.html#cb231-1"></a><span class="co"># Berechnen wir die Spannweite von Sepal.Width und speichern</span></span>
+<span id="cb231-2"><a href="deskriptive-statistik.html#cb231-2"></a><span class="co"># wir das Ergebnis in einer neuen Variable namens &quot;width_range&quot;</span></span>
+<span id="cb231-3"><a href="deskriptive-statistik.html#cb231-3"></a>width_range &lt;-<span class="st"> </span><span class="kw">range</span>(data<span class="op">$</span>Sepal.Width)</span>
+<span id="cb231-4"><a href="deskriptive-statistik.html#cb231-4"></a>width_range</span></code></pre></div>
+<pre><code>## [1] 2.0 4.4</code></pre>
+<p>Wie sie Sehen berechnet <code>range()</code> einen Vektor, der das Minimum und das
+Maximum (in dieser Reihenfolge) enthält.
+Genau genommen müssen Sie diese Werte von einander abziehen, um die Spannweite von
+<code>Sepal.width</code> zu bekommen:</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="deskriptive-statistik.html#cb233-1"></a><span class="co"># max - min</span></span>
+<span id="cb233-2"><a href="deskriptive-statistik.html#cb233-2"></a>width_range[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>width_range[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 2.4</code></pre>
+<p>Die Spannweite beträgt also <code>2.4</code>. Dies bedeutet, dass Unterschied zwischen des breitesten und des dünsten Kelchblattes 2.4 cm beträgt.</p>
+</div>
+<div id="quantile-und-perzentile" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Quantile und Perzentile</h3>
+<p>Andere häufig eingesetzte deskriptive Parameter sind Quantile oder Perzentile (d.h. welche Werte sind &lt; 25%, &lt; 50%, &lt; 75%, oder &gt; 75%)</p>
+<p>Ein häufig verwendetes Perzentil ist der <strong>Median</strong>. Der Median ist äquivalent zum 50. Perzentil (d.h. 50%) einer Variable, weil 50% der Werte einer Variable unterhalb/oberhalb dieses Wertes liegen.</p>
+<p>Der Median kann folgendermaßen berechnet werden:</p>
+<p><span class="math display">\[
+(1)\,\,\,\,\,\,\,\,
+\tilde{x}=\left\{\begin{array}{l}
+x_{m+1} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, für \, ungerades \, n \,\,\,=2m+1 \\
+\frac{1}{2}\left(x_{m}+x_{m+1}\right) \,\,\,\,\, für \, gerades \,n \,\,\,= 2m
+\end{array}\right.
+\]</span></p>
+<p>Ein Wert <code>m</code> is Median einer Stichprobe, wenn mindestens die Hälfte der Stichprobenelemente nicht
+größer als <code>m</code> und mindestens die Hälfte nicht kleiner als <code>m</code> ist.</p>
+<p>Sortiert man die Beobachtungswerte der Größe nach, so entspricht der Median bei einer ungeraden Anzahl von Beobachtungen den Wert der in der Mitte dieser Folge liegenden Beobachtung. Bei einer geraden Anzahl von Beobachtungen gibt es kein einzelnes mittleres Element, sondern zwei. Der Median entspricht dann (vereinfacht ausgedruckt), der Mittelwert dieser beiden Beobachtungen.</p>
+<p>Sie können diese Annahme mit den Funktionen <code>median()</code> und <code>quantile()</code>überprüfen.</p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="deskriptive-statistik.html#cb235-1"></a><span class="co"># median</span></span>
+<span id="cb235-2"><a href="deskriptive-statistik.html#cb235-2"></a><span class="kw">median</span>(data<span class="op">$</span>Sepal.Length)</span></code></pre></div>
+<pre><code>## [1] 5.8</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="deskriptive-statistik.html#cb237-1"></a><span class="co"># 0.5 steht für 50%</span></span>
+<span id="cb237-2"><a href="deskriptive-statistik.html#cb237-2"></a><span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>## 50% 
+## 5.8</code></pre>
+<p>Sie können <code>quantile()</code> auch benutzen, um unterschiedliche Perzentile auf einmal zu berechnen.</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="deskriptive-statistik.html#cb239-1"></a><span class="co"># mir 0.25, 0.5, und 0.75 können wir die Grenzen für die</span></span>
+<span id="cb239-2"><a href="deskriptive-statistik.html#cb239-2"></a><span class="co"># verschiedenen Quartile berechnen</span></span>
+<span id="cb239-3"><a href="deskriptive-statistik.html#cb239-3"></a><span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="kw">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>))</span></code></pre></div>
+<pre><code>## 25% 50% 75% 
+## 5.1 5.8 6.4</code></pre>
+<p>Dies bedeutet, dass 25% de Werte sich unterhalb von <code>5.1</code>, 50% unterhalb von <code>5.8</code> und 75% unterhalb <code>6.4</code> befinden. Im Umkehrschluss befinden sich 25% der Werte oberhalb <code>6.4</code>.</p>
+</div>
+<div id="interquantilsabstand-iqa" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Interquantilsabstand (IQA)</h3>
+<p>Manchmal möchte man wissen wie groß der Abstand zwischen bestimmte Quantile ist,
+um Aussagen über Beobachtungen, die innerhalb oder außerhalb eines bestimmten
+Wertebereichs liegen, zu treffen. Häufig wird hierfür der Interquartilsabstand benutzt,
+welches als der Abstand zwischen den 75. und 25. Perzentil definiert ist.</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="deskriptive-statistik.html#cb241-1"></a><span class="co"># IQR steht für interquartile range</span></span>
+<span id="cb241-2"><a href="deskriptive-statistik.html#cb241-2"></a><span class="kw">IQR</span>(data<span class="op">$</span>Sepal.Length)</span></code></pre></div>
+<pre><code>## [1] 1.3</code></pre>
+<p>Sie können dies überprüfen, indem Sie den IQA selbt berechnen.</p>
+<p><span class="math display">\[
+(2)\,\,\,\,\,\,\,\, IQA = X_{0.75} - X{0.25}
+\]</span></p>
+<p>Sie müssen dafür den 3. Quartil (den 75. Perzentil) und den 1. Quartil (den 25. Perzentil) “händisch” berechnen und diese anschließend von einander abziehen.</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="deskriptive-statistik.html#cb243-1"></a><span class="kw">as.numeric</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.75</span>) <span class="op">-</span><span class="st"> </span><span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.25</span>))</span></code></pre></div>
+<pre><code>## [1] 1.3</code></pre>
+<p>Den IQA kann ebenfalls anhand eines Boxplots dargestellt werden. Unten sehen
+Sie den 75. Perzentil (nach unten zeigenden Dreieck), den Median (ein X) und den 25. Perzentil
+(nach oben zeigenden Dreieck) dargestellt. Den grau schattierten Bereich um den Median, zeigt
+der Wertebereich, in dem sich 50% der Werte einer Verteilung befinden.</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="deskriptive-statistik.html#cb245-1"></a><span class="co"># IQR visualisieren anhand einer box-plots</span></span>
+<span id="cb245-2"><a href="deskriptive-statistik.html#cb245-2"></a></span>
+<span id="cb245-3"><a href="deskriptive-statistik.html#cb245-3"></a><span class="co"># box-plot</span></span>
+<span id="cb245-4"><a href="deskriptive-statistik.html#cb245-4"></a><span class="kw">boxplot</span>(data<span class="op">$</span>Sepal.Length, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>))</span>
+<span id="cb245-5"><a href="deskriptive-statistik.html#cb245-5"></a><span class="co"># 0.75 Perzentil</span></span>
+<span id="cb245-6"><a href="deskriptive-statistik.html#cb245-6"></a><span class="kw">points</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.75</span>), </span>
+<span id="cb245-7"><a href="deskriptive-statistik.html#cb245-7"></a>       <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">pch =</span> <span class="dv">6</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb245-8"><a href="deskriptive-statistik.html#cb245-8"></a><span class="co"># 0.50 Perzentil (Median)</span></span>
+<span id="cb245-9"><a href="deskriptive-statistik.html#cb245-9"></a><span class="kw">points</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.50</span>), </span>
+<span id="cb245-10"><a href="deskriptive-statistik.html#cb245-10"></a>       <span class="dt">col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">cex=</span><span class="dv">2</span>, <span class="dt">pch=</span><span class="dv">4</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb245-11"><a href="deskriptive-statistik.html#cb245-11"></a><span class="co"># 0.25 Perzentil</span></span>
+<span id="cb245-12"><a href="deskriptive-statistik.html#cb245-12"></a><span class="kw">points</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.25</span>), </span>
+<span id="cb245-13"><a href="deskriptive-statistik.html#cb245-13"></a>       <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">cex=</span><span class="dv">2</span>, <span class="dt">pch=</span><span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-105-1.png" width="384" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mittelwert" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Mittelwert</h3>
+<p>Ähnlich zum Median, stellt der Mittelwert ein wichtiges Maß für die zentralen Tendenz
+einer Variable. Der Mittlwert (i.S. des arithmetischen Mittels) ist die Summe der gegebenen
+Werte geteilt durch die Anzahl der Werte.</p>
+<p><span class="math display">\[
+(3)\,\,\,\,\,\,\,\,
+\bar{x}=\frac{1}{n}\left(\sum_{i=1}^{n} x_{i}\right)=\frac{x_{1}+x_{2}+\cdots+x_{n}}{n}
+\]</span>
+Sie können den Mittelwert also folgendermaßen berechen.</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="deskriptive-statistik.html#cb246-1"></a>summe_der_werte &lt;-<span class="st"> </span><span class="kw">sum</span>(data<span class="op">$</span>Sepal.Width)</span>
+<span id="cb246-2"><a href="deskriptive-statistik.html#cb246-2"></a>anzahl_der_werte &lt;-<span class="st"> </span><span class="kw">length</span>(data<span class="op">$</span>Sepal.Width)</span>
+<span id="cb246-3"><a href="deskriptive-statistik.html#cb246-3"></a></span>
+<span id="cb246-4"><a href="deskriptive-statistik.html#cb246-4"></a><span class="co"># Mittelwert von Sepal.Width</span></span>
+<span id="cb246-5"><a href="deskriptive-statistik.html#cb246-5"></a>summe_der_werte <span class="op">/</span><span class="st"> </span>anzahl_der_werte</span></code></pre></div>
+<pre><code>## [1] 3.057333</code></pre>
+<p>Wir können diese Berechnung mit der R-Funktion <code>mean()</code> überprüfen.</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="deskriptive-statistik.html#cb248-1"></a><span class="kw">mean</span>(data<span class="op">$</span>Sepal.Width)</span></code></pre></div>
+<pre><code>## [1] 3.057333</code></pre>
+<p>Bitte beachten Sie, dass sollte eine Variable mindestens einen fehlenden Wert erhalten, sollten Sie <code>mean(data$Sepal.Width, na.rm = TRUE)</code>, um den Mittelwert unter Ausschluss der fehlenden Werte zu berechnen.
+Das Argument <code>na.rm = TRUE</code> kann für die meisten in diesem Abschnitt vorgestellten Funktionen verwendet werden, nicht nur für den Mittelwert.</p>
+</div>
+</div>
+<div id="streuungsmaße" class="section level2">
+<h2><span class="header-section-number">6.3</span> Streuungsmaße</h2>
+<div id="standardabweichung" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Standardabweichung</h3>
+<p>Die Standardabweichung ist ein Maß für die Breite der Streuung der Werte einer Variable rund um deren Mittelwert (arithmetisches Mittel). Vereinfacht gesagt, ist die Standardabweichung die durchschnittliche Entfernung aller gemessenen Ausprägungen eines Merkmals vom Durchschnitt.</p>
+<p>Sie kann folgender Maßen berechnet werden:</p>
+<p><span class="math display">\[
+(4)\,\,\,\,\,\,\,\,
+s_{N}=\sqrt{\frac{1}{N} \sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^{2}}
+\]</span>
+In R also:</p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="deskriptive-statistik.html#cb250-1"></a><span class="kw">sqrt</span>(<span class="kw">sum</span>((data<span class="op">$</span>Sepal.Width<span class="op">-</span><span class="kw">mean</span>(data<span class="op">$</span>Sepal.Width))<span class="op">^</span><span class="dv">2</span><span class="op">/</span>(<span class="kw">length</span>(data<span class="op">$</span>Sepal.Width)<span class="op">-</span><span class="dv">1</span>)))</span></code></pre></div>
+<pre><code>## [1] 0.4358663</code></pre>
+<p>Oder mit Hilfe der R-Funktion <code>sd()</code>:</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="deskriptive-statistik.html#cb252-1"></a><span class="kw">sd</span>(data<span class="op">$</span>Sepal.Width)</span></code></pre></div>
+<pre><code>## [1] 0.4358663</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="datenaufbereitung-mit-dplyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="graphiken-mit-ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
