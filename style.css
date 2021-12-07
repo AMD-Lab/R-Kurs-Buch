@@ -1,14 +1,17 @@
-p.caption {
+caption {
   color: #777;
   margin-top: 10px;
 }
+
 p code {
   white-space: inherit;
 }
+
 pre {
   word-break: normal;
   word-wrap: normal;
 }
+
 pre code {
   white-space: inherit;
 }
@@ -17,14 +20,10 @@ body {
   text-align: justify;
 }
 
-#content figcaption {
-  font-family: Arial, sans-serif;
-  font-weight: normal;
-  font-size: 9px;
-  text-shadow: none;
-  color: DarkGray;
-  text-align: justify;
-  height: auto;
-  word-wrap: break-word;
-  width:500px;
+h1 {
+  text-align: left;
+}
+
+h2 {
+  text-align: left;
 }
