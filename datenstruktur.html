@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-12-02" />
+<meta name="date" content="2021-12-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -732,9 +732,19 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <td align="center">tib$var_neu &lt;- c(…)</td>
 </tr>
 <tr class="odd">
+<td align="center">Ergänzen von Zeilen</td>
+<td align="center">rbind(df,Zeilen)</td>
+<td align="center">rbind(tib,Zeilen)</td>
+</tr>
+<tr class="even">
+<td align="center">Ergänzen von Spalten</td>
+<td align="center">cbind(df,Spalten)</td>
+<td align="center">cbind(tib,Spalten)</td>
+</tr>
+<tr class="odd">
 <td align="center">Zeilennamen vergeben</td>
 <td align="center">row.names(df) &lt;-c(“name1”,…)</td>
-<td align="center">relocate(tib,var)</td>
+<td align="center">relocate(tib,namevec)</td>
 </tr>
 </tbody>
 </table>
@@ -835,8 +845,76 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ## 5 Imagine Dragons   68.7         1          1</code></pre>
 <p>Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen vorsichtig hiermit(!):</p>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="datenstruktur.html#cb184-1"></a>tickets_<span class="dv">2022</span><span class="op">$</span>Priorität &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># Entfernt die Spalte </span></span></code></pre></div>
-<p>Ein weiterer Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Zeilennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Zeilennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. var_name) behelfen, die Sie mit <code>relocate(tib,var)</code> an den Anfang des Datensatzes stellen.</p>
-<p>Mit dem Hinzufügen und Abändern von Spaltenvektoren haben wir schon ein bisschen an der Oberfläche der Möglichkeiten zur Datenaufbereitung gekratzt, die in der nächsten Sitzung ausführlich behandelt werden. Jetzt, wo Sie mit dem Management von Datensätzen vertraut sind, wollen wir vorhandene Datensätze einlesen:</p>
+<p>Mit den Funktionen <code>rbind()</code> und <code>cbind()</code> lassen sich die data.frames und tibbles um gleichbreite bzw. gleichlange Vektoren oder Datensätze ergänzen. Verbinden Sie ein tibble und einen data.frame miteinander, werden diese zum Format tibble coerced. Zunächst füge ich zwei weitere Zeilen hinzu, dann zwei weitere Spalten:</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="datenstruktur.html#cb185-1"></a><span class="co"># Zwei weitere Konzerte in neunem data.frame:</span></span>
+<span id="cb185-2"><a href="datenstruktur.html#cb185-2"></a></span>
+<span id="cb185-3"><a href="datenstruktur.html#cb185-3"></a>extra_Konzerte &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;Artist&quot;</span>=<span class="kw">c</span>(<span class="st">&quot;Elton John&quot;</span>,<span class="st">&quot;Colplay&quot;</span>,<span class="st">&quot;RHCP&quot;</span>),</span>
+<span id="cb185-4"><a href="datenstruktur.html#cb185-4"></a>                             <span class="st">&quot;Kosten&quot;</span>=<span class="kw">c</span>(<span class="fl">139.00</span>,<span class="fl">259.00</span>, <span class="dv">200</span>),</span>
+<span id="cb185-5"><a href="datenstruktur.html#cb185-5"></a>                             <span class="dt">Prioritaet=</span><span class="kw">c</span>(<span class="fl">2.7</span>,<span class="fl">2.3</span>,<span class="fl">1.7</span>))</span>
+<span id="cb185-6"><a href="datenstruktur.html#cb185-6"></a></span>
+<span id="cb185-7"><a href="datenstruktur.html#cb185-7"></a><span class="co"># Zeilenweises Aneinanderbinden:</span></span>
+<span id="cb185-8"><a href="datenstruktur.html#cb185-8"></a></span>
+<span id="cb185-9"><a href="datenstruktur.html#cb185-9"></a>tickets_<span class="dv">2022</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(tickets_<span class="dv">2022</span>,extra_Konzerte)</span>
+<span id="cb185-10"><a href="datenstruktur.html#cb185-10"></a></span>
+<span id="cb185-11"><a href="datenstruktur.html#cb185-11"></a><span class="co"># Zwischenergebnis:</span></span>
+<span id="cb185-12"><a href="datenstruktur.html#cb185-12"></a></span>
+<span id="cb185-13"><a href="datenstruktur.html#cb185-13"></a>tickets_<span class="dv">2022</span></span></code></pre></div>
+<pre><code>## # A tibble: 8 × 3
+##   Artist          Kosten Prioritaet
+##   &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;
+## 1 Ed Sheeran        79.3        2  
+## 2 Billy Eilish     282          4  
+## 3 The Weeknd       116          3  
+## 4 Dua Lipa         136          5  
+## 5 Imagine Dragons   68.7        1  
+## 6 Elton John       139          2.7
+## 7 Colplay          259          2.3
+## 8 RHCP             200          1.7</code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="datenstruktur.html#cb187-1"></a><span class="co"># Ort und Begleitung in neuem tibble:</span></span>
+<span id="cb187-2"><a href="datenstruktur.html#cb187-2"></a></span>
+<span id="cb187-3"><a href="datenstruktur.html#cb187-3"></a>ort_begleitung &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="st">&quot;Ort&quot;</span>=<span class="kw">c</span>(<span class="st">&quot;Frankfurt&quot;</span>,<span class="st">&quot;London&quot;</span>,<span class="st">&quot;Muenchen&quot;</span>,<span class="st">&quot;Berlin&quot;</span>,<span class="st">&quot;Gdynia&quot;</span>,<span class="st">&quot;Frankfurt&quot;</span>,<span class="st">&quot;Frankfurt&quot;</span>,<span class="st">&quot;Koeln&quot;</span>),</span>
+<span id="cb187-4"><a href="datenstruktur.html#cb187-4"></a>                         <span class="st">&quot;Begleitung&quot;</span>=<span class="kw">c</span>(<span class="st">&quot;Juergen&quot;</span>,<span class="st">&quot;Samu&quot;</span>,<span class="st">&quot;Anni&quot;</span>,<span class="st">&quot;Jan und Laura&quot;</span>,<span class="st">&quot;Oma&quot;</span>,<span class="st">&quot;Papa&quot;</span>,<span class="st">&quot;Schwester&quot;</span>,<span class="st">&quot;die Girls&quot;</span>))</span>
+<span id="cb187-5"><a href="datenstruktur.html#cb187-5"></a></span>
+<span id="cb187-6"><a href="datenstruktur.html#cb187-6"></a><span class="co"># Spaltenweises Aneinanderbinden:</span></span>
+<span id="cb187-7"><a href="datenstruktur.html#cb187-7"></a></span>
+<span id="cb187-8"><a href="datenstruktur.html#cb187-8"></a>tickets_<span class="dv">2022</span> &lt;-<span class="st"> </span><span class="kw">cbind</span>(tickets_<span class="dv">2022</span>,ort_begleitung)</span>
+<span id="cb187-9"><a href="datenstruktur.html#cb187-9"></a></span>
+<span id="cb187-10"><a href="datenstruktur.html#cb187-10"></a><span class="co"># Endergebnis:</span></span>
+<span id="cb187-11"><a href="datenstruktur.html#cb187-11"></a></span>
+<span id="cb187-12"><a href="datenstruktur.html#cb187-12"></a>tickets_<span class="dv">2022</span></span></code></pre></div>
+<pre><code>##            Artist Kosten Prioritaet       Ort    Begleitung
+## 1      Ed Sheeran  79.32        2.0 Frankfurt       Juergen
+## 2    Billy Eilish 282.00        4.0    London          Samu
+## 3      The Weeknd 116.00        3.0  Muenchen          Anni
+## 4        Dua Lipa 136.00        5.0    Berlin Jan und Laura
+## 5 Imagine Dragons  68.71        1.0    Gdynia           Oma
+## 6      Elton John 139.00        2.7 Frankfurt          Papa
+## 7         Colplay 259.00        2.3 Frankfurt     Schwester
+## 8            RHCP 200.00        1.7     Koeln     die Girls</code></pre>
+<p>Ein Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Zeilennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Zeilennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. namevec) behelfen, die Sie mit <code>relocate(tib,namevec)</code> an den Anfang des Datensatzes stellen können.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="datenstruktur.html#cb189-1"></a><span class="co"># Definiere ein einfaches tibble mit Zeilennamen in einer Spalte:</span></span>
+<span id="cb189-2"><a href="datenstruktur.html#cb189-2"></a></span>
+<span id="cb189-3"><a href="datenstruktur.html#cb189-3"></a>newtib &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="st">&quot;sp1&quot;</span>=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="st">&quot;namevec&quot;</span>=<span class="kw">c</span>(<span class="st">&quot;Zeile1&quot;</span>,<span class="st">&quot;Zeile2&quot;</span>,<span class="st">&quot;Zeile3&quot;</span>))</span>
+<span id="cb189-4"><a href="datenstruktur.html#cb189-4"></a></span>
+<span id="cb189-5"><a href="datenstruktur.html#cb189-5"></a>newtib</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##     sp1 namevec
+##   &lt;dbl&gt; &lt;chr&gt;  
+## 1     1 Zeile1 
+## 2     2 Zeile2 
+## 3     3 Zeile3</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="datenstruktur.html#cb191-1"></a><span class="co"># Sortiere den Namenvector in Spalte 1:</span></span>
+<span id="cb191-2"><a href="datenstruktur.html#cb191-2"></a></span>
+<span id="cb191-3"><a href="datenstruktur.html#cb191-3"></a>newtib &lt;-<span class="st"> </span><span class="kw">relocate</span>(newtib,namevec)</span>
+<span id="cb191-4"><a href="datenstruktur.html#cb191-4"></a></span>
+<span id="cb191-5"><a href="datenstruktur.html#cb191-5"></a>newtib</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   namevec   sp1
+##   &lt;chr&gt;   &lt;dbl&gt;
+## 1 Zeile1      1
+## 2 Zeile2      2
+## 3 Zeile3      3</code></pre>
+<p>Mit dem Hinzufügen und Abändern und Vertauschen von Spaltenvektoren haben wir schon ein bisschen an der Oberfläche der Möglichkeiten zur Datenaufbereitung gekratzt, die in der nächsten Sitzung ausführlich behandelt werden. Jetzt, wo Sie mit dem Management von Datensätzen vertraut sind, wollen wir vorhandene Datensätze einlesen:</p>
 </div>
 <div id="einlesen-und-speichern-von-daten" class="section level2">
 <h2><span class="header-section-number">4.9</span> Einlesen und Speichern von Daten</h2>
@@ -846,15 +924,15 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <p>Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0.
 <a href="https://allisonhorst.github.io/palmerpenguins/" class="uri">https://allisonhorst.github.io/palmerpenguins/</a></p>
 <p>Nach einmaliger Installation des Packages (<code>install.packages("palmerpenguins"</code>) muss es geladen werden:</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="datenstruktur.html#cb185-1"></a><span class="co"># Jedes Mal beim Durchlaufen des Skripts soll das Package angehängt werden </span></span>
-<span id="cb185-2"><a href="datenstruktur.html#cb185-2"></a><span class="co"># (ohne &quot;&quot;, weil R das Package bereits installiert hat und kennt):</span></span>
-<span id="cb185-3"><a href="datenstruktur.html#cb185-3"></a></span>
-<span id="cb185-4"><a href="datenstruktur.html#cb185-4"></a><span class="kw">library</span>(palmerpenguins) </span>
-<span id="cb185-5"><a href="datenstruktur.html#cb185-5"></a></span>
-<span id="cb185-6"><a href="datenstruktur.html#cb185-6"></a><span class="co"># penguins ist zwar schon ein tibble, aber im Workspace rechts ist es nicht zu sehen,</span></span>
-<span id="cb185-7"><a href="datenstruktur.html#cb185-7"></a><span class="co"># daher weise ich es dem Namen pingus zu:</span></span>
-<span id="cb185-8"><a href="datenstruktur.html#cb185-8"></a></span>
-<span id="cb185-9"><a href="datenstruktur.html#cb185-9"></a>pingus &lt;-<span class="st"> </span>penguins      </span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="datenstruktur.html#cb193-1"></a><span class="co"># Jedes Mal beim Durchlaufen des Skripts soll das Package angehängt werden </span></span>
+<span id="cb193-2"><a href="datenstruktur.html#cb193-2"></a><span class="co"># (ohne &quot;&quot;, weil R das Package bereits installiert hat und kennt):</span></span>
+<span id="cb193-3"><a href="datenstruktur.html#cb193-3"></a></span>
+<span id="cb193-4"><a href="datenstruktur.html#cb193-4"></a><span class="kw">library</span>(palmerpenguins) </span>
+<span id="cb193-5"><a href="datenstruktur.html#cb193-5"></a></span>
+<span id="cb193-6"><a href="datenstruktur.html#cb193-6"></a><span class="co"># penguins ist zwar schon ein tibble, aber im Workspace rechts ist es nicht zu sehen,</span></span>
+<span id="cb193-7"><a href="datenstruktur.html#cb193-7"></a><span class="co"># daher weise ich es dem Namen pingus zu:</span></span>
+<span id="cb193-8"><a href="datenstruktur.html#cb193-8"></a></span>
+<span id="cb193-9"><a href="datenstruktur.html#cb193-9"></a>pingus &lt;-<span class="st"> </span>penguins      </span></code></pre></div>
 <p>In der Regel werden Sie aber einen selbst erhobenen oder einen aus dem Internet heruntergeladenen Datensatz einlesen wollen. Mein Tipp ist, den Datensatz in das Working Directory zu speichern, dann finden Sie ihn schneller und er ist in der Nähe Ihrer Auswertung, noch eleganter ist es einen Unterordner namens data in den Ordner des Working Directories anzulegen, in den Sie alle Datensätze zu ihrem Projekt speichern können. Im <code>File</code>-tab unten rechts navigieren Sie zu der Datei mit dem Datensatz und dann klicken Sie diese zum Importieren des Datensatzes an (alternativ können Sie im <code>Environment</code>-tab über den Button <code>Import Dataset</code> einen Datensatz zum Importieren auf ihrem Computer suchen). In RStudio erscheint ein Fenster zum Importieren, unten rechts wird der automatisch der dem Dateiformat und unten links angegebenen Optionen entspricht, ggf. werden sogar benötigte Packages geladen. Um einen Datensatz per Code zu importieren sind Dateiformat, die Trennzeichen (<code>sep</code>) und die Dezimalzeichen (<code>dec</code>) besonders relevant. Das Standard-Dateiformat ist <code>.csv</code>, hier sind Kommata Trennzeichen (<code>sep=","</code>) und Punkte kennzeichnen Dezimalstellen (<code>dec="."</code>). Sie können die Funktionen <code>read_cvs()</code> oder <code>read_delim()</code> für dieses Dateiformat verwenden, letztere sollte Trenn- und Dezimalzeichen automatisch erkennen. Hier ist eine Übersicht zu den Einlesefunktionen in base R (also ohne zusätzlich geladene Packages) und im tidiverse Package, der Unterschied ist, dass base R Funktionen die Daten in einen data.frame laden, tidyverse Funktionen in ein tibble:</p>
 <table>
 <thead>
@@ -905,10 +983,10 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 </tbody>
 </table>
 <p>Wichtigstes und oft einziges Funktionsargument ist der vollständige Dateiname, er wird in <code>"</code> angegeben. Falls Sie die Datei in einem Unterordner vom Working Directory gespeichert haben (ich erstelle mir meist einen Unterordner namens data), wird der Name des Unterordners mit einem <code>/</code> dem Dateinamen vorangestellt (z.B.“data/Datensatz1.csv”). Das Einlesen von Daten funktioniert nur, wenn der einzulesende Datensatz per <code>&lt;-</code> einem Namen zugewiesen wird. Beispiel zum Laden eines .csv Datensatzes:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="datenstruktur.html#cb186-1"></a><span class="co"># Lese meinen socken.csv Datensatz aus dem Unterordner data in ein tibble namens socken:</span></span>
-<span id="cb186-2"><a href="datenstruktur.html#cb186-2"></a></span>
-<span id="cb186-3"><a href="datenstruktur.html#cb186-3"></a>socken &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/socken.csv&quot;</span>) </span>
-<span id="cb186-4"><a href="datenstruktur.html#cb186-4"></a>socken </span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="datenstruktur.html#cb194-1"></a><span class="co"># Lese meinen socken.csv Datensatz aus dem Unterordner data in ein tibble namens socken:</span></span>
+<span id="cb194-2"><a href="datenstruktur.html#cb194-2"></a></span>
+<span id="cb194-3"><a href="datenstruktur.html#cb194-3"></a>socken &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/socken.csv&quot;</span>) </span>
+<span id="cb194-4"><a href="datenstruktur.html#cb194-4"></a>socken </span></code></pre></div>
 <pre><code>## # A tibble: 2 × 3
 ##   Stoff Gewicht Bewertung
 ##   &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
@@ -920,9 +998,9 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <div id="datensätze-dat-anschauen" class="section level2">
 <h2><span class="header-section-number">4.10</span> Datensätze (dat) anschauen</h2>
 <p>Um sich einen geladenen Datensatz komplett anzuschauen, können Sie diesen im <code>Workspace</code> anklicken, oder deren Namen an die Funktion <code>view(dat)</code> übergeben. Der Datensatz pingus hat 344 Zeilen, das kann ich im Workspace sehen. Da er als tibble gespeichert ist, könnte ich diesen per Name aufrufen (nur die ersten 10 Zeilen würden dargestellt werden). Mit der Funktion <code>head(dat)</code> wird einem der Kopf des Datensatzes ausgegeben, genau genommen die ersten 6 Zeilen. Die Funktion ist besonders nützlich für große <code>data.frames</code>, da diese beim Aufrufen per Name die Console überfüllen.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="datenstruktur.html#cb188-1"></a><span class="co"># Zeige die ersten 6 Zeilen jeder Variable an:</span></span>
-<span id="cb188-2"><a href="datenstruktur.html#cb188-2"></a></span>
-<span id="cb188-3"><a href="datenstruktur.html#cb188-3"></a><span class="kw">head</span>(pingus) </span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="datenstruktur.html#cb196-1"></a><span class="co"># Zeige die ersten 6 Zeilen jeder Variable an:</span></span>
+<span id="cb196-2"><a href="datenstruktur.html#cb196-2"></a></span>
+<span id="cb196-3"><a href="datenstruktur.html#cb196-3"></a><span class="kw">head</span>(pingus) </span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
 ##   species island    bill_length_mm bill_depth_mm
 ##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;
@@ -935,9 +1013,9 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ## # … with 4 more variables: flipper_length_mm &lt;int&gt;,
 ## #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 <p>Einen Überlick über die Datenstruktur, inklusive Factor-<code>levels</code> (der Faktorstufen) erhalten Sie mit der Funktion <code>str(dat)</code>:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="datenstruktur.html#cb190-1"></a><span class="co"># Zeige die Struktur der Daten:</span></span>
-<span id="cb190-2"><a href="datenstruktur.html#cb190-2"></a></span>
-<span id="cb190-3"><a href="datenstruktur.html#cb190-3"></a><span class="kw">str</span>(pingus)   </span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="datenstruktur.html#cb198-1"></a><span class="co"># Zeige die Struktur der Daten:</span></span>
+<span id="cb198-2"><a href="datenstruktur.html#cb198-2"></a></span>
+<span id="cb198-3"><a href="datenstruktur.html#cb198-3"></a><span class="kw">str</span>(pingus)   </span></code></pre></div>
 <pre><code>## tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
 ##  $ species          : Factor w/ 3 levels &quot;Adelie&quot;,&quot;Chinstrap&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ island           : Factor w/ 3 levels &quot;Biscoe&quot;,&quot;Dream&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
@@ -947,13 +1025,13 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ##  $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
 ##  $ sex              : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 NA 1 2 1 2 NA NA ...
 ##  $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
-<p>Zeile 1 gibt Auskunft über Größe und die Klasse des Objektes, tibbles sind eine Art data.frame. In den weiteren Zeilen werden die Datentypen bzw. Faktorlevel und die ersten Werte der Spaltenvectoren angezeigt.</p>
+<p>Zeile 1 gibt Auskunft über Größe und die Klasse des Objektes, tibbles sind eine Art data.frame. In den weiteren Zeilen werden die Datentypen bzw. Faktorlevel und die ersten Werte der Spaltenvektoren angezeigt.</p>
 <div id="häufigkeit-von-factorlevels" class="section level3">
 <h3><span class="header-section-number">4.10.1</span> Häufigkeit von Factorlevels</h3>
 <p>Faktoren und die Zuweisung mit der Funktion <code>factor()</code> kennen Sie bereits aus dem vorherigen Kapitel. Die Funktion <code>levels(Faktor)</code> gibt die möglichen Ausprägungen einer Faktorvariable wieder. Faktoren eignen sich oft besser als Vektoren zum Plotten, Gruppieren oder für Häufigkeitstabellen. Mit der Funktion <code>count(dat,var)</code> lassen sich beispielsweise die Häufigkeiten der Levels eines Faktors ausgeben:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="datenstruktur.html#cb192-1"></a><span class="co"># Zähle in pingu die Häufigkeiten der Levels des Faktors species:</span></span>
-<span id="cb192-2"><a href="datenstruktur.html#cb192-2"></a></span>
-<span id="cb192-3"><a href="datenstruktur.html#cb192-3"></a><span class="kw">count</span>(pingus, island)   </span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="datenstruktur.html#cb200-1"></a><span class="co"># Zähle in pingu die Häufigkeiten der Levels des Faktors species:</span></span>
+<span id="cb200-2"><a href="datenstruktur.html#cb200-2"></a></span>
+<span id="cb200-3"><a href="datenstruktur.html#cb200-3"></a><span class="kw">count</span>(pingus, island)   </span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   island        n
 ##   &lt;fct&gt;     &lt;int&gt;
