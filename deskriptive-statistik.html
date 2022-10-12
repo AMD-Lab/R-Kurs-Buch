@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Deskriptive Statistik | Einführung in R</title>
   <meta name="description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Deskriptive Statistik | Einführung in R" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://amd-lab.github.io/R-Kurs-Unterlagen/index.html" />
   
   <meta property="og:description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
   <meta name="github-repo" content="AMD-Lab/R-Kurs-Unterlagen" />
@@ -23,7 +22,7 @@
 
 
 
-<meta name="date" content="2021-12-07" />
+<meta name="date" content="2022-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -256,8 +256,8 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="deskriptive-statistik" class="section level1">
-<h1><span class="header-section-number">6</span> Deskriptive Statistik</h1>
+<div id="deskriptive-statistik" class="section level1 hasAnchor">
+<h1><span class="header-section-number">6</span> Deskriptive Statistik<a href="deskriptive-statistik.html#deskriptive-statistik" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Deskriptive Statistik wird benutzt, um Daten anhand von Kennzahlen zu beschreiben.
 Diese Kennzahlen werden auch häufig <em>statistische Maße</em> oder <em>statistische Parameter</em>
 gennant. Vor allem bei umfangreichen Datensätze können deskriptive Statistiken
@@ -275,8 +275,8 @@ theoriegeleitete Datenanalyse. EDA wird auch häufig dazu verwendet die Qualitä
 der Daten zu untersuchen.</p>
 <p>In diesem Kapitel berechnen wir verschiebe statische Maße, um einen Überblick (oder einen ersten Eindruck)
 der Daten in einem Datensatz zu gewinnen.</p>
-<div id="allgemeine-informationen-eines-datensatzes" class="section level2">
-<h2><span class="header-section-number">6.1</span> Allgemeine Informationen eines Datensatzes</h2>
+<div id="allgemeine-informationen-eines-datensatzes" class="section level2 hasAnchor">
+<h2><span class="header-section-number">6.1</span> Allgemeine Informationen eines Datensatzes<a href="deskriptive-statistik.html#allgemeine-informationen-eines-datensatzes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Für den folgenden Abschnitt benötigen Sie den <code>iris</code> Datensatz. Der <code>iris</code> Datensatz ist
 Teil von der Basisinstallation von R und wird automatisch (im Hintergrund) geladen. D.h. Sie
 können auf den Datensatz zugreifen in dem Sie <code>iris</code> in die R-Konsole eingeben.</p>
@@ -313,10 +313,10 @@ um die Länge und Breite des Kelch- und des Blütenblattes sowie die Art von 150
 Länge und Breite des Kelch- und Blütenblattes sind numerische Variablen.
 Die Art der Blume ist ein Faktor mit 3 Stufen (i.e., <code>Factor w/ 3 levels</code>).</p>
 </div>
-<div id="lagemaße" class="section level2">
-<h2><span class="header-section-number">6.2</span> Lagemaße</h2>
-<div id="minimum-und-maximum" class="section level3">
-<h3><span class="header-section-number">6.2.1</span> Minimum und Maximum</h3>
+<div id="lagemaße" class="section level2 hasAnchor">
+<h2><span class="header-section-number">6.2</span> Lagemaße<a href="deskriptive-statistik.html#lagemaße" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="minimum-und-maximum" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.2.1</span> Minimum und Maximum<a href="deskriptive-statistik.html#minimum-und-maximum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Minimum und Maximum können mit den Funktionen <code>min()</code> und <code>max()</code> ermittelt werden:</p>
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="deskriptive-statistik.html#cb235-1"></a><span class="co"># Berechnen wir das Minimum für die Variable Sepal.Length</span></span>
 <span id="cb235-2"><a href="deskriptive-statistik.html#cb235-2"></a><span class="kw">min</span>(data<span class="op">$</span>Sepal.Length)</span></code></pre></div>
@@ -339,8 +339,8 @@ Genau genommen müssen Sie diese Werte von einander abziehen, um die Spannweite 
 <pre><code>## [1] 2.4</code></pre>
 <p>Die Spannweite beträgt also <code>2.4</code>. Dies bedeutet, dass Unterschied zwischen des breitesten und des dünsten Kelchblattes 2.4 cm beträgt.</p>
 </div>
-<div id="quantile-und-perzentile" class="section level3">
-<h3><span class="header-section-number">6.2.2</span> Quantile und Perzentile</h3>
+<div id="quantile-und-perzentile" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.2.2</span> Quantile und Perzentile<a href="deskriptive-statistik.html#quantile-und-perzentile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Andere häufig eingesetzte deskriptive Parameter sind Quantile oder Perzentile (d.h. welche Werte sind &lt; 25%, &lt; 50%, &lt; 75%, oder &gt; 75%)</p>
 <p>Ein häufig verwendetes Perzentil ist der <strong>Median</strong>. Der Median ist äquivalent zum 50. Perzentil (d.h. 50%) einer Variable, weil 50% der Werte einer Variable unterhalb/oberhalb dieses Wertes liegen.</p>
 <p>Der Median kann folgendermaßen berechnet werden:</p>
@@ -370,8 +370,8 @@ größer als <code>m</code> und mindestens die Hälfte nicht kleiner als <code>m
 ## 5.1 5.8 6.4</code></pre>
 <p>Dies bedeutet, dass 25% de Werte sich unterhalb von <code>5.1</code>, 50% unterhalb von <code>5.8</code> und 75% unterhalb <code>6.4</code> befinden. Im Umkehrschluss befinden sich 25% der Werte oberhalb <code>6.4</code>.</p>
 </div>
-<div id="interquantilsabstand-iqa" class="section level3">
-<h3><span class="header-section-number">6.2.3</span> Interquantilsabstand (IQA)</h3>
+<div id="interquantilsabstand-iqa" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.2.3</span> Interquantilsabstand (IQA)<a href="deskriptive-statistik.html#interquantilsabstand-iqa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Manchmal möchte man wissen wie groß der Abstand zwischen bestimmte Quantile ist,
 um Aussagen über Beobachtungen, die innerhalb oder außerhalb eines bestimmten
 Wertebereichs liegen, zu treffen. Häufig wird hierfür der Interquartilsabstand benutzt,
@@ -405,8 +405,8 @@ der Wertebereich, in dem sich 50% der Werte einer Verteilung befinden.</p>
 <span id="cb253-13"><a href="deskriptive-statistik.html#cb253-13"></a>       <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">cex=</span><span class="dv">2</span>, <span class="dt">pch=</span><span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-107-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
-<div id="mittelwert" class="section level3">
-<h3><span class="header-section-number">6.2.4</span> Mittelwert</h3>
+<div id="mittelwert" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.2.4</span> Mittelwert<a href="deskriptive-statistik.html#mittelwert" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ähnlich zum Median, stellt der Mittelwert ein wichtiges Maß für die zentralen Tendenz
 einer Variable. Der Mittlwert (i.S. des arithmetischen Mittels) ist die Summe der gegebenen
 Werte geteilt durch die Anzahl der Werte.</p>
@@ -428,10 +428,10 @@ Sie können den Mittelwert also folgendermaßen berechen.</p>
 Das Argument <code>na.rm = TRUE</code> kann für die meisten in diesem Abschnitt vorgestellten Funktionen verwendet werden, nicht nur für den Mittelwert.</p>
 </div>
 </div>
-<div id="streuungsmaße" class="section level2">
-<h2><span class="header-section-number">6.3</span> Streuungsmaße</h2>
-<div id="standardabweichung" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> Standardabweichung</h3>
+<div id="streuungsmaße" class="section level2 hasAnchor">
+<h2><span class="header-section-number">6.3</span> Streuungsmaße<a href="deskriptive-statistik.html#streuungsmaße" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="standardabweichung" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.3.1</span> Standardabweichung<a href="deskriptive-statistik.html#standardabweichung" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Die Standardabweichung ist ein Maß für die Breite der Streuung der Werte einer Variable rund um deren Mittelwert (arithmetisches Mittel). Vereinfacht gesagt, ist die Standardabweichung die durchschnittliche Entfernung aller gemessenen Ausprägungen eines Merkmals vom Durchschnitt.</p>
 <p>Sie kann folgender Maßen berechnet werden:</p>
 <p><span class="math display">\[
@@ -514,7 +514,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

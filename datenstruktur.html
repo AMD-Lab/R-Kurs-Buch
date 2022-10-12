@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Datenstruktur | Einführung in R</title>
   <meta name="description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Datenstruktur | Einführung in R" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://amd-lab.github.io/R-Kurs-Unterlagen/index.html" />
   
   <meta property="og:description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
   <meta name="github-repo" content="AMD-Lab/R-Kurs-Unterlagen" />
@@ -23,7 +22,7 @@
 
 
 
-<meta name="date" content="2021-12-07" />
+<meta name="date" content="2022-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -256,8 +256,8 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datenstruktur" class="section level1">
-<h1><span class="header-section-number">4</span> Datenstruktur</h1>
+<div id="datenstruktur" class="section level1 hasAnchor">
+<h1><span class="header-section-number">4</span> Datenstruktur<a href="datenstruktur.html#datenstruktur" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <table>
 <colgroup>
 <col width="24%" />
@@ -314,8 +314,8 @@ dec=, .xlsx, .svs, write./_csv()</em></td>
 </tr>
 </tbody>
 </table>
-<div id="rmarkdown" class="section level2">
-<h2><span class="header-section-number">4.1</span> RMarkdown</h2>
+<div id="rmarkdown" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.1</span> RMarkdown<a href="datenstruktur.html#rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Das R Markdown Skript ist ein besonderes Dateiformat für R Skripte. Es enthält Fließtext und eingebetteten R Code:</p>
 <p><img src="_static/RMarkmitNum.png" style="width:60.0%" /></p>
 <p><code>Knittet</code> man dieses Skript mit dem Wollknäuel Button (5.) in der oberen Leiste, integriert es den ausgeführten Code mit dem Fließtext und druckt ein übersichtliches Dokument (html, pdf, txt oder doc). Das ist praktisch um z.B. Auswertungsergebnisse zu präsentieren.</p>
@@ -339,13 +339,13 @@ Kommentare</li>
 </ul></li>
 </ul>
 </div>
-<div id="hilfe" class="section level2">
-<h2><span class="header-section-number">4.2</span> Hilfe</h2>
+<div id="hilfe" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.2</span> Hilfe<a href="datenstruktur.html#hilfe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sie merken, dass die Befehle und Funktionen zum Teil sehr spezifisch sind und Sie sich kaum alles behalten können. Am wichtigsten ist die Reihenfolge und Vollständigkeit der Zeichen: Vergessen Sie ein Komma, ein Backtick oder eine Klammer zu setzen, dann kann R den Code schon nicht interpretieren. Zum Glück erkennt R Studio das oft und weist einen darauf während des Codens mit einem <code>roten x</code> neben der Zeilennummer hin. Andernfalls dürfen Sie versuchen, die Fehlermeldung beim Ausführen zu verstehen.</p>
 <p>Wenn Sie den Namen einer Funktion oder eines Packages nicht direkt erinnern, können Sie den Anfang des Namens im <code>Chunk</code> oder in der <code>Console</code> eingeben, RStudio bietet einem nach einem kurzen Moment eine Liste möglicher Optionen an, aus der Sie wählen können. Haben Sie eine Funktion gewählt, können Sie die <code>Tab</code>-Taste drücken und es werden die verschiedenen Funktionsargumente angezeigt, um die Funktion zu spezifizieren, was oft sehr hilfreich ist. Möchten Sie wissen, was eine Funktion macht oder in welcher Reihenfolge die Funktionsargumente eingegeben werden, können Sie <code>?FUN</code> in die <code>Console</code> eintippen, wobei FUN Platzhalter für den Funktionsnamen ist. Alternativ können Sie im <code>Help</code>-tab unten rechts suchen. Die Dokumentation ist oft sehr ausführlich. Die Möglichkeit einschlägige Suchmaschinen im Internet zu verwenden ist fast zu trivial, um sie hier aufzuführen. Oft werden Sie dabei auf <code>StackOverflow</code> weitergeleitet. Auf Englisch gestellte Fragen oder Probleme führen zu besseren Treffern. Noch trivialer ist es, im Skript des Kurses oder im eigenen Code nachzuschauen, die Tasten <code>STRG/CTRL</code>+<code>F</code> habe ich schon 1000 Mal berührt, sie könnten dabei hilfreich sein. Falls Sie bei anderen Autoren nachlesen möchten, gibt es Bücher zu R, die meist sogar kostenlos online zur Verfügung stehen und einem eine Einführung in R geben: Z.B. <code>R Cookbook</code> oder <code>R for Data Science</code>.</p>
 </div>
-<div id="wiederholung-werte-vektoren" class="section level2">
-<h2><span class="header-section-number">4.3</span> Wiederholung: Werte &amp; Vektoren</h2>
+<div id="wiederholung-werte-vektoren" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.3</span> Wiederholung: Werte &amp; Vektoren<a href="datenstruktur.html#wiederholung-werte-vektoren" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Datenformate in R sind von einfach zu komplex: <code>Value</code>, Vektor, <code>matrix</code>, (<code>array</code>), <code>data.frame</code>,<code>tibble</code> und <code>list</code>. Die kleinste Objekteinheit in R ist ein <code>Value</code>. Die unterschiedlichen Datentypen von <code>Values</code> sind bereits bekannt:</p>
 <ol style="list-style-type: decimal">
 <li>Text, bzw. Charakter (<code>chr</code>), auch String genannt,</li>
@@ -368,8 +368,8 @@ Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:
 <span id="cb111-3"><a href="datenstruktur.html#cb111-3"></a><span class="kw">c</span>(<span class="st">&quot;kreativ&quot;</span>,<span class="fl">3.5</span>)  </span></code></pre></div>
 <pre><code>## [1] &quot;kreativ&quot; &quot;3.5&quot;</code></pre>
 <p>3.5 wird in <code>""</code> ausgegeben, die Nummer wurde zu Text.</p>
-<div id="coercion-umwandlung-von-typen" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Coercion (Umwandlung von Typen)</h3>
+<div id="coercion-umwandlung-von-typen" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.3.1</span> Coercion (Umwandlung von Typen)<a href="datenstruktur.html#coercion-umwandlung-von-typen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sie können den Datentypen auch per Funktion ändern, z.B. <code>as.character()</code>, <code>as.double()</code>:</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="datenstruktur.html#cb113-1"></a><span class="co"># Verändere die Werte unterschiedlicher Typen zum Typ chr:</span></span>
 <span id="cb113-2"><a href="datenstruktur.html#cb113-2"></a></span>
@@ -382,8 +382,8 @@ Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:
 <pre><code>## [1] 2.0000     NA     NA 4.1627</code></pre>
 <p><code>Coercion</code> gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten <code>list(Element1, Element2, ...)</code>. Das geht soweit, dass Listen selbst Listen enthalten können.</p>
 </div>
-<div id="aufruf-per-index-von-daten-aus-mehreren-ebenen" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> Aufruf per Index von Daten aus mehreren Ebenen</h3>
+<div id="aufruf-per-index-von-daten-aus-mehreren-ebenen" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.3.2</span> Aufruf per Index von Daten aus mehreren Ebenen<a href="datenstruktur.html#aufruf-per-index-von-daten-aus-mehreren-ebenen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ihnen ist bekannt, dass Sie zum Aufruf einzelner Elemente deren Indexnummer verwenden können:</p>
 <div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="datenstruktur.html#cb118-1"></a>vec_<span class="dv">4</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">7</span>) <span class="co"># Definition eines Vektors</span></span>
 <span id="cb118-2"><a href="datenstruktur.html#cb118-2"></a></span>
@@ -404,14 +404,14 @@ Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:
 <p>Ich habe jetzt mehrere Variablen (Values, Vektoren, Listen) definiert, sie sind in meinem RStudio im <code>Environment</code>-tab oben rechts aufgetaucht.</p>
 </div>
 </div>
-<div id="der-workspace" class="section level2">
-<h2><span class="header-section-number">4.4</span> Der Workspace</h2>
+<div id="der-workspace" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.4</span> Der Workspace<a href="datenstruktur.html#der-workspace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Rechts oben im Fenster ist das <code>Environment</code>-tab. Hier sieht man alle im <code>globale Workspace</code> definierten Objekte (Datenstrukturen: Werte, Vektoren, Matrizen, Arrays, Listen, <code>data.frames</code>, <code>tibbles</code>; und Funktionen) aufgelistet:</p>
 <p><img src="_static/Workspace.PNG" style="width:60.0%" /></p>
 <p>Bei Werten, Vektoren und Matrizen steht sogar der Datentyp des Objektes mit dabei. Per Doppelklick können Sie die Objekte jeweils einzeln oben links im extra Fenster (<code>Datenansicht-tab</code> ) anschauen. <code>rm(Objektname)</code> ist die Funktion zum Entfernen einzelner Objekte aus dem <code>globalen Workspace</code>. Das <code>Besensymbol</code> im <code>Environment</code>-tab oben rechts fegt den <code>globalen Workspace</code> leer. Es ist zu beachten, dass R Markdown beim <code>knitten</code> nicht auf den <code>globalen Workspace</code> zugreift, sondern einen eigenen Workspace aus dem Code in den <code>Chunks</code> erstellt. Beim Ausführen einzelner <code>Chunks</code> per Markieren und <code>STRG/CTRL</code>&amp;<code>Enter</code> oder <code>grüner Pfeil rechts</code> wird jedoch auf den <code>globalen Workspace</code> zugegriffen. Beim Schließen von RStudio werden Sie gefragt, ob Sie den <code>globalen Workspace</code> in die <code>.RData</code> als img speichern lassen, dann stehen die Objekte in der nächsten Sitzung wieder zur Verfügung, solange Sie dieselbe Projektdatei öffnen. Offene Skipte und offene <code>Datenansicht</code>-tabs werden beim Schließen ebenfalls mit der Projektdatei assoziiert. Geladene Packages gehen leider verloren, diese müssen Sie jedes Mal beim Starten von RStudio neu laden: <code>library(Packagename)</code>. Deshalb ist es Konvention am Anfang jedes Skriptes erstmal die Packages zu laden. Haben Sie Objekte im Workspace gespeichert, können Sie deren Namen verwenden, um sich auf diese zu beziehen und z.B. weitere Berechnungen vorzunehmen.</p>
 </div>
-<div id="wiederholung-einfache-berechnungen" class="section level2">
-<h2><span class="header-section-number">4.5</span> Wiederholung: Einfache Berechnungen</h2>
+<div id="wiederholung-einfache-berechnungen" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.5</span> Wiederholung: Einfache Berechnungen<a href="datenstruktur.html#wiederholung-einfache-berechnungen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="datenstruktur.html#cb122-1"></a>x &lt;-<span class="st"> </span><span class="dv">5</span>   <span class="co"># definiert den Wert der Variable x</span></span>
 <span id="cb122-2"><a href="datenstruktur.html#cb122-2"></a>y &lt;-<span class="st"> </span><span class="dv">5</span>   <span class="co"># definiert den Wert der Variable y</span></span>
 <span id="cb122-3"><a href="datenstruktur.html#cb122-3"></a>x<span class="op">+</span>y      <span class="co"># Summe von x und y</span></span>
@@ -427,8 +427,8 @@ Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:
 <span id="cb122-13"><a href="datenstruktur.html#cb122-13"></a></span>
 <span id="cb122-14"><a href="datenstruktur.html#cb122-14"></a>e &lt;-<span class="st"> </span>vec_<span class="dv">4</span><span class="op">*</span><span class="dv">5</span>   </span></code></pre></div>
 <p>In R gibt es einige vorprogrammierte Funktionen um mit Vektoren zu rechnen:</p>
-<div id="übersicht-berechnungsfunktionen" class="section level3">
-<h3><span class="header-section-number">4.5.1</span> Übersicht Berechnungsfunktionen</h3>
+<div id="übersicht-berechnungsfunktionen" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.5.1</span> Übersicht Berechnungsfunktionen<a href="datenstruktur.html#übersicht-berechnungsfunktionen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Folgende Funktionen können Sie auf <code>num</code>-Vektoren und Matrizen anwenden, je nach Funktion auch auf <code>chr</code> Vektoren oder Datensätze, wobei diese sich dann meist nur auf die Einträge in der oberen Ebene, z.B. auf die Anzahl der Spalten und nicht auf die Spalteneinträge beziehen.</p>
 <table>
 <colgroup>
@@ -486,8 +486,8 @@ von x und y</td>
 </tr>
 </tbody>
 </table>
-<div id="beispiel-einer-z-standardisierung-eines-vektors-mit-3-einträgen" class="section level4">
-<h4><span class="header-section-number">4.5.1.1</span> Beispiel einer z-Standardisierung eines Vektors mit 3 Einträgen</h4>
+<div id="beispiel-einer-z-standardisierung-eines-vektors-mit-3-einträgen" class="section level4 hasAnchor">
+<h4><span class="header-section-number">4.5.1.1</span> Beispiel einer z-Standardisierung eines Vektors mit 3 Einträgen<a href="datenstruktur.html#beispiel-einer-z-standardisierung-eines-vektors-mit-3-einträgen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="datenstruktur.html#cb123-1"></a><span class="co"># Def. der Variable geschwister:</span></span>
 <span id="cb123-2"><a href="datenstruktur.html#cb123-2"></a></span>
 <span id="cb123-3"><a href="datenstruktur.html#cb123-3"></a>geschwister &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">12</span>)    </span>
@@ -513,8 +513,8 @@ von x und y</td>
 </div>
 </div>
 </div>
-<div id="matrizen" class="section level2">
-<h2><span class="header-section-number">4.6</span> Matrizen</h2>
+<div id="matrizen" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.6</span> Matrizen<a href="datenstruktur.html#matrizen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Matrizen sind 2D Datenstrukturen, sie bestehen aus Vektoren <span class="ul">gleicher</span> Länge und enthalten <span class="ul">einen</span> Datentyp. Mit dem
 Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="datenstruktur.html#cb129-1"></a><span class="co"># Erstelle die Matrix bsp_mat mit 4 Zeilen, 4 Spalten und leeren Einträgen: </span></span>
@@ -620,8 +620,8 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>Konnte ich eben noch den Mittelwert einer Spalte bilden, so geht das jetzt nicht mehr, da alle Einträge der Matrix zu <code>chr</code> coerced wurden. In einem typischen Datensatz sind aber Variablen verschiedener Typen (<code>num</code> und <code>chr</code>) enthalten. Dieses Problem ließe sich mit Listen lösen, welche aber unübersichtlich sind. Datensätze bestehen manchmal aus unüberschaubar vielen Einträgen und deshalb sollten sie wenigstens übersichtlich strukturiert sein.</p>
 </div>
-<div id="tidy-daten" class="section level2">
-<h2><span class="header-section-number">4.7</span> tidy Daten</h2>
+<div id="tidy-daten" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.7</span> tidy Daten<a href="datenstruktur.html#tidy-daten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Es gibt eine Konvention dafür, wie man Datensätze, die mehreren Beobachtungseinheiten (Fällen) verschiedene Parameter (Variablen) zuordnet. Wichtig für die eigene strukturierte Arbeit ist in erster Linie Konsistenz, z.B. dass Sie bei Variablennamen aus mehreren Wörtern immer den Unterstrich als Trennzeichen verwenden. Es hat sich als überlegen für die Auswertung von Daten herausgestellt, Fälle in Zeilen und Variablen in Spalten einzuordnen. Dieses Prinzip dürfte einigen schon von SPSS bekannt sein.</p>
 <table>
 <thead>
@@ -676,8 +676,8 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <p class="caption">Illustration by Allison Horst</p>
 </div>
 <p>Es gibt noch weitere Regeln für konsistentes und ordentliches Arbeiten in R und mit Datensätzen im Allgemeinen, z.B. dass man keine Farbcodierungen verwenden sollte. Vorerst genügt es, wenn Sie sich an die Basics hier halten. Diese Art Daten zu strukturieren lässt sich im <code>data.frame</code> und noch besser im <code>tibble</code> umsetzen: Beides sind Tabellen mit Spaltenvektoren, die jeweils verschiedene Datentypen enthalten können. Deswegen stellen beide das bevorzugte und für unsere Zwecke wichtigste Datenformat dar.</p>
-<div id="tidyverse" class="section level3">
-<h3><span class="header-section-number">4.7.1</span> tidyverse</h3>
+<div id="tidyverse" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.7.1</span> tidyverse<a href="datenstruktur.html#tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Bevor wir uns dem übersichtlichsten Datenformat, den <code>tibble</code>s widmen, müssen wir das entsprechende Package einmalig in der <code>Console</code> installieren. Ich habe den Code auskommentiert, weil das Package bei mir bereits installiert ist:</p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="datenstruktur.html#cb163-1"></a><span class="co"># R kennt den Namen von zu installierenden Packages noch nicht, deswegen in &quot;&quot;:</span></span>
 <span id="cb163-2"><a href="datenstruktur.html#cb163-2"></a></span>
@@ -689,8 +689,8 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <span id="cb164-4"><a href="datenstruktur.html#cb164-4"></a><span class="kw">library</span>(tidyverse)   </span></code></pre></div>
 </div>
 </div>
-<div id="data.frames-df-und-tibbles-tib" class="section level2">
-<h2><span class="header-section-number">4.8</span> data.frames (df) und tibbles (tib)</h2>
+<div id="data.frames-df-und-tibbles-tib" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.8</span> data.frames (df) und tibbles (tib)<a href="datenstruktur.html#data.frames-df-und-tibbles-tib" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Es gibt mehr Gemeinsamkeiten als Unterschiede zwischen beiden Datenformaten. Beides sind Tabellen mit Spaltenvektoren (Variablen), die je verschiedene Datentypen enthalten können. Hier zunächst die Übersicht über die Funktionen zum Managen des Datensatzes:</p>
 <table>
 <thead>
@@ -916,8 +916,8 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ## 3 Zeile3      3</code></pre>
 <p>Mit dem Hinzufügen und Abändern und Vertauschen von Spaltenvektoren haben wir schon ein bisschen an der Oberfläche der Möglichkeiten zur Datenaufbereitung gekratzt, die in der nächsten Sitzung ausführlich behandelt werden. Jetzt, wo Sie mit dem Management von Datensätzen vertraut sind, wollen wir vorhandene Datensätze einlesen:</p>
 </div>
-<div id="einlesen-und-speichern-von-daten" class="section level2">
-<h2><span class="header-section-number">4.9</span> Einlesen und Speichern von Daten</h2>
+<div id="einlesen-und-speichern-von-daten" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.9</span> Einlesen und Speichern von Daten<a href="datenstruktur.html#einlesen-und-speichern-von-daten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Daten können in R Studio auf unterschiedliche Weise eingelesen werden.</p>
 <p><img src="_static/penguin.png" style="width:60.0%" /></p>
 <p>Es gibt Packages mit frei verfügbaren Datensätzen, z.B. einen Datensatz zu Pinguinen: palmerpenguins.</p>
@@ -995,23 +995,23 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <p>Excel Dateien werden mit Funktionen <code>read_excel()</code>, <code>read_xls()</code> oder <code>read_xlsx()</code> aus dem Package <code>readxl</code>, SPSS Dateien mit der Funktion <code>read_svs()</code> aus dem Package <code>haven</code> eingelesen. Auch zum Einlesen von SAS, Stata oder anderen Dateiformaten gibt es entsprechende Funktionen. Die Standardfunktion zum Abspeichern von Datensätzen in eine Datei ist <code>write_csv()</code>, bzw. in base R <code>write.csv()</code>, da dieses Dateiformat die beste Kompatibilität mit anderer Software aufweist. Beim Speichern müssen Sie neben dem Dateinamen und ggf. dem Dateipfad noch den Namen des Datensatzes, den Sie speichern möchten, als erstes Funktionsargument angeben:</p>
 <p>Es gibt noch ein weiteres erwähnenswertes Dateiformat, das von R selbst: <code>.RDS</code>. Die Funktionen <code>saveRDS()</code> und <code>readRDS()</code> bieten die beste Funktionalität in R.</p>
 </div>
-<div id="datensätze-dat-anschauen" class="section level2">
-<h2><span class="header-section-number">4.10</span> Datensätze (dat) anschauen</h2>
+<div id="datensätze-dat-anschauen" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.10</span> Datensätze (dat) anschauen<a href="datenstruktur.html#datensätze-dat-anschauen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Um sich einen geladenen Datensatz komplett anzuschauen, können Sie diesen im <code>Workspace</code> anklicken, oder deren Namen an die Funktion <code>view(dat)</code> übergeben. Der Datensatz pingus hat 344 Zeilen, das kann ich im Workspace sehen. Da er als tibble gespeichert ist, könnte ich diesen per Name aufrufen (nur die ersten 10 Zeilen würden dargestellt werden). Mit der Funktion <code>head(dat)</code> wird einem der Kopf des Datensatzes ausgegeben, genau genommen die ersten 6 Zeilen. Die Funktion ist besonders nützlich für große <code>data.frames</code>, da diese beim Aufrufen per Name die Console überfüllen.</p>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="datenstruktur.html#cb196-1"></a><span class="co"># Zeige die ersten 6 Zeilen jeder Variable an:</span></span>
 <span id="cb196-2"><a href="datenstruktur.html#cb196-2"></a></span>
 <span id="cb196-3"><a href="datenstruktur.html#cb196-3"></a><span class="kw">head</span>(pingus) </span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
-##   species island    bill_length_mm bill_depth_mm
-##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;
-## 1 Adelie  Torgersen           39.1          18.7
-## 2 Adelie  Torgersen           39.5          17.4
-## 3 Adelie  Torgersen           40.3          18  
-## 4 Adelie  Torgersen           NA            NA  
-## 5 Adelie  Torgersen           36.7          19.3
-## 6 Adelie  Torgersen           39.3          20.6
-## # … with 4 more variables: flipper_length_mm &lt;int&gt;,
-## #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+##   species island bill_…¹ bill_…² flipp…³ body_…⁴ sex    year
+##   &lt;fct&gt;   &lt;fct&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
+## 1 Adelie  Torge…    39.1    18.7     181    3750 male   2007
+## 2 Adelie  Torge…    39.5    17.4     186    3800 fema…  2007
+## 3 Adelie  Torge…    40.3    18       195    3250 fema…  2007
+## 4 Adelie  Torge…    NA      NA        NA      NA &lt;NA&gt;   2007
+## 5 Adelie  Torge…    36.7    19.3     193    3450 fema…  2007
+## 6 Adelie  Torge…    39.3    20.6     190    3650 male   2007
+## # … with abbreviated variable names ¹​bill_length_mm,
+## #   ²​bill_depth_mm, ³​flipper_length_mm, ⁴​body_mass_g</code></pre>
 <p>Einen Überlick über die Datenstruktur, inklusive Factor-<code>levels</code> (der Faktorstufen) erhalten Sie mit der Funktion <code>str(dat)</code>:</p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="datenstruktur.html#cb198-1"></a><span class="co"># Zeige die Struktur der Daten:</span></span>
 <span id="cb198-2"><a href="datenstruktur.html#cb198-2"></a></span>
@@ -1026,8 +1026,8 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ##  $ sex              : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 NA 1 2 1 2 NA NA ...
 ##  $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
 <p>Zeile 1 gibt Auskunft über Größe und die Klasse des Objektes, tibbles sind eine Art data.frame. In den weiteren Zeilen werden die Datentypen bzw. Faktorlevel und die ersten Werte der Spaltenvektoren angezeigt.</p>
-<div id="häufigkeit-von-factorlevels" class="section level3">
-<h3><span class="header-section-number">4.10.1</span> Häufigkeit von Factorlevels</h3>
+<div id="häufigkeit-von-factorlevels" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.10.1</span> Häufigkeit von Factorlevels<a href="datenstruktur.html#häufigkeit-von-factorlevels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Faktoren und die Zuweisung mit der Funktion <code>factor()</code> kennen Sie bereits aus dem vorherigen Kapitel. Die Funktion <code>levels(Faktor)</code> gibt die möglichen Ausprägungen einer Faktorvariable wieder. Faktoren eignen sich oft besser als Vektoren zum Plotten, Gruppieren oder für Häufigkeitstabellen. Mit der Funktion <code>count(dat,var)</code> lassen sich beispielsweise die Häufigkeiten der Levels eines Faktors ausgeben:</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="datenstruktur.html#cb200-1"></a><span class="co"># Zähle in pingu die Häufigkeiten der Levels des Faktors species:</span></span>
 <span id="cb200-2"><a href="datenstruktur.html#cb200-2"></a></span>
@@ -1109,7 +1109,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

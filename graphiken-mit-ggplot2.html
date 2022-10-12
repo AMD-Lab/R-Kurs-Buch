@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Graphiken mit ggplot2 | Einführung in R</title>
   <meta name="description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Graphiken mit ggplot2 | Einführung in R" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://amd-lab.github.io/R-Kurs-Unterlagen/index.html" />
   
   <meta property="og:description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
   <meta name="github-repo" content="AMD-Lab/R-Kurs-Unterlagen" />
@@ -23,7 +22,7 @@
 
 
 
-<meta name="date" content="2021-12-07" />
+<meta name="date" content="2022-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -256,13 +256,13 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="graphiken-mit-ggplot2" class="section level1">
-<h1><span class="header-section-number">7</span> Graphiken mit ggplot2</h1>
+<div id="graphiken-mit-ggplot2" class="section level1 hasAnchor">
+<h1><span class="header-section-number">7</span> Graphiken mit ggplot2<a href="graphiken-mit-ggplot2.html#graphiken-mit-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <center>
 <p><img src="_static/ggplot2_masterpiece.png" width="500" /> <br> Artwork by <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a></p>
 </center>
-<div id="exkurs-warum-viridis" class="section level2">
-<h2><span class="header-section-number">7.1</span> Exkurs: Warum viridis?</h2>
+<div id="exkurs-warum-viridis" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.1</span> Exkurs: Warum viridis?<a href="graphiken-mit-ggplot2.html#exkurs-warum-viridis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Das <code>viridis</code> Paket in R stellt eine Reihe an Colormaps bereit, die folgenden Anspruch an sich stellen:</p>
 <ul>
 <li>gute <strong>Lesbarkeit</strong> und Unterscheidbarkeit in Graphiken</li>
@@ -293,8 +293,8 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <p>source: <a href="https://www.rstudio.com/resources/cheatsheets/">viridis Dokumentation</a></p>
 </div>
 </div>
-<div id="ggplot2---einführung" class="section level2">
-<h2><span class="header-section-number">7.2</span> <code>ggplot2</code> - Einführung</h2>
+<div id="ggplot2---einführung" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.2</span> <code>ggplot2</code> - Einführung<a href="graphiken-mit-ggplot2.html#ggplot2---einführung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>ggplot2</code> ist ein Paket zur graphischen Darstellung in R, das auf dem Buch <a href="https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448/ref=as_li_ss_tl">“The Grammar of Graphics”</a> von Leland Wilkinson basiert. Wie bei <code>dplyr</code> ist die Codestruktur an Grammatik orientiert und somit einfach nachzuvollziehen. Ablauf der Graphikerstellung in <code>ggplot2</code> lässt sich wie folgend zusammenfassen:</p>
 <ul>
 <li><p><span style="color:#8fd744">Daten</span> bereitstellen</p></li>
@@ -340,15 +340,17 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <p>source: <a href="https://www.rstudio.com/resources/cheatsheets/">ggplot2 Cheat Sheet</a></p>
 </div>
 </div>
-<div id="vor-der-visualisierung-die-daten" class="section level2">
-<h2><span class="header-section-number">7.3</span> Vor der Visualisierung: Die Daten</h2>
+<div id="vor-der-visualisierung-die-daten" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.3</span> Vor der Visualisierung: Die Daten<a href="graphiken-mit-ggplot2.html#vor-der-visualisierung-die-daten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Das Kapitel arbeitet mit einem Datensatz, der die Superhelden von Marvel und DC miteinander vergleicht. Die Daten finden sich auf GitHub (“<a href="https://github.com/cosmoduende/r-marvel-vs-dc" class="uri">https://github.com/cosmoduende/r-marvel-vs-dc</a>”), sind aber auf zwei Files aufgeteilt, die erst einzeln geladen und dann zusammengeführt werden müssen.</p>
 <p>Erst werden die zwei Files von GitHub heruntergeladen und den Variablen <code>MarvelCharacters</code> und <code>MarvelStats</code> zugewiesen. Dabei werden fehlende Werte als <code>NA</code> kodiert:</p>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="graphiken-mit-ggplot2.html#cb262-1"></a><span class="co"># Lade Daten aus zwei unterschiedlichen Files</span></span>
 <span id="cb262-2"><a href="graphiken-mit-ggplot2.html#cb262-2"></a>MarvelCharacters &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.github.com/cosmoduende/r-marvel-vs-dc/main/dataset_shdb/heroesInformation.csv&quot;</span>, </span>
 <span id="cb262-3"><a href="graphiken-mit-ggplot2.html#cb262-3"></a>                             <span class="dt">na =</span> <span class="kw">c</span>(<span class="st">&quot;-&quot;</span>, <span class="st">&quot;-99.0&quot;</span>))</span></code></pre></div>
-<pre><code>## Warning: One or more parsing issues, see `problems()` for
-## details</code></pre>
+<pre><code>## Warning: One or more parsing issues, call `problems()` on your data
+## frame for details, e.g.:
+##   dat &lt;- vroom(...)
+##   problems(dat)</code></pre>
 <div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="graphiken-mit-ggplot2.html#cb264-1"></a>MarvelStats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.github.com/cosmoduende/r-marvel-vs-dc/main/dataset_shdb/charactersStats.csv&quot;</span>)</span></code></pre></div>
 <p>Dann werden nur die Charaktere aus Marvel und DC ausgewählt und die <code>MarvelCharacters</code>Daten werden vorbearbeitet:</p>
 <div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="graphiken-mit-ggplot2.html#cb265-1"></a><span class="co"># Preprocessing der Daten `MarvelCharacters`</span></span>
@@ -375,8 +377,8 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 ggplot()</code></pre>
 <p>Dieser Code funktioniert allerdings noch nicht, da wir bisher nur die <span style="color:#8fd744">Daten</span> definiert haben, aber noch keine <span style="color:#35b779">MAPPINGS</span> und auch keine <span style="color:#21918d">GEOM_FUNCTION</span> - die beiden anderen erforderlichen Angaben.</p>
 </div>
-<div id="ästhetische-mapping" class="section level2">
-<h2><span class="header-section-number">7.4</span> Ästhetische Mapping</h2>
+<div id="ästhetische-mapping" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.4</span> Ästhetische Mapping<a href="graphiken-mit-ggplot2.html#ästhetische-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Das <span style="color:#35b779">ästhetische Mapping</span> (<code>aesthetics</code>) kann entweder direkt in <code>ggplot</code> definiert werden, dann gilt es für <strong>alle</strong> weiteren Schritte, oder es kann in der jeweiligen <span style="color:#21918d">graphischen Funktion</span> definiert werden, dann gilt es nur für diese <code>geom_*</code> Funktion.</p>
 <center>
 <div style="float: center; width: 80%;">
@@ -422,8 +424,8 @@ ggplot()</code></pre>
 <span id="cb270-2"><a href="graphiken-mit-ggplot2.html#cb270-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Gender))    </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-116-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="graphischen-funktionen" class="section level2">
-<h2><span class="header-section-number">7.5</span> Graphischen Funktionen</h2>
+<div id="graphischen-funktionen" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.5</span> Graphischen Funktionen<a href="graphiken-mit-ggplot2.html#graphischen-funktionen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mit den <span style="color:#21918d">graphischen Funktionen</span> (<code>geom_*</code>) gibt man an, welche Art der graphischen Darstellung man will. Beispiele sind:</p>
 <center>
 <div style="float: center; width: 80%;">
@@ -486,8 +488,8 @@ ggplot()</code></pre>
 <div class="footnotes">
 <p>source: <a href="https://www.rstudio.com/resources/cheatsheets/">ggplot2 Cheat Sheet</a></p>
 </div>
-<div id="säulen--und-balkendiagramm" class="section level3">
-<h3><span class="header-section-number">7.5.1</span> Säulen- und Balkendiagramm</h3>
+<div id="säulen--und-balkendiagramm" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.5.1</span> Säulen- und Balkendiagramm<a href="graphiken-mit-ggplot2.html#säulen--und-balkendiagramm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>geom_bar</code> ist eine <span style="color:#21918d">graphische Funktion</span> um Häufigkeiten einer diskreten Variable in einem <span style="color:#21918d">Säulen-</span> oder <span style="color:#21918d">Balkendiagramm</span> zu visualisieren.</p>
 <div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="graphiken-mit-ggplot2.html#cb271-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC,        <span class="co"># Nehme Daten MarcelDC</span></span>
 <span id="cb271-2"><a href="graphiken-mit-ggplot2.html#cb271-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher)) <span class="op">+</span><span class="st">   </span><span class="co"># auf der x-Achse soll Publisher sein</span></span>
@@ -532,8 +534,8 @@ ggplot()</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-122-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weiblich sind, während es bei Marvel etwas mehr als ein Viertel sind.</p>
 </div>
-<div id="histogramm" class="section level3">
-<h3><span class="header-section-number">7.5.2</span> Histogramm</h3>
+<div id="histogramm" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.5.2</span> Histogramm<a href="graphiken-mit-ggplot2.html#histogramm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>geom_histogram</code> ist eine <span style="color:#21918d">graphische Funktion</span> um Häufigkeiten einer kontinuierlichen Variable zu visualisieren. Beispielsweise kann man schauen, wie schnell die Superhelden unterwegs sind:</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="graphiken-mit-ggplot2.html#cb277-1"></a><span class="kw">ggplot</span>(MarvelDC,                </span>
 <span id="cb277-2"><a href="graphiken-mit-ggplot2.html#cb277-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Speed)) <span class="op">+</span><span class="st">        </span><span class="co"># auf der x-Achse soll Speed sein  </span></span>
@@ -551,8 +553,8 @@ ggplot()</code></pre>
 <p>Offensichtlich nicht, die Verteilungen sind sich relativ ähnlich.</p>
 <p>Bei <code>Speed</code> fällt allerdings direkt auf, dass es nicht sehr normalverteilt aussieht. Ein <span style="color:#21918d">Histogramm</span> lässt hier einen ersten Eindruck zu, aber eine visuelle Prüfung der Normalverteilung sollte lieber über einen <span style="color:#21918d">qq-Plot</span> vorgenommen werden.</p>
 </div>
-<div id="qq-plot" class="section level3">
-<h3><span class="header-section-number">7.5.3</span> QQ-Plot</h3>
+<div id="qq-plot" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.5.3</span> QQ-Plot<a href="graphiken-mit-ggplot2.html#qq-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Bei einem <span style="color:#21918d">qq-Plot</span> kann und muss man <span style="color:#21918d">Punkte</span> und <span style="color:#21918d">Vergleichslinie</span> getrennt definieren:</p>
 <div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="graphiken-mit-ggplot2.html#cb279-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
 <span id="cb279-2"><a href="graphiken-mit-ggplot2.html#cb279-2"></a>       <span class="kw">aes</span>(<span class="dt">sample =</span> Speed)) <span class="op">+</span><span class="st">  </span><span class="co"># erstelle Quantile von: Speed</span></span>
@@ -566,8 +568,8 @@ ggplot()</code></pre>
 <span id="cb280-4"><a href="graphiken-mit-ggplot2.html#cb280-4"></a><span class="st">  </span><span class="kw">geom_qq_line</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-126-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
-<div id="boxplot" class="section level3">
-<h3><span class="header-section-number">7.5.4</span> Boxplot</h3>
+<div id="boxplot" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.5.4</span> Boxplot<a href="graphiken-mit-ggplot2.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>geom_boxplot</code>ist eine <span style="color:#21918d">graphische Funktion</span> um kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung darzustellen. Hat Marvel oder DC die stärkeren Superhelden? - Dafür betrachten wir den <code>Total</code> Wert jedes Helden.</p>
 <div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="graphiken-mit-ggplot2.html#cb281-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
 <span id="cb281-2"><a href="graphiken-mit-ggplot2.html#cb281-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Total)) <span class="op">+</span><span class="st"> </span></span>
@@ -581,8 +583,8 @@ ggplot()</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-128-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Betrachtet man <code>Total</code> aufgespalten nach Geschlecht, so scheint Marvel etwas stärkere Männer und schwächere Frauen zu haben - allerdings sind die Unterschiede so gering, dass es sich wahrscheinlich um zufällige Schwankungen und nicht um belastbare Effekte handelt! Keins der Universen scheint also dem anderen überlegen zu sein.</p>
 </div>
-<div id="violinen-plot" class="section level3">
-<h3><span class="header-section-number">7.5.5</span> Violinen-Plot</h3>
+<div id="violinen-plot" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.5.5</span> Violinen-Plot<a href="graphiken-mit-ggplot2.html#violinen-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>geom_violin</code> ist ebenfalls eine <span style="color:#21918d">graphische Funktion</span> um kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung darzustellen - und lässt etwas mehr Aufschluss auf die Daten zu (z.B. wie die grobe Verteilung der Werte ist).</p>
 <div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="graphiken-mit-ggplot2.html#cb283-1"></a><span class="kw">ggplot</span>(MarvelDC, </span>
 <span id="cb283-2"><a href="graphiken-mit-ggplot2.html#cb283-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Total, </span>
@@ -591,8 +593,8 @@ ggplot()</code></pre>
 <span id="cb283-5"><a href="graphiken-mit-ggplot2.html#cb283-5"></a>    <span class="dt">trim=</span><span class="ot">FALSE</span>)           <span class="co"># schneide Spitzen nicht ab</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-129-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="beeswarm-plot-mit-dem-paket-ggbeeswarm" class="section level3">
-<h3><span class="header-section-number">7.5.6</span> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code></h3>
+<div id="beeswarm-plot-mit-dem-paket-ggbeeswarm" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.5.6</span> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code><a href="graphiken-mit-ggplot2.html#beeswarm-plot-mit-dem-paket-ggbeeswarm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Das package <code>ggbeeswarm</code> bietet eine ähnliche Darstellung durch die <span style="color:#21918d">graphische Funktion</span> <code>geom_quasirandom</code>:</p>
 <div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="graphiken-mit-ggplot2.html#cb284-1"></a><span class="kw">library</span>(ggbeeswarm)</span>
 <span id="cb284-2"><a href="graphiken-mit-ggplot2.html#cb284-2"></a>MarvelDC <span class="op">%&gt;%</span></span>
@@ -604,8 +606,8 @@ ggplot()</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-130-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Weder <span style="color:#21918d">Violinen-Plot</span> noch <span style="color:#21918d">Beeswarm-Plot</span> deuten darauf hin, dass Marvels Superhelden stärker und cooler sind, als die von DC. Ohne gegenteilige Hinweise bleibt es also bei der Annahme, dass beide Universen gleich gut sind.</p>
 </div>
-<div id="scatterplot" class="section level3">
-<h3><span class="header-section-number">7.5.7</span> Scatterplot</h3>
+<div id="scatterplot" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.5.7</span> Scatterplot<a href="graphiken-mit-ggplot2.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ein <span style="color:#21918d">Scatterplot</span> mit <code>geom_point</code> stellt die <span style="color:#8fd744">Daten</span> als Punkte im Raum zweier kontinuierlicher Variablen dar. Beispielsweise kann man <code>Power</code> und <code>Durability</code> aller Helden gegeneinander darstellen:</p>
 <div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="graphiken-mit-ggplot2.html#cb285-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC, </span>
 <span id="cb285-2"><a href="graphiken-mit-ggplot2.html#cb285-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Power, <span class="dt">y =</span> Durability)) <span class="op">+</span><span class="st"> </span></span>
@@ -626,8 +628,8 @@ ggplot()</code></pre>
 <span id="cb287-5"><a href="graphiken-mit-ggplot2.html#cb287-5"></a><span class="st">  </span><span class="kw">geom_point</span>()    </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-133-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="linearer-fit" class="section level3">
-<h3><span class="header-section-number">7.5.8</span> (Linearer) Fit</h3>
+<div id="linearer-fit" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.5.8</span> (Linearer) Fit<a href="graphiken-mit-ggplot2.html#linearer-fit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Die <code>Power</code> und <code>Durability</code>Daten können mit einer Funktion gefittet werden. So kann man visuell prüfen, ob es bei Marvel und DC jeweils einen anderen Zusammenhang zwischen <code>Power</code>und <code>Durability</code>gibt. Dafür wird die <span style="color:#21918d">graphischen Funktion</span> <code>geom_smooth</code> verwendet. Um ein <strong>lineares</strong> Modell zu erhalten, muss das Argument <code>method = "lm"</code> für “linear model” gesetzt werden. Um y durch x vorherzusagen, braucht es die Formel <code>y ~ x</code>:</p>
 <div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="graphiken-mit-ggplot2.html#cb288-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> MarvelDC, </span>
 <span id="cb288-2"><a href="graphiken-mit-ggplot2.html#cb288-2"></a>       <span class="kw">aes</span>(<span class="dt">x =</span> Power, <span class="dt">y =</span> Durability, </span>
@@ -650,8 +652,8 @@ ggplot()</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-135-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Auch hier zeigen sich weiterhin keine Unterschiede zwischen den Publishern. Es muss wohl endgültig davon ausgegangen werden, dass Marvel nicht das alleinige Recht auf coole Superhelden hat. Unsere Daten geben keine Hinweise auf die Überlegenheit des einen oder anderen Superhelden-Universums.</p>
 </div>
-<div id="linienplot" class="section level3">
-<h3><span class="header-section-number">7.5.9</span> Linienplot</h3>
+<div id="linienplot" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.5.9</span> Linienplot<a href="graphiken-mit-ggplot2.html#linienplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span style="color:#21918d">Linienplots</span> lassen sich am besten an einer überschaubaren Anzahl Punkte veranschaulichen, z.B. eignet sich eine Auswahl der X-Men. Die <span style="color:#21918d">Datenpunkte</span> werden <span style="color:#35b779">farblich</span> nach Geschlecht getrennt - dann werden alle Punkte durch eine <span style="color:#21918d">Linie</span> verbunden:</p>
 <div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="graphiken-mit-ggplot2.html#cb290-1"></a><span class="co"># Erstelle Vektor der X-Men Charaktere: </span></span>
 <span id="cb290-2"><a href="graphiken-mit-ggplot2.html#cb290-2"></a>XMen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Wolverine&quot;</span>, <span class="st">&quot;Jean Grey&quot;</span>, <span class="st">&quot;Storm&quot;</span>, <span class="st">&quot;Beast&quot;</span>, </span>
@@ -697,10 +699,10 @@ ggplot()</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-138-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="sonstige-funktionalität" class="section level2">
-<h2><span class="header-section-number">7.6</span> Sonstige Funktionalität</h2>
-<div id="labels" class="section level3">
-<h3><span class="header-section-number">7.6.1</span> Labels</h3>
+<div id="sonstige-funktionalität" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.6</span> Sonstige Funktionalität<a href="graphiken-mit-ggplot2.html#sonstige-funktionalität" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="labels" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.6.1</span> Labels<a href="graphiken-mit-ggplot2.html#labels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span style="color:#31688e">Label</span> sind die wahrscheinlich wichtigste zusätzliche Funktionalität, die fast immer benötigt wird, um einen Plot allgemein verständlich zu machen. Mithilfe von <code>labs()</code> können Titel, Untertitel, Achsenbeschriftungen und eine Caption zu einem Plot hinzugefügt werden. Z.B. für den Plot der X-Men:</p>
 <div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="graphiken-mit-ggplot2.html#cb293-1"></a>XMen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Wolverine&quot;</span>, <span class="st">&quot;Jean Grey&quot;</span>, <span class="st">&quot;Storm&quot;</span>, <span class="st">&quot;Beast&quot;</span>, </span>
 <span id="cb293-2"><a href="graphiken-mit-ggplot2.html#cb293-2"></a>          <span class="st">&quot;Cyclops&quot;</span>, <span class="st">&quot;Professor X&quot;</span>, <span class="st">&quot;Raven&quot;</span>)</span>
@@ -736,8 +738,8 @@ ggplot()</code></pre>
 <span id="cb294-10"><a href="graphiken-mit-ggplot2.html#cb294-10"></a>         <span class="dt">caption =</span> <span class="st">&quot;dataset source: https://github.com/cosmoduende/r-marvel-vs-dc&quot;</span> )</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-140-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="thema" class="section level3">
-<h3><span class="header-section-number">7.6.2</span> Thema</h3>
+<div id="thema" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.6.2</span> Thema<a href="graphiken-mit-ggplot2.html#thema" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Es gibt verschiedene <code>themes</code> die das grundlegende <span style="color:#31688e">Graphiklayout</span> bestimmen.</p>
 <ul>
 <li><p><code>theme_bw()</code> - weißer Hintergrund mit grid Linien</p></li>
@@ -761,8 +763,8 @@ ggplot()</code></pre>
 <span id="cb296-4"><a href="graphiken-mit-ggplot2.html#cb296-4"></a><span class="st">  </span><span class="kw">theme_dark</span>()            <span class="co"># verwende Thema: Dunkel</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-142-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="position" class="section level3">
-<h3><span class="header-section-number">7.6.3</span> Position</h3>
+<div id="position" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.6.3</span> Position<a href="graphiken-mit-ggplot2.html#position" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Mit <code>position</code> kann die <span style="color:#31688e">Positionierung</span> graphischer Elemente zueinander eingestellt werden. Positionsarten sind z.B.:</p>
 <ul>
 <li><p><code>identity</code> - wahre Werte an wahrer Position, hier kann man Plots z.B. durch den alpha Parameter entzerren</p></li>
@@ -804,8 +806,8 @@ ggplot()</code></pre>
 <span id="cb299-9"><a href="graphiken-mit-ggplot2.html#cb299-9"></a>                 <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>)  <span class="co"># Position: hintereinander</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-145-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="legenden" class="section level3">
-<h3><span class="header-section-number">7.6.4</span> Legenden</h3>
+<div id="legenden" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.6.4</span> Legenden<a href="graphiken-mit-ggplot2.html#legenden" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Die <span style="color:#31688e">Legende</span> wird von <code>ggplot</code> automatisch erstellt und kann einfach an die Positionen <code>bottom</code>, <code>right</code>, <code>left</code> und <code>top</code> gelegt werden:</p>
 <div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="graphiken-mit-ggplot2.html#cb300-1"></a><span class="kw">ggplot</span>(MarvelDC, <span class="kw">aes</span>(<span class="dt">x =</span> Publisher, <span class="dt">y =</span> Total, </span>
 <span id="cb300-2"><a href="graphiken-mit-ggplot2.html#cb300-2"></a>                     <span class="dt">fill=</span> Gender)) <span class="op">+</span><span class="st"> </span></span>
@@ -820,8 +822,8 @@ ggplot()</code></pre>
 <span id="cb300-11"><a href="graphiken-mit-ggplot2.html#cb300-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;top&quot;</span>)   <span class="co"># positioniere Legende oben</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-146-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
-<div id="koordinatensysteme" class="section level3">
-<h3><span class="header-section-number">7.6.5</span> Koordinatensysteme</h3>
+<div id="koordinatensysteme" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.6.5</span> Koordinatensysteme<a href="graphiken-mit-ggplot2.html#koordinatensysteme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Das wichtigste <span style="color:#31688e">Koordinatensystem</span> ist zweifellos das kartesische. In R kann man aber z.B. auch <span style="color:#31688e">Polarkoordinaten</span> verwenden, oder das <span style="color:#31688e">kartesische System “drehen”</span>:</p>
 <ul>
 <li><p><code>coord_flip</code> - <span style="color:#31688e">dreht ein kartesisches Koordinatensystem</span> um (x wird zu y und umgekehrt) - empfohlen ist allerdings, das über die Definition von <span style="color:#35b779">x</span> und <span style="color:#35b779">y</span> direkt zu lösen.</p></li>
@@ -829,8 +831,8 @@ ggplot()</code></pre>
 </ul>
 <p><span style="color:#31688e">Polarkoordinaten</span> wurden bereits beim Balkendiagramm gezeigt.</p>
 </div>
-<div id="farbskalen" class="section level3">
-<h3><span class="header-section-number">7.6.6</span> Farbskalen</h3>
+<div id="farbskalen" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.6.6</span> Farbskalen<a href="graphiken-mit-ggplot2.html#farbskalen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>scale</code> bestimmt auf welche <span style="color:#31688e">Farbskala</span> die <span style="color:#8fd744">Daten</span> abgebildet werden. Am Beispiel von <code>viridis</code>:</p>
 <ul>
 <li><p><code>scale_color_viridis_d()</code> - diskretes <span style="color:#31688e">viridis Spektrum</span> für das Argument <code>color</code></p></li>
@@ -874,8 +876,8 @@ ggplot()</code></pre>
 <span id="cb301-25"><a href="graphiken-mit-ggplot2.html#cb301-25"></a><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>()              <span class="co"># verwende Farben aus viridis</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-147-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="variablenskalen" class="section level3">
-<h3><span class="header-section-number">7.6.7</span> Variablenskalen</h3>
+<div id="variablenskalen" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.6.7</span> Variablenskalen<a href="graphiken-mit-ggplot2.html#variablenskalen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Mit <code>ggplot2</code> können Variablen einfach auf unterschiedliche <span style="color:#31688e">Skalen</span> übertragen werden. Diese Funktionalität kann mit <span style="color:#35b779">x</span> oder <span style="color:#35b779">y</span> verwendet werden, z.B.:</p>
 <ul>
 <li><p><code>scale_x_log10()</code></p></li>
@@ -884,8 +886,8 @@ ggplot()</code></pre>
 </ul>
 </div>
 </div>
-<div id="facetten" class="section level2">
-<h2><span class="header-section-number">7.7</span> Facetten</h2>
+<div id="facetten" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.7</span> Facetten<a href="graphiken-mit-ggplot2.html#facetten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span style="color:#31688e">Facettierung</span> bedeutet, dass ein Plot in mehrere Plots aufgespalten wird, abhängig von den Werten einer oder mehrerer diskreter Variablen. Der einfachste Weg geht über <code>facet_wrap()</code>. Beispielsweise kann man das <span style="color:#21918d">Balkendiagramm</span> von oben, welches die Art der Superhelden zeigt, um die größten Gegner dieser Helden erweitern. Erst definiert man in einem Vektor, wer die größten Helden und Bösewichte sind. Dann <span style="color:#31688e">facettiert</span> man das <span style="color:#21918d">Balkendiagramm</span> nach <code>Alignment</code>, es werden also unterschiedliche Grids für die Guten und die Bösen erstellt:</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="graphiken-mit-ggplot2.html#cb302-1"></a><span class="co"># Gegner der X-Men, der Guardians of the Galaxy und der Avengers</span></span>
 <span id="cb302-2"><a href="graphiken-mit-ggplot2.html#cb302-2"></a>VXMen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Magneto&quot;</span>, <span class="st">&quot;Gambit&quot;</span>, <span class="st">&quot;Apocalypse&quot;</span>, <span class="st">&quot;Mystique&quot;</span>)</span>
@@ -982,7 +984,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

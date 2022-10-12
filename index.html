@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Einführung in R</title>
   <meta name="description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Einführung in R" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://amd-lab.github.io/R-Kurs-Unterlagen/index.html" />
   
   <meta property="og:description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
   <meta name="github-repo" content="AMD-Lab/R-Kurs-Unterlagen" />
@@ -23,7 +22,7 @@
 
 
 
-<meta name="date" content="2021-12-07" />
+<meta name="date" content="2022-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -260,19 +260,19 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <h1 class="title">Einführung in R</h1>
 <p class="author"><em><p>José Carlos García Alanis, Jan Goettmann, Cordula Hunt,<br />
 Florian Kobylka, Anna-Lena Schubert, Meike Steinhilber</p></em></p>
-<p class="date"><em>2021-12-07</em></p>
+<p class="date"><em>2022-10-12</em></p>
 </div>
-<div id="über-dieses-skript" class="section level1">
-<h1><span class="header-section-number">1</span> Über dieses Skript</h1>
+<div id="über-dieses-skript" class="section level1 hasAnchor">
+<h1><span class="header-section-number">1</span> Über dieses Skript<a href="index.html#über-dieses-skript" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Dies ist eine Einführung in die Programmiersprache <code>R</code>, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten <em>Analyse und Modellierung komplexer Daten</em> und <em>Methodenlehre und Statistik</em> des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden kann. <code>R</code> ist eine unter Psycholog:innen weit verbreitete Programmiersprache, mit deren Hilfe unterschiedlichste Datenarten aufbereitet und analysiert werden können. Das Programm ist <em>Open Source</em> und es gibt eine riesige Community von Entwickler:innen, die an Erweiterungen für die Software arbeiten, um Forschenden das (datenanalytische) Leben zu erleichtern.</p>
 <p>Dieses Skript wurde als Begleitmaterial für verschiedene Lehrveranstaltungen entwickelt, in denen mit <code>R</code> gearbeitet wird. Es kann als Kursmaterial, aber auch als Nachschlagewerk verwendet werden. Nicht alle Inhalte des Skripts sind für jeden Kurs relevant. Ihre Kursleitung wird Ihnen mitteilen, wann Sie welche Teile des Skripts bearbeiten sollen. Sie können sich natürlich darüber hinaus jederzeit weiter umschauen, welche Möglichkeiten <code>R</code> noch bietet!</p>
 <br>
-<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_first_then.png" title="Ein digitaler Cartoon mit zwei Illustrationen: Die obere zeigt das R-Logo mit einem furchteinflößenden Gesicht und ein kleines, verängstigtes, wuscheliges Monster, das unter einer dunklen Gewitterwolke eine weiße Fahne hochhält, um sich zu ergeben. Der Text darüber lautet: &quot;at first I was like…&quot;. Der untere Cartoon zeigt ein freundliches, lächelndes R-Logo, das aufspringt, um einem glücklichen, unscharfen Monster unter einer lächelnden Sonne und neben bunten Blumen ein High-Five zu geben. Der Text über der unteren Illustration lautet &quot;but now it’s like…&quot;" alt="Ein digitaler Cartoon mit zwei Illustrationen: Die obere zeigt das R-Logo mit einem furchteinflößenden Gesicht und ein kleines, verängstigtes, wuscheliges Monster, das unter einer dunklen Gewitterwolke eine weiße Fahne hochhält, um sich zu ergeben. Der Text darüber lautet: &quot;at first I was like…&quot;. Der untere Cartoon zeigt ein freundliches, lächelndes R-Logo, das aufspringt, um einem glücklichen, unscharfen Monster unter einer lächelnden Sonne und neben bunten Blumen ein High-Five zu geben. Der Text über der unteren Illustration lautet &quot;but now it’s like…&quot;" width="75%" style="display: block; margin: auto;" />
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_first_then.png" alt="Ein digitaler Cartoon mit zwei Illustrationen: Die obere zeigt das R-Logo mit einem furchteinflößenden Gesicht und ein kleines, verängstigtes, wuscheliges Monster, das unter einer dunklen Gewitterwolke eine weiße Fahne hochhält, um sich zu ergeben. Der Text darüber lautet: &quot;at first I was like…&quot;. Der untere Cartoon zeigt ein freundliches, lächelndes R-Logo, das aufspringt, um einem glücklichen, unscharfen Monster unter einer lächelnden Sonne und neben bunten Blumen ein High-Five zu geben. Der Text über der unteren Illustration lautet &quot;but now it’s like…&quot;" width="75%" style="display: block; margin: auto;" />
 <center>
 Artwork by <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a>
 </center>
-<div id="feedback" class="section level2">
-<h2><span class="header-section-number">1.1</span> Feedback</h2>
+<div id="feedback" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.1</span> Feedback<a href="index.html#feedback" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Derzeit ist das Skript ein lebendiges Dokument, das auf Basis von Rückmeldungen ständig überarbeitet und verbessert wird. Sollten Ihnen Fehler im Skript auffallen oder sollten Sie sonstiges Feedback haben, freuen wir uns sehr, wenn Sie uns eine E-Mail senden. Schreiben Sie einfach eine E-Mail an <a href="mailto:amd_lab@uni-mainz.de?subject=R-Kurs-Unterlagen">amd_lab@uni-mainz.de</a>.</p>
 
 </div>
@@ -343,7 +343,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
