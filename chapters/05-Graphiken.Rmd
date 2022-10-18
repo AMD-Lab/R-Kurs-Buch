@@ -117,7 +117,7 @@ MarvelCharacters <- read_csv("https://raw.github.com/cosmoduende/r-marvel-vs-dc/
 MarvelStats <- read_csv("https://raw.github.com/cosmoduende/r-marvel-vs-dc/main/dataset_shdb/charactersStats.csv")
 ```
 
-Dann werden nur die Charaktere aus Marvel und DC ausgewählt und die `MarvelCharacters`Daten werden vorbearbeitet:
+Dann werden nur die Charaktere aus Marvel und DC ausgewählt und die `MarvelCharacters`-Daten werden mit `dplyr` vorbearbeitet:
 
 ```{r}
 # Preprocessing der Daten `MarvelCharacters`
@@ -138,7 +138,7 @@ MarvelDC <- inner_join(marvelDcInfo, MarvelStats, by = "Name")
 
 # einige Zeilen sind falsch kodiert und enthalten eine andere Skala,
 # deswegen werden alle Zeilen mit Intelligence = 1 ausgeschlossen. 
-MarvelDC<- MarvelDC %>% 
+MarvelDC <- MarvelDC %>% 
   filter(Intelligence > 1) 
 ```
 
@@ -244,7 +244,7 @@ ggplot(data = MarvelDC,
   geom_bar()                 
 ```
 
-In der Graphik oben wurde der default-Parameter für [Position]{style="color:#31688e"} verwendet, weil nichts anderes definiert wurde. Das ist `stack`. Bei `stack`werden die Teile übereinander "gestapelt" dargestellt. Da weit mehr Charaktere aus Marvel stammen, kann die [Position]{style="color:#31688e"} `fill` dafür sorgen, dass man das Geschlechterverhältnis besser beurteilen kann. `fill` erstellt Balken gleicher Länge, sodass eine Beurteilung der relativen Anteile leichter fällt. Erst sollten allerdings die `NA` Fälle herausgenommen werden, damit es bei Marvel und DC je nur zwei Kategorien gibt.
+In der Graphik oben wurde der default-Parameter für [Position]{style="color:#31688e"} verwendet, weil nichts anderes definiert wurde. Das ist `stack`. Bei `stack` werden die Teile übereinander "gestapelt" dargestellt. Da weit mehr Charaktere aus Marvel stammen, kann die [Position]{style="color:#31688e"} `fill` dafür sorgen, dass man das Geschlechterverhältnis besser beurteilen kann. `fill` erstellt Balken gleicher Länge, sodass eine Beurteilung der relativen Anteile leichter fällt. Erst sollten allerdings die `NA` Fälle herausgenommen werden, damit es bei Marvel und DC je nur zwei Kategorien gibt.
 
 ```{r, fig.dim=c(5, 4), fig.align='center'}
 MarvelDC %>%                  
@@ -365,7 +365,7 @@ library(ggbeeswarm)
 MarvelDC %>%
   filter(!is.na(Gender)) %>%
   ggplot(aes(y = Total, x = Publisher,
-             colour = Gender)) +
+             color = Gender)) +
   
   geom_quasirandom(dodge.width = 1)   # stelle als beeswarm dar
 ```
@@ -391,7 +391,7 @@ ggplot(data = MarvelDC,
   geom_point()    
 ```
 
-Die Daten beider `Publisher`sind weit verteilt, es ist also keineswegs so, dass DCs Superhelden weniger `Power`haben, als die von Marvel.
+Die Daten beider `Publisher` sind weit verteilt, es ist also keineswegs so, dass DCs Superhelden weniger `Power` haben, als die von Marvel.
 
 Will man zusätzlich nach Geschlecht unterscheiden, so geht das beispielsweise über die [Form]{style="color:#35b779"} der Punkte mithilfe des Arguments `shape`:
 
@@ -405,7 +405,7 @@ ggplot(data = MarvelDC,
 
 ### (Linearer) Fit
 
-Die `Power` und `Durability`Daten können mit einer Funktion gefittet werden. So kann man visuell prüfen, ob es bei Marvel und DC jeweils einen anderen Zusammenhang zwischen `Power`und `Durability`gibt. Dafür wird die [graphischen Funktion]{style="color:#21918d"} `geom_smooth` verwendet. Um ein **lineares** Modell zu erhalten, muss das Argument `method = "lm"` für "linear model" gesetzt werden. Um y durch x vorherzusagen, braucht es die Formel `y ~ x`:
+Die `Power` und `Durability` Daten können mit einer Funktion gefittet werden. So kann man visuell prüfen, ob es bei Marvel und DC jeweils einen anderen Zusammenhang zwischen `Power` und `Durability` gibt. Dafür wird die [graphischen Funktion]{style="color:#21918d"} `geom_smooth` verwendet. Um ein **lineares** Modell zu erhalten, muss das Argument `method = "lm"` für "linear model" gesetzt werden. Um `y` durch `x` vorherzusagen, braucht es die Formel `y ~ x`:
 
 ```{r, fig.width=7, fig.asp=0.7, fig.align='center', warning=FALSE}
 ggplot(data = MarvelDC, 
@@ -420,7 +420,7 @@ ggplot(data = MarvelDC,
 
 Das sind aber 5 Fits - je für Geschlecht und Publisher. Nicht nur für die beiden Publisher wie geplant.
 
-Das liegt daran, dass sowohl [Farbe]{style="color:#35b779"} als auch [Form]{style="color:#35b779"} innerhalb von `ggplot`bei den allgemeinen `aesthetics` definiert sind. Um nur einen [linearen Fit]{style="color:#21918d"} für jeden Publisher zu erhalten, nicht aber nach Geschlecht aufgespalten, muss man die [Form]{style="color:#35b779"}-Kennung für Geschlecht nur an `geom_point` geben. Auf diese Weise kann sie nicht mehr an `geom_smooth` weitergegeben werden. Gibt man die [Farb]{style="color:#35b779"}-Kennung für Publisher nur an die [Linien]{style="color:#21918d"}, also nur an `geom_smooth`, so erhält man nur eine [farbliche]{style="color:#35b779"} Trennung bei den [Fit-Linien]{style="color:#21918d"}, nicht aber bei den zugrunde liegenden [Punkten]{style="color:#21918d"}. Mit `se=TRUE` werden die Fehlerintervalle um die linearen [Fit-Funktionen]{style="color:#21918d"} herum dargestellt. Der folgende Code liefert einen [linearen Fit]{style="color:#21918d"} der `Power` und `Durability`der Superhelden [farblich]{style="color:#35b779"} getrennt nach Marvel und DC:
+Das liegt daran, dass sowohl [Farbe]{style="color:#35b779"} als auch [Form]{style="color:#35b779"} innerhalb von `ggplot` bei den allgemeinen `aesthetics` definiert sind. Um nur einen [linearen Fit]{style="color:#21918d"} für jeden Publisher zu erhalten, nicht aber nach Geschlecht aufgespalten, muss man die [Form]{style="color:#35b779"}-Kennung für Geschlecht nur an `geom_point` geben. Auf diese Weise kann sie nicht mehr an `geom_smooth` weitergegeben werden. Gibt man die [Farb]{style="color:#35b779"}-Kennung für Publisher nur an die [Linien]{style="color:#21918d"}, also nur an `geom_smooth`, so erhält man nur eine [farbliche]{style="color:#35b779"} Trennung bei den [Fit-Linien]{style="color:#21918d"}, nicht aber bei den zugrunde liegenden [Punkten]{style="color:#21918d"}. Mit `se=TRUE` werden die Fehlerintervalle um die linearen [Fit-Funktionen]{style="color:#21918d"} herum dargestellt. Der folgende Code liefert einen [linearen Fit]{style="color:#21918d"} der `Power` und `Durability` der Superhelden [farblich]{style="color:#35b779"} getrennt nach Marvel und DC:
 
 ```{r, fig.width=7, fig.asp=0.7, fig.align='center', warning=FALSE}
 ggplot(data = MarvelDC, 
@@ -453,7 +453,7 @@ MarvelDC %>%
   geom_line()                 # verbinde Punkte mit Linie
 ```
 
-Da [Farbe]{style="color:#35b779"} innerhalb von `geom_point` definiert ist, enthalten die allgemeinen `aesthetics`keine Gruppierung. Deswegen verbindet die [Linie]{style="color:#21918d"} einfach alle [Datenpunkte]{style="color:#21918d"}. Informativer ist es natürlich, getrennte Linien für die Geschlechter zu haben. Dazu muss die [Farbdefinition]{style="color:#35b779"} in den allgemeinen `aesthetics`erfolgen und nicht innerhalb von `geom_point`:
+Da [Farbe]{style="color:#35b779"} innerhalb von `geom_point` definiert ist, enthalten die allgemeinen `aesthetics` keine Gruppierung. Deswegen verbindet die [Linie]{style="color:#21918d"} einfach alle [Datenpunkte]{style="color:#21918d"}. Informativer ist es natürlich, getrennte Linien für die Geschlechter zu haben. Dazu muss die [Farbdefinition]{style="color:#35b779"} in den allgemeinen `aesthetics` erfolgen und nicht innerhalb von `geom_point`:
 
 ```{r, fig.width=5, fig.asp=0.7, fig.align='center'}
 XMen <- c("Wolverine", "Jean Grey", "Storm", "Beast", 
@@ -668,7 +668,7 @@ Neben dem viridis Package gibt es auch den ColorBrewer in R, der unter anderem f
 
 Wenn man allerdings schon ein [Farbspektrum]{style="color:#31688e"} selbst definiert, ist es empfehlenswert ein *colorblind friendly* Schema wie alle Skalen aus dem `viridis` Package zu benutzen.
 
-Im folgenden Beispiel werden verschiedene Einstellungen zusammengeführt um eine ansprechende und informative Graphik zu erhalten. Erst wird eine Liste der besten Superhelden der X-Men, der Avengers und der Guardians of the Galaxy erstellt. Dann veranschaulicht ein [Balkendiagramm]{style="color:#21918d"} welcher Art sie angehören. Also ob es Menschen sind, oder Mutanten, oder Androiden... Dann wird die Graphik informativ [beschriftet]{style="color:#31688e"}, so dass sie auch ohne den zugehörigen Code verständlich ist, und als letztes wird ein diskretes [viridis Spektrum ]{style="color:#31688e"}als die [Farbskala]{style="color:#31688e"} bestimmt, die R verwenden soll:
+Im folgenden Beispiel werden verschiedene Einstellungen zusammengeführt um eine ansprechende und informative Graphik zu erhalten. Erst wird eine Liste der besten Superhelden der X-Men, der Avengers und der Guardians of the Galaxy erstellt. Dann veranschaulicht ein [Balkendiagramm]{style="color:#21918d"} welcher Art sie angehören. Also ob es Menschen sind, oder Mutanten, oder Androiden... Dann wird die Graphik informativ [beschriftet]{style="color:#31688e"}, so dass sie auch ohne den zugehörigen Code verständlich ist, und als letztes wird ein diskretes [viridis Spektrum]{style="color:#31688e"} als die [Farbskala]{style="color:#31688e"} bestimmt, die R verwenden soll:
 
 ```{r, fig.width=6, fig.asp=0.7, fig.align='center'}
 # Charaktere der X-Men, der Guardians of the Galaxy und der Avengers
@@ -724,7 +724,7 @@ HerosVillains <- c(BestHeros, VXMen, VGoG, VAvengers)
 MarvelDC %>%
   filter(Name %in% HerosVillains) %>%  # Nur wenn in 'HerosVillains'
   ggplot(aes(y = Race,                 # y soll 'Race' sein
-             fill= Race)) +            # vergebe Füllfarbe nach 'Race'
+             fill = Race)) +           # vergebe Füllfarbe nach 'Race'
   geom_bar() +                         # stelle als Balken dar
   theme_bw() +                         # in scharz-weißem Thema
   

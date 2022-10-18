@@ -20,7 +20,7 @@ Einsatz. EDA stellt häufig dein Einstieg in einer meistens komplexeren und (hä
 theoriegeleitete Datenanalyse. EDA wird auch häufig dazu verwendet die Qualität und Struktur
 der Daten zu untersuchen.
 
-In diesem Kapitel berechnen wir verschiebe statische Maße, um einen Überblick (oder einen ersten Eindruck)
+In diesem Kapitel berechnen wir verschiedene statistische Maße, um einen Überblick (oder einen ersten Eindruck)
 der Daten in einem Datensatz zu gewinnen.
 
 ## Allgemeine Informationen eines Datensatzes
@@ -85,7 +85,7 @@ width_range <- range(data$Sepal.Width)
 width_range
 ```
 
-Wie sie Sehen berechnet `range()` einen Vektor, der das Minimum und das 
+Wie Sie sehen, berechnet `range()` einen Vektor, der das Minimum und das 
 Maximum (in dieser Reihenfolge) enthält.
 Genau genommen müssen Sie diese Werte von einander abziehen, um die Spannweite von 
 `Sepal.width` zu bekommen:
@@ -95,30 +95,30 @@ Genau genommen müssen Sie diese Werte von einander abziehen, um die Spannweite 
 width_range[2] - width_range[1]
 ```
 
-Die Spannweite beträgt also `2.4`. Dies bedeutet, dass Unterschied zwischen des breitesten und des dünsten Kelchblattes 2.4 cm beträgt.
+Die Spannweite beträgt also `2.4`. Dies bedeutet, dass der Unterschied zwischen dem breitesten und dem dünsten Kelchblatt 2.4 cm beträgt.
 
 ### Quantile und Perzentile
 
 Andere häufig eingesetzte deskriptive Parameter sind Quantile oder Perzentile (d.h. welche Werte sind < 25%, < 50%, < 75%, oder > 75%)
 
-Ein häufig verwendetes Perzentil ist der **Median**. Der Median ist  äquivalent zum 50. Perzentil (d.h. 50%) einer Variable, weil 50% der Werte einer Variable unterhalb/oberhalb dieses Wertes liegen.
+Ein häufig verwendetes Perzentil ist der **Median**. Der Median ist äquivalent zum 50. Perzentil (d.h. 50%) einer Variable, weil 50% der Werte einer Variable unterhalb/oberhalb dieses Wertes liegen.
 
 Der Median kann folgendermaßen berechnet werden:
 
 $$
-(1)\,\,\,\,\,\,\,\,
-\tilde{x}=\left\{\begin{array}{l}
-x_{m+1} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, für \, ungerades \, n \,\,\,=2m+1 \\
-\frac{1}{2}\left(x_{m}+x_{m+1}\right) \,\,\,\,\, für \, gerades \,n \,\,\,= 2m
+(1)\qquad
+\tilde{x}=\left\{\begin{array}{lll}
+x_{m+1} & \mathrm{für}\; \mathrm{ungerades} \; n &= 2m+1 \\
+\frac{1}{2}\left(x_{m}+x_{m+1}\right) & \mathrm{für} \; \mathrm{gerades} \; n &= 2m
 \end{array}\right.
 $$
 
 Ein Wert `m` is Median einer Stichprobe, wenn mindestens die Hälfte der Stichprobenelemente nicht 
 größer als `m` und mindestens die Hälfte nicht kleiner als `m` ist.
 
-Sortiert man die Beobachtungswerte der Größe nach, so entspricht der Median bei einer ungeraden Anzahl von Beobachtungen den Wert der in der Mitte dieser Folge liegenden Beobachtung. Bei einer geraden Anzahl von Beobachtungen gibt es kein einzelnes mittleres Element, sondern zwei. Der Median entspricht dann (vereinfacht ausgedruckt), der Mittelwert dieser beiden Beobachtungen.
+Sortiert man die Beobachtungswerte der Größe nach, so entspricht der Median bei einer ungeraden Anzahl von Beobachtungen dem Wert der in der Mitte dieser Folge liegenden Beobachtung. Bei einer geraden Anzahl von Beobachtungen gibt es kein einzelnes mittleres Element, sondern zwei. Der Median entspricht dann (vereinfacht ausgedruckt), dem Mittelwert dieser beiden Beobachtungen.
 
-Sie können diese Annahme mit den Funktionen `median()` und `quantile()`überprüfen.
+Sie können diese Annahme mit den Funktionen `median()` und `quantile()` überprüfen.
 
 ```{r}
 # median
@@ -137,11 +137,11 @@ Sie können `quantile()` auch benutzen, um unterschiedliche Perzentile auf einma
 quantile(data$Sepal.Length, c(0.25, 0.5, 0.75))
 ```
 
-Dies bedeutet, dass 25% de Werte sich unterhalb von `5.1`, 50% unterhalb von `5.8` und 75% unterhalb `6.4` befinden. Im Umkehrschluss befinden sich 25% der Werte oberhalb `6.4`.
+Dies bedeutet, dass 25% der Werte sich unterhalb von `5.1`, 50% unterhalb von `5.8` und 75% unterhalb `6.4` befinden. Im Umkehrschluss befinden sich 25% der Werte oberhalb `6.4`.
 
 ### Interquantilsabstand (IQA)
 
-Manchmal möchte man wissen wie groß der Abstand zwischen bestimmte Quantile ist, 
+Manchmal möchte man wissen wie groß der Abstand zwischen bestimmten Quantilen ist, 
 um Aussagen über Beobachtungen, die innerhalb oder außerhalb eines bestimmten 
 Wertebereichs liegen, zu treffen. Häufig wird hierfür der Interquartilsabstand benutzt,
 welches als der Abstand zwischen den 75. und 25. Perzentil definiert ist.
@@ -169,7 +169,7 @@ Sie den 75. Perzentil (nach unten zeigenden Dreieck), den Median (ein X) und den
 der Wertebereich, in dem sich 50% der Werte einer Verteilung befinden. 
 
 ```{r, fig.width = 4, fig.align = "center"}
-# IQR visualisieren anhand einer box-plots
+# IQA visualisieren anhand eines Box-Plots
 
 # box-plot
 boxplot(data$Sepal.Length, ylim = c(3, 10))
@@ -187,7 +187,7 @@ points(quantile(data$Sepal.Length, 0.25),
 ### Mittelwert
 
 Ähnlich zum Median, stellt der Mittelwert ein wichtiges Maß für die zentralen Tendenz
-einer Variable. Der Mittlwert (i.S. des arithmetischen Mittels) ist die Summe der gegebenen 
+einer Variable dar. Der Mittlwert (i.S. des arithmetischen Mittels) ist die Summe der gegebenen 
 Werte geteilt durch die Anzahl der Werte. 
 
 $$
@@ -230,7 +230,7 @@ $$
 In R also:
 
 ```{r}
-sqrt(sum((data$Sepal.Width-mean(data$Sepal.Width))^2/(length(data$Sepal.Width)-1)))
+sqrt(sum((data$Sepal.Width - mean(data$Sepal.Width))^2 / (length(data$Sepal.Width) - 1)))
 ```
 
 Oder mit Hilfe der R-Funktion `sd()`:

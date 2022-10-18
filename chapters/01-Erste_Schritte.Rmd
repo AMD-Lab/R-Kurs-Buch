@@ -1,5 +1,24 @@
 # Erste Schritte
 
+## Zahlen
+
+Wir haben in der Einleitung bereits das Rechnen mit Zahlen in R kennengelernt. Zahlen gehören zu den grundlegendsten Arten von Daten, die wir in R verarbeiten können. Mit ihnen können wir eine Reihe von arithmetischen Berechnungen durchführen:
+
+ - `x + y` - Addition von `x` und `y`
+ - `x - y` - Subtraktion von `x` und `y`
+ - `x * y` - Multiplikation von `x` und `y`
+ - `x / y` - Division von `x` durch `y`
+ - `x ^ y` oder alternativ `x ** y` - Potenzierung, `x` hoch `y`
+
+Bis jetzt haben wir nur mit *ganzen Zahlen* gerechnet. Wir können aber auch mit Zahlen rechnen, die Nachkommastellen haben. Zahlen mit Nachkommastellen haben eine Besonderheit in R: Wir verwenden nicht ein Komma, sondern einen Punkt als Dezimaltrennzeichen, wie im Englischen.
+
+```{r}
+2.5 * 10
+2.5 + (9 / 4)
+```
+
+Zahlen werden aber auch manchmal in der sogenannten ***wissenschaftlichen Notation*** dargestellt -- vor allem, wenn sie sehr groß oder sehr klein sind (z.B. *p*-Werte). Wenn wir beispielsweise die Zahl `0.0000000012` in R eingaben, erhalten wir `1.2e-09` als Ausgabe. Dies ist kein Fehler, sondern lediglich eine andere Darstellung dieser Zahl. Bei der wissenschaftlichen Notation hat eine Zahl zwei Teile, die von einem `e` voneinander getrennt werden: Der erste Teil ist ein Faktor, während der zweite Teil der Exponent einer Zehnerpotenz ist. Ausgeschrieben wäre diese Zahl aus der wissenschaftlichen Notation: $1.2\cdot 10^{-9}$ und damit äquivalent zu `0.0000000012`.
+
 ## Variablen
 
 Sicherlich wollen Sie Ihre Daten nicht nur in der Konsole ausgeben lassen und bearbeiten, sondern auch in Variablen speichern. Variablen sind Bezeichnungen, mit deren Hilfe Sie auf gespeicherte Daten zugreifen. Sobald eine Variable definiert wurde, können Sie immer wieder darauf zugreifen. Variablen werden mit Hilfe des `<-` Operators definiert.
@@ -23,23 +42,25 @@ x+y
 x*y
 ```
 
-In R lassen sich sämtliche Objekte - nicht nur einzelne Zahlen, sondern auch Datentabellen, Wortlisten oder sogar Ergebnisse komplizierter Analysen - in Variablen speichern. Der Workflow ist so ausgelegt, dass Sie Ergebnisse einer Analyse in einer Variable speichern und von dort aus weiterverarbeiten können, z.B. um APA-konforme Tabellen oder Grafiken zu erstellen oder sich Effektstärkemaße ausgeben zu lassen. Im weiteren Verlauf des Kurses lernen Sie andere Datentypen kennen, die in Variablen gespeichert werden können.
+Variablennamen können auch Umlaute und Unterstriche ("_") enthalten, sie dürfen aber nicht mit einer Zahl oder einem Unterstrich beginnen.
 
-*Achtung*: Wenn Sie eine Berechnung mit einer Variable durchführen und das Ergebnis dieser Berechnung speichern möchten, müssen Sie es wieder eine Variable zuweisen - es wird nicht automatisch gespeichert!
+In R lassen sich sämtliche Objekte -- nicht nur einzelne Zahlen, sondern auch Datentabellen, Wortlisten oder sogar Ergebnisse komplizierter Analysen -- in Variablen speichern. Der Workflow ist so ausgelegt, dass Sie Ergebnisse einer Analyse in einer Variable speichern und von dort aus weiterverarbeiten können, z.B. um APA-konforme Tabellen oder Grafiken zu erstellen oder sich Effektstärkemaße ausgeben zu lassen. Im weiteren Verlauf des Kurses lernen Sie andere Datentypen kennen, die in Variablen gespeichert werden können.
+
+*Achtung*: Wenn Sie eine Berechnung mit einer Variable durchführen und das Ergebnis dieser Berechnung speichern möchten, müssen Sie es wieder eine Variable zuweisen -- es wird nicht automatisch gespeichert!
 
 
 ```{r}
 z <- x*10
 ```
 
-Wenn Sie sich jetzt `x` und `z` ausgeben lassen, sehen Sie, dass sich nichts an `x` geändert hat - das Ergebnis der Berechnung wurde nicht abgespeichert. In der Variable `z` hingegen sehen Sie das Ergebnis Ihrer Berechnung.
+Wenn Sie sich jetzt `x` und `z` ausgeben lassen, sehen Sie, dass sich nichts an `x` geändert hat -- das Ergebnis der Berechnung wurde nicht abgespeichert. In der Variable `z` hingegen sehen Sie das Ergebnis Ihrer Berechnung.
 
 ```{r}
 x
 z
 ```
 
-`x`, `y` und `z` sind denkbar schlechte Variablennamen! Gute Variablennamen sprechen, d.h. dass der Name eine Variable verrät, was sich "in" dieser Variable verbirgt. Deswegen sollten Sie sich immer bemühen, möglichst klare und eindeutige Variablennamen zu vergeben. 
+`x`, `y` und `z` sind denkbar schlechte Variablennamen! Gute Variablennamen *sprechen*, d.h. dass der Name eine Variable verrät, was sich "in" dieser Variable verbirgt. Deswegen sollten Sie sich immer bemühen, möglichst klare und eindeutige Variablennamen zu vergeben.
 
 ```{r}
 # Beispiele für gute Variablennamen
@@ -51,9 +72,66 @@ MW_Evaluationsergebnis_KursA <- 2
 
 Scheuen Sie sich nicht vor langen Variablennamen! Je besser und klarer Sie Ihre Variablen definieren, desto einfacher wird es sowohl Ihnen als auch anderen fallen, Ihren Code nachzuvollziehen. Besonders einfach lesbar sind längere Variablennamen, wenn Sie unterschiedliche Elemente des Variablennamens mit einem Unterstrich trennen. Diese Konvention wird auch in diesem Kurs verwendet.
 
+*Achtung*: Variablennamen beachten Groß- und Kleinschreibung! Wenn wir eine Variable den Namen `durchschnittliches_Alter` zuweisen, müssen wir auch diesen Namen -- genau so, wie wir ihn geschrieben haben -- verwenden, um wieder auf die Variable zuzugreifen. Würden wir stattdessen beispielsweise `durchschnittliches_alter` (kleingeschriebenes A, bei Alter) oder `Durchschnittliches_Alter` (großgeschribenes D am Anfang) schreiben, würden wir eine Fehlermeldung bekommen, dass die Variable nicht gefunden werden konnte.
+
+## Funktionen
+
+Wir sind alle bereits mit Funktionen aus dem Mathematikunterricht vertraut. Trigonometrische, logarithmische und Wurzelfunktionen sind auf jedem Schultaschenrechner vorhanden und geben uns eine Berechnung basierend auf unserer Eingabe zurück.
+
+Funktionen in R haben eine ganz ähnliche Aufgabe und die meisten Funktionen, die wir bereits aus dem Mathematikunterricht kennen, finden sich auch wieder in R. Funktionen stellen in erster Linie eine Reihe von Anweisungen dar, die ausgeführt werden. Beispielsweise besteht die Berechnung des Mittelwerts aus zwei Anweisungen: (1) wir müssen alle Zahlen zu einer Summe addieren und (2) diese Summe durch die Anzahl der Zahlen dividieren.
+
+Anstatt beide Anweisungen immer wieder separat zu schreiben, ist es deutlich einfacher und übersichtlicher eine Funktion hierfür zu definieren, die diese Schritte ausführt. Daher sind Funktionen besonders für **wiederkehrende Abläufe** sinnvoll.
+
+Funktionen erkennt man in der Regel daran, dass der Name der Funktion von Klammern `()` gefolgt wird. Oft stehen zwischen den Klammen auch noch Daten oder Variablen, die als *Eingabe* verwendet werden und an die Funktion übergeben werden, die sogenannenten *Funktionsargumente*.
+
+In R sind bereits über tausend Funktionen eingebaut. Als statistische Programmiersprache, sind die meisten Funktionen darauf ausgelegt, mathematische und statistische Berechnungen durchzuführen.
+
+### Funktionsargumente
+
+Funktionen haben sogenannte ***Funktionsargumente*** und damit eine Art *Platzhalter*, die wir einer Funktion als Eingabe übergeben können. Viele Funktionen haben nur ein einziges Funktionsargument, beispielsweise die Wurzelfunktion oder die Exponentialfunktion. Es gibt aber auch Funktionen, die mehr als ein Funktionsargument besitzen.
+
+Nehmen wir als Beispiel die Funktion `round()` aus R. Sie rundet Zahlen auf eine gewisse Anzahl an Nachkommastellen, die wir selbst festlegen können. `round()` hat daher auch zwei Funktionsargumente: Das erste Argument entspricht den Zahlen, die gerundet werden sollen und das zweite Argument, der Anzahl der Nachkommastellen, auf die gerundet werden soll. Einzelne Funktionsargumente werden jeweils mit einem Komma `,` voneinander getrennt in der Klammer geschrieben.
+
+Wenn wir also beispielsweise die Zahl 0.0249 auf drei Nachkommastellen runden wollten, könnten wir dies in R mit folgendem Aufruf tun:
+
+```{r}
+round(0.0249, 3)
+```
+
+#### Benannte Funktionsargumente
+
+Funktionsargumente in R haben auch *Namen*. Sie funktionieren damit nicht nur wie einfache Platzhalter, sondern analog zu Variablen, die dann innerhalb der Funktion verwendet werden. Wir können die Namen der Funktionsargumente auch mit angeben, wenn wir eine Funktion aufrufen.
+
+Um herauszufinden, wie die Funktionsargumente benannt sind, können wir entweder in RStudio mit dem Cursor auf eine Funktion gehen und <kbd>F1</kbd> auf der Tastatur drücken oder die Dokumentation anschauen (z.B. indem wir ein Fragezeichen gefolgt von dem Funktionsnamen in die Konsole eingeben: `?round`).
+
+Wenn wir dies für `round()` tun, erhalten wir die Funktionsdefinition: `round(x, digits = 0)`. Die Funktion `round()` hat damit zwei Argumente: `x` und `digits`, die wir auch entsprechend angeben könnten:
+
+```{r}
+round(x = 0.0249, digits = 3)
+```
+
+Wenn wir Funktionsargumente mit ihrem Namen angeben, können wir dies in jeder beliebigen Reihenfolge tun! Wenn wir allerdings Funktionsargumente ohne Bezeichnung angeben, muss dies in der Reihenfolge erfolgen, wie sie in der Dokumentation steht.
+
+```{r}
+round(digits = 3, x = 0.0249)
+```
+
+#### Standardparameter
+
+Viele Funktionen in R haben Funktionsargumente mit **Standardparametern**. Das heißt, dass wir das Funktionsargument nicht *zwangsläufig* angeben müssen. Wenn wir ein Funktionsargument nicht angeben, das einen Standardparameter hat, wird dieser Standardparameter automatisch als Funktionsargument genommen. Schauen wir uns dazu nochmal ein Beispiel an.
+
+`round()` hat beispielsweise einen Standardparameter für das zweiten Funktionsargument (`digits`), dass die Anzahl der Nachkommastellen angibt, auf die gerundet werden soll. Dies erkennen wir daran, das bei der Funktionsdefinition ein Gleichheitszeichen nach dem Argument steht, welches den Standardwert des Parameters angibt: `round(x, digits = 0)`. Das Funktionsargument `digits` hat demnach einen Standardparameter von 0. Das heißt, dass `round()` jeweils auf eine ganze Zahl runden würde, wenn wir den zweiten Parameter nicht mit angeben.
+
+```{r}
+round(0.0249, 3)
+round(0.0249)
+```
+
+Bei manchen Funktionsaufrufen wollen wir nur einige Funktionsargumente selbst angeben -- für alle Übrigen sollen die Standardparameter verwendet werden. Hierfür können wir unser Wissen aus dem vorigen Abschnitt nutzen: Wir geben einfach nur jeweils die Funktionsargumente mit ihren Namen an, die wir selbst angeben wollen und lassen den Rest frei. Für die freigelassenen Funktionsargumente wird dann jeweils ihr Standardparameter verwendet.
+
 ## Vektoren
 
-Jede Spalte eines Datensatzes ist ein Vektor. In einem Vektor befinden sich mehrere Elemente eines Datentyps, also z.B. mehrere Zahlen oder mehrere Wörter. Vektoren werden mit Hilfe des "combine"-Operators `c` erstellt.
+Jede Spalte eines Datensatzes ist ein Vektor. In einem Vektor befinden sich mehrere Elemente eines Datentyps, also z.B. mehrere Zahlen oder mehrere Wörter. Vektoren werden mit Hilfe der "combine"-Funktion `c` erstellt.
 
 ```{r}
 Vektor_numeric <- c(1, 2, 3, 4, 5, 6:10)
@@ -65,12 +143,13 @@ Mit jedem Datentyp können Sie unterschiedliche Operationen durchführen. Um sic
 ```{r}
 mode(Vektor_numeric)
 ```
+
 ### Datentyp numeric
 
 Mit Vektoren vom Typ `numeric` können Sie verschiedene mathematische Operationen durchführen. Sie können diese Vektoren addieren, multiplizieren, usw. Wenn Sie eine Operation wie `*2` auf den Vektor anwenden, wird diese Operation auf alle Elemente des Vektors angewendet.
 
 ```{r}
-Vektor_numeric*2
+Vektor_numeric * 2
 ```
 
 Wenn Sie hingegen zwei gleich lange Vektoren haben, wird jedes *i*-te Element des ersten Vektors mit dem *i*-ten Element des zweiten Vektors verrechnet. Das Element an Position 1 im einen Vektor wird dann mit dem Element an Position 1 im anderen Vektor gepaart, das Element an Position 2 im einen Vektor mit dem Element an Position 2 im anderen Vektor – und so weiter.
@@ -84,7 +163,7 @@ klausurergebnis
 
 ### Datentyp character
 
-Wenn Sie in einer Variable Text abspeichern wollen, erschaffen Sie eine Variable vom Datentyp `character`. Test wird mit doppelten oder einfachen Anführungszeichen angegeben:
+Wenn Sie in einer Variable Text abspeichern wollen, definieren Sie eine Variable vom Datentyp `character`. (Variablen vom Datentyp `character` werden auch oft *Strings* genannt.) Text wird mit doppelten oder einfachen Anführungszeichen angegeben:
 
 ```{r}
 "Alpha" 
@@ -102,7 +181,7 @@ Studienfach <- c("Psychologie", "Medizin", "Informatik", "Sportwissenschaft", "B
 
 ### Datentyp logical
 
-Der Datentyp `logical` kodiert nur binäre Informationen - diese sind entweder `TRUE` oder `FALSE`.
+Der Datentyp `logical` kodiert binäre Informationen -- diese sind entweder `TRUE` oder `FALSE`.
 
 ```{r}
 TRUE 
@@ -116,14 +195,16 @@ Dabei werden `TRUE` und `FALSE` als logische Bedingungen interpretiert, die erf�
 ```{r}
 # Hier wird festgehalten, welche Versuchspersonen (id) die Studie 
 # vollständig abgeschlossen haben (Studie_abgeschlossen)
-id <- c(1:10)
+id <- 1:10
 Studie_abgeschlossen <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE) 
 ```   
 
-Mit logischen Werten kann man die logischen Operationen UND (`&`), ODER (`|` ) und NICHT (`!` ) umsetzen. UND und ODER 
+Oft sollen mehrere Bedingung gleichzeitig überprüft werden, z.B. Personen, die jünger als 18 sind und maximal 30 Minuten zur Bearbeitung eines Tests gebraucht haben. Mehrere logische Bedingungen können durch **logische Operationen** miteinander verknüft werden.
+
+Die gängigsten logischen Operationen sind UND (`&`), ODER (`|`) und NICHT (`!`). UND und ODER 
 verknüpfen jeweils zwei logische Bedingungen (sprich: zwei logische Werte, also `TRUE`/`FALSE`) miteinander und geben selbst einen logischen Wert zurück. 
 
-Die Verknüpfung UND ergibt dann `TRUE`, wenn beide Bedingungen erfüllt sind, d.h. nur wenn die erste und die zweite Bedingung jeweils `TRUE` sind.
+Die Verknüpfung UND ergibt dann `TRUE`, wenn beide Bedingungen erfüllt sind, d.h. nur wenn die erste und die zweite Bedingung jeweils auch `TRUE` sind.
 
 
 ```{r}
@@ -132,8 +213,6 @@ TRUE & TRUE
 TRUE & FALSE
 FALSE & FALSE
 ```
-
-einen logischen Wert zurück. 
 
 Die Verknüpfung ODER ergibt dann `TRUE`, wenn mindestens eine der beiden Bedingungen erfüllt ist, d.h. wenn die erste oder die zweite Bedingung oder beide Bedingungen `TRUE` sind. Ganz wichtig: ODER gibt auch dann `TRUE` aus, wenn beide Bedingungen erfüllt sind!
 
@@ -153,14 +232,21 @@ Das logische NICHT invertiert eine logische Variable: Aus `TRUE` wird `FALSE` un
 !FALSE
 ```
 
+Wie mathematischen Ausdrücke auch, haben logische Operationen ebenfalls eine Rangfolge, nach denen sie ausgewertet werden. Daher kann es sinnvoll sein, Klammern `()` zu verwenden, um logische Operationen zu gruppieren.
+
+```{r}
+!TRUE & FALSE | TRUE
+!(TRUE & FALSE | TRUE)
+```
+
 ### Datentyp factor
 
-Variablen vom Datentyp `factor` sind nützlich, um kategoriale Variablen zu kodieren. Dabei wird zunächst ein Vektor vom Typ 'numeric' erstellt. Den einzelnen Werten dieses numerischen Vektors werden dann kategoriale Bezeichnungen zugewiesen.
+Variablen vom Datentyp `factor` sind nützlich, um kategoriale Variablen zu kodieren. Dabei wird zunächst ein Vektor vom Typ `numeric` erstellt. Den einzelnen Werten dieses numerischen Vektors werden dann kategoriale Bezeichnungen zugewiesen.
 
 ```{r}
 Bedingung <- c (0, 1, 1, 0, 1, 0, 0, 1)
 Vektor_factor <- factor(x = Bedingung, 
-                        levels = c(0,1),
+                        levels = c(0, 1),
                         labels = c("Kontrollgruppe", "Experimentalgruppe"))
 Vektor_factor
 mode(Vektor_factor)
@@ -177,17 +263,17 @@ Es ist immer sinnvoll, Variablen als Faktoren zu definieren, wenn sie endliche A
 Ein Vektor besteht in der Regel nicht nur aus Variablen vom Datentyp `NA`. In echten Datensätzen werden Sie aber immer mal wieder fehlende Daten haben. Diese werden in R als `NA` kodiert. 
 
 ```{r}
-alter <- c (21, 25, 29, 24, NA, 19, 23, 24, 20)
+alter <- c(21, 25, 29, 24, NA, 19, 23, 24, 20)
 ```
 
-*Achtung*: In anderer Statistiksoftware wie z.B. SPSS hat sich die Konvention entwickelt, fehlende Werte nicht mit "NA", sondern mit bestimmten nicht beobachtbaren numerischen Werten wie "-9" oder "-99" zu beschreiben. Wenn Sie mit einem solchen Datensatz arbeiten, der zuvor in einer anderen Statistiksoftware bearbeitet wurde, sollten Sie immer überprüfen, ob fehlende Werte anhand solcher numerischen Werte kodiert sind und diese als "NA" rekodieren. 
+*Achtung*: In anderer Statistiksoftware wie z.B. SPSS hat sich die Konvention entwickelt, fehlende Werte nicht mit `NA`, sondern mit bestimmten nicht beobachtbaren numerischen Werten wie "-9" oder "-99" zu beschreiben. Wenn Sie mit einem solchen Datensatz arbeiten, der zuvor in einer anderen Statistiksoftware bearbeitet wurde, sollten Sie immer überprüfen, ob fehlende Werte anhand solcher numerischen Werte kodiert sind und diese als `NA` rekodieren. 
 
 ## Auswahl von Vektorelementen
 
 Sie können auf einzelne Elemente eines Vektor zugreifen, indem Sie den Operator `[]` verwenden. In die eckigen Klammern wird die Position des Elements eingefügt, das Sie auswählen möchte. Dieses Vorgehen wird **Indizierung** genannt.
 
 ```{r}
-daten <- c (3, 7, 9, 0, 1, 1, 4, 5)
+daten <- c(3, 7, 9, 0, 1, 1, 4, 5)
 daten[3]
 # Hier wird das dritte Element ausgewählt
 ```
@@ -222,7 +308,7 @@ ausgewaehlte_daten <- daten[c(2, 7)]
 
 ## Logische Vergleiche
 
-Logische Vergleiche können genutzt werden, um bestimmte Fälle - z.B. einzelne Versuchspersonen - auszuwählen. Welche logischen Vergleich für einen Datentyp sinnvoll sind, hängt von diesem Datentyp ab. 
+Logische Vergleiche können genutzt werden, um bestimmte Fälle -- z.B. einzelne Versuchspersonen -- auszuwählen. Welche logischen Vergleiche für einen Datentyp sinnvoll sind, hängt von diesem Datentyp ab. 
 
 
 ### Datentyp numeric
@@ -245,12 +331,15 @@ alter == 18
 
 ### Datentyp character
 
-Vektoren vom Typ `character` lassen sich darauf überprüfen, ob diese identisch mit einer bestimmten Bedingung sind.
+Vektoren vom Typ `character` lassen sich darauf überprüfen, ob diese identisch bzw. nicht identisch mit einer bestimmten Bedingung sind.
 
 ```{r}
-# Hier wird überprüft, welche Versuchspersonen Psychologie studieren
+# Hier wird überprüft, welche Versuchspersonen Psychologie studieren...
 Studienfach <- c("Psychologie", "Medizin", "Informatik", "Sportwissenschaft", "Biologie")
 Studienfach == "Psychologie"
+
+# ...bzw. welche nicht.
+Studienfach != "Psychologie"
 ```
 
 ### Datentyp factor
@@ -260,7 +349,7 @@ Dieser logische Vergleich lässt sich auch mit Daten vom Typ `factor` durchführ
 ```{r}
 Bedingung <- c (0, 1, 1, 0, 1, 0, 0, 1)
 Bedingung <- factor(x = Bedingung, 
-                        levels = c(0,1),
+                        levels = c(0, 1),
                         labels = c("Kontrollgruppe", "Experimentalgruppe"))
 # Hier wird überprüft, welche Versuchspersonen der Experimentalgruppe angehören
 Bedingung == "Experimentalgruppe"
@@ -271,21 +360,21 @@ Bedingung == "Experimentalgruppe"
 Sie werden logische Vergleiche häufig anwenden, um Daten zu rekodieren. Schauen Sie sich dazu die folgenden Beispiele an.
 
 
-Mit Hilfe logischer Vergleiche können Sie überprüfen, ob fehlende Werte nicht mit "NA", sondern mit "-9" kodiert wurden, um diese anschließend zu rekodieren.
+Mit Hilfe logischer Vergleiche können Sie überprüfen, ob fehlende Werte nicht mit `NA`, sondern mit "-9" kodiert wurden, um diese anschließend zu rekodieren.
 
 ```{r}
 Testwerte <- c(80, 57, 93, 85, 72, 65, -9)
 Testwerte == -9
 ```
 
-Sie können das Ergebnis dieses logischen Vergleichs nun nutzen, um alle Werte, die als `-9` kodiert wurden, zu rekodieren. Dazu speichern Sie das Ergebnis des logischen Vergleichs einfach in einer neuen Variable ab.
+Sie können das Ergebnis dieses logischen Vergleichs nun nutzen, um alle Werte, die als "-9" kodiert wurden, zu rekodieren. Dazu speichern Sie das Ergebnis des logischen Vergleichs einfach in einer neuen Variable ab.
 
 
 ```{r}
 fehlende_Werte <- Testwerte == -9
 ```
 
-Im nächsten Schritt benutzen Sie die neue erstellte Variable vom Typ `logical`, um alle Werte des Vektors `Testwerte`, die den Wert "-9" haben, durch "NA" zu ersetzen.
+Im nächsten Schritt benutzen Sie die neue erstellte Variable vom Typ `logical`, um alle Werte des Vektors `Testwerte`, die den Wert "-9" haben, durch `NA` zu ersetzen.
 
 
 ```{r}
@@ -323,7 +412,7 @@ RTs <- rnorm(n = 1000, mean = 500, sd = 100)
 RTs[RTs > 700] <- 700
 ```
 
-Sie können auch mehrere logische Vergleiche kombinieren. In Reaktionszeitexperimenten wollen Sie meist extrem langsame sowie extrem schnelle Durchgänge ausschließen, weil Sie nicht sicher sein können, ob die Versuchspersonen vorschnell reagiert haben (extrem schnelsl) oder mit ihren Gedanken nicht bei der Sache waren (extrem langsam). Dazu können Sie mehrere logische Vergleiche kombinieren.
+Sie können auch mehrere logische Vergleiche kombinieren. In Reaktionszeitexperimenten wollen Sie meist extrem langsame sowie extrem schnelle Durchgänge ausschließen, weil Sie nicht sicher sein können, ob die Versuchspersonen vorschnell reagiert haben (extrem schnell) oder mit ihren Gedanken nicht bei der Sache waren (extrem langsam). Dazu können Sie mehrere logische Vergleiche kombinieren.
 
 ```{r}
 # Als erstes werden 1000 Trials einer Versuchsperson simuliert
