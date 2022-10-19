@@ -8,7 +8,12 @@ struktur-des-skripts
 pakete
 working-directory
 erste-schritte-1
+zahlen
 variablen
+funktionen
+funktionsargumente
+benannte-funktionsargumente
+standardparameter
 vektoren
 datentyp-numeric
 datentyp-character
@@ -27,6 +32,7 @@ hilfe
 wiederholung-werte-vektoren
 coercion-umwandlung-von-typen
 aufruf-per-index-von-daten-aus-mehreren-ebenen
+nullwerte
 der-workspace
 wiederholung-einfache-berechnungen
 übersicht-berechnungsfunktionen
@@ -58,7 +64,7 @@ streuungsmaße
 standardabweichung
 graphiken-mit-ggplot2
 exkurs-warum-viridis
-ggplot2---einführung
+ggplot2-einführung
 vor-der-visualisierung-die-daten
 ästhetische-mapping
 graphischen-funktionen
