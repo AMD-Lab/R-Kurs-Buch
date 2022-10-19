@@ -1,29 +1,29 @@
 # Datenstruktur
 
-+-----------------+-------------------------------------------------------+
-| Thema           | Inhalte                                               |
-+:===============:+:=====================================================:+
-| Werte, Vektoren | *chr, num, logi, c(), list(), mode(), coercion,       |
-|      & Listen   |   Abruf von Elementen, list(list())*                  |
-+-----------------+-------------------------------------------------------+
-| Workspace       | *rm(), Besen*                                         |
-+-----------------+-------------------------------------------------------+
-| Berechnungen    | *Übersicht Berechnungsfunktionen, z-Standardisierung* |
-+-----------------+-------------------------------------------------------+
-| Matrizen        | *matrix(), 2D Indizierung*                            |
-+-----------------+-------------------------------------------------------+
-| tidy Daten      | *Zeilen: Beobachtungen, Spalten: Variablen*           |
-+-----------------+-------------------------------------------------------+
-| tidyverse       | *Installation und library (package)*                  |
-+-----------------+-------------------------------------------------------+
-| data.frame &    | *Unterschiede, as.data.frame(), as_tibble(), \$, [],  |
-| tibble          | Zugriff auf Zeile, Spalte & Zelle, Zeilennamen*       |
-+-----------------+-------------------------------------------------------+
-| Daten laden     | *Import per klick, read./\_, sep=,                    |
-| & speichern     | dec=, .xlsx, .svs, write./\_csv()*                    |
-+-----------------+-------------------------------------------------------+
-| Daten anschauen | *View(), head(), str(), count()*                      |
-+-----------------+-------------------------------------------------------+
++-----------------+---------------------------------------------------------------+
+| Thema           | Inhalte                                                       |
++:===============:+:=============================================================:+
+| Werte, Vektoren | `chr`, `num`, `logi`, `c()`, `list()`, `mode()`, *coercion*,  |
+|      & Listen   |   *Abruf von Elementen,* `list(list())`                       |
++-----------------+---------------------------------------------------------------+
+| Workspace       | `rm()`, *Besen*                                               |
++-----------------+---------------------------------------------------------------+
+| Berechnungen    | *Übersicht Berechnungsfunktionen, *z*-Standardisierung*       |
++-----------------+---------------------------------------------------------------+
+| Matrizen        | `matrix()`, *2D Indizierung*                                  |
++-----------------+---------------------------------------------------------------+
+| tidy Daten      | *Zeilen: Beobachtungen, Spalten: Variablen*                   |
++-----------------+---------------------------------------------------------------+
+| `tidyverse`     | *Installation und* `library(package)`                         |
++-----------------+---------------------------------------------------------------+
+| `data.frame` &  | *Unterschiede,* `as.data.frame()`, `as_tibble()`, `$`, `[]`,  |
+| `tibble`        | *Zugriff auf Zeile, Spalte & Zelle, Zeilennamen*              |
++-----------------+---------------------------------------------------------------+
+| Daten laden     | *Import per klick,* `read./_`, `sep=`,                        |
+| & speichern     | `dec=`, .xlsx, .svs, `write./_csv()`                          |
++-----------------+---------------------------------------------------------------+
+| Daten anschauen | `View()`, `head()`, `str()`, `count()`                        |
++-----------------+---------------------------------------------------------------+
 
 ## RMarkdown
 
@@ -39,7 +39,7 @@ Das R Markdown Skript ist ein besonderes Dateiformat für R Skripte. Es enthält
     Kommentare
 4.  Zu Beginn eines Chunks muss man innerhalb einer geschwungenen Klammer spezifizieren(\`\`\`{...}):
 
--   Es ist möglich Codechunks von anderen Programmiersprachen (z.B. Python oder TeX) einzubetten, standard ist `r`
+-   Es ist möglich Codechunks von anderen Programmiersprachen (z.B. Python oder TeX) einzubetten, Standard ist `r`
 
 -   (optional) Nach einem Leerzeichen: Einzigartiger Chunk-Name
 
@@ -53,80 +53,110 @@ Das R Markdown Skript ist ein besonderes Dateiformat für R Skripte. Es enthält
 
 ## Hilfe
 
-Sie merken, dass die Befehle und Funktionen zum Teil sehr spezifisch sind und Sie sich kaum alles behalten können. Am wichtigsten ist die Reihenfolge und Vollständigkeit der Zeichen: Vergessen Sie ein Komma, ein Backtick oder eine Klammer zu setzen, dann kann R den Code schon nicht interpretieren. Zum Glück erkennt R Studio das oft und weist einen darauf während des Codens mit einem `roten x` neben der Zeilennummer hin. Andernfalls dürfen Sie versuchen, die Fehlermeldung beim Ausführen zu verstehen.
+Sie merken, dass die Befehle und Funktionen zum Teil sehr spezifisch sind und Sie sich kaum alles behalten können. Am wichtigsten ist die Reihenfolge und Vollständigkeit der Zeichen: Vergessen Sie ein Komma, ein Backtick oder eine Klammer zu setzen, dann kann R den Code schon nicht interpretieren. Zum Glück erkennt R Studio das oft und weist einen darauf während des Codens mit einem `roten x` neben der Zeilennummer hin. Andernfalls erscheint eine Fehlermeldung beim Ausführen des Codes.
 
-Wenn Sie den Namen einer Funktion oder eines Packages nicht direkt erinnern, können Sie den Anfang des Namens im `Chunk` oder in der `Console` eingeben, RStudio bietet einem nach einem kurzen Moment eine Liste möglicher Optionen an, aus der Sie wählen können. Haben Sie eine Funktion gewählt, können Sie die `Tab`-Taste drücken und es werden die verschiedenen Funktionsargumente angezeigt, um die Funktion zu spezifizieren, was oft sehr hilfreich ist. Möchten Sie wissen, was eine Funktion macht oder in welcher Reihenfolge die Funktionsargumente eingegeben werden, können Sie `?FUN` in die `Console` eintippen, wobei FUN Platzhalter für den Funktionsnamen ist. Alternativ können Sie im `Help`-tab unten rechts suchen. Die Dokumentation ist oft sehr ausführlich. Die Möglichkeit einschlägige Suchmaschinen im Internet zu verwenden ist fast zu trivial, um sie hier aufzuführen. Oft werden Sie dabei auf `StackOverflow` weitergeleitet. Auf Englisch gestellte Fragen oder Probleme führen zu besseren Treffern. Noch trivialer ist es, im Skript des Kurses oder im eigenen Code nachzuschauen, die Tasten `STRG/CTRL`+`F` habe ich schon 1000 Mal berührt, sie könnten dabei hilfreich sein. Falls Sie bei anderen Autoren nachlesen möchten, gibt es Bücher zu R, die meist sogar kostenlos online zur Verfügung stehen und einem eine Einführung in R geben: Z.B. `R Cookbook` oder `R for Data Science`.
+Wenn Sie den Namen einer Funktion oder eines Packages nicht direkt erinnern, können Sie den Anfang des Namens im `Chunk` oder in der `Console` eingeben, RStudio bietet einem nach einem kurzen Moment eine Liste möglicher Optionen an, aus der Sie wählen können. Haben Sie eine Funktion gewählt, können Sie die `Tab`-Taste drücken und es werden die verschiedenen Funktionsargumente angezeigt, um die Funktion zu spezifizieren, was oft sehr hilfreich ist. Möchten Sie wissen, was eine Funktion macht oder in welcher Reihenfolge die Funktionsargumente eingegeben werden, können Sie `?FUN` in die `Console` eintippen, wobei FUN Platzhalter für den Funktionsnamen ist. Alternativ können Sie im `Help`-tab unten rechts suchen. Die Dokumentation ist oft sehr ausführlich.
+
+Die Möglichkeit einschlägige Suchmaschinen im Internet zu verwenden ist fast zu trivial, um sie hier aufzuführen. Oft werden Sie dabei auf `StackOverflow` weitergeleitet. Auf Englisch gestellte Fragen oder Probleme führen zu besseren Treffern. Noch trivialer ist es, im Skript des Kurses oder im eigenen Code nachzuschauen, die Tasten <kbd>STRG</kbd> + <kbd>F</kbd> habe ich schon 1000 Mal gedrückt, sie könnten dabei hilfreich sein. Falls Sie bei anderen Autoren nachlesen möchten, gibt es Bücher zu R, die meist sogar kostenlos online zur Verfügung stehen und einem eine Einführung in R geben: Z.B. `R Cookbook` oder `R for Data Science`.
 
 ## Wiederholung: Werte & Vektoren
 
-Datenformate in R sind von einfach zu komplex: `Value`, Vektor, `matrix`, (`array`), `data.frame`,`tibble` und `list`. Die kleinste Objekteinheit in R ist ein `Value`. Die unterschiedlichen Datentypen von `Values` sind bereits bekannt:
+Datenformate in R sind von einfach zu komplex: `Value`, Vektor, `matrix`, (`array`), `data.frame`, `tibble` und `list`. Die kleinste Objekteinheit in R ist ein `Value`. Die unterschiedlichen Datentypen von `Values` sind bereits bekannt:
 
 1.  Text, bzw. Charakter (`chr`), auch String genannt,
-2.  Nummer (`num`), auch `double`
+2.  numerische Werte (`num`), auch `double`
 3.  logische Werte (`logi`)
 4.  fehlende Werte (`NA`), `Not Available`
 
-Sie weisen einem Objektnamen einen Wert per `<-` zu (Shortkey:`ALT`&`-`), der Datentyp des `Values` wird automatisch Rkannt.
+Sie weisen einem Objektnamen einen Wert per `<-` zu (Shortkey: <kbd>ALT</kbd> + <kbd>-</kbd>), der Datentyp des `Values` wird automatisch erkannt.
+
 ```{r, echo=TRUE, results='hide'}
 var1 <- "kreativ" # Typ chr
 var2 <- 3.5       # Typ num
-var3 <- TRUE      # Typ logi     
+var3 <- TRUE      # Typ logi
 ```
+
 Mit der Funktion `mode()` können Sie sich den Datentypen anzeigen lassen.
 Vektoren reihen Werte desselben Datentyps auf `c(Wert1, Wert2, ...)`:
+
 ```{r, echo=TRUE}
 # c() kombiniert die Werte zu einem Vektor, der dem Variablennamen vec1 zugewiesen wird:
 
-vec1 <- c(3, 6, 3.4)   
+vec1 <- c(3, 6, 3.4)
+
 ```
-Versuchen Sie aus verschiedenen Typen einen Vektor zu bilden, werden sie zu dem komplexeren Typen von beiden umgewandelt. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1-4) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`:
+Versuchen Sie aus verschiedenen Typen einen Vektor zu bilden, werden sie zu dem komplexeren Typen von beiden umgewandelt. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1--4) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`:
+
 ```{r, echo=TRUE}
 # Versuche `chr` und `num` zu einem Vektor zu kombinieren:
 
-c("kreativ",3.5)  
+c("kreativ", 3.5)  
 ```
+
 3.5 wird in `""` ausgegeben, die Nummer wurde zu Text.
 
 ### Coercion (Umwandlung von Typen)
 
 Sie können den Datentypen auch per Funktion ändern, z.B. `as.character()`, `as.double()`:
+
 ```{r, error=TRUE}
 # Verändere die Werte unterschiedlicher Typen zum Typ chr:
 
-as.character(c(1, TRUE, "abc", 4.1627))  
+as.character(c(1, TRUE, "abc", 4.1627))
 ```
 ```{r, error=TRUE}
 # Coerce zum Typ num. Ist dies nicht möglich, erscheinen NAs:
 
-as.double(c(2, TRUE, "abc", 4.1627))      
+as.double(c(2, TRUE, "abc", 4.1627))
 ```
+
 `Coercion` gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten `list(Element1, Element2, ...)`. Das geht soweit, dass Listen selbst Listen enthalten können.
 
 ### Aufruf per Index von Daten aus mehreren Ebenen
 
-Ihnen ist bekannt, dass Sie zum Aufruf einzelner Elemente deren Indexnummer verwenden können:
-```{r, echo=TRUE}
-vec_4 <- c(1,3,3,7) # Definition eines Vektors
+Ihnen ist bekannt, dass Sie zum Zugriff auf einzelne Elemente deren Indexnummer verwenden können:
+
+```{r, echo = TRUE}
+vec_4 <- c(1, 3, 3, 7) # Definition eines Vektors
 
 vec_4[2]            # Abruf des 2. Elements von vec_4   
 ```
+
 Das geht auch in verschachtelten Listen:
+
 ```{r, echo=TRUE}
 # Definiere eine Liste, die eine Liste und einen Vektor enthält:
 # (Anm.: hier habe ich keine Namen für die Elemente vergeben)
 
-mylist <- list(list(1,"a"),  
-               vec_4)        
+mylist <- list(list(1, "a"),
+               vec_4)
 
-# Rufe Element 1 der äußeren Liste: (1,"a"), und davon dann Element 2 ab:
+# Rufe Element 1 der äußeren Liste: (1, "a"), und davon dann Element 2 ab:
 
-mylist[[1]][2]                        
+mylist[[1]][2]
 ```
+
 Ich habe jetzt mehrere Variablen (Values, Vektoren, Listen) definiert, sie sind in meinem RStudio im `Environment`-tab oben rechts aufgetaucht.
+
+### Nullwerte
+
+In (fast) jedem Experiment und jeder Erhebung kommt es mal vor, das Daten fehlen. Es kann sein, dass Versuchspersonen einen Fragebogen nicht ausgefüllt haben oder man die Schrift einfach nicht lesen konnte. Solche Werte müssen ebenfalls kodiert werden, aber entsprechend als *fehlend*. Wir haben bereits gesehen, dass wir solche fehlenden Werte in R mit dem Wert `NA` ("not availible") kodieren können. R hat allerdings noch zwei weitere Arten von ***Nullwerten***.
+
+Neben `NA` gibt es auch noch `NULL`. Dieser Wert wird verwendet, wenn wir eine Variable definieren möchten, ihr aber noch keinen Wert zuweisen wollen. In diesem Fall können wir der Variable eine Art *Platzhalter* als Wert zuweisen, der gar keinen Wert hat, also quasi *leer* ist. Dieser "leere Wert" ist `NULL`.
+
+Gleichzeitig können wir `NULL` verwenden, wenn wir ein Objekt aus einer `list` oder eine Spalte aus einem `data.frame` entfernen wollen -- wir weisen dem Element einfach den Wert `NULL` zu:
+
+```{r}
+Experiment_Reaktionszeit = data.frame("x" = 1:10, "y" = 11:20)
+Experiment_Reaktionszeit$x = NULL
+Experiment_Reaktionszeit
+```
+
+Der letzte Nullwert, den R kennt, ist `NaN` ("Not a Number"). `NaN` taucht immer dann auf, wenn wir Zahlen nicht darstellen können oder das Ergebnis einer Berechnung nicht definiert ist, beispielsweise wenn wir versuchen, durch Null zu teilen oder den Logarithmus einer negativen Zahl berechnen. `NaN` ist technisch gesehen ein numerischer Wert -- wir können ihn daher auch zusammen mit anderen numerischen Werten, beispielsweise in einem numerischen Vektor, verwenden.
 
 ## Der Workspace
 
-Rechts oben im Fenster ist das `Environment`-tab. Hier sieht man alle im `globale Workspace` definierten Objekte (Datenstrukturen: Werte, Vektoren, Matrizen, Arrays, Listen, `data.frames`, `tibbles`; und Funktionen) aufgelistet:
+Rechts oben im Fenster ist das `Environment`-tab. Hier sieht man alle im `global Workspace` definierten Objekte (Datenstrukturen: Werte, Vektoren, Matrizen, Arrays, Listen, `data.frames`, `tibbles`; und Funktionen) aufgelistet:
 
 ![](_static/Workspace.png){width="60%"}
 
@@ -135,22 +165,23 @@ Bei Werten, Vektoren und Matrizen steht sogar der Datentyp des Objektes mit dabe
 ## Wiederholung: Einfache Berechnungen
 
 ```{r, echo=TRUE, results='hide'}
-x <- 5   # definiert den Wert der Variable x
-y <- 5   # definiert den Wert der Variable y
-x+y      # Summe von x und y
-x*y      # Produkt von x und y 
-sqrt(x)  # Wurzel aus x
-x**(1/2) # x hoch 0.5
+x <- 5     # definiert den Wert der Variable x
+y <- 5     # definiert den Wert der Variable y
+x + y      # Summe von x und y
+x * y      # Produkt von x und y
+sqrt(x)    # Wurzel aus x
+x**(1/2)   # x hoch 0.5
 
 # Weise der Variable z das Ergebnis der Gleichung x+y zu. "z" erscheint im Workspace:
 
-z <- x+y 
+z <- x + y
 
 # Multipliziere die Elemente von vec_4 mit 5 und speichere als Variable e:
 
-e <- vec_4*5   
+e <- vec_4 * 5
 ```
-In R gibt es einige vorprogrammierte Funktionen um mit Vektoren zu rechnen:
+
+In R gibt es einige integrierte Funktionen um mit Vektoren zu rechnen:
 
 ### Übersicht Berechnungsfunktionen
 
@@ -159,101 +190,109 @@ Folgende Funktionen können Sie auf `num`-Vektoren und Matrizen anwenden, je nac
 +------------------+----------------+------------------+------------------+
 | Funktion         | Bedeutung      |  Funktion        |  Bedeutung       |
 +:================:+:==============:+:================:+:================:+
-| **min(x)**       | Minimum        |  **mean(x)**     |  Mittelwert      |
+| **`min(x)`**     | Minimum        |  **`mean(x)`**   |  Mittelwert      |
 +------------------+----------------+------------------+------------------+
-| **max(x)**       | Maximum        |  **median(x)**   |  Median          |
+| **`max(x)`**     | Maximum        |  **`median(x)`** |  Median          |
 +------------------+----------------+------------------+------------------+
-| **range(x)**     | Range          |  **var(x)**      |  Varianz         |
+| **`range(x)`**   | Range          |  **`var(x)`**    |  Varianz         |
 +------------------+----------------+------------------+------------------+
-| **sort(x)**      | sortiert x     | **sd(x)**        |Standardabweichung|
+| **`sort(x)`**    | sortiert `x`   | **`sd(x)`**      |Standardabweichung|
 +------------------+----------------+------------------+------------------+
-| **sum(x)**       | Summe aller    | **quantile(x)**  |  Quantile von x  |
+| **`sum(x)`**     | Summe aller    | **`quantile(x)`**|  Quantile von `x`|
 |                  | Elemente       |                  |                  |
 +------------------+----------------+------------------+------------------+
-| **cor(x,y)**     | Korrelation    | **length()**     |  Länge von x     |
-|                  | von x und y    |                  |                  |
+| **`cor(x, y)`**  | Korrelation    | **`length()`**   |  Länge von `x`   |
+|                  | von `x` und `y`|                  |                  |
 +------------------+----------------+------------------+------------------+
 
-#### Beispiel einer z-Standardisierung eines Vektors mit 3 Einträgen
+#### Beispiel einer *z*-Standardisierung eines Vektors mit 3 Einträgen
 
 ```{r, echo=TRUE}
 # Def. der Variable geschwister:
-
-geschwister <- c(8,4,12)    
+geschwister <- c(8, 4, 12)
 
 # MW:
-
-mw_geschwister <- mean(geschwister) 
+mw_geschwister <- mean(geschwister)
 
 mw_geschwister
 
 # SD :
-
-sd_geschwister <- sd(geschwister)                
+sd_geschwister <- sd(geschwister)
 
 sd_geschwister
 
 # z-Standardisierung des Vektors:
-
-z_geschwister <- (geschwister-mw_geschwister)/sd_geschwister  
+z_geschwister <- (geschwister-mw_geschwister) / sd_geschwister
 
 z_geschwister
 ```
+
 ## Matrizen
 
 Matrizen sind 2D Datenstrukturen, sie bestehen aus Vektoren [gleicher]{.ul} Länge und enthalten [einen]{.ul} Datentyp. Mit dem
 Befehl `matrix()` können sie erstellt werden:
-```{r}
-# Erstelle die Matrix bsp_mat mit 4 Zeilen, 4 Spalten und leeren Einträgen: 
 
-bsp_mat <- matrix(NaN, nrow=4, ncol=4) # NaN (Not a Number) ist vom Typ `num`
+```{r}
+# Erstellt die Matrix bsp_mat mit 4 Zeilen, 4 Spalten und leeren Einträgen: 
+
+bsp_mat <- matrix(NaN, nrow = 4, ncol = 4) # NaN (Not a Number) ist vom Typ `num`
 bsp_mat
 ```
-Ich habe eine 4x4 Matrix erstellt, die mit NaNs gefüllt ist. Hätte ich diverse Datentypen zugeordnet, wären diese zum komplexeren `coerced` worden. Matrizen können mit `matrixname[Zeilennummer,Spaltenummer]` manipuliert werden. Praktischerweise stehen die entspechenden Indizes neben der oben angezeigten Matrix. Beispiele zum Auswählen und Zuweisen neuer Werte:
+
+Ich habe eine 4&times;4 Matrix erstellt, die mit NaNs gefüllt ist. Hätte ich diverse Datentypen zugeordnet, wären diese zum komplexeren `coerced` worden. Auf Werte in Matrizen kann mit `matrixname[Zeilennummer, Spaltenummer]` zugegriffen werden. Praktischerweise stehen die entspechenden Indizes neben der oben angezeigten Matrix. Beispiele zum Auswählen und Zuweisen neuer Werte:
+
 ```{r}
 # Weil Spalte 1 von bsp_mat und vec_4 dieselbe Länge haben,
 # kann ich der Spalte 1 die Einträge von vec_4 zuweisen.
 # Dadurch, dass der Eintrag für die Zeilennummer leer ist, 
 # beziehe ich mich auf alle Zeilen:
 
-bsp_mat[,1] <- vec_4 
-bsp_mat             
+bsp_mat[,1] <- vec_4
+bsp_mat
 ```
 ```{r}
 # Recycling: Wird einem Bereich ein einzelner Wert zugeordnet,
 # wird dieser vervielfacht (wie oben bei NaN):
 
-bsp_mat[,2] <- 8  
+bsp_mat[,2] <- 8
 bsp_mat
 ```
 ```{r}
 # Definiere `logi` Einträge in `num` Matrix:
 
-bsp_mat[,3] <- c(FALSE, TRUE, FALSE, TRUE)  
-bsp_mat                                
+bsp_mat[,3] <- c(FALSE, TRUE, FALSE, TRUE)
+bsp_mat
 ```
-Coercion: TRUE wurde zu 1 und FALSE wurde zu 0. Wenn man nun eine bestimmte Zeile oder Spalte betrachten möchte, kann man dies auch über die Indizierung tun, hierbei kann man sich beliebig austoben. Die Regeln dafür sind dieselben wie bei Vektoren, nur in 2D, wobei stets `[Zeile, Spalte]` gilt.
+
+Coercion: `TRUE` wurde zu 1 und `FALSE` wurde zu 0. Wenn man nun eine bestimmte Zeile oder Spalte betrachten möchte, kann man dies auch über die Indizierung tun, hierbei kann man sich beliebig austoben. Die Regeln dafür sind dieselben wie bei Vektoren, nur in 2D, wobei stets `[Zeile, Spalte]` gilt.
+
 ```{r}
 bsp_mat[,1]   # Wählt alle Zeilen von Spalte 1
 
-bsp_mat[4,1]  # Wählt Zeile 4 von Spalte 1    
+bsp_mat[4,1]  # Wählt Zeile 4 von Spalte 1
 ```
+
 Hier wird es turbulent:
+
 ```{r}
 bsp_mat[c(1,3),] # Wählt Zeilen 1 & 3 von allen Spalten
 
 bsp_mat[-1,2:4]  # Wählt alle Zeilen außer 1, und Spalten 2-4
 ```
+
 Da ich jetzt Bereiche der Matrix auswählen kann, kann ich vielleicht Berechnungen vornehmen:
+
 ```{r} 
 mode(bsp_mat)  # Ist bsp_mat numerisch?
 bsp_mat
 
 # Spalte 2 minus Spalte 1 und dann mal Spalte 3:
 
-(bsp_mat[,2]-bsp_mat[,1])*bsp_mat[,3]  
+(bsp_mat[,2] - bsp_mat[,1]) * bsp_mat[,3]
 ```
-Es sind immer noch nicht angegebene Nummernwerte in der Matrix. Da ich mich beim Berechnen auf Bereiche der Matrix beschränke, die vergebene numerische Werte haben (Spalten 1 bis 3 ohne NaN Einträge), habe ich ein sinnvolles Ergebnis bekommen. Was passiert, wenn ich mit NaN Einträgen rechnen möchte?
+
+Es sind immer noch nicht angegebene Nummernwerte in der Matrix. Da ich mich beim Berechnen auf Bereiche der Matrix beschränke, die vergebene numerische Werte haben (Spalten 1 bis 3 ohne `NaN` Einträge), habe ich ein sinnvolles Ergebnis bekommen. Was passiert, wenn ich mit `NaN` Einträgen rechnen möchte?
+
 ```{r}
 bsp_mat[1,]      # wählt Zeile 1
 
@@ -261,29 +300,34 @@ bsp_mat[1,]      # wählt Zeile 1
 
 sum(bsp_mat[1,]) 
 ```
-Die Summe der Zeile führt zu keinem interpretierbaren Ergebniss. Zum Auslassen der NaNs wird das Funktionsargument `na.rm=TRUE` verwendet (rm steht für remove):
+
+Die Summe der Zeile führt zu keinem interpretierbaren Ergebniss. Zum Auslassen der NaNs wird das Funktionsargument `na.rm = TRUE` verwendet (rm steht für *remove*):
+
 ```{r}
 # Bilde die Summe über Zeile 1 ohne NaN:
 
-sum(bsp_mat[1,], na.rm=TRUE) 
+sum(bsp_mat[1,], na.rm = TRUE)
 
 # Bilde den MW der Matrix ohne NaN:
 
-mean(bsp_mat, na.rm=TRUE)    
+mean(bsp_mat, na.rm = TRUE)
 ```
+
 Nun, da wir mit dem Rechnen in Matrizen vertraut sind, möchte ich die letzte Spalte mit Einträgen füllen:
+
 ```{r}
 # Speichere bsp_mat unter sav_mat zur späteren Verwendung:
 
-sav_mat <- bsp_mat    
+sav_mat <- bsp_mat
 
 # Weise Spalte 4 einen `chr`-Vektor zu:
 
-bsp_mat[,4] <- c("coercion","kann","nervig","sein")  
+bsp_mat[,4] <- c("coercion", "kann", "nervig", "sein")
 bsp_mat
 
 mode(bsp_mat) # Bestimmt Typ der Matrix
 ```
+
 Konnte ich eben noch den Mittelwert einer Spalte bilden, so geht das jetzt nicht mehr, da alle Einträge der Matrix zu `chr` coerced wurden. In einem typischen Datensatz sind aber Variablen verschiedener Typen (`num` und `chr`) enthalten. Dieses Problem ließe sich mit Listen lösen, welche aber unübersichtlich sind. Datensätze bestehen manchmal aus unüberschaubar vielen Einträgen und deshalb sollten sie wenigstens übersichtlich strukturiert sein.
 
 ## tidy Daten
@@ -301,94 +345,108 @@ Es gibt eine Konvention dafür, wie man Datensätze, die mehreren Beobachtungsei
 
 ![Illustration by Allison Horst](_static/tidydata_2.png){width="100%"}
 
-Es gibt noch weitere Regeln für konsistentes und ordentliches Arbeiten in R und mit Datensätzen im Allgemeinen, z.B. dass man keine Farbcodierungen verwenden sollte. Vorerst genügt es, wenn Sie sich an die Basics hier halten. Diese Art Daten zu strukturieren lässt sich im `data.frame` und noch besser im `tibble` umsetzen: Beides sind Tabellen mit Spaltenvektoren, die jeweils verschiedene Datentypen enthalten können. Deswegen stellen beide das bevorzugte und für unsere Zwecke wichtigste Datenformat dar. 
+Es gibt noch weitere Koventionen und Empfehlungen für konsistentes und ordentliches Arbeiten in R und mit Datensätzen im Allgemeinen, z.B. dass man keine Farbcodierungen verwenden sollte. Vorerst genügt es, wenn Sie sich an die Basics hier halten. Diese Art Daten zu strukturieren lässt sich im `data.frame` und noch besser im `tibble` umsetzen: Beides sind Tabellen mit Spaltenvektoren, die jeweils verschiedene Datentypen enthalten können. Deswegen stellen beide das bevorzugte und für unsere Zwecke wichtigste Datenformat dar. 
 
 ### tidyverse
 
 Bevor wir uns dem übersichtlichsten Datenformat, den `tibble`s widmen, müssen wir das entsprechende Package einmalig in der `Console` installieren. Ich habe den Code auskommentiert, weil das Package bei mir bereits installiert ist:
+
 ```{r}
 # R kennt den Namen von zu installierenden Packages noch nicht, deswegen in "":
 
-#install.packages("tidyverse")  
+#install.packages("tidyverse")
 ```
+
 Das Package `tidyverse` enthält mehrere nützliche Packages, die eine saubere Datenverarbeitung zum Ziel haben. Packages müssen bei jeder Sitzung neu aktiviert bzw. angehängt werden. Für Sie relevante Packages im tidyverse sind `tibble`, `readr`, `stringr`, `dplyr`, `purr` und `ggplot2`.
+
 ```{r, echo=T, message=F}
 # Bitte gewöhnen Sie sich an, Packages am Anfang eines Skriptes zu laden, 
 # da Sie dies nach jedem Neustart einer R Session wiederholen müssen:
 
-library(tidyverse)   
+library(tidyverse)
 ```
 
 ## data.frames (df) und tibbles (tib)
 
 Es gibt mehr Gemeinsamkeiten als Unterschiede zwischen beiden Datenformaten. Beides sind Tabellen mit Spaltenvektoren (Variablen), die je verschiedene Datentypen enthalten können. Hier zunächst die Übersicht über die Funktionen zum Managen des Datensatzes:
 
-|       Funktion zum        |         `data.frame()`          |    `tibble()`        |
-|:-------------------------:|:-------------------------------:|:--------------------:|
-| Datenformat konvertieren  |        `as.data.frame()`        |      `as_tibble()`   |
-|        Definieren         |      data.frame(var1,...)       |    tibble(var1,...)  |
-| Aufrufen des Datensatzes  |               df                |           tib        |
-| Auswählen einer Variable  |             df\$var             |        tib\$var      |
-| Auswählen eines Bereiches |           df[rowIdx,colIdx]     | tib[rowIdx,colIdx]   |
-| Definieren neuer Variablen|      df\$var_neu <- c(...)      |tib\$var_neu <- c(...)|
-| Ergänzen von Zeilen       |           rbind(df,Zeilen)      |  rbind(tib,Zeilen)   |
-| Ergänzen von Spalten      |           cbind(df,Spalten)     |  cbind(tib,Spalten)  |
-| Zeilennamen vergeben      | row.names(df) \<-c("name1",...) |relocate(tib,namevec) |
+|       Funktion zum        |            `data.frame()`           |          `tibble()`        |
+|:-------------------------:|:-----------------------------------:|:--------------------------:|
+| Datenformat konvertieren  |          `as.data.frame()`          |        `as_tibble()`       |
+|        Definieren         |      `data.frame(var1, ...)`        |      `tibble(var1, ...)`   |
+| Aufrufen des Datensatzes  |                `df`                 |             `tib`          |
+| Auswählen einer Variable  |              `df$var`               |          `tib$var`         |
+| Auswählen eines Bereiches |          `df[rowIdx, colIdx]`       |   `tib[rowIdx, colIdx]`    |
+| Definieren neuer Variablen|        `df$var_neu <- c(...)`       |  `tib$var_neu <- c(...)`   |
+| Ergänzen von Zeilen       |          `rbind(df, Zeilen)`        |    `rbind(tib, Zeilen)`    |
+| Ergänzen von Spalten      |         `cbind(df, Spalten)`        |    `cbind(tib, Spalten)`   |
+| Zeilennamen vergeben      |  `row.names(df) <- c("name1", ...)` |  `relocate(tib, namevec)`  |
 
 Sie können die beiden Datensatz-Formate einfach in das jeweils andere konvertieren. Datensätze lassen sich auch per Formel definieren: `data.frame()` oder `tibble()`, wobei hier die Spaltenvektoren aneinandergereiht werden. Es bietet sich an, dabei direkt Namen für die Spaltenvektoren zu vergeben:
+
 ```{r}
 # Erzeuge einen data.frame durch Verwendung der Spaltenvektoren aus vorherigen Matrizen,
 # denen Namen zugewiesen werden (Denken Sie beim Definieren der Spaltenvektoren daran
 # diese mit einem Komma voneinander zu trennen):
 
-test_df <- data.frame("text"=bsp_mat[,4] ,     
-                      "ist_Verb"=sav_mat[,3])  
+test_df <- data.frame("text" = bsp_mat[,4],
+                      "ist_Verb" = sav_mat[,3])
 test_df
 ```
+
 In Bezug auf weitere Funktionen des Packages `tidyverse` sind tibbles ein wenig praktischer. Große tibbles werden beim Aufrufen etwas übersichtlicher angezeigt (nur die ersten 10 Zeilen).
+
 ```{r}
 # Konvertiere data.frame zu tibble:
 
-test_tib <- as_tibble(test_df)   
+test_tib <- as_tibble(test_df)
 test_tib
 ```
-Einzelne Spalten können ganz einfach aufgerufen werden, in dem man den \$-Operator benutzt. Schreibt man diesen direkt hinter den Namen des Datensatzes, klappt automatisch eine Liste mit allen Spalten auf:
+
+Einzelne Spalten können ganz einfach aufgerufen werden, in dem man den `$`-Operator benutzt. Schreibt man diesen direkt hinter den Namen des Datensatzes, klappt automatisch eine Liste mit allen Spalten auf:
+
 ```{r}
 # Rufe Spalte text aus Datensatz test_tib auf:
 
-test_tib$text    
+test_tib$text
 ```
+
 Es ist auch möglich, mehrere Zeilen und/oder Spalten auszugeben. Dies funktioniert wie bei Matrizen per Indexnummer:
+
 ```{r}
 # Gibe Zeilen 2 bis 4 aus Spalte 1 aus:
 
-test_tib[2:4,1]     
+test_tib[2:4,1]
 ```
+
 Die Adressierung einzelner Spalten und Zeilen ermöglicht dann zum Beispiel die Berechnung von Kennwerten nur für einzelne Spalten. Z.B. kann man die Kosten für Konzertkarten im Jahr 2022 aufsummieren lassen:
+
 ```{r}
 # Definiere ein tibble mit 2 Variablen:
 
-tickets_2022 <- tibble("Artist"=c("Ed Sheeran", "Billy Ellish", "The Weeknd", "Dua Lipa",
+tickets_2022 <- tibble("Artist" = c("Ed Sheeran", "Billy Ellish", "The Weeknd", "Dua Lipa",
                                   "Imagine Dragons"),
-                       "Kosten"=c(79.32, 282, 116, 136, 68.71 ))
+                       "Kosten" = c(79.32, 282, 116, 136, 68.71))
 
 # Berechne die Summe einer dieser beiden Variablen:
 
 sum(tickets_2022$Kosten)
 ```
-Der \$-Operator wird für fast alle höheren Datentypen verwendet, um auf diese zuzugreifen. Dies gilt zum Beispiel auch für die meisten Outputs von Funktionen (t-Test, Anova, SEMs) und Listen, es müssen aber wie im tibble, Namen für die Listeneinträge vergeben worden sein:
+
+Der `$`-Operator wird für fast alle höheren Datentypen verwendet, um auf diese zuzugreifen. Dies gilt zum Beispiel auch für die meisten Outputs von Funktionen (*t*-Test, Anova, SEMs) und Listen, es müssen aber wie im tibble, Namen für die Listeneinträge vergeben worden sein:
+
 ```{r}
 # Erstelle eine Liste mit diversen Objekten aus meinem Workspace und vergebe Namen 
 # (über welche Sie später auch auf die Listeneinträge zugreifen können):
 
-list_of_thingis <- list(tibbi = test_tib,         
-                       ticki = tickets_2022,      
-                       geschwi = geschwister,     
-                       vari = var1)
+list_of_thingis <- list(tibbi = test_tib,
+                        ticki = tickets_2022,
+                        geschwi = geschwister,
+                        vari = var1)
 
 # Per $-Operator und Name in der Liste wird ein Eintrag gewählt:
 
-list_of_thingis$geschwi  
+list_of_thingis$geschwi
 
 # Wurde kein Name für den Listeneintrag vergeben, führt der Aufruf per Name ins Leere:
 
@@ -397,41 +455,49 @@ mylist$vec_4
 ```{r}
  # Mit mehreren $ können Sie tiefere Ebenen erreichen:
 
-list_of_thingis$ticki$Artist    
+list_of_thingis$ticki$Artist
 ```
-Mir fällt auf, dass ich den Namen einer Künstlerin in tickets_2022 falsch geschrieben habe, das möchte ich ändern:
+
+Mir fällt auf, dass ich den Namen einer Künstlerin in `tickets_2022` falsch geschrieben habe, das möchte ich ändern:
+
 ```{r}
 # $-Operator und Indexing per Nummer lassen sich auch kombinieren:
 
-tickets_2022$Artist[2] <- "Billy Eilish"  
+tickets_2022$Artist[2] <- "Billy Eilish"
 ```
+
 Sie können also nicht nur Elemente aus Datensätzen abrufen, sondern diese mit dem `<-` neu zuweisen. Sie können das \$ auch verwenden um ganz neue Spalten in die Datensätze einzufügen:
+
 ```{r}
 # Definiere eine neue Spalte im Datensatz:
 
-tickets_2022$Priorität <- c(2, 4, 3, 5, 1) 
+tickets_2022$Priorität <- c(2, 4, 3, 5, 1)
 
-# Besser ae statt ä im Variablennamen: 
+# Besser ae statt ä im Variablennamen:
 
 tickets_2022$Prioritaet <- tickets_2022$Priorität
 
-tickets_2022                                                               
+tickets_2022
 ```
+
 Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen vorsichtig hiermit(!): 
+
 ```{r}
 tickets_2022$Priorität <- NULL # Entfernt die Spalte 
 ```
-Mit den Funktionen `rbind()` und `cbind()` lassen sich die data.frames und tibbles um gleichbreite bzw. gleichlange Vektoren oder Datensätze ergänzen. Verbinden Sie ein tibble und einen data.frame miteinander, werden diese zum Format tibble coerced. Zunächst füge ich zwei weitere Zeilen hinzu, dann zwei weitere Spalten:
+
+Mit den Funktionen `rbind()` und `cbind()` lassen sich die data.frames und tibbles um gleichbreite bzw. gleichlange Vektoren oder Datensätze ergänzen. Verbinden Sie ein tibble und einen `data.frame` miteinander, werden diese zum Format `tibble` coerced. Zunächst füge ich zwei weitere Zeilen hinzu, dann zwei weitere Spalten:
+
 ```{r}
 # Zwei weitere Konzerte in neunem data.frame:
 
-extra_Konzerte <- data.frame("Artist"=c("Elton John","Colplay","RHCP"),
-                             "Kosten"=c(139.00,259.00, 200),
-                             Prioritaet=c(2.7,2.3,1.7))
+extra_Konzerte <- data.frame("Artist" = c("Elton John", "Coldplay", "RHCP"),
+                             "Kosten" = c(139.00, 259.00, 200),
+                             "Prioritaet" = c(2.7, 2.3, 1.7))
 
 # Zeilenweises Aneinanderbinden:
 
-tickets_2022 <- rbind(tickets_2022,extra_Konzerte)
+tickets_2022 <- rbind(tickets_2022, extra_Konzerte)
 
 # Zwischenergebnis:
 
@@ -439,32 +505,35 @@ tickets_2022
 
 # Ort und Begleitung in neuem tibble:
 
-ort_begleitung <- tibble("Ort"=c("Frankfurt","London","Muenchen","Berlin","Gdynia","Frankfurt","Frankfurt","Koeln"),
-                         "Begleitung"=c("Juergen","Samu","Anni","Jan und Laura","Oma","Papa","Schwester","die Girls"))
+ort_begleitung <- tibble("Ort" = c("Frankfurt", "London", "Muenchen", "Berlin", "Gdynia", "Frankfurt", "Frankfurt", "Koeln"),
+                         "Begleitung" = c("Juergen", "Samu", "Anni", "Jan und Laura", "Oma", "Papa", "Schwester", "die Girls"))
 
 # Spaltenweises Aneinanderbinden:
 
-tickets_2022 <- cbind(tickets_2022,ort_begleitung)
+tickets_2022 <- cbind(tickets_2022, ort_begleitung)
 
 # Endergebnis:
 
 tickets_2022
 
 ```
-Ein Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Zeilennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Zeilennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. namevec) behelfen, die Sie mit `relocate(tib,namevec)` an den Anfang des Datensatzes stellen können.
+
+Ein Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Zeilennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Zeilennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. `namevec`) behelfen, die Sie mit `relocate(tib, namevec)` an den Anfang des Datensatzes stellen können.
+
 ```{r}
 # Definiere ein einfaches tibble mit Zeilennamen in einer Spalte:
 
-newtib <- tibble("sp1"=c(1,2,3),"namevec"=c("Zeile1","Zeile2","Zeile3"))
+newtib <- tibble("sp1" = c(1, 2, 3), "namevec" = c("Zeile1", "Zeile2", "Zeile3"))
 
 newtib
 
 # Sortiere den Namenvector in Spalte 1:
 
-newtib <- relocate(newtib,namevec)
+newtib <- relocate(newtib, namevec)
 
 newtib
 ```
+
 Mit dem Hinzufügen und Abändern und Vertauschen von Spaltenvektoren haben wir schon ein bisschen an der Oberfläche der Möglichkeiten zur Datenaufbereitung gekratzt, die in der nächsten Sitzung ausführlich behandelt werden. Jetzt, wo Sie mit dem Management von Datensätzen vertraut sind, wollen wir vorhandene Datensätze einlesen:  
 
 ## Einlesen und Speichern von Daten
@@ -473,12 +542,13 @@ Daten können in R Studio auf unterschiedliche Weise eingelesen werden.
 
 ![](_static/penguin.png){width="60%"}
 
-Es gibt Packages mit frei verfügbaren Datensätzen, z.B. einen Datensatz zu Pinguinen: palmerpenguins.
+Es gibt Packages mit frei verfügbaren Datensätzen, z.B. einen Datensatz zu Pinguinen: `palmerpenguins`.
 
 Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0.
 <https://allisonhorst.github.io/palmerpenguins/>
 
 Nach einmaliger Installation des Packages (`install.packages("palmerpenguins"`) muss es geladen werden:
+
 ```{r}
 # Jedes Mal beim Durchlaufen des Skripts soll das Package angehängt werden 
 # (ohne "", weil R das Package bereits installiert hat und kennt):
@@ -488,55 +558,68 @@ library(palmerpenguins)
 # penguins ist zwar schon ein tibble, aber im Workspace rechts ist es nicht zu sehen,
 # daher weise ich es dem Namen pingus zu:
 
-pingus <- penguins      
+pingus <- penguins
 ```
-In der Regel werden Sie aber einen selbst erhobenen oder einen aus dem Internet heruntergeladenen Datensatz einlesen wollen. Mein Tipp ist, den Datensatz in das Working Directory zu speichern, dann finden Sie ihn schneller und er ist in der Nähe Ihrer Auswertung, noch eleganter ist es einen Unterordner namens data in den Ordner des Working Directories anzulegen, in den Sie alle Datensätze zu ihrem Projekt speichern können. Im `File`-tab unten rechts navigieren Sie zu der Datei mit dem Datensatz und dann klicken Sie diese zum Importieren des Datensatzes an (alternativ können Sie im `Environment`-tab über den Button `Import Dataset` einen Datensatz zum Importieren auf ihrem Computer suchen). In RStudio erscheint ein Fenster zum Importieren, unten rechts wird der automatisch der dem Dateiformat und unten links angegebenen Optionen entspricht, ggf. werden sogar benötigte Packages geladen. Um einen Datensatz per Code zu importieren sind Dateiformat, die Trennzeichen (`sep`) und die Dezimalzeichen (`dec`) besonders relevant. Das Standard-Dateiformat ist `.csv`, hier sind Kommata Trennzeichen (`sep=","`) und Punkte kennzeichnen Dezimalstellen (`dec="."`). Sie können die Funktionen `read_cvs()` oder `read_delim()` für dieses Dateiformat verwenden, letztere sollte Trenn- und Dezimalzeichen automatisch erkennen. Hier ist eine Übersicht zu den Einlesefunktionen in base R (also ohne zusätzlich geladene Packages) und im tidiverse Package, der Unterschied ist, dass base R Funktionen die Daten in einen data.frame laden, tidyverse Funktionen in ein tibble:
 
-| Funktion zum| sep  | dec |    in base R    |   im tidverse    |
-|:----------------:|:----:|:---:|:---------------:|:----------------:|
-| [autolesen]{.ul} | auto |  .  | `read.delim()`  |  `read_delim()`  |
-|    autolesen     | auto |  ,  | `read.delim2()` | `read _delim2()` |
-|    lesen von     |  ,   |  .  |  `read.csv()`   |   `read_csv()`   |
-|    lesen von     | leer |  .  | `read.table()`  |  `read_table()`  |
-| [schreiben]{.ul} |  ,   |  .  |  `write.csv()`  |  `write_csv()`   |
+In der Regel werden Sie aber einen selbst erhobenen oder einen aus dem Internet heruntergeladenen Datensatz einlesen wollen. Mein Tipp ist, den Datensatz in das Working Directory zu speichern, dann finden Sie ihn schneller und er ist in der Nähe Ihrer Auswertung, noch eleganter ist es einen Unterordner namens data in den Ordner des Working Directories anzulegen, in den Sie alle Datensätze zu ihrem Projekt speichern können. Im `File`-tab unten rechts navigieren Sie zu der Datei mit dem Datensatz und dann klicken Sie diese zum Importieren des Datensatzes an (alternativ können Sie im `Environment`-tab über den Button `Import Dataset` einen Datensatz zum Importieren auf ihrem Computer suchen). In RStudio erscheint ein Fenster zum Importieren, unten rechts wird der automatisch der dem Dateiformat und unten links angegebenen Optionen entspricht, ggf. werden sogar benötigte Packages geladen.
 
-Wichtigstes und oft einziges Funktionsargument ist der vollständige Dateiname, er wird in `"` angegeben. Falls Sie die Datei in einem Unterordner vom Working Directory gespeichert haben (ich erstelle mir meist einen Unterordner namens data), wird der Name des Unterordners mit einem `/` dem Dateinamen vorangestellt (z.B."data/Datensatz1.csv"). Das Einlesen von Daten funktioniert nur, wenn der einzulesende Datensatz per `<-` einem Namen zugewiesen wird. Beispiel zum Laden eines .csv Datensatzes:
+Um einen Datensatz per Code zu importieren sind Dateiformat, die Trennzeichen (`sep`) und die Dezimalzeichen (`dec`) besonders relevant. Das Standard-Dateiformat ist `.csv`, hier sind Kommata Trennzeichen (`sep=","`) und Punkte kennzeichnen Dezimalstellen (`dec="."`). Sie können die Funktionen `read_cvs()` oder `read_delim()` für dieses Dateiformat verwenden, letztere sollte Trenn- und Dezimalzeichen automatisch erkennen. Hier ist eine Übersicht zu den Einlesefunktionen in base R (also ohne zusätzlich geladene Packages) und im tidyverse Package, der Unterschied ist, dass base R Funktionen die Daten in einen data.frame laden, tidyverse Funktionen in ein tibble:
+
+| Funktion zum     | `sep` | `dec` |    in base R    |   im tidverse    |
+|:----------------:|:-----:|:-----:|:---------------:|:----------------:|
+| [autolesen]{.ul} | auto  | `"."` | `read.delim()`  |  `read_delim()`  |
+|    autolesen     | auto  | `","` | `read.delim2()` |  `read_delim2()` |
+|    lesen von     | `","` | `"."` |  `read.csv()`   |   `read_csv()`   |
+|    lesen von     | leer  | `"."` | `read.table()`  |  `read_table()`  |
+| [schreiben]{.ul} | `","` | `"."` |  `write.csv()`  |  `write_csv()`   |
+
+Wichtigstes und oft einziges Funktionsargument ist der vollständige Dateiname, er wird in `"` angegeben. Alternativ können Sie statt dem Dateinamen auch die Funktion `file.choose()` angeben, die dann ein interaktives Fenster zur Dateiauswahl öffnet. Falls Sie die Datei in einem Unterordner vom Working Directory gespeichert haben (ich erstelle mir meist einen Unterordner namens data), wird der Name des Unterordners mit einem `/` dem Dateinamen vorangestellt (z.B."data/Datensatz1.csv"). Das Einlesen von Daten funktioniert nur, wenn der einzulesende Datensatz per `<-` einem Namen zugewiesen wird. Beispiel zum Laden eines .csv Datensatzes:
+
 ```{r message=F}
 # Lese meinen socken.csv Datensatz aus dem Unterordner data in ein tibble namens socken:
 
 socken <- read_delim("data/socken.csv") 
 socken 
 ```
+
 Excel Dateien werden mit Funktionen `read_excel()`, `read_xls()` oder `read_xlsx()` aus dem Package `readxl`, SPSS Dateien mit der Funktion `read_svs()` aus dem Package `haven` eingelesen. Auch zum Einlesen von SAS, Stata oder anderen Dateiformaten gibt es entsprechende Funktionen. Die Standardfunktion zum Abspeichern von Datensätzen in eine Datei ist `write_csv()`, bzw. in base R `write.csv()`, da dieses Dateiformat die beste Kompatibilität mit anderer Software aufweist. Beim Speichern müssen Sie neben dem Dateinamen und ggf. dem Dateipfad noch den Namen des Datensatzes, den Sie speichern möchten, als erstes Funktionsargument angeben:
+
 ```{r, message=FALSE, warning=FALSE, echo=FALSE, error=FALSE}
 # Speichere das tibble tickets_2022 in den vorher von mir erstellten Unterordner namens data:
 
-write_csv(tickets_2022,"data/tickets_2022.csv")  
+write_csv(tickets_2022, "data/tickets_2022.csv")
 ```
+
 Es gibt noch ein weiteres erwähnenswertes Dateiformat, das von R selbst: `.RDS`. Die Funktionen `saveRDS()` und `readRDS()` bieten die beste Funktionalität in R.
 
 ## Datensätze (dat) anschauen
 
-Um sich einen geladenen Datensatz komplett anzuschauen, können Sie diesen im `Workspace` anklicken, oder deren Namen an die Funktion `view(dat)` übergeben. Der Datensatz pingus hat 344 Zeilen, das kann ich im Workspace sehen. Da er als tibble gespeichert ist, könnte ich diesen per Name aufrufen (nur die ersten 10 Zeilen würden dargestellt werden). Mit der Funktion `head(dat)` wird einem der Kopf des Datensatzes ausgegeben, genau genommen die ersten 6 Zeilen. Die Funktion ist besonders nützlich für große `data.frames`, da diese beim Aufrufen per Name die Console überfüllen. 
+Um sich einen geladenen Datensatz komplett anzuschauen, können Sie diesen im `Workspace` anklicken, oder deren Namen an die Funktion `view(dat)` übergeben. Der Datensatz `pingus` hat 344 Zeilen, das kann ich im Workspace sehen. Da er als `tibble` gespeichert ist, könnte ich diesen per Name aufrufen (nur die ersten 10 Zeilen würden dargestellt werden). Mit der Funktion `head(dat)` wird einem der Kopf des Datensatzes ausgegeben, genau genommen die ersten 6 Zeilen. Die Funktion ist besonders nützlich für große `data.frames`, da diese beim Aufrufen per Name die Console überfüllen. 
+
 ```{r}
 # Zeige die ersten 6 Zeilen jeder Variable an:
 
-head(pingus) 
+head(pingus)
 ```
+
 Einen Überlick über die Datenstruktur, inklusive Factor-`levels` (der Faktorstufen) erhalten Sie mit der Funktion `str(dat)`:
+
 ```{r}
 # Zeige die Struktur der Daten:
 
-str(pingus)   
+str(pingus)
 ```
+
 Zeile 1 gibt Auskunft über Größe und die Klasse des Objektes, tibbles sind eine Art data.frame. In den weiteren Zeilen werden die Datentypen bzw. Faktorlevel und die ersten Werte der Spaltenvektoren angezeigt.
 
 ### Häufigkeit von Factorlevels
 
-Faktoren und die Zuweisung mit der Funktion `factor()` kennen Sie bereits aus dem vorherigen Kapitel. Die Funktion `levels(Faktor)` gibt die möglichen Ausprägungen einer Faktorvariable wieder. Faktoren eignen sich oft besser als Vektoren zum Plotten, Gruppieren oder für Häufigkeitstabellen. Mit der Funktion `count(dat,var)` lassen sich beispielsweise die Häufigkeiten der Levels eines Faktors ausgeben:
+Faktoren und die Zuweisung mit der Funktion `factor()` kennen Sie bereits aus dem vorherigen Kapitel. Die Funktion `levels(Faktor)` gibt die möglichen Ausprägungen einer Faktorvariable wieder. Faktoren eignen sich oft besser als Vektoren zum Plotten, Gruppieren oder für Häufigkeitstabellen. Mit der Funktion `count(dat, var)` lassen sich beispielsweise die Häufigkeiten der Levels eines Faktors ausgeben:
+
 ```{r}
 # Zähle in pingu die Häufigkeiten der Levels des Faktors species:
 
-count(pingus, island)   
+count(pingus, island)
 ```
+
 Mit der ersten deskriptiven Statistik zu einem Datensatz in R schließen wir dieses Kapitel ab. Es folgen geschickte Methoden zur Datenaufbereitung.
