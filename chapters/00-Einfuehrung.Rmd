@@ -113,26 +113,18 @@ getwd()
 
 In der Regel werden Sie für jedes Projekt ein eigenes working directory anlegen, in dem Sie die Daten und Skripte speichern, die zu dem Projekt gehören. Um in das richtige Verzeichnis zu wechseln, können Sie den Befehl `setwd()` nutzen. Noch einfacher geht es per Mausklick über Session &#8594;  Set Working Directory &#8594;  Choose Directory.
 
-
-
 *Tipp*: Noch einfacher geht es mit dem R-Paket `here`: Wenn Sie bereits ein Verzeichnis für Ihr Projekt angelegt und dort ein Skript gespeichert haben (**wichtig: es muss unbedingt im Verzeichnis gespeichert sein!**), liest das Paket `here`  automatisch den Pfad aus, an dem ein Skript gespeichert ist. Das ist auch dann enorm praktisch, wenn Sie Ihre Skripte mit anderen austauschen! 
 
 <br>
-<div id="content">
+```{r echo = FALSE, out.width = '75%', fig.align = "center", fig.alt = c('Eine Karikatur, die zwei Pfade nebeneinander zeigt. Auf der linken Seite ist ein gruseliger, unheimlicher Wald mit Spinnweben und knorrigen Bäumen zu sehen. Auf Ästen stehen Dateipfade wie "~/mmm/nope.csv" und "setwd("/haha/good/luck/")" geschrieben. Ein verängstigtes, niedliches, pelziges Monster läuft aus dem gruseligen Wald hinaus. Rechts daneben ist ein heller, farbenfroher Pfad mit Blumen, Regenbogen und Sonnenschein, mit Schildern, auf denen "hier!" und "es ist alles hier!" steht. Ein Monster mit Rucksack und Spazierstock blickt von uns weg in Richtung des rechten Weges. Der stilisierte Text lautet "Hier: Finde deinen Pfad"')}
+fig_url = 'https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png'
+if (!file.exists(fig_file <- '_static/here.png'))
+  download.file(fig_url, fig_file, mode = 'wb')
+knitr::include_graphics(if (identical(knitr:::pandoc_to(), 'html')) fig_url else fig_file)
+```
 <center>
-<figure>
-<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/here.png" alt="here" style="width:75%">
-
-<figcaption align = "left"><b>Eine Karikatur, die zwei Pfade nebeneinander zeigt. Auf der linken Seite ist ein gruseliger, unheimlicher Wald mit Spinnweben und knorrigen Bäumen zu sehen. Auf Ästen stehen Dateipfade wie "~/mmm/nope.csv" und "setwd("/haha/good/luck/")" geschrieben. Ein verängstigtes, niedliches, pelziges Monster läuft aus dem gruseligen Wald hinaus. Rechts daneben ist ein heller, farbenfroher Pfad mit Blumen, Regenbogen und Sonnenschein, mit Schildern, auf denen "hier!" und "es ist alles hier!" steht. Ein Monster mit Rucksack und Spazierstock blickt von uns weg in Richtung des rechten Weges. Der stilisierte Text lautet "Hier: Finde deinen Pfad".</b>
-</figcaption>
-
-</figure>
-
 Artwork by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
-
 </center>
-</div>
-<br>
 
 Dazu müssen Ihr allerdings zunächst *einmalig* das Paket "here" installieren und dann die Funktion `here()` in die Funktion `setwd()` einfügen. 
  

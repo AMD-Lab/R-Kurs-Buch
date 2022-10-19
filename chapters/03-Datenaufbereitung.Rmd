@@ -66,7 +66,7 @@ Wie am Anfang des Kapitels bereits erwähnt, ermöglicht es `dplyr` mit relativ 
 
 Der vielleicht wichtigste Befehl ist der `group_by()` Befehl, mit dem die oben genannten Befehle auf einzelne Gruppen innerhalb eines Datensatzes anwendbar sind.
 
-Diese sechs sogennaten "***Verben"*** bilden die Grundlage von `dplyr`. Mit ihnen ist es möglich mehrere einfache Schritte miteinander zu verketten, um ein komplexes Ergebnis zu erzielen. Alles Befehle funktionieren auf die gleiche Art und Weise. Jede Operation ist durch die gleiche Struktur gekennzeichnet:
+Diese sechs sogennaten "***Verben"*** bilden die Grundlage von `dplyr`. Mit ihnen ist es möglich mehrere einfache Operationen miteinander zu verketten, um ein komplexes Ergebnis zu erzielen. Alle Befehle funktionieren auf die gleiche Art und Weise. Jede Operation ist durch die gleiche Struktur gekennzeichnet:
 
 1.  **Das erste Argument ist ein Dataframe.**
 
@@ -76,7 +76,7 @@ Diese sechs sogennaten "***Verben"*** bilden die Grundlage von `dplyr`. Mit ihne
 
 ## Beispiel: Filtern von Beobachtungen mit `filter()`
 
-Um effektiv nach bestimmten Werten zu filtern, müssen für jede Operation die Kriterien nach denen gefiltetert werden soll definiert werden. Dies geschiet mit Hilfe der bereits eingeführten logischen Operatoren. Im ersten Beispiel sollen alle Beobachtungen, in welchen die Variablen `height` und `mass` größer als `190` bzw. `90` sind gefiltert werden:
+Um effektiv nach bestimmten Werten zu filtern, müssen für jede Operation die Kriterien, nach denen gefiltert werden soll, definiert werden. Dies geschiet mit Hilfe der bereits eingeführten logischen Operatoren. Im ersten Beispiel sollen alle Beobachtungen, in welchen die Variablen `height` und `mass` größer als `190` bzw. `90` sind gefiltert werden:
 
 ```{r}
 # Es werden hier nun alle Helden aus dem Datensatz ausgegeben, die größer als 1,90 m und schwerer als 90 Kilogramm sind
@@ -91,7 +91,9 @@ Logische Operatoren lassen sich sehr gut auf numerische / bzw. kontinuierliche V
 
 ![](_static/dplyr_filter_sm.png)
 
-Sollen nun alle Beobachtungen mit "Skywalker" im Namen gefiltert werden, kann die `grepl()` Funktion aus R genutzt werden. Diese prüft, ob eine Zeichenfolge vorhanden ist oder nicht und gibt dann entsprechend `TRUE` oder `FALSE` aus, was ein filtern ermöglicht. Dies ist vorallem bei Strings, die aus mehr als einem Wort bestehen, dass durch ein Leerzeichen getrennt ist sehr praktisch. Bei Strings die nur aus einem Wort bestehen oder Factors, kann auch mit einem einfach `==` Vergleich gearbeitet werden: Beispiel:
+Sollen nun alle Beobachtungen mit "Skywalker" im Namen gefiltert werden, kann die `grepl()` Funktion aus R genutzt werden. Diese prüft, ob eine Zeichenfolge vorhanden ist oder nicht und gibt dann entsprechend `TRUE` oder `FALSE` aus, was ein filtern ermöglicht. Dies ist vorallem bei Strings die aus mehr als einem Wort bestehen und durch ein Leerzeichen getrennt sind, sehr praktisch. Bei Strings die nur aus einem Wort bestehen oder Factors, kann auch mit einem einfach `==` Vergleich gearbeitet werden.
+
+Beispiel:
 
 ```{r}
 
@@ -127,9 +129,18 @@ Hier ein sehr fortgeschrittenes Beispiel, wie dies aussehen kann. Es wurden in d
 ```{r}
 
 # df_clean %>% group_by(N,K,Retrievals) %>%  
-#   summarise(corA = cor(mu_est_a, mu_real_a),
+
+# Hier wird der Datensatz nach den Variablen N,K und Retrievals gruppiert.
+
+#   summarise(corA = cor(mu_est_a, mu_real_a), 
 #             corC = cor(mu_est_c, mu_real_c)) %>%
+
+# Dann werden die Korrelationen zwischen den Variablen est_a und real_a für alle Gruppenkombinationen berechnet.
+
 #   mutate(z_a = fisherz(corA), z_c = fisherz(corC)) %>% 
+
+# Anschließend werden diese Korrelationen z-transformiert und dann die Mittelwerte nach den Variablen N und K berechnet
+
 #   filter(Retrievals== 100) %>%
 #   group_by(N,K) %>%  
 #   summarise(mean_a_100 = mean(z_a),
