@@ -136,18 +136,18 @@ Bei Werten, Vektoren und Matrizen steht sogar der Datentyp des Objektes mit dabe
 ```{r, echo=TRUE, results='hide'}
 x <- 5   # definiert den Wert der Variable x
 y <- 5   # definiert den Wert der Variable y
-x+y      # Summe von x und y
-x*y      # Produkt von x und y 
+x + y      # Summe von x und y
+x * y      # Produkt von x und y 
 sqrt(x)  # Wurzel aus x
 x**(1/2) # x hoch 0.5
 
 # Weise der Variable z das Ergebnis der Gleichung x+y zu. "z" erscheint im Workspace:
 
-z <- x+y 
+z <- x + y 
 
 # Multipliziere die Elemente von vec_4 mit 5 und speichere als Variable e:
 
-e <- vec_4*5   
+e <- vec_4 * 5   
 ```
 In R gibt es einige vorprogrammierte Funktionen um mit Vektoren zu rechnen:
 
