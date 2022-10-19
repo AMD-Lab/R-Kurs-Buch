@@ -364,6 +364,7 @@ tickets_2022$Priorität <- NULL # Entfernt die Spalte
 Mit den Funktionen `rbind()` und `cbind()` lassen sich die data.frames und tibbles um gleichbreite bzw. gleichlange Vektoren oder Datensätze ergänzen. Verbinden Sie ein tibble und einen data.frame miteinander, werden diese zum Format tibble coerced. Zunächst füge ich zwei weitere Zeilen hinzu, dann zwei weitere Spalten:
 ```{r}
 # Zwei weitere Konzerte in neunem data.frame:
+<<<<<<< HEAD
 extra_Konzerte <- data.frame("Artist"=c("Elton John","Colplay","RHCP"),
                              "Kosten"=c(139.00,259.00, 200),
                              Prioritaet=c(2.7,2.3,1.7))
@@ -378,14 +379,54 @@ ort_begleitung <- tibble("Ort"=c("Frankfurt","London","Muenchen","Berlin","Gdyni
 tickets_2022 <- cbind(tickets_2022,ort_begleitung)
 # Endergebnis:
 tickets_2022
+=======
+
+extra_Konzerte <- data.frame("Artist"=c("Elton John","Colplay","RHCP"),
+                             "Kosten"=c(139.00,259.00, 200),
+                             Prioritaet=c(2.7,2.3,1.7))
+
+# Zeilenweises Aneinanderbinden:
+
+tickets_2022 <- rbind(tickets_2022,extra_Konzerte)
+
+# Zwischenergebnis:
+
+tickets_2022
+
+# Ort und Begleitung in neuem tibble:
+
+ort_begleitung <- tibble("Ort"=c("Frankfurt","London","Muenchen","Berlin","Gdynia","Frankfurt","Frankfurt","Koeln"),
+                         "Begleitung"=c("Juergen","Samu","Anni","Jan und Laura","Oma","Papa","Schwester","die Girls"))
+
+# Spaltenweises Aneinanderbinden:
+
+tickets_2022 <- cbind(tickets_2022,ort_begleitung)
+
+# Endergebnis:
+
+tickets_2022
+
+>>>>>>> a7ff0a48d57a8359fafa84162254f2da21ab62f0
 ```
 Ein Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Zeilennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Zeilennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. namevec) behelfen, die Sie mit `relocate(tib,namevec)` an den Anfang des Datensatzes stellen können.
 ```{r}
 # Definiere ein einfaches tibble mit Zeilennamen in einer Spalte:
+<<<<<<< HEAD
 newtib <- tibble("sp1"=c(1,2,3),"namevec"=c("Zeile1","Zeile2","Zeile3"))
 newtib
 # Sortiere den Namenvector in Spalte 1:
 newtib <- relocate(newtib,namevec)
+=======
+
+newtib <- tibble("sp1"=c(1,2,3),"namevec"=c("Zeile1","Zeile2","Zeile3"))
+
+newtib
+
+# Sortiere den Namenvector in Spalte 1:
+
+newtib <- relocate(newtib,namevec)
+
+>>>>>>> a7ff0a48d57a8359fafa84162254f2da21ab62f0
 newtib
 ```
 Mit dem Hinzufügen und Abändern und Vertauschen von Spaltenvektoren haben wir schon ein bisschen an der Oberfläche der Möglichkeiten zur Datenaufbereitung gekratzt, die in der nächsten Sitzung ausführlich behandelt werden. Jetzt, wo Sie mit dem Management von Datensätzen vertraut sind, wollen wir vorhandene Datensätze einlesen:  
