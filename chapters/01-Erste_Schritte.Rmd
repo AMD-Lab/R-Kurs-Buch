@@ -4,11 +4,11 @@
 
 Wir haben in der Einleitung bereits das Rechnen mit Zahlen in R kennengelernt. Zahlen gehören zu den grundlegendsten Arten von Daten, die wir in R verarbeiten können. Mit ihnen können wir eine Reihe von arithmetischen Berechnungen durchführen:
 
- - `x + y` - Addition von `x` und `y`
- - `x - y` - Subtraktion von `x` und `y`
- - `x * y` - Multiplikation von `x` und `y`
- - `x / y` - Division von `x` durch `y`
- - `x ^ y` oder alternativ `x ** y` - Potenzierung, `x` hoch `y`
+ - `x + y` -- Addition von `x` und `y`
+ - `x - y` -- Subtraktion von `x` und `y`
+ - `x * y` -- Multiplikation von `x` und `y`
+ - `x / y` -- Division von `x` durch `y`
+ - `x ^ y` oder alternativ `x ** y` -- Potenzierung, `x` hoch `y`
 
 Bis jetzt haben wir nur mit *ganzen Zahlen* gerechnet. Wir können aber auch mit Zahlen rechnen, die Nachkommastellen haben. Zahlen mit Nachkommastellen haben eine Besonderheit in R: Wir verwenden nicht ein Komma, sondern einen Punkt als Dezimaltrennzeichen, wie im Englischen.
 
@@ -17,7 +17,7 @@ Bis jetzt haben wir nur mit *ganzen Zahlen* gerechnet. Wir können aber auch mit
 2.5 + (9 / 4)
 ```
 
-Zahlen werden aber auch manchmal in der sogenannten ***wissenschaftlichen Notation*** dargestellt -- vor allem, wenn sie sehr groß oder sehr klein sind (z.B. *p*-Werte). Wenn wir beispielsweise die Zahl `0.0000000012` in R eingaben, erhalten wir `1.2e-09` als Ausgabe. Dies ist kein Fehler, sondern lediglich eine andere Darstellung dieser Zahl. Bei der wissenschaftlichen Notation hat eine Zahl zwei Teile, die von einem `e` voneinander getrennt werden: Der erste Teil ist ein Faktor, während der zweite Teil der Exponent einer Zehnerpotenz ist. Ausgeschrieben wäre diese Zahl aus der wissenschaftlichen Notation: $1.2\cdot 10^{-9}$ und damit äquivalent zu `0.0000000012`.
+Zahlen werden aber auch manchmal in der sogenannten ***wissenschaftlichen Notation*** dargestellt -- vor allem, wenn sie sehr groß oder sehr klein sind (z.B. *p*-Werte). Wenn wir beispielsweise die Zahl `0.0000000012` in R eingeben, erhalten wir `1.2e-09` als Ausgabe. Dies ist kein Fehler, sondern lediglich eine andere Darstellung dieser Zahl. Bei der wissenschaftlichen Notation hat eine Zahl zwei Teile, die von einem `e` voneinander getrennt werden: Der erste Teil ist ein Faktor, während der zweite Teil der Exponent einer Zehnerpotenz ist. Ausgeschrieben wäre diese Zahl aus der wissenschaftlichen Notation: $1.2\cdot 10^{-9}$ und damit äquivalent zu `0.0000000012`.
 
 ## Variablen
 
@@ -38,11 +38,11 @@ x
 Jetzt können Sie bereits erste Berechnungen mit Variablen durchführen:
 
 ```{r}
-x+y
-x*y
+x + y
+x * y
 ```
 
-Variablennamen können auch Umlaute und Unterstriche ("_") enthalten, sie dürfen aber nicht mit einer Zahl oder einem Unterstrich beginnen.
+Variablennamen können auch Umlaute, Unterstriche ("_") und Punkte (".") enthalten, sie dürfen aber nicht mit einer Zahl oder einem Unterstrich beginnen.
 
 In R lassen sich sämtliche Objekte -- nicht nur einzelne Zahlen, sondern auch Datentabellen, Wortlisten oder sogar Ergebnisse komplizierter Analysen -- in Variablen speichern. Der Workflow ist so ausgelegt, dass Sie Ergebnisse einer Analyse in einer Variable speichern und von dort aus weiterverarbeiten können, z.B. um APA-konforme Tabellen oder Grafiken zu erstellen oder sich Effektstärkemaße ausgeben zu lassen. Im weiteren Verlauf des Kurses lernen Sie andere Datentypen kennen, die in Variablen gespeichert werden können.
 
@@ -50,7 +50,7 @@ In R lassen sich sämtliche Objekte -- nicht nur einzelne Zahlen, sondern auch D
 
 
 ```{r}
-z <- x*10
+z <- x * 10
 ```
 
 Wenn Sie sich jetzt `x` und `z` ausgeben lassen, sehen Sie, dass sich nichts an `x` geändert hat -- das Ergebnis der Berechnung wurde nicht abgespeichert. In der Variable `z` hingegen sehen Sie das Ergebnis Ihrer Berechnung.
@@ -146,7 +146,7 @@ mode(Vektor_numeric)
 
 ### Datentyp numeric
 
-Mit Vektoren vom Typ `numeric` können Sie verschiedene mathematische Operationen durchführen. Sie können diese Vektoren addieren, multiplizieren, usw. Wenn Sie eine Operation wie `*2` auf den Vektor anwenden, wird diese Operation auf alle Elemente des Vektors angewendet.
+Mit Vektoren vom Typ `numeric` (kurz `num`) können Sie verschiedene mathematische Operationen durchführen. Sie können diese Vektoren addieren, multiplizieren, usw. Wenn Sie eine Operation wie `* 2` auf den Vektor anwenden, wird diese Operation auf alle Elemente des Vektors angewendet.
 
 ```{r}
 Vektor_numeric * 2
@@ -163,7 +163,7 @@ klausurergebnis
 
 ### Datentyp character
 
-Wenn Sie in einer Variable Text abspeichern wollen, definieren Sie eine Variable vom Datentyp `character`. (Variablen vom Datentyp `character` werden auch oft *Strings* genannt.) Text wird mit doppelten oder einfachen Anführungszeichen angegeben:
+Wenn Sie in einer Variable Text abspeichern wollen, definieren Sie eine Variable vom Datentyp `character` (kurz `chr`). (Variablen vom Datentyp `character` werden auch oft *Strings* genannt.) Text wird mit doppelten oder einfachen Anführungszeichen angegeben:
 
 ```{r}
 "Alpha" 
@@ -181,7 +181,7 @@ Studienfach <- c("Psychologie", "Medizin", "Informatik", "Sportwissenschaft", "B
 
 ### Datentyp logical
 
-Der Datentyp `logical` kodiert binäre Informationen -- diese sind entweder `TRUE` oder `FALSE`.
+Der Datentyp `logical` (kurz `logi`) kodiert binäre Informationen -- diese sind entweder `TRUE` oder `FALSE`.
 
 ```{r}
 TRUE 
@@ -197,7 +197,7 @@ Dabei werden `TRUE` und `FALSE` als logische Bedingungen interpretiert, die erf�
 # vollständig abgeschlossen haben (Studie_abgeschlossen)
 id <- 1:10
 Studie_abgeschlossen <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE) 
-```   
+```
 
 Oft sollen mehrere Bedingung gleichzeitig überprüft werden, z.B. Personen, die jünger als 18 sind und maximal 30 Minuten zur Bearbeitung eines Tests gebraucht haben. Mehrere logische Bedingungen können durch **logische Operationen** miteinander verknüft werden.
 
@@ -232,11 +232,11 @@ Das logische NICHT invertiert eine logische Variable: Aus `TRUE` wird `FALSE` un
 !FALSE
 ```
 
-Wie mathematischen Ausdrücke auch, haben logische Operationen ebenfalls eine Rangfolge, nach denen sie ausgewertet werden. Daher kann es sinnvoll sein, Klammern `()` zu verwenden, um logische Operationen zu gruppieren.
+Wie mathematischen Ausdrücke auch, haben logische Operationen ebenfalls eine Rangfolge, nach der sie ausgewertet werden. Daher kann es sinnvoll sein, Klammern `()` zu verwenden, um logische Operationen zu gruppieren.
 
 ```{r}
 !TRUE & FALSE | TRUE
-!(TRUE & FALSE | TRUE)
+!TRUE & (FALSE | TRUE)
 ```
 
 ### Datentyp factor
@@ -283,7 +283,7 @@ Sie können auch eine sogenannte **Negativindizierung** durchführen, d.h. im In
 
 ```{r}
 daten[-3]
-# Hier werden alle Elemente außer des dritten ausgewählt
+# Hier werden alle Elemente außer dem dritten ausgewählt
 ```
 
 Selbstverständlich können Sie auch gleich mehrere Elemente auswählen. Wenn Sie z.B. alles vom zweiten bis fünften Element auswählen wollen, können Sie das im Index so vermerken: `[2:5]`. Ganz allgemein gilt: Die Zahl *vor* dem Doppelpunkt gibt an, wo die Indizierung beginnt, und die Zahl *nach* dem Doppelpunkt gibt an, wo die Indizierung endet.

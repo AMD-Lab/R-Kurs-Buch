@@ -20,12 +20,13 @@ body {
   text-align: justify;
 }
 
-h1 {
+h1, h2 {
   text-align: left;
 }
 
-h2 {
-  text-align: left;
+code, kbd, pre, samp {
+  /* Harmonize styling */
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 kbd {

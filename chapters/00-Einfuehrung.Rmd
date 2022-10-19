@@ -75,7 +75,7 @@ Das Praktische: Wenn Sie Code im Skript schreiben, können Sie diesen Code direk
 Nichts ist wichtiger als gute Organisation! Damit Sie sich auch später noch daran erinnern, welche Analysen Sie durchgeführt haben, können (und sollten) Sie sich Kommentare ins Skript schreiben. In R wird `#` benutzt, um Code zu kommentieren. Wenn Sie `#` vor Code setzen, wird dieser Code beim Ausführen einfach ignoriert! So können Sie sich ganze Abschnitte dazu notieren, welche Analysen Sie gemacht haben, was Kernbefunde waren, usw., ohne dass Sie Probleme beim Ausführen Ihres Skriptes bekommen. Sie sollten Ihren Code *immer* kommentieren, um sich auch später noch daran erinnern zu können, was Sie vor einiger Zeit geschrieben haben.
 
 ```R
-# 3+2
+# 3 + 2
 # Nichts passiert - die Rechnung wurde nicht ausgeführt, weil sie auskommentiert ist
 ```
 
