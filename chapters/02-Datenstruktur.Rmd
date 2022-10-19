@@ -117,7 +117,7 @@ Ich habe jetzt mehrere Variablen (Values, Vektoren, Listen) definiert, sie sind 
 
 ## Der Workspace
 
-Rechts oben im Fenster ist das `Environment`-tab. Hier sieht man alle im `globale Workspace` definierten Objekte (Datenstrukturen: Werte, Vektoren, Matrizen, Arrays, Listen, `data.frames`, `tibbles`; und Funktionen) aufgelistet:
+Rechts oben im Fenster ist das `Environment`-tab. Hier sieht man alle im `global Workspace` definierten Objekte (Datenstrukturen: Werte, Vektoren, Matrizen, Arrays, Listen, `data.frames`, `tibbles`; und Funktionen) aufgelistet:
 
 ![](_static/Workspace.png){width="60%"}
 
