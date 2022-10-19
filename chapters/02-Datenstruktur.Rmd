@@ -55,22 +55,21 @@ Das R Markdown Skript ist ein besonderes Dateiformat für R Skripte. Es enthält
 
 Sie merken, dass die Befehle und Funktionen zum Teil sehr spezifisch sind und Sie sich kaum alles behalten können. Am wichtigsten ist die Reihenfolge und Vollständigkeit der Zeichen: Vergessen Sie ein Komma, ein Backtick oder eine Klammer zu setzen, dann kann R den Code schon nicht interpretieren. Zum Glück erkennt R Studio das oft und weist einen darauf während des Codens mit einem `roten x` neben der Zeilennummer hin. Andernfalls dürfen Sie versuchen, die Fehlermeldung beim Ausführen zu verstehen.
 
-Wenn Sie den Namen einer Funktion oder eines Packages nicht direkt erinnern, können Sie den Anfang des Namens im `Chunk` oder in der `Console` eingeben, RStudio bietet einem nach einem kurzen Moment eine Liste möglicher Optionen an, aus der Sie wählen können. Haben Sie eine Funktion gewählt, können Sie die `Tab`-Taste drücken und es werden die verschiedenen Funktionsargumente angezeigt, um die Funktion zu spezifizieren, was oft sehr hilfreich ist. Möchten Sie wissen, was eine Funktion macht oder in welcher Reihenfolge die Funktionsargumente eingegeben werden, können Sie `?FUN` in die `Console` eintippen, wobei FUN Platzhalter für den Funktionsnamen ist. Alternativ können Sie im `Help`-tab unten rechts suchen. Die Dokumentation ist oft sehr ausführlich. Die Möglichkeit einschlägige Suchmaschinen im Internet zu verwenden ist fast zu trivial, um sie hier aufzuführen. Oft werden Sie dabei auf `StackOverflow` weitergeleitet. Auf Englisch gestellte Fragen oder Probleme führen zu besseren Treffern. Noch trivialer ist es, im Skript des Kurses oder im eigenen Code nachzuschauen, die Tasten `STRG/CTRL`+`F` habe ich schon 1000 Mal berührt, sie könnten dabei hilfreich sein. Falls Sie bei anderen Autoren nachlesen möchten, gibt es Bücher zu R, die meist sogar kostenlos online zur Verfügung stehen und einem eine Einführung in R geben: Z.B. `R Cookbook` oder `R for Data Science`.
+Wenn Sie den Namen einer Funktion oder eines Packages nicht direkt erinnern, können Sie den Anfang des Namens im `Chunk` oder in der `Console` eingeben, RStudio bietet einem nach einem kurzen Moment eine Liste möglicher Optionen an, aus der Sie wählen können. Haben Sie eine Funktion gewählt, können Sie die `Tab`-Taste drücken und es werden die verschiedenen Funktionsargumente angezeigt, um die Funktion zu spezifizieren, was oft sehr hilfreich ist. Möchten Sie wissen, was eine Funktion macht oder in welcher Reihenfolge die Funktionsargumente eingegeben werden, können Sie `?funktionsname` in die `Console` eintippen. Alternativ können Sie im `Help`-tab unten rechts suchen. Die Dokumentation ist oft sehr ausführlich. Sie haben die Möglichkeit Suchmaschinen im Internet zu verwenden, oft werden Sie dabei auf `StackOverflow` weitergeleitet. Auf Englisch gestellte Fragen oder Probleme führen zu besseren Treffern.  Oft ist es hilfreich zunächst im Skript des Kurses oder im eigenen Code nachzuschauen, die Tastenkombination `STRG/CTRL`+`F` öffnet ein Suchfenster in `RStudio`. Falls Sie bei anderen Autoren nachlesen möchten, gibt es Bücher zu R, die meist sogar kostenlos online zur Verfügung stehen und einem eine Einführung in R geben: Z.B. `R Cookbook` oder `R for Data Science`.
 
 ## Wiederholung: Werte & Vektoren
 
 Datenformate in R sind von einfach zu komplex: `Value`, Vektor, `matrix`, (`array`), `data.frame`,`tibble` und `list`. Die kleinste Objekteinheit in R ist ein `Value`. Die unterschiedlichen Datentypen von `Values` sind bereits bekannt:
 
-1.  Text, bzw. Charakter (`chr`), auch String genannt,
+1.  logische Werte (`logi`)
 2.  Nummer (`num`), auch `double`
-3.  logische Werte (`logi`)
-4.  fehlende Werte (`NA`), `Not Available`
+3.  Text, bzw. Charakter (`chr`), auch String genannt
 
 Sie weisen einem Objektnamen einen Wert per `<-` zu (Shortkey:`ALT`&`-`), der Datentyp des `Values` wird automatisch Rkannt.
 ```{r, echo=TRUE, results='hide'}
-var1 <- "kreativ" # Typ chr
+var1 <- TRUE      # Typ logi 
 var2 <- 3.5       # Typ num
-var3 <- TRUE      # Typ logi     
+var3 <- "kreativ" # Typ chr
 ```
 Mit der Funktion `mode()` können Sie sich den Datentypen anzeigen lassen.
 Vektoren reihen Werte desselben Datentyps auf `c(Wert1, Wert2, ...)`:
@@ -79,7 +78,7 @@ Vektoren reihen Werte desselben Datentyps auf `c(Wert1, Wert2, ...)`:
 
 vec1 <- c(3, 6, 3.4)   
 ```
-Versuchen Sie aus verschiedenen Typen einen Vektor zu bilden, werden sie zu dem komplexeren Typen von beiden umgewandelt. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1-4) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`:
+Versuchen Sie aus verschiedenen Typen einen Vektor zu bilden, werden sie zu dem komplexeren Typen von beiden umgewandelt. Die Datentypen-Übersichtsliste ist von einfach zu komplex (1-3) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`:
 ```{r, echo=TRUE}
 # Versuche `chr` und `num` zu einem Vektor zu kombinieren:
 
@@ -98,7 +97,7 @@ as.character(c(1, TRUE, "abc", 4.1627))
 ```{r, error=TRUE}
 # Coerce zum Typ num. Ist dies nicht möglich, erscheinen NAs:
 
-as.double(c(2, TRUE, "abc", 4.1627))      
+as.numeric(c(2, TRUE, "abc", 4.1627))
 ```
 `Coercion` gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten `list(Element1, Element2, ...)`. Das geht soweit, dass Listen selbst Listen enthalten können.
 
@@ -229,10 +228,10 @@ bsp_mat
 ```{r}
 # Definiere `logi` Einträge in `num` Matrix:
 
-bsp_mat[,3] <- c(FALSE, TRUE, FALSE, TRUE)  
+bsp_mat[,3] <- c(FALSE, TRUE, NA, TRUE)    # werden ausschließlich logische Werte zu numeric coerced, werden 1 und 0 zugewiesen
 bsp_mat                                
 ```
-Coercion: TRUE wurde zu 1 und FALSE wurde zu 0. Wenn man nun eine bestimmte Zeile oder Spalte betrachten möchte, kann man dies auch über die Indizierung tun, hierbei kann man sich beliebig austoben. Die Regeln dafür sind dieselben wie bei Vektoren, nur in 2D, wobei stets `[Zeile, Spalte]` gilt.
+Coercion: TRUE wurde zu 1 und FALSE wurde zu 0. Wenn man nun eine bestimmte Zeile oder Spalte betrachten möchte, kann man dies auch über die Indizierung tun, hierbei kann man sich beliebig austoben. Die Regeln dafür sind dieselben wie bei Vektoren, nur in 2D, wobei stets `[Zeilennummer, Spaltennummer]` gilt.
 ```{r}
 bsp_mat[,1]   # Wählt alle Zeilen von Spalte 1
 
@@ -263,11 +262,11 @@ sum(bsp_mat[1,])
 ```
 Die Summe der Zeile führt zu keinem interpretierbaren Ergebniss. Zum Auslassen der NaNs wird das Funktionsargument `na.rm=TRUE` verwendet (rm steht für remove):
 ```{r}
-# Bilde die Summe über Zeile 1 ohne NaN:
+# Bilde die Summe über Zeile 1 ohne NAs:
 
 sum(bsp_mat[1,], na.rm=TRUE) 
 
-# Bilde den MW der Matrix ohne NaN:
+# Bilde den MW der Matrix ohne NAs:
 
 mean(bsp_mat, na.rm=TRUE)    
 ```
@@ -279,7 +278,7 @@ sav_mat <- bsp_mat
 
 # Weise Spalte 4 einen `chr`-Vektor zu:
 
-bsp_mat[,4] <- c("coercion","kann","nervig","sein")  
+bsp_mat[,4] <- c("coercion","kann","tricky","sein")  
 bsp_mat
 
 mode(bsp_mat) # Bestimmt Typ der Matrix
@@ -321,7 +320,7 @@ library(tidyverse)
 
 ## data.frames (df) und tibbles (tib)
 
-Es gibt mehr Gemeinsamkeiten als Unterschiede zwischen beiden Datenformaten. Beides sind Tabellen mit Spaltenvektoren (Variablen), die je verschiedene Datentypen enthalten können. Hier zunächst die Übersicht über die Funktionen zum Managen des Datensatzes:
+Beides sind Tabellen mit Spaltenvektoren (Variablen), die je verschiedene Datentypen enthalten können. Hier zunächst die Übersicht über die Funktionen zum Managen des Datensatzes:
 
 |       Funktion zum        |         `data.frame()`          |    `tibble()`        |
 |:-------------------------:|:-------------------------------:|:--------------------:|
@@ -417,7 +416,7 @@ tickets_2022$Prioritaet <- tickets_2022$Priorität
 
 tickets_2022                                                               
 ```
-Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen vorsichtig hiermit(!): 
+Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen, vorsichtig hierbei(!): 
 ```{r}
 tickets_2022$Priorität <- NULL # Entfernt die Spalte 
 ```
@@ -533,7 +532,7 @@ Zeile 1 gibt Auskunft über Größe und die Klasse des Objektes, tibbles sind ei
 
 ### Häufigkeit von Factorlevels
 
-Faktoren und die Zuweisung mit der Funktion `factor()` kennen Sie bereits aus dem vorherigen Kapitel. Die Funktion `levels(Faktor)` gibt die möglichen Ausprägungen einer Faktorvariable wieder. Faktoren eignen sich oft besser als Vektoren zum Plotten, Gruppieren oder für Häufigkeitstabellen. Mit der Funktion `count(dat,var)` lassen sich beispielsweise die Häufigkeiten der Levels eines Faktors ausgeben:
+Faktoren und die Zuweisung mit der Funktion `factor()` kennen Sie bereits aus dem vorherigen Kapitel. Die Funktion `levels(Faktor)` gibt die möglichen Ausprägungen einer Faktorvariable wieder. Faktoren eignen sich oft besser als Vektoren zum Plotten, Gruppieren, für Häufigkeitstabellen und statistische Modelle wie ANOVAs und Regressionen. Mit der Funktion `count(dat,var)` lassen sich beispielsweise die Häufigkeiten der Levels eines Faktors ausgeben:
 ```{r}
 # Zähle in pingu die Häufigkeiten der Levels des Faktors species:
 
