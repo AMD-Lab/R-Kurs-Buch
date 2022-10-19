@@ -4,7 +4,7 @@
 
 Sicherlich wollen Sie Ihre Daten nicht nur in der Konsole ausgeben lassen und bearbeiten, sondern auch in Variablen speichern. Variablen sind Bezeichnungen, mit deren Hilfe Sie auf gespeicherte Daten zugreifen. Sobald eine Variable definiert wurde, können Sie immer wieder darauf zugreifen. Variablen werden mit Hilfe des `<-` Operators definiert.
 
-```{r datatypes, echo = FALSE}
+```{r}
 # Hier werden zwei Variablen - x und y - definiert
 x <- 2
 y <- 3
@@ -23,7 +23,7 @@ x+y
 x*y
 ```
 
-In R lassen sich sämtliche Objekte - nicht nur einzelne Zahlen, sondern auch Datentabellen, Wortlisten oder sogar Ergebnisse komplizierter Analysen - in Variablen speichern. Der Workflow ist so ausgelegt, dass Sie Ergebnisse einer Analyse in einer Variable speichern und von dort aus weiterverarbeiten können, z.B. um APA-konforme Tabellen oder Grafiken zu erstellen oder sich Effektstärkemaße ausgeben zu lassen. Im weiteren Verlauf des Kurses lernen Sie andere Datentypen kennen, die in Variablen gespeichert werden können.
+In R lassen sich sämtliche Objekte - nicht nur einzelne Zahlen, sondern auch Datentabellen, Wortlisten oder sogar Ergebnisse komplizierter Analysen - in Variablen speichern. Der Workflow ist so ausgelegt, dass Sie die Ergebnisse einer Analyse in einer Variable speichern und von dort aus weiterverarbeiten können, z.B. um APA-konforme Tabellen oder Grafiken zu erstellen oder sich Effektstärkemaße ausgeben zu lassen. Im weiteren Verlauf des Kurses lernen Sie andere Datentypen kennen, die in Variablen gespeichert werden können.
 
 *Achtung*: Wenn Sie eine Berechnung mit einer Variable durchführen und das Ergebnis dieser Berechnung speichern möchten, müssen Sie es wieder eine Variable zuweisen - es wird nicht automatisch gespeichert!
 
@@ -32,14 +32,14 @@ In R lassen sich sämtliche Objekte - nicht nur einzelne Zahlen, sondern auch Da
 z <- x*10
 ```
 
-Wenn Sie sich jetzt `x` und `z` ausgeben lassen, sehen Sie, dass sich nichts an `x` geändert hat - das Ergebnis der Berechnung wurde nicht abgespeichert. In der Variable `z` hingegen sehen Sie das Ergebnis Ihrer Berechnung.
+Wenn Sie sich jetzt `x` und `z` ausgeben lassen, sehen Sie, dass sich nichts an `x` geändert hat - das Ergebnis der Berechnung wurde nicht in der Variable `x` abgespeichert. In der Variable `z` hingegen sehen Sie das Ergebnis Ihrer Berechnung.
 
 ```{r}
 x
 z
 ```
 
-`x`, `y` und `z` sind denkbar schlechte Variablennamen! Gute Variablennamen sprechen, d.h. dass der Name eine Variable verrät, was sich "in" dieser Variable verbirgt. Deswegen sollten Sie sich immer bemühen, möglichst klare und eindeutige Variablennamen zu vergeben. 
+`x`, `y` und `z` sind denkbar schlechte Variablennamen! Gute Variablennamen sprechen zu den R Benutzer:innen, d.h. dass der Name eine Variable verrät, was sich "in" dieser Variable verbirgt. Deswegen sollten Sie sich immer bemühen, möglichst klare und eindeutige Variablennamen zu vergeben. 
 
 ```{r}
 # Beispiele für gute Variablennamen
@@ -111,7 +111,7 @@ Vektor_logical <- c(TRUE, TRUE, FALSE, TRUE)
 mode(Vektor_logical)
 ```
 
-Dabei werden `TRUE` und `FALSE` als logische Bedingungen interpretiert, die erfüllt oder nicht erfüllt sein können. Vektoren dieses Datentyps sind für die Datenaufbereitung unglaublich nützlich! Mit Hilfe eines Vektors vom Typ `logical` können sie beispielsweise kodieren, welche Versuchspersonen die Studie vollständig abgeschlossen haben oder ob einzelne Beobachtungen Ausreißer darstellen. Sie werden diesen Datentyp häufig benötigen, wenn Sie in Datentabellen einzelne Fälle auswählen oder Versuchspersonen ausschließen möchte. Hierbei wird dann jeweils im Einzelfall überprüft, welche Fälle eine gewünschte Bedingung erfüllen (z.B. maximal 30 Minuten zur Bearbeitung eines Tests gebraucht haben) und daher in den weiteren Analysen eingeschlossen werden.
+Dabei werden `TRUE` und `FALSE` als logische Bedingungen interpretiert, die erfüllt oder nicht erfüllt sein können. Vektoren dieses Datentyps sind für die Datenaufbereitung unglaublich nützlich! Mit Hilfe eines Vektors vom Typ `logical` können Sie beispielsweise kodieren, welche Versuchspersonen die Studie vollständig abgeschlossen haben oder ob einzelne Beobachtungen Ausreißer darstellen. Sie werden diesen Datentyp häufig benötigen, wenn Sie in Datentabellen einzelne Fälle auswählen oder Versuchspersonen ausschließen möchte. Hierbei wird dann jeweils im Einzelfall überprüft, welche Fälle eine gewünschte Bedingung erfüllen (z.B. maximal 30 Minuten zur Bearbeitung eines Tests gebraucht) und daher in den weiteren Analysen eingeschlossen werden.
 
 ```{r}
 # Hier wird festgehalten, welche Versuchspersonen (id) die Studie 
@@ -227,10 +227,10 @@ Logische Vergleiche können genutzt werden, um bestimmte Fälle - z.B. einzelne 
 
 ### Datentyp numeric
 
-Wenn Sie Daten vom Typ `numeric` haben, können Sie numerische Vergleiche durchführen. Sie können zum Beispiel überprüfen, welche Ihrer Versuchspersonen älter als 18 Jahre sind. Dazu verwenden Sie den logischen Operator `>=`, den Sie als "größer oder gleich" interpretieren können (analog dazu liest sich `<=` als "kleiner oder gleich".)
+Wenn Sie Daten vom Typ `numeric` haben, können Sie numerische Vergleiche durchführen. Sie können zum Beispiel überprüfen, welche Ihrer Versuchspersonen 18 Jahre oder älter sind. Dazu verwenden Sie den logischen Operator `>=`, den Sie als "größer oder gleich" interpretieren können (analog dazu liest sich `<=` als "kleiner oder gleich".)
 
 ```{r}
-alter <- c(20, 21, 24, 25, 32, 17, 65, 22)
+alter <- c(20, 21, 18, 25, 32, 17, 65, 22)
 alter >= 18
 ```
 
@@ -294,7 +294,7 @@ Testwerte[fehlende_Werte] <- NA
 Testwerte
 ```
 
-Ganz ähnlich können Sie bei einem Reaktionszeitexperiment alle Trials entfernen, in denen Versuchspersonen sehr lange mit ihrer Reaktion gebraucht haben, d.h. in denen sie möglicherweise mit ihrer Aufmerksamkeit abgeschweift sind.
+Ganz ähnlich können Sie bei einem Reaktionszeitexperiment alle Trials entfernen, in denen Versuchspersonen sehr langsam waren, weil sie möglicherweise mit ihrer Aufmerksamkeit abgeschweift sind.
 
 ```{r}
 # Als erstes werden 1000 Trials einer Versuchsperson simuliert
@@ -323,7 +323,7 @@ RTs <- rnorm(n = 1000, mean = 500, sd = 100)
 RTs[RTs > 700] <- 700
 ```
 
-Sie können auch mehrere logische Vergleiche kombinieren. In Reaktionszeitexperimenten wollen Sie meist extrem langsame sowie extrem schnelle Durchgänge ausschließen, weil Sie nicht sicher sein können, ob die Versuchspersonen vorschnell reagiert haben (extrem schnelsl) oder mit ihren Gedanken nicht bei der Sache waren (extrem langsam). Dazu können Sie mehrere logische Vergleiche kombinieren.
+Sie können auch mehrere logische Vergleiche kombinieren. In Reaktionszeitexperimenten wollen Sie meist extrem langsame sowie extrem schnelle Durchgänge ausschließen, weil Sie nicht sicher sein können, ob die Versuchspersonen vorschnell reagiert haben (extrem schnell) oder mit ihren Gedanken nicht bei der Sache waren (extrem langsam). Dazu können Sie mehrere logische Vergleiche kombinieren.
 
 ```{r}
 # Als erstes werden 1000 Trials einer Versuchsperson simuliert
@@ -333,7 +333,7 @@ RTs <- rnorm(n = 1000, mean = 500, sd = 100)
 # die Kriterien zur Ausreißeranalyse anpassen möchten.
 untere_Grenze <- 300
 obere_Grenze <- 700
-# In diesem Vektor von Reaktionszeiten werden alle RTs, die schneller als 200 ms
+# In diesem Vektor von Reaktionszeiten werden alle RTs, die schneller als 300 ms
 # oder länger als 700 ms sind, entfernt. Dazu wird der logische ODER-Operator 
 # benötigt; es sollen solche Trials identifiziert werden, die < 300 ms ODER 
 # > 700 ms sind.
