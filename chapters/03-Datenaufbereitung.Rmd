@@ -16,7 +16,7 @@ Dplyr ist Teil des $tidyverse$ Packages und ermöglicht es, Daten sehr einfach z
 
 ```{r}
 
-# Der Datensatz befindet sich im Buch im Verzeichnis "Data". 
+# Der Datensatz befindet sich im Buch im Verzeichnis "Data" (auf Seite xxx). 
 # Daher muss der Pfad beim einlesen des Datensatzes mit angegeben werden.
 
 starwars <- readRDS("starwars.RDS") %>% drop_na()
