@@ -272,7 +272,7 @@ alter <- c(21, 25, 29, 24, NA, 19, 23, 24, 20)
 
 ## Auswahl von Vektorelementen
 
-Sie können auf einzelne Elemente eines Vektor zugreifen, indem Sie den Operator `[]` verwenden. In die eckigen Klammern wird die Position des Elements eingefügt, das Sie auswählen möchte. Dieses Vorgehen wird **Indizierung** genannt.
+Sie können auf einzelne Elemente eines Vektor zugreifen, indem Sie den Operator `[]` verwenden. In die eckigen Klammern wird die Position des Elements eingefügt, das Sie auswählen möchten. Dieses Vorgehen wird **Indizierung** genannt.
 
 ```{r}
 daten <- c(3, 7, 9, 0, 1, 1, 4, 5)
@@ -325,9 +325,9 @@ alter >= 18
 Bei numerischen Vektoren können Sie folgende logischen Vergleiche durchführen: (a) gleich (`==`), (b) größer (`>`), (c) kleiner (`<`), (d) größer gleich (`>=`), (e) kleiner gleich (`<=`) oder (f) ungleich (`!=`). Wenn Sie einen logischen Vergleich mit einem gesamten Vektor durchführen, wird für jedes einzelne Element überprüft, ob es der logischen Bedingung entspricht (`TRUE`) oder nicht (`FALSE`).
 
 ```{r}
-# Hier überprüfen wir, welche Versuchspersonen jünger als 18 Jahre sind
+# Hier überprüfen wir, welche Versuchspersonen jünger als 18 Jahre alt sind
 alter < 18
-# Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre sind
+# Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre alt sind
 alter == 18
 ```
 
