@@ -95,7 +95,7 @@ Sobald Sie das Paket installiert haben, müssen Sie es nur noch laden, um es nut
 library(psych)
 ```
 
-Und schon haben Sie Ihr erstes Paket installiert und geladen! Sobald Sie ein Paket auf Ihrem PC/Laptop installiert haben, können Sie es immer wieder verwenden. Beachten Sie aber unbedingt, dass Sie Pakete nach jedem Neustart von R neu einladen müssen.
+Und schon haben Sie Ihr erstes Paket installiert und geladen! Sobald Sie ein Paket auf Ihrem PC/Laptop installiert haben, können Sie es immer wieder verwenden. Beachten Sie aber unbedingt, dass Sie Pakete nach jedem Neustart von R neu laden müssen.
 
 Wenn Sie keine Idee haben, welche Funktionen ein Paket umfasst und wofür es nützlich sein könnte, können Sie ganz einfach die Hilfe-Funktion nutzen, die Sie aufrufen können, indem Sie ein Fragezeichen vor den Paketnamen setzen.
 
