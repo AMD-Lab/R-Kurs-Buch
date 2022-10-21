@@ -154,7 +154,7 @@ Mit Vektoren vom Typ `numeric` (kurz `num`) können Sie verschiedene mathematisc
 Vektor_numeric * 2
 ```
 
-Wenn Sie hingegen zwei gleich lange Vektoren haben, wird jedes *i*-te Element des ersten Vektors mit dem *i*-ten Element des zweiten Vektors verrechnet. Das Element an Position 1 im einen Vektor wird dann mit dem Element an Position 1 im anderen Vektor gepaart, das Element an Position 2 im einen Vektor mit dem Element an Position 2 im anderen Vektor – und so weiter.
+Wenn Sie hingegen zwei gleich lange Vektoren haben, wird jedes *i*-te Element des ersten Vektors mit dem *i*-ten Element des zweiten Vektors verrechnet. Das Element an Position 1 in einem Vektor wird dann mit dem Element an Position 1 im anderen Vektor gepaart, das Element an Position 2 in einem Vektor mit dem Element an Position 2 im anderen Vektor – und so weiter.
 
 ```{r}
 punkte_MC_Fragen <- c(5, 2, 2, 4, 3, 2, 1, 0, 1, 4)
