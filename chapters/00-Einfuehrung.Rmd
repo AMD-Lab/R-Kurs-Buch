@@ -4,7 +4,7 @@
 
 Um R nutzen zu können, müssen Sie sich sowohl R als auch R-Studio installieren.
 
-R ist eine Open-Source-Software, die zur Datenanalyse genutzt wird. Die große Stärke von R in der Verfügbarkeit zahlreicher Zusatzfunktionen, in Form sogenannter Packages. Entwickler:innen überall auf der Welt bieten Packages fals Lösungen für die unterschiedlichsten Probleme an, von der Datenaufbereitung über APA-formatierten Tabellen bis hin zu zahlreichen statistischen Analysen. Laden Sie sich R unter dem folgenden Link herunter und installieren Sie sich das Programm auf Ihrem PC/Laptop: [https://cran.r-project.org/](https://cran.r-project.org/)
+R ist eine Open-Source-Software, die zur Datenanalyse genutzt wird. Die große Stärke von R liegt in der Verfügbarkeit zahlreicher Zusatzfunktionen, in Form sogenannter Packages. Entwickler:innen überall auf der Welt bieten Packages fals Lösungen für die unterschiedlichsten Probleme an, von der Datenaufbereitung über APA-formatierten Tabellen bis hin zu zahlreichen statistischen Analysen. Laden Sie sich R unter dem folgenden Link herunter und installieren Sie sich das Programm auf Ihrem PC/Laptop: [https://cran.r-project.org/](https://cran.r-project.org/)
 
 Außerdem benötigen Sie noch R-Studio. R-Studio ist eine „integrierte Entwicklungsumgebung“ (engl: integrated development environment; *IDE*), die es deutlich einfacher macht, mit R zu arbeiten. Installieren Sie sich daher auch R-Studio auf Ihrem PC/Laptop, indem Sie folgendem Link folgen: [https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download)
 
