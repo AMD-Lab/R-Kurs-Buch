@@ -134,6 +134,8 @@ Bei manchen Funktionsaufrufen wollen wir nur einige Funktionsargumente selbst an
 Jede Spalte eines Datensatzes ist ein Vektor. In einem Vektor befinden sich mehrere Elemente eines Datentyps, also z.B. mehrere Zahlen oder mehrere Wörter. Vektoren werden mit Hilfe der "combine"-Funktion `c` erstellt.
 
 ```{r}
+# Hier wird ein numerischer Vektor mit den Elementen 1 bis 10 erstellt. 
+# Mit einem Doppelpunkt können alle ganzen Zahlen zwischen den beiden angegebenen Zahlen angesprochen werden.
 Vektor_numeric <- c(1, 2, 3, 4, 5, 6:10)
 ```
 
