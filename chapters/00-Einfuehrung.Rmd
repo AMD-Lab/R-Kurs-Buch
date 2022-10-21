@@ -105,7 +105,7 @@ Wenn Sie keine Idee haben, welche Funktionen ein Paket umfasst und wofür es nü
 
 ## Working Directory
 
-Wenn Sie in R arbeiten, arbeiten Sie immer in einem Verzeichnis -- einem sog. "Working Directory". Sie können sich Ihr aktuelles Working Directory mit dem Befehl 'getwd()' anzeigen lassen.
+Wenn Sie in R arbeiten, arbeiten Sie immer in einem Verzeichnis -- einem sog. "Working Directory". Es beschreibt den Dateipfad auf Ihrem Computer, auf den R per Default zugreift, um Daten einzulesen oder zu speichern. Sie können sich Ihr aktuelles Working Directory mit dem Befehl 'getwd()' anzeigen lassen.
 
 ```{r}
 getwd()
