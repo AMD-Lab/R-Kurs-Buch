@@ -34,7 +34,7 @@ können auf den Datensatz zugreifen in dem Sie `iris` in die R-Konsole eingeben.
 data <- iris
 ```
 
-Benutzen Sie `head(data)`, um die ersten 5 Zeilen des Datensatzes zu sehen.
+Benutzen Sie `head(data)`, um die ersten 6 Zeilen des Datensatzes zu sehen.
 
 ```{r}
 head(data)
