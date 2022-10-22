@@ -182,6 +182,12 @@ points(quantile(data$Sepal.Length, 0.50),
 # 0.25 Perzentil
 points(quantile(data$Sepal.Length, 0.25), 
        col = 'blue', cex = 2, pch = 2, lwd = 2)
+       
+# Die Argumente definieren folgende Eigenschaften für dargestellte Datenpunkte in der Grafik:
+# col: Farbe
+# cex: Größe
+# pch: Art des Symbols
+# lwd: Linienstärke des Symbols
 ```
 
 ### Mittelwert
