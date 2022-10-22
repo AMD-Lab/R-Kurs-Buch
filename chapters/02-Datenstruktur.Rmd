@@ -61,7 +61,8 @@ Die Möglichkeit einschlägige Suchmaschinen im Internet zu verwenden ist fast z
 
 ## Wiederholung: Werte & Vektoren
 
-Datenformate in R sind von einfach zu komplex: `Value`, Vektor, `matrix`, (`array`), `data.frame`, `tibble` und `list`. Die kleinste Objekteinheit in R ist ein `Value`. Die unterschiedlichen Datentypen von `Values` sind bereits bekannt:
+Datenformate in R sind von einfach zu komplex: `Value`, Vektor, `matrix`, (`array`), `data.frame`, `tibble` und `list`. Ihnen noch unbekannte Datenformate werde im Laufe des Kapitels erklärt. 
+Die kleinste Objekteinheit in R ist ein `Value`. Die unterschiedlichen Datentypen von `Values` sind bereits bekannt:
 
 1.  Text, bzw. Charakter (`chr`), auch String genannt,
 2.  numerische Werte (`num`), auch `double`
@@ -85,7 +86,7 @@ Vektoren reihen Werte desselben Datentyps auf `c(Wert1, Wert2, ...)`:
 vec1 <- c(3, 6, 3.4)
 
 ```
-Versuchen Sie aus verschiedenen Typen einen Vektor zu bilden, werden sie zu dem komplexeren Typen von beiden umgewandelt. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1--4) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`:
+Versuchen Sie aus verschiedenen Datentypen einen Vektor zu bilden, werden sie zu dem komplexeren Typen von beiden umgewandelt. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1--4) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`:
 
 ```{r, echo=TRUE}
 # Versuche `chr` und `num` zu einem Vektor zu kombinieren:
@@ -93,7 +94,7 @@ Versuchen Sie aus verschiedenen Typen einen Vektor zu bilden, werden sie zu dem 
 c("kreativ", 3.5)  
 ```
 
-3.5 wird in `""` ausgegeben, die Nummer wurde zu Text.
+3.5 wird in `""` ausgegeben, der numerische Wert wurde in Text umgewandelt.
 
 ### Coercion (Umwandlung von Typen)
 
