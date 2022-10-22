@@ -111,7 +111,7 @@ as.character(c(1, TRUE, "abc", 4.1627))
 as.double(c(2, TRUE, "abc", 4.1627))
 ```
 
-`Coercion` gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten `list(Element1, Element2, ...)`. Das geht soweit, dass Listen selbst Listen enthalten können.
+`Coercion` gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten `list(Element1, Element2, ...)`. Das können Strings, Vektoren, aber auch Datensätze, Funktionen und sogar andere Listen sein.
 
 ### Aufruf per Index von Daten aus mehreren Ebenen
 
