@@ -144,7 +144,7 @@ Dies bedeutet, dass 25% der Werte sich unterhalb von `5.1`, 50% unterhalb von `5
 Manchmal möchte man wissen wie groß der Abstand zwischen bestimmten Quantilen ist, 
 um Aussagen über Beobachtungen, die innerhalb oder außerhalb eines bestimmten 
 Wertebereichs liegen, zu treffen. Häufig wird hierfür der Interquartilsabstand benutzt,
-welches als der Abstand zwischen den 75. und 25. Perzentil definiert ist.
+welches als der Abstand zwischen dem 75. und 25. Perzentil definiert ist.
 
 ```{r}
 # IQR steht für interquartile range
@@ -218,7 +218,7 @@ Das Argument `na.rm = TRUE` kann für die meisten in diesem Abschnitt vorgestell
 
 ### Standardabweichung
 
-Die Standardabweichung ist ein Maß für die Breite der Streuung der Werte einer Variable rund um deren Mittelwert (arithmetisches Mittel). Vereinfacht gesagt, ist die Standardabweichung die durchschnittliche Entfernung aller gemessenen Ausprägungen eines Merkmals vom Durchschnitt.
+Die Standardabweichung ist ein Maß für die Breite der Streuung der Werte einer Variable rund um deren Mittelwert (arithmetisches Mittel). Vereinfacht gesagt ist die Standardabweichung die durchschnittliche Entfernung aller gemessenen Ausprägungen eines Merkmals vom Durchschnitt.
 
 Sie kann folgender Maßen berechnet werden:
 
