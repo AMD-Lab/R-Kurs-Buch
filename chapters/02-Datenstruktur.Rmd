@@ -230,7 +230,7 @@ z_geschwister
 
 ## Matrizen
 
-Matrizen sind 2D Datenstrukturen, sie bestehen aus Vektoren [gleicher]{.ul} Länge und enthalten [einen]{.ul} Datentyp. Mit dem
+Matrizen sind 2D-Datenstrukturen, sie bestehen aus Vektoren [gleicher]{.ul} Länge und enthalten [einen]{.ul} Datentyp. Mit dem
 Befehl `matrix()` können sie erstellt werden:
 
 ```{r}
@@ -302,7 +302,7 @@ bsp_mat[1,]      # wählt Zeile 1
 sum(bsp_mat[1,]) 
 ```
 
-Die Summe der Zeile führt zu keinem interpretierbaren Ergebniss. Zum Auslassen der NaNs wird das Funktionsargument `na.rm = TRUE` verwendet (rm steht für *remove*):
+Die Summe der Zeile führt zu keinem interpretierbaren Ergebnis. Zum Auslassen der NaNs wird das Funktionsargument `na.rm = TRUE` verwendet (rm steht für *remove*):
 
 ```{r}
 # Bilde die Summe über Zeile 1 ohne NaN:
