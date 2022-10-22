@@ -148,8 +148,8 @@ Neben `NA` gibt es auch noch `NULL`. Dieser Wert wird verwendet, wenn wir eine V
 Gleichzeitig können wir `NULL` verwenden, wenn wir ein Objekt aus einer `list` oder eine Spalte aus einem `data.frame` entfernen wollen -- wir weisen dem Element einfach den Wert `NULL` zu:
 
 ```{r}
-Experiment_Reaktionszeit = data.frame("x" = 1:10, "y" = 11:20)
-Experiment_Reaktionszeit$x = NULL
+Experiment_Reaktionszeit <- data.frame("x" = 1:10, "y" = 11:20)
+Experiment_Reaktionszeit$x <- NULL
 Experiment_Reaktionszeit
 ```
 
