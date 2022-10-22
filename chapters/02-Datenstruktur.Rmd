@@ -481,7 +481,7 @@ tickets_2022$Prioritaet <- tickets_2022$Priorität
 tickets_2022
 ```
 
-Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen vorsichtig hiermit(!): 
+Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen - vorsichtig hiermit(!): 
 
 ```{r}
 tickets_2022$Priorität <- NULL # Entfernt die Spalte 
