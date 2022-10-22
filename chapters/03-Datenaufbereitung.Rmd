@@ -17,7 +17,7 @@ Dplyr ist Teil des $tidyverse$ Packages und ermöglicht es, Daten sehr einfach z
 ```{r}
 
 # Der Datensatz befindet sich im Buch im Verzeichnis "Data" (unter https://github.com/AMD-Lab/R-Kurs-Buch/blob/main/data/starwars.RDS?raw=true). 
-# Daher muss der Pfad beim einlesen des Datensatzes mit angegeben werden.
+# Daher muss der Pfad beim Einlesen des Datensatzes mit angegeben werden.
 
 starwars <- readRDS("starwars.RDS") %>% drop_na()
 
@@ -83,7 +83,7 @@ filter(starwars, height > 190 & mass > 90)
 
 ### Filtern von Strings / Factors
 
-Logische Operatoren lassen sich sehr gut auf numerische / bzw. kontinuierliche Variablen anwenden, um diese nach bestimmten Kriterien zu filtern. Wenn mit Strings oder Factors gearbeitet wird, sucht man häufig nach bestimmen `pattern` in den Strings, wie hier bei den Namen.
+Logische Operatoren lassen sich sehr gut auf numerische bzw. kontinuierliche Variablen anwenden, um diese nach bestimmten Kriterien zu filtern. Wenn mit Strings oder Factors gearbeitet wird, sucht man häufig nach bestimmen `pattern` in den Strings, wie hier bei den Namen.
 
 ![](_static/dplyr_filter_sm.png)
 
@@ -223,7 +223,7 @@ starwars %>%
 
 In diesem Beispiel wurden zunächst nur `height` und `mass` mit dem `select()` Befehl ausgewählt, daher werden auch nur diese beiden Spalten am Ende der Pipline im Datensatz angezeigt. Dies kann hilfreich sein, wenn man einen Datensatz mit sehr vielen Variablen analysieren muss, von denen nur einige wenige interessant sind. Dies ist z.B. bei Fragebögen der Fall, die unterschiedliche Facetten erfassen.
 
-Der nächste Befehl `mutate()` besteht immer aus einer Operation, die mit einer Spalte im Datensatz durchgeführt wird. Im Beispiel oben fügen werden die Spalten `z_height` und `z_mass` berechnet, die sich jeweils aus `scale(SPALTENNAME)` zusammensetzen und die *z*-Werte der jeweiligen Variablen ausgeben.
+Der nächste Befehl `mutate()` besteht immer aus einer Operation, die mit einer Spalte im Datensatz durchgeführt wird. Im Beispiel oben werden die Spalten `z_height` und `z_mass` berechnet, die sich jeweils aus `scale(SPALTENNAME)` zusammensetzen und die *z*-Werte der jeweiligen Variablen ausgeben.
 
 Anstatt beide Variablen einzeln zu transformieren, kann den Befehl `scale()` auch direkt auf mehrere Spalten angewendet werden. Dazu kann der `across()` Befehl verwendet werden.
 
@@ -233,14 +233,14 @@ Hier muss innerhalb von `mutate()` einfach mit `across(c(SPALTE1, SPALTE2))` ein
 
 `mutate(across(c(height, mass), list(z = scale)))`
 
-Diese Schreibweise hat den Vorteil das
+Diese Schreibweise hat den Vorteil, dass
 
-1.  In der `list()` mehrere Befehle übergeben werden können
+1.  In der `list()` mehrere Befehle übergeben werden können (z.B. könnten neben der z-Standardisierung wie in diesem Fall auch die Wurzel mit sqrt oder der Logarithmus mit log berechnet werden)
 
 2.  Die Originalspalten beibehalten werden
 
 3.  Den neuen Spalten direkt einen Suffix zugewiesen werden kann.\
-    Dieser wird automatisch als "\_suffix" an die neue Variable angehängt.
+    Dieser wird automatisch als "\_suffix" an die neue Variable im Output angehängt (in diesem Fall "_z").
 
 ```{r}
 
