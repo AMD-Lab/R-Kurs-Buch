@@ -702,11 +702,13 @@ MarvelDC %>%
 
 Mit `ggplot2` können Variablen einfach auf unterschiedliche [Skalen]{style="color:#31688e"} übertragen werden. Diese Funktionalität kann mit [`x`]{style="color:#35b779"} oder [`y`]{style="color:#35b779"} verwendet werden, z.B.:
 
--   `scale_x_log10()`
+-   `scale_x_log10()` ()
 
--   `scale_x_sqrt()`
+-   `scale_x_sqrt()` ()
 
--   `scale_x_reverse()`
+-   `scale_x_reverse()` ()
+
+Beispielsweise...
 
 ## Facetten
 
