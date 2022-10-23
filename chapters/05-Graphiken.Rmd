@@ -570,7 +570,8 @@ ggplot(MarvelDC, aes(x = Publisher, y = Total, fill= Gender)) +
 
 Mit `position` kann die [Positionierung]{style="color:#31688e"} graphischer Elemente zueinander eingestellt werden. Positionsarten sind z.B.:
 
--   `identity` -- wahre Werte an wahrer Position, hier kann man Plots z.B. durch den alpha Parameter entzerren
+-   `identity` -- wahre Werte an wahrer Position,  das heißt ...
+(hier kann man Plots z.B. durch den alpha Parameter entzerren)
 
 -   `stack` -- Elemente aufeinander schichten (default)
 
