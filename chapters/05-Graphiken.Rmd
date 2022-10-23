@@ -274,7 +274,7 @@ MarvelDC %>%
   geom_bar(position = "fill") +
   coord_polar()                 # stelle das in Polarkoordinaten dar
 ```
-
+Die Information für Marvel DC wird auf dem äußeren Kreis, die für DC Comics auf dem inneren Kreis abgebildet (...).
 Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weiblich sind, während es bei Marvel etwas mehr als ein Viertel sind.
 
 ### Histogramm
