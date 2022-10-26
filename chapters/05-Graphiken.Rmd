@@ -21,8 +21,8 @@ Das `viridis` Paket in R stellt eine Reihe an Colormaps bereit, die folgenden An
 
 Praktisch bedeutet das, die Farbkarten sind:
 
--   **farbenfroh**: sie umspannen weite Teile der Farbpalette, damit Unterschiede einfach zu erkennen sind
--   **einheitlich**: nah beieinander liegende Punkte haben ähnliche Farben und weit auseinander liegende Punkte haben stark unterschiedliche Farben -- und das möglichst konsistent über den gesamten Farbraum hinweg\
+-   **farbenfroh**: Sie umspannen weite Teile der Farbpalette, damit Unterschiede einfach zu erkennen sind
+-   **einheitlich**: Nah beieinander liegende Punkte haben ähnliche Farben und weit auseinander liegende Punkte haben stark unterschiedliche Farben -- und das möglichst konsistent über den gesamten Farbraum hinweg\
     $\rightarrow$ *ein fester Abstand wird also an verschiedenen Stellen im Farbraum als perzeptuell gleich wahrgenommen, d.h. keine mal schnellen mal langsamen Farbton- oder Helligkeitsänderungen*
 
 Gerade die Einheitlichkeit ist wichtig, sie sorgt dafür, dass keine Gebiete überbetont werden, während Kontrast an anderen Strellen nicht gegeben ist. Hier die `viridis` Farbskala oben und `jet` (langjährig die Standardfarben in Matlab) unten:
@@ -274,7 +274,7 @@ MarvelDC %>%
   geom_bar(position = "fill") +
   coord_polar()                 # stelle das in Polarkoordinaten dar
 ```
-Die Information für Marvel DC wird auf dem äußeren Kreis, die für DC Comics auf dem inneren Kreis abgebildet (...).
+Die Information für Marvel DC wird auf dem äußeren Kreis abgebildet und die für DC Comics auf dem inneren Kreis abgebildet.
 Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weiblich sind, während es bei Marvel etwas mehr als ein Viertel sind.
 
 ### Histogramm
@@ -701,7 +701,7 @@ MarvelDC %>%
 
 ### Variablenskalen
 
-Mit `ggplot2` können Variablen einfach auf unterschiedliche [Skalen]{style="color:#31688e"} übertragen werden. Diese Funktionalität kann mit [`x`]{style="color:#35b779"} oder [`y`]{style="color:#35b779"} verwendet werden, z.B.:
+Mit `ggplot2` können Variablen einfach auf unterschiedliche [Skalen]{style="color:#31688e"} übertragen werden. Diese Funktionalität kann mit der [`x`]{style="color:#35b779"}-Achse oder mit der [`y`]{style="color:#35b779"}-Achse verwendet werden, z.B.:
 
 -   `scale_x_log10()` ()
 
@@ -709,7 +709,23 @@ Mit `ggplot2` können Variablen einfach auf unterschiedliche [Skalen]{style="col
 
 -   `scale_x_reverse()` ()
 
-Beispielsweise...
+Beispielsweise können Sie in der folgenden Abbildung den Zusammenhang zweier Variablen betrachten. Dabei wird ein logarithmischer Zusammenhang dargestellt.
+
+```{r, fig.width=8, fig.asp=0.6, fig.align='center'}
+ggplot(data = data.frame(x = seq(1:100), y = 10 + 3 * log(seq(1:100))),
+       aes(x = x, y = y)) +
+  geom_point()
+```
+
+Wenn Sie die `x`-Achse mittels `scale_x_log10()` umwandeln, könnnen Sie sehen, dass der dargestellte Zusammenhang linear aussieht (d.H. der Zusammen ist linear in der Logarithmus-Skala).
+
+
+```{r, fig.width=8, fig.asp=0.6, fig.align='center'}
+ggplot(data = data.frame(x = seq(1:100), y = 10 + 3 * log(seq(1:100))),
+       aes(x = x, y = y)) +
+  geom_point()
+  scale_x_log10()
+```
 
 ## Facetten
 
