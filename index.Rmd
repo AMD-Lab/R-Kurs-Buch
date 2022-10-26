@@ -14,7 +14,8 @@ description: |
   Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten *Analyse und Modellierung komplexer Daten* und *Methodenlehre und Statistik* des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden.
 
 link-citations: yes
-github-repo:  AMD-Lab/R-Kurs-Unterlagen
+github-repo:  AMD-Lab/R-Kurs-Buch
+lang: de
 
 ---
 
