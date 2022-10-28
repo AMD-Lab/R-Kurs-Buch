@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2022-10-26" />
+<meta name="date" content="2022-10-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -360,30 +360,30 @@ Kommentare</li>
 <li>fehlende Werte (<code>NA</code>), <code>Not Available</code></li>
 </ol>
 <p>Sie weisen einem Objektnamen einen Wert per <code>&lt;-</code> zu (Shortkey: <kbd>ALT</kbd> + <kbd>-</kbd>), der Datentyp des <code>Values</code> wird automatisch erkannt.</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="datenstruktur.html#cb129-1"></a>var1 &lt;-<span class="st"> </span><span class="ot">TRUE</span>      <span class="co"># Typ logi </span></span>
-<span id="cb129-2"><a href="datenstruktur.html#cb129-2"></a>var2 &lt;-<span class="st"> </span><span class="fl">3.5</span>       <span class="co"># Typ num</span></span>
-<span id="cb129-3"><a href="datenstruktur.html#cb129-3"></a>var3 &lt;-<span class="st"> &quot;kreativ&quot;</span> <span class="co"># Typ chr  </span></span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="datenstruktur.html#cb126-1"></a>var1 &lt;-<span class="st"> </span><span class="ot">TRUE</span>      <span class="co"># Typ logi </span></span>
+<span id="cb126-2"><a href="datenstruktur.html#cb126-2"></a>var2 &lt;-<span class="st"> </span><span class="fl">3.5</span>       <span class="co"># Typ num</span></span>
+<span id="cb126-3"><a href="datenstruktur.html#cb126-3"></a>var3 &lt;-<span class="st"> &quot;kreativ&quot;</span> <span class="co"># Typ chr  </span></span></code></pre></div>
 <p>Mit der Funktion <code>mode()</code> können Sie sich den Datentypen anzeigen lassen.
 Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="datenstruktur.html#cb130-1"></a><span class="co"># c() kombiniert die Werte zu einem Vektor, der dem Variablennamen vec1 zugewiesen wird:</span></span>
-<span id="cb130-2"><a href="datenstruktur.html#cb130-2"></a></span>
-<span id="cb130-3"><a href="datenstruktur.html#cb130-3"></a>vec1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="fl">3.4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="datenstruktur.html#cb127-1"></a><span class="co"># c() kombiniert die Werte zu einem Vektor, der dem Variablennamen vec1 zugewiesen wird:</span></span>
+<span id="cb127-2"><a href="datenstruktur.html#cb127-2"></a></span>
+<span id="cb127-3"><a href="datenstruktur.html#cb127-3"></a>vec1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="fl">3.4</span>)</span></code></pre></div>
 <p>Wenn Sie versuchen verschiedene Elemeneten mit unterschiedlichen Typen ein einen Vektor zusammenzufassen, z.B. <code>c("kreativ", 3.5)</code>, wobei <code>"kreativ"</code> einen komplexeren Typ (Text ofer <em>character</em>) als <code>3.5</code> (numerisch oder <em>double</em>) besitzt, werden die Typen der Elemente vereinheitlich. Dabei wird der Typ des weniger komplexen Element in den Typ des komplexeren Elements umgewandelt, sodass alle Elemente des Vektors den komplexeren Typ besitzen. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1–4) geordnet. Die Umwandlung des Datentypen nennt sich <code>coercion</code>:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="datenstruktur.html#cb131-1"></a><span class="co"># Versuche `chr` und `num` zu einem Vektor zu kombinieren:</span></span>
-<span id="cb131-2"><a href="datenstruktur.html#cb131-2"></a></span>
-<span id="cb131-3"><a href="datenstruktur.html#cb131-3"></a><span class="kw">c</span>(<span class="st">&quot;kreativ&quot;</span>, <span class="fl">3.5</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="datenstruktur.html#cb128-1"></a><span class="co"># Versuche `chr` und `num` zu einem Vektor zu kombinieren:</span></span>
+<span id="cb128-2"><a href="datenstruktur.html#cb128-2"></a></span>
+<span id="cb128-3"><a href="datenstruktur.html#cb128-3"></a><span class="kw">c</span>(<span class="st">&quot;kreativ&quot;</span>, <span class="fl">3.5</span>)  </span></code></pre></div>
 <pre><code>## [1] &quot;kreativ&quot; &quot;3.5&quot;</code></pre>
 <p>3.5 wird in <code>""</code> ausgegeben, die Nummer wurde zu Text.</p>
 <div id="coercion-umwandlung-von-typen" class="section level3 hasAnchor">
 <h3><span class="header-section-number">4.3.1</span> Coercion (Umwandlung von Typen)<a href="datenstruktur.html#coercion-umwandlung-von-typen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sie können den Datentypen auch per Funktion ändern, z.B. <code>as.character()</code>, <code>as.double()</code>:</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="datenstruktur.html#cb133-1"></a><span class="co"># Verändere die Werte unterschiedlicher Typen zum Typ chr:</span></span>
-<span id="cb133-2"><a href="datenstruktur.html#cb133-2"></a></span>
-<span id="cb133-3"><a href="datenstruktur.html#cb133-3"></a><span class="kw">as.character</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="ot">TRUE</span>, <span class="st">&quot;abc&quot;</span>, <span class="fl">4.1627</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="datenstruktur.html#cb130-1"></a><span class="co"># Verändere die Werte unterschiedlicher Typen zum Typ chr:</span></span>
+<span id="cb130-2"><a href="datenstruktur.html#cb130-2"></a></span>
+<span id="cb130-3"><a href="datenstruktur.html#cb130-3"></a><span class="kw">as.character</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="ot">TRUE</span>, <span class="st">&quot;abc&quot;</span>, <span class="fl">4.1627</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;1&quot;      &quot;TRUE&quot;   &quot;abc&quot;    &quot;4.1627&quot;</code></pre>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="datenstruktur.html#cb135-1"></a><span class="co"># Coerce zum Typ num. Ist dies nicht möglich, erscheinen NAs:</span></span>
-<span id="cb135-2"><a href="datenstruktur.html#cb135-2"></a></span>
-<span id="cb135-3"><a href="datenstruktur.html#cb135-3"></a><span class="kw">as.double</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="ot">TRUE</span>, <span class="st">&quot;abc&quot;</span>, <span class="fl">4.1627</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="datenstruktur.html#cb132-1"></a><span class="co"># Coerce zum Typ num. Ist dies nicht möglich, erscheinen NAs:</span></span>
+<span id="cb132-2"><a href="datenstruktur.html#cb132-2"></a></span>
+<span id="cb132-3"><a href="datenstruktur.html#cb132-3"></a><span class="kw">as.double</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="ot">TRUE</span>, <span class="st">&quot;abc&quot;</span>, <span class="fl">4.1627</span>))</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] 2.0000     NA     NA 4.1627</code></pre>
 <p><code>Coercion</code> gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten <code>list(Element1, Element2, ...)</code>. Das geht soweit, dass Listen selbst Listen enthalten können.</p>
@@ -391,20 +391,20 @@ Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:
 <div id="aufruf-per-index-von-daten-aus-mehreren-ebenen" class="section level3 hasAnchor">
 <h3><span class="header-section-number">4.3.2</span> Aufruf per Index von Daten aus mehreren Ebenen<a href="datenstruktur.html#aufruf-per-index-von-daten-aus-mehreren-ebenen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ihnen ist bekannt, dass Sie zum Zugriff auf einzelne Elemente deren Indexnummer verwenden können:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="datenstruktur.html#cb138-1"></a>vec_<span class="dv">4</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">7</span>) <span class="co"># Definition eines Vektors</span></span>
-<span id="cb138-2"><a href="datenstruktur.html#cb138-2"></a></span>
-<span id="cb138-3"><a href="datenstruktur.html#cb138-3"></a>vec_<span class="dv">4</span>[<span class="dv">2</span>]            <span class="co"># Abruf des 2. Elements von vec_4   </span></span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="datenstruktur.html#cb135-1"></a>vec_<span class="dv">4</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">7</span>) <span class="co"># Definition eines Vektors</span></span>
+<span id="cb135-2"><a href="datenstruktur.html#cb135-2"></a></span>
+<span id="cb135-3"><a href="datenstruktur.html#cb135-3"></a>vec_<span class="dv">4</span>[<span class="dv">2</span>]            <span class="co"># Abruf des 2. Elements von vec_4   </span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>Das geht auch in verschachtelten Listen:</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="datenstruktur.html#cb140-1"></a><span class="co"># Definiere eine Liste, die eine Liste und einen Vektor enthält:</span></span>
-<span id="cb140-2"><a href="datenstruktur.html#cb140-2"></a><span class="co"># (Anm.: hier habe ich keine Namen für die Elemente vergeben)</span></span>
-<span id="cb140-3"><a href="datenstruktur.html#cb140-3"></a></span>
-<span id="cb140-4"><a href="datenstruktur.html#cb140-4"></a>mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>),</span>
-<span id="cb140-5"><a href="datenstruktur.html#cb140-5"></a>               vec_<span class="dv">4</span>)</span>
-<span id="cb140-6"><a href="datenstruktur.html#cb140-6"></a></span>
-<span id="cb140-7"><a href="datenstruktur.html#cb140-7"></a><span class="co"># Rufe Element 1 der äußeren Liste: (1, &quot;a&quot;), und davon dann Element 2 ab:</span></span>
-<span id="cb140-8"><a href="datenstruktur.html#cb140-8"></a></span>
-<span id="cb140-9"><a href="datenstruktur.html#cb140-9"></a>mylist[[<span class="dv">1</span>]][<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="datenstruktur.html#cb137-1"></a><span class="co"># Definiere eine Liste, die eine Liste und einen Vektor enthält:</span></span>
+<span id="cb137-2"><a href="datenstruktur.html#cb137-2"></a><span class="co"># (Anm.: hier habe ich keine Namen für die Elemente vergeben)</span></span>
+<span id="cb137-3"><a href="datenstruktur.html#cb137-3"></a></span>
+<span id="cb137-4"><a href="datenstruktur.html#cb137-4"></a>mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>),</span>
+<span id="cb137-5"><a href="datenstruktur.html#cb137-5"></a>               vec_<span class="dv">4</span>)</span>
+<span id="cb137-6"><a href="datenstruktur.html#cb137-6"></a></span>
+<span id="cb137-7"><a href="datenstruktur.html#cb137-7"></a><span class="co"># Rufe Element 1 der äußeren Liste: (1, &quot;a&quot;), und davon dann Element 2 ab:</span></span>
+<span id="cb137-8"><a href="datenstruktur.html#cb137-8"></a></span>
+<span id="cb137-9"><a href="datenstruktur.html#cb137-9"></a>mylist[[<span class="dv">1</span>]][<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;a&quot;</code></pre>
 <p>Ich habe jetzt mehrere Variablen (Values, Vektoren, Listen) definiert, sie sind in meinem RStudio im <code>Environment</code>-tab oben rechts aufgetaucht.</p>
@@ -414,9 +414,9 @@ Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:
 <p>In (fast) jedem Experiment und jeder Erhebung kommt es mal vor, das Daten fehlen. Es kann sein, dass Versuchspersonen einen Fragebogen nicht ausgefüllt haben oder man die Schrift einfach nicht lesen konnte. Solche Werte müssen ebenfalls kodiert werden, aber entsprechend als <em>fehlend</em>. Wir haben bereits gesehen, dass wir solche fehlenden Werte in R mit dem Wert <code>NA</code> (“not availible”) kodieren können. R hat allerdings noch zwei weitere Arten von <strong><em>Nullwerten</em></strong>.</p>
 <p>Neben <code>NA</code> gibt es auch noch <code>NULL</code>. Dieser Wert wird verwendet, wenn wir eine Variable definieren möchten, ihr aber noch keinen Wert zuweisen wollen. In diesem Fall können wir der Variable eine Art <em>Platzhalter</em> als Wert zuweisen, der gar keinen Wert hat, also quasi <em>leer</em> ist. Dieser “leere Wert” ist <code>NULL</code>.</p>
 <p>Gleichzeitig können wir <code>NULL</code> verwenden, wenn wir ein Objekt aus einer <code>list</code> oder eine Spalte aus einem <code>data.frame</code> entfernen wollen – wir weisen dem Element einfach den Wert <code>NULL</code> zu:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="datenstruktur.html#cb142-1"></a>Experiment_Reaktionszeit =<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;x&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;y&quot;</span> =<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span>)</span>
-<span id="cb142-2"><a href="datenstruktur.html#cb142-2"></a>Experiment_Reaktionszeit<span class="op">$</span>x =<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb142-3"><a href="datenstruktur.html#cb142-3"></a>Experiment_Reaktionszeit</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="datenstruktur.html#cb139-1"></a>Experiment_Reaktionszeit =<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;x&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;y&quot;</span> =<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span>)</span>
+<span id="cb139-2"><a href="datenstruktur.html#cb139-2"></a>Experiment_Reaktionszeit<span class="op">$</span>x =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb139-3"><a href="datenstruktur.html#cb139-3"></a>Experiment_Reaktionszeit</span></code></pre></div>
 <pre><code>##     y
 ## 1  11
 ## 2  12
@@ -439,20 +439,20 @@ Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:
 </div>
 <div id="wiederholung-einfache-berechnungen" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.5</span> Wiederholung: Einfache Berechnungen<a href="datenstruktur.html#wiederholung-einfache-berechnungen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="datenstruktur.html#cb144-1"></a>x &lt;-<span class="st"> </span><span class="dv">5</span>     <span class="co"># definiert den Wert der Variable x</span></span>
-<span id="cb144-2"><a href="datenstruktur.html#cb144-2"></a>y &lt;-<span class="st"> </span><span class="dv">5</span>     <span class="co"># definiert den Wert der Variable y</span></span>
-<span id="cb144-3"><a href="datenstruktur.html#cb144-3"></a>x <span class="op">+</span><span class="st"> </span>y      <span class="co"># Summe von x und y</span></span>
-<span id="cb144-4"><a href="datenstruktur.html#cb144-4"></a>x <span class="op">*</span><span class="st"> </span>y      <span class="co"># Produkt von x und y</span></span>
-<span id="cb144-5"><a href="datenstruktur.html#cb144-5"></a><span class="kw">sqrt</span>(x)    <span class="co"># Wurzel aus x</span></span>
-<span id="cb144-6"><a href="datenstruktur.html#cb144-6"></a>x<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)   <span class="co"># x hoch 0.5</span></span>
-<span id="cb144-7"><a href="datenstruktur.html#cb144-7"></a></span>
-<span id="cb144-8"><a href="datenstruktur.html#cb144-8"></a><span class="co"># Weise der Variable z das Ergebnis der Gleichung `x + y` zu. `z` erscheint im Workspace:</span></span>
-<span id="cb144-9"><a href="datenstruktur.html#cb144-9"></a></span>
-<span id="cb144-10"><a href="datenstruktur.html#cb144-10"></a>z &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y</span>
-<span id="cb144-11"><a href="datenstruktur.html#cb144-11"></a></span>
-<span id="cb144-12"><a href="datenstruktur.html#cb144-12"></a><span class="co"># Multipliziere die Elemente von vec_4 mit 5 und speichere als Variable e:</span></span>
-<span id="cb144-13"><a href="datenstruktur.html#cb144-13"></a></span>
-<span id="cb144-14"><a href="datenstruktur.html#cb144-14"></a>e &lt;-<span class="st"> </span>vec_<span class="dv">4</span> <span class="op">*</span><span class="st"> </span><span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="datenstruktur.html#cb141-1"></a>x &lt;-<span class="st"> </span><span class="dv">5</span>     <span class="co"># definiert den Wert der Variable x</span></span>
+<span id="cb141-2"><a href="datenstruktur.html#cb141-2"></a>y &lt;-<span class="st"> </span><span class="dv">5</span>     <span class="co"># definiert den Wert der Variable y</span></span>
+<span id="cb141-3"><a href="datenstruktur.html#cb141-3"></a>x <span class="op">+</span><span class="st"> </span>y      <span class="co"># Summe von x und y</span></span>
+<span id="cb141-4"><a href="datenstruktur.html#cb141-4"></a>x <span class="op">*</span><span class="st"> </span>y      <span class="co"># Produkt von x und y</span></span>
+<span id="cb141-5"><a href="datenstruktur.html#cb141-5"></a><span class="kw">sqrt</span>(x)    <span class="co"># Wurzel aus x</span></span>
+<span id="cb141-6"><a href="datenstruktur.html#cb141-6"></a>x<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)   <span class="co"># x hoch 0.5</span></span>
+<span id="cb141-7"><a href="datenstruktur.html#cb141-7"></a></span>
+<span id="cb141-8"><a href="datenstruktur.html#cb141-8"></a><span class="co"># Weise der Variable z das Ergebnis der Gleichung `x + y` zu. `z` erscheint im Workspace:</span></span>
+<span id="cb141-9"><a href="datenstruktur.html#cb141-9"></a></span>
+<span id="cb141-10"><a href="datenstruktur.html#cb141-10"></a>z &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb141-11"><a href="datenstruktur.html#cb141-11"></a></span>
+<span id="cb141-12"><a href="datenstruktur.html#cb141-12"></a><span class="co"># Multipliziere die Elemente von vec_4 mit 5 und speichere als Variable e:</span></span>
+<span id="cb141-13"><a href="datenstruktur.html#cb141-13"></a></span>
+<span id="cb141-14"><a href="datenstruktur.html#cb141-14"></a>e &lt;-<span class="st"> </span>vec_<span class="dv">4</span> <span class="op">*</span><span class="st"> </span><span class="dv">5</span></span></code></pre></div>
 <p>In R gibt es einige integrierte Funktionen um mit Vektoren zu rechnen:</p>
 <div id="übersicht-berechnungsfunktionen" class="section level3 hasAnchor">
 <h3><span class="header-section-number">4.5.1</span> Übersicht Berechnungsfunktionen<a href="datenstruktur.html#übersicht-berechnungsfunktionen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -515,24 +515,24 @@ von <code>x</code> und <code>y</code></td>
 </table>
 <div id="beispiel-einer-z-standardisierung-eines-vektors-mit-3-einträgen" class="section level4 hasAnchor">
 <h4><span class="header-section-number">4.5.1.1</span> Beispiel einer <em>z</em>-Standardisierung eines Vektors mit 3 Einträgen<a href="datenstruktur.html#beispiel-einer-z-standardisierung-eines-vektors-mit-3-einträgen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="datenstruktur.html#cb145-1"></a><span class="co"># Def. der Variable geschwister:</span></span>
-<span id="cb145-2"><a href="datenstruktur.html#cb145-2"></a></span>
-<span id="cb145-3"><a href="datenstruktur.html#cb145-3"></a>geschwister &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">12</span>)</span>
-<span id="cb145-4"><a href="datenstruktur.html#cb145-4"></a></span>
-<span id="cb145-5"><a href="datenstruktur.html#cb145-5"></a><span class="co"># MW:</span></span>
-<span id="cb145-6"><a href="datenstruktur.html#cb145-6"></a>mw_geschwister &lt;-<span class="st"> </span><span class="kw">mean</span>(geschwister)</span>
-<span id="cb145-7"><a href="datenstruktur.html#cb145-7"></a></span>
-<span id="cb145-8"><a href="datenstruktur.html#cb145-8"></a>mw_geschwister</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="datenstruktur.html#cb142-1"></a><span class="co"># Def. der Variable geschwister:</span></span>
+<span id="cb142-2"><a href="datenstruktur.html#cb142-2"></a></span>
+<span id="cb142-3"><a href="datenstruktur.html#cb142-3"></a>geschwister &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">12</span>)</span>
+<span id="cb142-4"><a href="datenstruktur.html#cb142-4"></a></span>
+<span id="cb142-5"><a href="datenstruktur.html#cb142-5"></a><span class="co"># MW:</span></span>
+<span id="cb142-6"><a href="datenstruktur.html#cb142-6"></a>mw_geschwister &lt;-<span class="st"> </span><span class="kw">mean</span>(geschwister)</span>
+<span id="cb142-7"><a href="datenstruktur.html#cb142-7"></a></span>
+<span id="cb142-8"><a href="datenstruktur.html#cb142-8"></a>mw_geschwister</span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="datenstruktur.html#cb147-1"></a><span class="co"># SD :</span></span>
-<span id="cb147-2"><a href="datenstruktur.html#cb147-2"></a>sd_geschwister &lt;-<span class="st"> </span><span class="kw">sd</span>(geschwister)</span>
-<span id="cb147-3"><a href="datenstruktur.html#cb147-3"></a></span>
-<span id="cb147-4"><a href="datenstruktur.html#cb147-4"></a>sd_geschwister</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="datenstruktur.html#cb144-1"></a><span class="co"># SD :</span></span>
+<span id="cb144-2"><a href="datenstruktur.html#cb144-2"></a>sd_geschwister &lt;-<span class="st"> </span><span class="kw">sd</span>(geschwister)</span>
+<span id="cb144-3"><a href="datenstruktur.html#cb144-3"></a></span>
+<span id="cb144-4"><a href="datenstruktur.html#cb144-4"></a>sd_geschwister</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="datenstruktur.html#cb149-1"></a><span class="co"># z-Standardisierung des Vektors:</span></span>
-<span id="cb149-2"><a href="datenstruktur.html#cb149-2"></a>z_geschwister &lt;-<span class="st"> </span>(geschwister<span class="op">-</span>mw_geschwister) <span class="op">/</span><span class="st"> </span>sd_geschwister</span>
-<span id="cb149-3"><a href="datenstruktur.html#cb149-3"></a></span>
-<span id="cb149-4"><a href="datenstruktur.html#cb149-4"></a>z_geschwister</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="datenstruktur.html#cb146-1"></a><span class="co"># z-Standardisierung des Vektors:</span></span>
+<span id="cb146-2"><a href="datenstruktur.html#cb146-2"></a>z_geschwister &lt;-<span class="st"> </span>(geschwister<span class="op">-</span>mw_geschwister) <span class="op">/</span><span class="st"> </span>sd_geschwister</span>
+<span id="cb146-3"><a href="datenstruktur.html#cb146-3"></a></span>
+<span id="cb146-4"><a href="datenstruktur.html#cb146-4"></a>z_geschwister</span></code></pre></div>
 <pre><code>## [1]  0 -1  1</code></pre>
 </div>
 </div>
@@ -541,110 +541,110 @@ von <code>x</code> und <code>y</code></td>
 <h2><span class="header-section-number">4.6</span> Matrizen<a href="datenstruktur.html#matrizen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Matrizen sind 2D Datenstrukturen, sie bestehen aus Vektoren <span class="ul">gleicher</span> Länge und enthalten <span class="ul">einen</span> Datentyp. Mit dem
 Befehl <code>matrix()</code> können sie erstellt werden:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="datenstruktur.html#cb151-1"></a><span class="co"># Erstellt die Matrix bsp_mat mit 4 Zeilen, 4 Spalten und leeren Einträgen: </span></span>
-<span id="cb151-2"><a href="datenstruktur.html#cb151-2"></a></span>
-<span id="cb151-3"><a href="datenstruktur.html#cb151-3"></a>bsp_mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NaN</span>, <span class="dt">nrow =</span> <span class="dv">4</span>, <span class="dt">ncol =</span> <span class="dv">4</span>) <span class="co"># NaN (Not a Number) ist vom Typ `num`</span></span>
-<span id="cb151-4"><a href="datenstruktur.html#cb151-4"></a></span>
-<span id="cb151-5"><a href="datenstruktur.html#cb151-5"></a>bsp_mat</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="datenstruktur.html#cb148-1"></a><span class="co"># Erstellt die Matrix bsp_mat mit 4 Zeilen, 4 Spalten und leeren Einträgen: </span></span>
+<span id="cb148-2"><a href="datenstruktur.html#cb148-2"></a></span>
+<span id="cb148-3"><a href="datenstruktur.html#cb148-3"></a>bsp_mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NaN</span>, <span class="dt">nrow =</span> <span class="dv">4</span>, <span class="dt">ncol =</span> <span class="dv">4</span>) <span class="co"># NaN (Not a Number) ist vom Typ `num`</span></span>
+<span id="cb148-4"><a href="datenstruktur.html#cb148-4"></a></span>
+<span id="cb148-5"><a href="datenstruktur.html#cb148-5"></a>bsp_mat</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]  NaN  NaN  NaN  NaN
 ## [2,]  NaN  NaN  NaN  NaN
 ## [3,]  NaN  NaN  NaN  NaN
 ## [4,]  NaN  NaN  NaN  NaN</code></pre>
 <p>Ich habe eine 4×4 Matrix erstellt, die mit NaNs gefüllt ist. Hätte ich diverse Datentypen zugeordnet, wären diese zum komplexeren <code>coerced</code> worden. Auf Werte in Matrizen kann mit <code>matrixname[Zeilennummer, Spaltenummer]</code> zugegriffen werden. Praktischerweise stehen die entspechenden Indizes neben der oben angezeigten Matrix. Beispiele zum Auswählen und Zuweisen neuer Werte:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="datenstruktur.html#cb153-1"></a><span class="co"># Weil Spalte 1 von bsp_mat und vec_4 dieselbe Länge haben,</span></span>
-<span id="cb153-2"><a href="datenstruktur.html#cb153-2"></a><span class="co"># kann ich der Spalte 1 die Einträge von vec_4 zuweisen.</span></span>
-<span id="cb153-3"><a href="datenstruktur.html#cb153-3"></a><span class="co"># Dadurch, dass der Eintrag für die Zeilennummer leer ist, </span></span>
-<span id="cb153-4"><a href="datenstruktur.html#cb153-4"></a><span class="co"># beziehe ich mich auf alle Zeilen:</span></span>
-<span id="cb153-5"><a href="datenstruktur.html#cb153-5"></a></span>
-<span id="cb153-6"><a href="datenstruktur.html#cb153-6"></a>bsp_mat[ , <span class="dv">1</span>] &lt;-<span class="st"> </span>vec_<span class="dv">4</span></span>
-<span id="cb153-7"><a href="datenstruktur.html#cb153-7"></a></span>
-<span id="cb153-8"><a href="datenstruktur.html#cb153-8"></a>bsp_mat</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="datenstruktur.html#cb150-1"></a><span class="co"># Weil Spalte 1 von bsp_mat und vec_4 dieselbe Länge haben,</span></span>
+<span id="cb150-2"><a href="datenstruktur.html#cb150-2"></a><span class="co"># kann ich der Spalte 1 die Einträge von vec_4 zuweisen.</span></span>
+<span id="cb150-3"><a href="datenstruktur.html#cb150-3"></a><span class="co"># Dadurch, dass der Eintrag für die Zeilennummer leer ist, </span></span>
+<span id="cb150-4"><a href="datenstruktur.html#cb150-4"></a><span class="co"># beziehe ich mich auf alle Zeilen:</span></span>
+<span id="cb150-5"><a href="datenstruktur.html#cb150-5"></a></span>
+<span id="cb150-6"><a href="datenstruktur.html#cb150-6"></a>bsp_mat[ , <span class="dv">1</span>] &lt;-<span class="st"> </span>vec_<span class="dv">4</span></span>
+<span id="cb150-7"><a href="datenstruktur.html#cb150-7"></a></span>
+<span id="cb150-8"><a href="datenstruktur.html#cb150-8"></a>bsp_mat</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1  NaN  NaN  NaN
 ## [2,]    3  NaN  NaN  NaN
 ## [3,]    3  NaN  NaN  NaN
 ## [4,]    7  NaN  NaN  NaN</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="datenstruktur.html#cb155-1"></a><span class="co"># Recycling: Wird einem Bereich ein einzelner Wert zugeordnet,</span></span>
-<span id="cb155-2"><a href="datenstruktur.html#cb155-2"></a><span class="co"># wird dieser vervielfacht (wie oben bei NaN):</span></span>
-<span id="cb155-3"><a href="datenstruktur.html#cb155-3"></a></span>
-<span id="cb155-4"><a href="datenstruktur.html#cb155-4"></a>bsp_mat[ , <span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">8</span></span>
-<span id="cb155-5"><a href="datenstruktur.html#cb155-5"></a></span>
-<span id="cb155-6"><a href="datenstruktur.html#cb155-6"></a>bsp_mat</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="datenstruktur.html#cb152-1"></a><span class="co"># Recycling: Wird einem Bereich ein einzelner Wert zugeordnet,</span></span>
+<span id="cb152-2"><a href="datenstruktur.html#cb152-2"></a><span class="co"># wird dieser vervielfacht (wie oben bei NaN):</span></span>
+<span id="cb152-3"><a href="datenstruktur.html#cb152-3"></a></span>
+<span id="cb152-4"><a href="datenstruktur.html#cb152-4"></a>bsp_mat[ , <span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">8</span></span>
+<span id="cb152-5"><a href="datenstruktur.html#cb152-5"></a></span>
+<span id="cb152-6"><a href="datenstruktur.html#cb152-6"></a>bsp_mat</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    8  NaN  NaN
 ## [2,]    3    8  NaN  NaN
 ## [3,]    3    8  NaN  NaN
 ## [4,]    7    8  NaN  NaN</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="datenstruktur.html#cb157-1"></a><span class="co"># Definiere `logi` Einträge in `num` Matrix:</span></span>
-<span id="cb157-2"><a href="datenstruktur.html#cb157-2"></a></span>
-<span id="cb157-3"><a href="datenstruktur.html#cb157-3"></a>bsp_mat[ , <span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</span>
-<span id="cb157-4"><a href="datenstruktur.html#cb157-4"></a>bsp_mat</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="datenstruktur.html#cb154-1"></a><span class="co"># Definiere `logi` Einträge in `num` Matrix:</span></span>
+<span id="cb154-2"><a href="datenstruktur.html#cb154-2"></a></span>
+<span id="cb154-3"><a href="datenstruktur.html#cb154-3"></a>bsp_mat[ , <span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</span>
+<span id="cb154-4"><a href="datenstruktur.html#cb154-4"></a>bsp_mat</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    8    0  NaN
 ## [2,]    3    8    1  NaN
 ## [3,]    3    8    0  NaN
 ## [4,]    7    8    1  NaN</code></pre>
 <p>Coercion: <code>TRUE</code> wurde zu 1 und <code>FALSE</code> wurde zu 0. Wenn man nun eine bestimmte Zeile oder Spalte betrachten möchte, kann man dies auch über die Indizierung tun, hierbei kann man sich beliebig austoben. Die Regeln dafür sind dieselben wie bei Vektoren, nur in 2D, wobei stets <code>[Zeile, Spalte]</code> gilt.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="datenstruktur.html#cb159-1"></a>bsp_mat[,<span class="dv">1</span>]   <span class="co"># Wählt alle Zeilen von Spalte 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="datenstruktur.html#cb156-1"></a>bsp_mat[,<span class="dv">1</span>]   <span class="co"># Wählt alle Zeilen von Spalte 1</span></span></code></pre></div>
 <pre><code>## [1] 1 3 3 7</code></pre>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="datenstruktur.html#cb161-1"></a>bsp_mat[<span class="dv">4</span>,<span class="dv">1</span>]  <span class="co"># Wählt Zeile 4 von Spalte 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="datenstruktur.html#cb158-1"></a>bsp_mat[<span class="dv">4</span>,<span class="dv">1</span>]  <span class="co"># Wählt Zeile 4 von Spalte 1</span></span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
 <p>Hier wird es turbulent:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="datenstruktur.html#cb163-1"></a>bsp_mat[<span class="kw">c</span>(<span class="dv">1</span> , <span class="dv">3</span>), ] <span class="co"># Wählt Zeilen 1 &amp; 3 von allen Spalten</span></span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="datenstruktur.html#cb160-1"></a>bsp_mat[<span class="kw">c</span>(<span class="dv">1</span> , <span class="dv">3</span>), ] <span class="co"># Wählt Zeilen 1 &amp; 3 von allen Spalten</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    8    0  NaN
 ## [2,]    3    8    0  NaN</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="datenstruktur.html#cb165-1"></a>bsp_mat[<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>]  <span class="co"># Wählt alle Zeilen außer 1, und Spalten 2-4</span></span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="datenstruktur.html#cb162-1"></a>bsp_mat[<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>]  <span class="co"># Wählt alle Zeilen außer 1, und Spalten 2-4</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    8    1  NaN
 ## [2,]    8    0  NaN
 ## [3,]    8    1  NaN</code></pre>
 <p>Da ich jetzt Bereiche der Matrix auswählen kann, kann ich vielleicht Berechnungen vornehmen:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="datenstruktur.html#cb167-1"></a><span class="kw">mode</span>(bsp_mat)  <span class="co"># Ist bsp_mat numerisch?</span></span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="datenstruktur.html#cb164-1"></a><span class="kw">mode</span>(bsp_mat)  <span class="co"># Ist bsp_mat numerisch?</span></span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="datenstruktur.html#cb169-1"></a>bsp_mat</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="datenstruktur.html#cb166-1"></a>bsp_mat</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    8    0  NaN
 ## [2,]    3    8    1  NaN
 ## [3,]    3    8    0  NaN
 ## [4,]    7    8    1  NaN</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="datenstruktur.html#cb171-1"></a><span class="co"># Spalte 2 minus Spalte 1 und dann mal Spalte 3:</span></span>
-<span id="cb171-2"><a href="datenstruktur.html#cb171-2"></a></span>
-<span id="cb171-3"><a href="datenstruktur.html#cb171-3"></a>(bsp_mat[ , <span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>bsp_mat[ , <span class="dv">1</span>]) <span class="op">*</span><span class="st"> </span>bsp_mat[ , <span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="datenstruktur.html#cb168-1"></a><span class="co"># Spalte 2 minus Spalte 1 und dann mal Spalte 3:</span></span>
+<span id="cb168-2"><a href="datenstruktur.html#cb168-2"></a></span>
+<span id="cb168-3"><a href="datenstruktur.html#cb168-3"></a>(bsp_mat[ , <span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>bsp_mat[ , <span class="dv">1</span>]) <span class="op">*</span><span class="st"> </span>bsp_mat[ , <span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 0 5 0 1</code></pre>
 <p>Es sind immer noch nicht angegebene Nummernwerte in der Matrix. Da ich mich beim Berechnen auf Bereiche der Matrix beschränke, die vergebene numerische Werte haben (Spalten 1 bis 3 ohne <code>NaN</code> Einträge), habe ich ein sinnvolles Ergebnis bekommen. Was passiert, wenn ich mit <code>NaN</code> Einträgen rechnen möchte?</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="datenstruktur.html#cb173-1"></a>bsp_mat[<span class="dv">1</span>, ]      <span class="co"># wählt Zeile 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="datenstruktur.html#cb170-1"></a>bsp_mat[<span class="dv">1</span>, ]      <span class="co"># wählt Zeile 1</span></span></code></pre></div>
 <pre><code>## [1]   1   8   0 NaN</code></pre>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="datenstruktur.html#cb175-1"></a><span class="co"># Bilde die Summe über Zeile 1 mit NaN:</span></span>
-<span id="cb175-2"><a href="datenstruktur.html#cb175-2"></a></span>
-<span id="cb175-3"><a href="datenstruktur.html#cb175-3"></a><span class="kw">sum</span>(bsp_mat[<span class="dv">1</span>, ]) </span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="datenstruktur.html#cb172-1"></a><span class="co"># Bilde die Summe über Zeile 1 mit NaN:</span></span>
+<span id="cb172-2"><a href="datenstruktur.html#cb172-2"></a></span>
+<span id="cb172-3"><a href="datenstruktur.html#cb172-3"></a><span class="kw">sum</span>(bsp_mat[<span class="dv">1</span>, ]) </span></code></pre></div>
 <pre><code>## [1] NaN</code></pre>
 <p>Die Summe der Zeile führt zu keinem interpretierbaren Ergebniss. Zum Auslassen der NaNs wird das Funktionsargument <code>na.rm = TRUE</code> verwendet (rm steht für <em>remove</em>):</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="datenstruktur.html#cb177-1"></a><span class="co"># Bilde die Summe über Zeile 1 ohne NaN:</span></span>
-<span id="cb177-2"><a href="datenstruktur.html#cb177-2"></a></span>
-<span id="cb177-3"><a href="datenstruktur.html#cb177-3"></a><span class="kw">sum</span>(bsp_mat[<span class="dv">1</span>, ], <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="datenstruktur.html#cb174-1"></a><span class="co"># Bilde die Summe über Zeile 1 ohne NaN:</span></span>
+<span id="cb174-2"><a href="datenstruktur.html#cb174-2"></a></span>
+<span id="cb174-3"><a href="datenstruktur.html#cb174-3"></a><span class="kw">sum</span>(bsp_mat[<span class="dv">1</span>, ], <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="datenstruktur.html#cb179-1"></a><span class="co"># Bilde den MW der Matrix ohne NaN:</span></span>
-<span id="cb179-2"><a href="datenstruktur.html#cb179-2"></a></span>
-<span id="cb179-3"><a href="datenstruktur.html#cb179-3"></a><span class="kw">mean</span>(bsp_mat, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="datenstruktur.html#cb176-1"></a><span class="co"># Bilde den MW der Matrix ohne NaN:</span></span>
+<span id="cb176-2"><a href="datenstruktur.html#cb176-2"></a></span>
+<span id="cb176-3"><a href="datenstruktur.html#cb176-3"></a><span class="kw">mean</span>(bsp_mat, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>Nun, da wir mit dem Rechnen in Matrizen vertraut sind, möchte ich die letzte Spalte mit Einträgen füllen:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="datenstruktur.html#cb181-1"></a><span class="co"># Speichere bsp_mat unter sav_mat zur späteren Verwendung:</span></span>
-<span id="cb181-2"><a href="datenstruktur.html#cb181-2"></a></span>
-<span id="cb181-3"><a href="datenstruktur.html#cb181-3"></a>sav_mat &lt;-<span class="st"> </span>bsp_mat</span>
-<span id="cb181-4"><a href="datenstruktur.html#cb181-4"></a></span>
-<span id="cb181-5"><a href="datenstruktur.html#cb181-5"></a><span class="co"># Weise Spalte 4 einen `chr`-Vektor zu:</span></span>
-<span id="cb181-6"><a href="datenstruktur.html#cb181-6"></a></span>
-<span id="cb181-7"><a href="datenstruktur.html#cb181-7"></a>bsp_mat[,<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;coercion&quot;</span>, <span class="st">&quot;kann&quot;</span>, <span class="st">&quot;nervig&quot;</span>, <span class="st">&quot;sein&quot;</span>)</span>
-<span id="cb181-8"><a href="datenstruktur.html#cb181-8"></a></span>
-<span id="cb181-9"><a href="datenstruktur.html#cb181-9"></a>bsp_mat</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="datenstruktur.html#cb178-1"></a><span class="co"># Speichere bsp_mat unter sav_mat zur späteren Verwendung:</span></span>
+<span id="cb178-2"><a href="datenstruktur.html#cb178-2"></a></span>
+<span id="cb178-3"><a href="datenstruktur.html#cb178-3"></a>sav_mat &lt;-<span class="st"> </span>bsp_mat</span>
+<span id="cb178-4"><a href="datenstruktur.html#cb178-4"></a></span>
+<span id="cb178-5"><a href="datenstruktur.html#cb178-5"></a><span class="co"># Weise Spalte 4 einen `chr`-Vektor zu:</span></span>
+<span id="cb178-6"><a href="datenstruktur.html#cb178-6"></a></span>
+<span id="cb178-7"><a href="datenstruktur.html#cb178-7"></a>bsp_mat[,<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;coercion&quot;</span>, <span class="st">&quot;kann&quot;</span>, <span class="st">&quot;nervig&quot;</span>, <span class="st">&quot;sein&quot;</span>)</span>
+<span id="cb178-8"><a href="datenstruktur.html#cb178-8"></a></span>
+<span id="cb178-9"><a href="datenstruktur.html#cb178-9"></a>bsp_mat</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]      
 ## [1,] &quot;1&quot;  &quot;8&quot;  &quot;0&quot;  &quot;coercion&quot;
 ## [2,] &quot;3&quot;  &quot;8&quot;  &quot;1&quot;  &quot;kann&quot;    
 ## [3,] &quot;3&quot;  &quot;8&quot;  &quot;0&quot;  &quot;nervig&quot;  
 ## [4,] &quot;7&quot;  &quot;8&quot;  &quot;1&quot;  &quot;sein&quot;</code></pre>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="datenstruktur.html#cb183-1"></a><span class="kw">mode</span>(bsp_mat) <span class="co"># Bestimmt Typ der Matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="datenstruktur.html#cb180-1"></a><span class="kw">mode</span>(bsp_mat) <span class="co"># Bestimmt Typ der Matrix</span></span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>Konnte ich eben noch den Mittelwert einer Spalte bilden, so geht das jetzt nicht mehr, da alle Einträge der Matrix zu <code>chr</code> coerced wurden. In einem typischen Datensatz sind aber Variablen verschiedener Typen (<code>num</code> und <code>chr</code>) enthalten. Dieses Problem ließe sich mit Listen lösen, welche aber unübersichtlich sind. Datensätze bestehen manchmal aus unüberschaubar vielen Einträgen und deshalb sollten sie wenigstens übersichtlich strukturiert sein.</p>
 </div>
@@ -707,14 +707,14 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <div id="tidyverse" class="section level3 hasAnchor">
 <h3><span class="header-section-number">4.7.1</span> tidyverse<a href="datenstruktur.html#tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Bevor wir uns dem übersichtlichsten Datenformat, den <code>tibble</code>s widmen, müssen wir das entsprechende Package einmalig in der <code>Console</code> installieren. Ich habe den Code auskommentiert, weil das Package bei mir bereits installiert ist:</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="datenstruktur.html#cb185-1"></a><span class="co"># R kennt den Namen von zu installierenden Packages noch nicht, deswegen in &quot;&quot;:</span></span>
-<span id="cb185-2"><a href="datenstruktur.html#cb185-2"></a></span>
-<span id="cb185-3"><a href="datenstruktur.html#cb185-3"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="datenstruktur.html#cb182-1"></a><span class="co"># R kennt den Namen von zu installierenden Packages noch nicht, deswegen in &quot;&quot;:</span></span>
+<span id="cb182-2"><a href="datenstruktur.html#cb182-2"></a></span>
+<span id="cb182-3"><a href="datenstruktur.html#cb182-3"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span></code></pre></div>
 <p>Das Package <code>tidyverse</code> enthält mehrere nützliche Packages, die eine saubere Datenverarbeitung zum Ziel haben. Packages müssen bei jeder Sitzung neu aktiviert bzw. angehängt werden. Für Sie relevante Packages im tidyverse sind <code>tibble</code>, <code>readr</code>, <code>stringr</code>, <code>dplyr</code>, <code>purr</code> und <code>ggplot2</code>.</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="datenstruktur.html#cb186-1"></a><span class="co"># Bitte gewöhnen Sie sich an, Packages am Anfang eines Skriptes zu laden, </span></span>
-<span id="cb186-2"><a href="datenstruktur.html#cb186-2"></a><span class="co"># da Sie dies nach jedem Neustart einer R Session wiederholen müssen:</span></span>
-<span id="cb186-3"><a href="datenstruktur.html#cb186-3"></a></span>
-<span id="cb186-4"><a href="datenstruktur.html#cb186-4"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="datenstruktur.html#cb183-1"></a><span class="co"># Bitte gewöhnen Sie sich an, Packages am Anfang eines Skriptes zu laden, </span></span>
+<span id="cb183-2"><a href="datenstruktur.html#cb183-2"></a><span class="co"># da Sie dies nach jedem Neustart einer R Session wiederholen müssen:</span></span>
+<span id="cb183-3"><a href="datenstruktur.html#cb183-3"></a></span>
+<span id="cb183-4"><a href="datenstruktur.html#cb183-4"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 </div>
 </div>
 <div id="data.frames-df-und-tibbles-tib" class="section level2 hasAnchor">
@@ -782,24 +782,24 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 </tbody>
 </table>
 <p>Sie können die beiden Datensatz-Formate einfach in das jeweils andere konvertieren. Datensätze lassen sich auch per Formel definieren: <code>data.frame()</code> oder <code>tibble()</code>, wobei hier die Spaltenvektoren aneinandergereiht werden. Es bietet sich an, dabei direkt Namen für die Spaltenvektoren zu vergeben:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="datenstruktur.html#cb187-1"></a><span class="co"># Erzeuge einen data.frame durch Verwendung der Spaltenvektoren aus vorherigen Matrizen,</span></span>
-<span id="cb187-2"><a href="datenstruktur.html#cb187-2"></a><span class="co"># denen Namen zugewiesen werden (Denken Sie beim Definieren der Spaltenvektoren daran</span></span>
-<span id="cb187-3"><a href="datenstruktur.html#cb187-3"></a><span class="co"># diese mit einem Komma voneinander zu trennen):</span></span>
-<span id="cb187-4"><a href="datenstruktur.html#cb187-4"></a></span>
-<span id="cb187-5"><a href="datenstruktur.html#cb187-5"></a>test_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;text&quot;</span> =<span class="st"> </span>bsp_mat[ , <span class="dv">4</span>],</span>
-<span id="cb187-6"><a href="datenstruktur.html#cb187-6"></a>                      <span class="st">&quot;ist_Verb&quot;</span> =<span class="st"> </span>sav_mat[ , <span class="dv">3</span>])</span>
-<span id="cb187-7"><a href="datenstruktur.html#cb187-7"></a>test_df</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="datenstruktur.html#cb184-1"></a><span class="co"># Erzeuge einen data.frame durch Verwendung der Spaltenvektoren aus vorherigen Matrizen,</span></span>
+<span id="cb184-2"><a href="datenstruktur.html#cb184-2"></a><span class="co"># denen Namen zugewiesen werden (Denken Sie beim Definieren der Spaltenvektoren daran</span></span>
+<span id="cb184-3"><a href="datenstruktur.html#cb184-3"></a><span class="co"># diese mit einem Komma voneinander zu trennen):</span></span>
+<span id="cb184-4"><a href="datenstruktur.html#cb184-4"></a></span>
+<span id="cb184-5"><a href="datenstruktur.html#cb184-5"></a>test_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;text&quot;</span> =<span class="st"> </span>bsp_mat[ , <span class="dv">4</span>],</span>
+<span id="cb184-6"><a href="datenstruktur.html#cb184-6"></a>                      <span class="st">&quot;ist_Verb&quot;</span> =<span class="st"> </span>sav_mat[ , <span class="dv">3</span>])</span>
+<span id="cb184-7"><a href="datenstruktur.html#cb184-7"></a>test_df</span></code></pre></div>
 <pre><code>##       text ist_Verb
 ## 1 coercion        0
 ## 2     kann        1
 ## 3   nervig        0
 ## 4     sein        1</code></pre>
 <p>In Bezug auf weitere Funktionen des Packages <code>tidyverse</code> sind tibbles ein wenig praktischer. Große tibbles werden beim Aufrufen etwas übersichtlicher angezeigt (nur die ersten 10 Zeilen).</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="datenstruktur.html#cb189-1"></a><span class="co"># Konvertiere data.frame zu tibble:</span></span>
-<span id="cb189-2"><a href="datenstruktur.html#cb189-2"></a></span>
-<span id="cb189-3"><a href="datenstruktur.html#cb189-3"></a>test_tib &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(test_df)</span>
-<span id="cb189-4"><a href="datenstruktur.html#cb189-4"></a></span>
-<span id="cb189-5"><a href="datenstruktur.html#cb189-5"></a>test_tib</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="datenstruktur.html#cb186-1"></a><span class="co"># Konvertiere data.frame zu tibble:</span></span>
+<span id="cb186-2"><a href="datenstruktur.html#cb186-2"></a></span>
+<span id="cb186-3"><a href="datenstruktur.html#cb186-3"></a>test_tib &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(test_df)</span>
+<span id="cb186-4"><a href="datenstruktur.html#cb186-4"></a></span>
+<span id="cb186-5"><a href="datenstruktur.html#cb186-5"></a>test_tib</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 2
 ##   text     ist_Verb
 ##   &lt;chr&gt;       &lt;dbl&gt;
@@ -808,14 +808,14 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ## 3 nervig          0
 ## 4 sein            1</code></pre>
 <p>Einzelne Spalten können ganz einfach aufgerufen werden, in dem man den <code>$</code>-Operator benutzt. Schreibt man diesen direkt hinter den Namen des Datensatzes, klappt automatisch eine Liste mit allen Spalten auf:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="datenstruktur.html#cb191-1"></a><span class="co"># Rufe Spalte text aus Datensatz test_tib auf:</span></span>
-<span id="cb191-2"><a href="datenstruktur.html#cb191-2"></a></span>
-<span id="cb191-3"><a href="datenstruktur.html#cb191-3"></a>test_tib<span class="op">$</span>text</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="datenstruktur.html#cb188-1"></a><span class="co"># Rufe Spalte text aus Datensatz test_tib auf:</span></span>
+<span id="cb188-2"><a href="datenstruktur.html#cb188-2"></a></span>
+<span id="cb188-3"><a href="datenstruktur.html#cb188-3"></a>test_tib<span class="op">$</span>text</span></code></pre></div>
 <pre><code>## [1] &quot;coercion&quot; &quot;kann&quot;     &quot;nervig&quot;   &quot;sein&quot;</code></pre>
 <p>Es ist auch möglich, mehrere Zeilen und/oder Spalten auszugeben. Dies funktioniert wie bei Matrizen per Indexnummer:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="datenstruktur.html#cb193-1"></a><span class="co"># Gibe Zeilen 2 bis 4 aus Spalte 1 aus:</span></span>
-<span id="cb193-2"><a href="datenstruktur.html#cb193-2"></a></span>
-<span id="cb193-3"><a href="datenstruktur.html#cb193-3"></a>test_tib[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="datenstruktur.html#cb190-1"></a><span class="co"># Gibe Zeilen 2 bis 4 aus Spalte 1 aus:</span></span>
+<span id="cb190-2"><a href="datenstruktur.html#cb190-2"></a></span>
+<span id="cb190-3"><a href="datenstruktur.html#cb190-3"></a>test_tib[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 1
 ##   text  
 ##   &lt;chr&gt; 
@@ -823,52 +823,52 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ## 2 nervig
 ## 3 sein</code></pre>
 <p>Die Adressierung einzelner Spalten und Zeilen ermöglicht dann zum Beispiel die Berechnung von Kennwerten nur für einzelne Spalten. Z.B. kann man die Kosten für Konzertkarten im Jahr 2022 aufsummieren lassen:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="datenstruktur.html#cb195-1"></a><span class="co"># Definiere ein tibble mit 2 Variablen:</span></span>
-<span id="cb195-2"><a href="datenstruktur.html#cb195-2"></a></span>
-<span id="cb195-3"><a href="datenstruktur.html#cb195-3"></a>tickets_<span class="dv">2022</span> &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="st">&quot;Artist&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Ed Sheeran&quot;</span>, <span class="st">&quot;Billy Ellish&quot;</span>, <span class="st">&quot;The Weeknd&quot;</span>, <span class="st">&quot;Dua Lipa&quot;</span>,</span>
-<span id="cb195-4"><a href="datenstruktur.html#cb195-4"></a>                                  <span class="st">&quot;Imagine Dragons&quot;</span>),</span>
-<span id="cb195-5"><a href="datenstruktur.html#cb195-5"></a>                       <span class="st">&quot;Kosten&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="fl">79.32</span>, <span class="dv">282</span>, <span class="dv">116</span>, <span class="dv">136</span>, <span class="fl">68.71</span>))</span>
-<span id="cb195-6"><a href="datenstruktur.html#cb195-6"></a></span>
-<span id="cb195-7"><a href="datenstruktur.html#cb195-7"></a><span class="co"># Berechne die Summe einer dieser beiden Variablen:</span></span>
-<span id="cb195-8"><a href="datenstruktur.html#cb195-8"></a></span>
-<span id="cb195-9"><a href="datenstruktur.html#cb195-9"></a><span class="kw">sum</span>(tickets_<span class="dv">2022</span><span class="op">$</span>Kosten)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="datenstruktur.html#cb192-1"></a><span class="co"># Definiere ein tibble mit 2 Variablen:</span></span>
+<span id="cb192-2"><a href="datenstruktur.html#cb192-2"></a></span>
+<span id="cb192-3"><a href="datenstruktur.html#cb192-3"></a>tickets_<span class="dv">2022</span> &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="st">&quot;Artist&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Ed Sheeran&quot;</span>, <span class="st">&quot;Billy Ellish&quot;</span>, <span class="st">&quot;The Weeknd&quot;</span>, <span class="st">&quot;Dua Lipa&quot;</span>,</span>
+<span id="cb192-4"><a href="datenstruktur.html#cb192-4"></a>                                  <span class="st">&quot;Imagine Dragons&quot;</span>),</span>
+<span id="cb192-5"><a href="datenstruktur.html#cb192-5"></a>                       <span class="st">&quot;Kosten&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="fl">79.32</span>, <span class="dv">282</span>, <span class="dv">116</span>, <span class="dv">136</span>, <span class="fl">68.71</span>))</span>
+<span id="cb192-6"><a href="datenstruktur.html#cb192-6"></a></span>
+<span id="cb192-7"><a href="datenstruktur.html#cb192-7"></a><span class="co"># Berechne die Summe einer dieser beiden Variablen:</span></span>
+<span id="cb192-8"><a href="datenstruktur.html#cb192-8"></a></span>
+<span id="cb192-9"><a href="datenstruktur.html#cb192-9"></a><span class="kw">sum</span>(tickets_<span class="dv">2022</span><span class="op">$</span>Kosten)</span></code></pre></div>
 <pre><code>## [1] 682.03</code></pre>
 <p>Der <code>$</code>-Operator wird für fast alle höheren Datentypen verwendet, um auf diese zuzugreifen. Dies gilt zum Beispiel auch für die meisten Outputs von Funktionen (<em>t</em>-Test, Anova, SEMs) und Listen, es müssen aber wie im tibble, Namen für die Listeneinträge vergeben worden sein:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="datenstruktur.html#cb197-1"></a><span class="co"># Erstelle eine Liste mit diversen Objekten aus meinem Workspace und vergebe Namen </span></span>
-<span id="cb197-2"><a href="datenstruktur.html#cb197-2"></a><span class="co"># (über welche Sie später auch auf die Listeneinträge zugreifen können):</span></span>
-<span id="cb197-3"><a href="datenstruktur.html#cb197-3"></a></span>
-<span id="cb197-4"><a href="datenstruktur.html#cb197-4"></a>list_of_thingis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">tibbi =</span> test_tib,</span>
-<span id="cb197-5"><a href="datenstruktur.html#cb197-5"></a>                        <span class="dt">ticki =</span> tickets_<span class="dv">2022</span>,</span>
-<span id="cb197-6"><a href="datenstruktur.html#cb197-6"></a>                        <span class="dt">geschwi =</span> geschwister,</span>
-<span id="cb197-7"><a href="datenstruktur.html#cb197-7"></a>                        <span class="dt">vari =</span> var1)</span>
-<span id="cb197-8"><a href="datenstruktur.html#cb197-8"></a></span>
-<span id="cb197-9"><a href="datenstruktur.html#cb197-9"></a><span class="co"># Per $-Operator und Name in der Liste wird ein Eintrag gewählt:</span></span>
-<span id="cb197-10"><a href="datenstruktur.html#cb197-10"></a></span>
-<span id="cb197-11"><a href="datenstruktur.html#cb197-11"></a>list_of_thingis<span class="op">$</span>geschwi</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="datenstruktur.html#cb194-1"></a><span class="co"># Erstelle eine Liste mit diversen Objekten aus meinem Workspace und vergebe Namen </span></span>
+<span id="cb194-2"><a href="datenstruktur.html#cb194-2"></a><span class="co"># (über welche Sie später auch auf die Listeneinträge zugreifen können):</span></span>
+<span id="cb194-3"><a href="datenstruktur.html#cb194-3"></a></span>
+<span id="cb194-4"><a href="datenstruktur.html#cb194-4"></a>list_of_thingis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">tibbi =</span> test_tib,</span>
+<span id="cb194-5"><a href="datenstruktur.html#cb194-5"></a>                        <span class="dt">ticki =</span> tickets_<span class="dv">2022</span>,</span>
+<span id="cb194-6"><a href="datenstruktur.html#cb194-6"></a>                        <span class="dt">geschwi =</span> geschwister,</span>
+<span id="cb194-7"><a href="datenstruktur.html#cb194-7"></a>                        <span class="dt">vari =</span> var1)</span>
+<span id="cb194-8"><a href="datenstruktur.html#cb194-8"></a></span>
+<span id="cb194-9"><a href="datenstruktur.html#cb194-9"></a><span class="co"># Per $-Operator und Name in der Liste wird ein Eintrag gewählt:</span></span>
+<span id="cb194-10"><a href="datenstruktur.html#cb194-10"></a></span>
+<span id="cb194-11"><a href="datenstruktur.html#cb194-11"></a>list_of_thingis<span class="op">$</span>geschwi</span></code></pre></div>
 <pre><code>## [1]  8  4 12</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="datenstruktur.html#cb199-1"></a><span class="co"># Wurde kein Name für den Listeneintrag vergeben, führt der Aufruf per Name ins Leere:</span></span>
-<span id="cb199-2"><a href="datenstruktur.html#cb199-2"></a></span>
-<span id="cb199-3"><a href="datenstruktur.html#cb199-3"></a>mylist<span class="op">$</span>vec_<span class="dv">4</span></span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="datenstruktur.html#cb196-1"></a><span class="co"># Wurde kein Name für den Listeneintrag vergeben, führt der Aufruf per Name ins Leere:</span></span>
+<span id="cb196-2"><a href="datenstruktur.html#cb196-2"></a></span>
+<span id="cb196-3"><a href="datenstruktur.html#cb196-3"></a>mylist<span class="op">$</span>vec_<span class="dv">4</span></span></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="datenstruktur.html#cb201-1"></a> <span class="co"># Mit mehreren $ können Sie tiefere Ebenen erreichen:</span></span>
-<span id="cb201-2"><a href="datenstruktur.html#cb201-2"></a></span>
-<span id="cb201-3"><a href="datenstruktur.html#cb201-3"></a>list_of_thingis<span class="op">$</span>ticki<span class="op">$</span>Artist</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="datenstruktur.html#cb198-1"></a> <span class="co"># Mit mehreren $ können Sie tiefere Ebenen erreichen:</span></span>
+<span id="cb198-2"><a href="datenstruktur.html#cb198-2"></a></span>
+<span id="cb198-3"><a href="datenstruktur.html#cb198-3"></a>list_of_thingis<span class="op">$</span>ticki<span class="op">$</span>Artist</span></code></pre></div>
 <pre><code>## [1] &quot;Ed Sheeran&quot;      &quot;Billy Ellish&quot;    &quot;The Weeknd&quot;     
 ## [4] &quot;Dua Lipa&quot;        &quot;Imagine Dragons&quot;</code></pre>
 <p>Mir fällt auf, dass ich den Namen einer Künstlerin in <code>tickets_2022</code> falsch geschrieben habe, das möchte ich ändern:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="datenstruktur.html#cb203-1"></a><span class="co"># $-Operator und Indexing per Nummer lassen sich auch kombinieren:</span></span>
-<span id="cb203-2"><a href="datenstruktur.html#cb203-2"></a></span>
-<span id="cb203-3"><a href="datenstruktur.html#cb203-3"></a>tickets_<span class="dv">2022</span><span class="op">$</span>Artist[<span class="dv">2</span>] &lt;-<span class="st"> &quot;Billy Eilish&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="datenstruktur.html#cb200-1"></a><span class="co"># $-Operator und Indexing per Nummer lassen sich auch kombinieren:</span></span>
+<span id="cb200-2"><a href="datenstruktur.html#cb200-2"></a></span>
+<span id="cb200-3"><a href="datenstruktur.html#cb200-3"></a>tickets_<span class="dv">2022</span><span class="op">$</span>Artist[<span class="dv">2</span>] &lt;-<span class="st"> &quot;Billy Eilish&quot;</span></span></code></pre></div>
 <p>Sie können also nicht nur Elemente aus Datensätzen abrufen, sondern diese mit dem <code>&lt;-</code> neu zuweisen. Sie können das $ auch verwenden um ganz neue Spalten in die Datensätze einzufügen:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="datenstruktur.html#cb204-1"></a><span class="co"># Definiere eine neue Spalte im Datensatz:</span></span>
-<span id="cb204-2"><a href="datenstruktur.html#cb204-2"></a></span>
-<span id="cb204-3"><a href="datenstruktur.html#cb204-3"></a>tickets_<span class="dv">2022</span><span class="op">$</span>Priorität &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>)</span>
-<span id="cb204-4"><a href="datenstruktur.html#cb204-4"></a></span>
-<span id="cb204-5"><a href="datenstruktur.html#cb204-5"></a><span class="co"># Besser ae statt ä im Variablennamen:</span></span>
-<span id="cb204-6"><a href="datenstruktur.html#cb204-6"></a></span>
-<span id="cb204-7"><a href="datenstruktur.html#cb204-7"></a>tickets_<span class="dv">2022</span><span class="op">$</span>Prioritaet &lt;-<span class="st"> </span>tickets_<span class="dv">2022</span><span class="op">$</span>Priorität</span>
-<span id="cb204-8"><a href="datenstruktur.html#cb204-8"></a></span>
-<span id="cb204-9"><a href="datenstruktur.html#cb204-9"></a>tickets_<span class="dv">2022</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="datenstruktur.html#cb201-1"></a><span class="co"># Definiere eine neue Spalte im Datensatz:</span></span>
+<span id="cb201-2"><a href="datenstruktur.html#cb201-2"></a></span>
+<span id="cb201-3"><a href="datenstruktur.html#cb201-3"></a>tickets_<span class="dv">2022</span><span class="op">$</span>Priorität &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>)</span>
+<span id="cb201-4"><a href="datenstruktur.html#cb201-4"></a></span>
+<span id="cb201-5"><a href="datenstruktur.html#cb201-5"></a><span class="co"># Besser ae statt ä im Variablennamen:</span></span>
+<span id="cb201-6"><a href="datenstruktur.html#cb201-6"></a></span>
+<span id="cb201-7"><a href="datenstruktur.html#cb201-7"></a>tickets_<span class="dv">2022</span><span class="op">$</span>Prioritaet &lt;-<span class="st"> </span>tickets_<span class="dv">2022</span><span class="op">$</span>Priorität</span>
+<span id="cb201-8"><a href="datenstruktur.html#cb201-8"></a></span>
+<span id="cb201-9"><a href="datenstruktur.html#cb201-9"></a>tickets_<span class="dv">2022</span></span></code></pre></div>
 <pre><code>## # A tibble: 5 × 4
 ##   Artist          Kosten Priorität Prioritaet
 ##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -878,21 +878,21 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ## 4 Dua Lipa         136           5          5
 ## 5 Imagine Dragons   68.7         1          1</code></pre>
 <p>Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen vorsichtig hiermit(!):</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="datenstruktur.html#cb206-1"></a>tickets_<span class="dv">2022</span><span class="op">$</span>Priorität &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># Entfernt die Spalte </span></span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="datenstruktur.html#cb203-1"></a>tickets_<span class="dv">2022</span><span class="op">$</span>Priorität &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># Entfernt die Spalte </span></span></code></pre></div>
 <p>Mit den Funktionen <code>rbind()</code> und <code>cbind()</code> lassen sich die data.frames und tibbles um gleichbreite bzw. gleichlange Vektoren oder Datensätze ergänzen. Verbinden Sie ein tibble und einen <code>data.frame</code> miteinander, werden diese zum Format <code>tibble</code> coerced. Zunächst füge ich zwei weitere Zeilen hinzu, dann zwei weitere Spalten:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="datenstruktur.html#cb207-1"></a><span class="co"># Zwei weitere Konzerte in neunem data.frame:</span></span>
-<span id="cb207-2"><a href="datenstruktur.html#cb207-2"></a></span>
-<span id="cb207-3"><a href="datenstruktur.html#cb207-3"></a>extra_Konzerte &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;Artist&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Elton John&quot;</span>, <span class="st">&quot;Coldplay&quot;</span>, <span class="st">&quot;RHCP&quot;</span>),</span>
-<span id="cb207-4"><a href="datenstruktur.html#cb207-4"></a>                             <span class="st">&quot;Kosten&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="fl">139.00</span>, <span class="fl">259.00</span>, <span class="dv">200</span>),</span>
-<span id="cb207-5"><a href="datenstruktur.html#cb207-5"></a>                             <span class="st">&quot;Prioritaet&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.7</span>, <span class="fl">2.3</span>, <span class="fl">1.7</span>))</span>
-<span id="cb207-6"><a href="datenstruktur.html#cb207-6"></a></span>
-<span id="cb207-7"><a href="datenstruktur.html#cb207-7"></a><span class="co"># Zeilenweises Aneinanderbinden:</span></span>
-<span id="cb207-8"><a href="datenstruktur.html#cb207-8"></a></span>
-<span id="cb207-9"><a href="datenstruktur.html#cb207-9"></a>tickets_<span class="dv">2022</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(tickets_<span class="dv">2022</span>, extra_Konzerte)</span>
-<span id="cb207-10"><a href="datenstruktur.html#cb207-10"></a></span>
-<span id="cb207-11"><a href="datenstruktur.html#cb207-11"></a><span class="co"># Zwischenergebnis:</span></span>
-<span id="cb207-12"><a href="datenstruktur.html#cb207-12"></a></span>
-<span id="cb207-13"><a href="datenstruktur.html#cb207-13"></a>tickets_<span class="dv">2022</span></span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="datenstruktur.html#cb204-1"></a><span class="co"># Zwei weitere Konzerte in neunem data.frame:</span></span>
+<span id="cb204-2"><a href="datenstruktur.html#cb204-2"></a></span>
+<span id="cb204-3"><a href="datenstruktur.html#cb204-3"></a>extra_Konzerte &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;Artist&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Elton John&quot;</span>, <span class="st">&quot;Coldplay&quot;</span>, <span class="st">&quot;RHCP&quot;</span>),</span>
+<span id="cb204-4"><a href="datenstruktur.html#cb204-4"></a>                             <span class="st">&quot;Kosten&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="fl">139.00</span>, <span class="fl">259.00</span>, <span class="dv">200</span>),</span>
+<span id="cb204-5"><a href="datenstruktur.html#cb204-5"></a>                             <span class="st">&quot;Prioritaet&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.7</span>, <span class="fl">2.3</span>, <span class="fl">1.7</span>))</span>
+<span id="cb204-6"><a href="datenstruktur.html#cb204-6"></a></span>
+<span id="cb204-7"><a href="datenstruktur.html#cb204-7"></a><span class="co"># Zeilenweises Aneinanderbinden:</span></span>
+<span id="cb204-8"><a href="datenstruktur.html#cb204-8"></a></span>
+<span id="cb204-9"><a href="datenstruktur.html#cb204-9"></a>tickets_<span class="dv">2022</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(tickets_<span class="dv">2022</span>, extra_Konzerte)</span>
+<span id="cb204-10"><a href="datenstruktur.html#cb204-10"></a></span>
+<span id="cb204-11"><a href="datenstruktur.html#cb204-11"></a><span class="co"># Zwischenergebnis:</span></span>
+<span id="cb204-12"><a href="datenstruktur.html#cb204-12"></a></span>
+<span id="cb204-13"><a href="datenstruktur.html#cb204-13"></a>tickets_<span class="dv">2022</span></span></code></pre></div>
 <pre><code>## # A tibble: 8 × 3
 ##   Artist          Kosten Prioritaet
 ##   &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;
@@ -904,18 +904,18 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ## 6 Elton John       139          2.7
 ## 7 Coldplay         259          2.3
 ## 8 RHCP             200          1.7</code></pre>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="datenstruktur.html#cb209-1"></a><span class="co"># Ort und Begleitung in neuem tibble:</span></span>
-<span id="cb209-2"><a href="datenstruktur.html#cb209-2"></a></span>
-<span id="cb209-3"><a href="datenstruktur.html#cb209-3"></a>ort_begleitung &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="st">&quot;Ort&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Frankfurt&quot;</span>, <span class="st">&quot;London&quot;</span>, <span class="st">&quot;Muenchen&quot;</span>, <span class="st">&quot;Berlin&quot;</span>, <span class="st">&quot;Gdynia&quot;</span>, <span class="st">&quot;Frankfurt&quot;</span>, <span class="st">&quot;Frankfurt&quot;</span>, <span class="st">&quot;Koeln&quot;</span>),</span>
-<span id="cb209-4"><a href="datenstruktur.html#cb209-4"></a>                         <span class="st">&quot;Begleitung&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Juergen&quot;</span>, <span class="st">&quot;Samu&quot;</span>, <span class="st">&quot;Anni&quot;</span>, <span class="st">&quot;Jan und Laura&quot;</span>, <span class="st">&quot;Oma&quot;</span>, <span class="st">&quot;Papa&quot;</span>, <span class="st">&quot;Schwester&quot;</span>, <span class="st">&quot;die Girls&quot;</span>))</span>
-<span id="cb209-5"><a href="datenstruktur.html#cb209-5"></a></span>
-<span id="cb209-6"><a href="datenstruktur.html#cb209-6"></a><span class="co"># Spaltenweises Aneinanderbinden:</span></span>
-<span id="cb209-7"><a href="datenstruktur.html#cb209-7"></a></span>
-<span id="cb209-8"><a href="datenstruktur.html#cb209-8"></a>tickets_<span class="dv">2022</span> &lt;-<span class="st"> </span><span class="kw">cbind</span>(tickets_<span class="dv">2022</span>, ort_begleitung)</span>
-<span id="cb209-9"><a href="datenstruktur.html#cb209-9"></a></span>
-<span id="cb209-10"><a href="datenstruktur.html#cb209-10"></a><span class="co"># Endergebnis:</span></span>
-<span id="cb209-11"><a href="datenstruktur.html#cb209-11"></a></span>
-<span id="cb209-12"><a href="datenstruktur.html#cb209-12"></a>tickets_<span class="dv">2022</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="datenstruktur.html#cb206-1"></a><span class="co"># Ort und Begleitung in neuem tibble:</span></span>
+<span id="cb206-2"><a href="datenstruktur.html#cb206-2"></a></span>
+<span id="cb206-3"><a href="datenstruktur.html#cb206-3"></a>ort_begleitung &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="st">&quot;Ort&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Frankfurt&quot;</span>, <span class="st">&quot;London&quot;</span>, <span class="st">&quot;Muenchen&quot;</span>, <span class="st">&quot;Berlin&quot;</span>, <span class="st">&quot;Gdynia&quot;</span>, <span class="st">&quot;Frankfurt&quot;</span>, <span class="st">&quot;Frankfurt&quot;</span>, <span class="st">&quot;Koeln&quot;</span>),</span>
+<span id="cb206-4"><a href="datenstruktur.html#cb206-4"></a>                         <span class="st">&quot;Begleitung&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Juergen&quot;</span>, <span class="st">&quot;Samu&quot;</span>, <span class="st">&quot;Anni&quot;</span>, <span class="st">&quot;Jan und Laura&quot;</span>, <span class="st">&quot;Oma&quot;</span>, <span class="st">&quot;Papa&quot;</span>, <span class="st">&quot;Schwester&quot;</span>, <span class="st">&quot;die Girls&quot;</span>))</span>
+<span id="cb206-5"><a href="datenstruktur.html#cb206-5"></a></span>
+<span id="cb206-6"><a href="datenstruktur.html#cb206-6"></a><span class="co"># Spaltenweises Aneinanderbinden:</span></span>
+<span id="cb206-7"><a href="datenstruktur.html#cb206-7"></a></span>
+<span id="cb206-8"><a href="datenstruktur.html#cb206-8"></a>tickets_<span class="dv">2022</span> &lt;-<span class="st"> </span><span class="kw">cbind</span>(tickets_<span class="dv">2022</span>, ort_begleitung)</span>
+<span id="cb206-9"><a href="datenstruktur.html#cb206-9"></a></span>
+<span id="cb206-10"><a href="datenstruktur.html#cb206-10"></a><span class="co"># Endergebnis:</span></span>
+<span id="cb206-11"><a href="datenstruktur.html#cb206-11"></a></span>
+<span id="cb206-12"><a href="datenstruktur.html#cb206-12"></a>tickets_<span class="dv">2022</span></span></code></pre></div>
 <pre><code>##            Artist Kosten Prioritaet       Ort    Begleitung
 ## 1      Ed Sheeran  79.32        2.0 Frankfurt       Juergen
 ## 2    Billy Eilish 282.00        4.0    London          Samu
@@ -926,22 +926,22 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ## 7        Coldplay 259.00        2.3 Frankfurt     Schwester
 ## 8            RHCP 200.00        1.7     Koeln     die Girls</code></pre>
 <p>Ein Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Zeilennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Zeilennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. <code>namevec</code>) behelfen, die Sie mit <code>relocate(tib, namevec)</code> an den Anfang des Datensatzes stellen können.</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="datenstruktur.html#cb211-1"></a><span class="co"># Definiere ein einfaches tibble mit Zeilennamen in einer Spalte:</span></span>
-<span id="cb211-2"><a href="datenstruktur.html#cb211-2"></a></span>
-<span id="cb211-3"><a href="datenstruktur.html#cb211-3"></a>newtib &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="st">&quot;sp1&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="st">&quot;namevec&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Zeile1&quot;</span>, <span class="st">&quot;Zeile2&quot;</span>, <span class="st">&quot;Zeile3&quot;</span>))</span>
-<span id="cb211-4"><a href="datenstruktur.html#cb211-4"></a></span>
-<span id="cb211-5"><a href="datenstruktur.html#cb211-5"></a>newtib</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="datenstruktur.html#cb208-1"></a><span class="co"># Definiere ein einfaches tibble mit Zeilennamen in einer Spalte:</span></span>
+<span id="cb208-2"><a href="datenstruktur.html#cb208-2"></a></span>
+<span id="cb208-3"><a href="datenstruktur.html#cb208-3"></a>newtib &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="st">&quot;sp1&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="st">&quot;namevec&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Zeile1&quot;</span>, <span class="st">&quot;Zeile2&quot;</span>, <span class="st">&quot;Zeile3&quot;</span>))</span>
+<span id="cb208-4"><a href="datenstruktur.html#cb208-4"></a></span>
+<span id="cb208-5"><a href="datenstruktur.html#cb208-5"></a>newtib</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##     sp1 namevec
 ##   &lt;dbl&gt; &lt;chr&gt;  
 ## 1     1 Zeile1 
 ## 2     2 Zeile2 
 ## 3     3 Zeile3</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="datenstruktur.html#cb213-1"></a><span class="co"># Sortiere den Namenvector in Spalte 1:</span></span>
-<span id="cb213-2"><a href="datenstruktur.html#cb213-2"></a></span>
-<span id="cb213-3"><a href="datenstruktur.html#cb213-3"></a>newtib &lt;-<span class="st"> </span><span class="kw">relocate</span>(newtib, namevec)</span>
-<span id="cb213-4"><a href="datenstruktur.html#cb213-4"></a></span>
-<span id="cb213-5"><a href="datenstruktur.html#cb213-5"></a>newtib</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="datenstruktur.html#cb210-1"></a><span class="co"># Sortiere den Namenvector in Spalte 1:</span></span>
+<span id="cb210-2"><a href="datenstruktur.html#cb210-2"></a></span>
+<span id="cb210-3"><a href="datenstruktur.html#cb210-3"></a>newtib &lt;-<span class="st"> </span><span class="kw">relocate</span>(newtib, namevec)</span>
+<span id="cb210-4"><a href="datenstruktur.html#cb210-4"></a></span>
+<span id="cb210-5"><a href="datenstruktur.html#cb210-5"></a>newtib</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   namevec   sp1
 ##   &lt;chr&gt;   &lt;dbl&gt;
@@ -958,13 +958,13 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <p>Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0.
 <a href="https://allisonhorst.github.io/palmerpenguins/" class="uri">https://allisonhorst.github.io/palmerpenguins/</a></p>
 <p>Nach einmaliger Installation des Packages (<code>install.packages("palmerpenguins"</code>) muss es geladen werden:</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="datenstruktur.html#cb215-1"></a><span class="co"># Jedes Mal beim Durchlaufen des Skripts soll das Package angehängt werden </span></span>
-<span id="cb215-2"><a href="datenstruktur.html#cb215-2"></a><span class="co"># (ohne &quot;&quot;, weil R das Package bereits installiert hat und kennt):</span></span>
-<span id="cb215-3"><a href="datenstruktur.html#cb215-3"></a><span class="kw">library</span>(palmerpenguins) </span>
-<span id="cb215-4"><a href="datenstruktur.html#cb215-4"></a><span class="co"># penguins ist zwar schon ein tibble, aber im Workspace rechts ist es nicht zu sehen,</span></span>
-<span id="cb215-5"><a href="datenstruktur.html#cb215-5"></a><span class="co"># daher weise ich es dem Namen pingus zu:</span></span>
-<span id="cb215-6"><a href="datenstruktur.html#cb215-6"></a></span>
-<span id="cb215-7"><a href="datenstruktur.html#cb215-7"></a>pingus &lt;-<span class="st"> </span>penguins</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="datenstruktur.html#cb212-1"></a><span class="co"># Jedes Mal beim Durchlaufen des Skripts soll das Package angehängt werden </span></span>
+<span id="cb212-2"><a href="datenstruktur.html#cb212-2"></a><span class="co"># (ohne &quot;&quot;, weil R das Package bereits installiert hat und kennt):</span></span>
+<span id="cb212-3"><a href="datenstruktur.html#cb212-3"></a><span class="kw">library</span>(palmerpenguins) </span>
+<span id="cb212-4"><a href="datenstruktur.html#cb212-4"></a><span class="co"># penguins ist zwar schon ein tibble, aber im Workspace rechts ist es nicht zu sehen,</span></span>
+<span id="cb212-5"><a href="datenstruktur.html#cb212-5"></a><span class="co"># daher weise ich es dem Namen pingus zu:</span></span>
+<span id="cb212-6"><a href="datenstruktur.html#cb212-6"></a></span>
+<span id="cb212-7"><a href="datenstruktur.html#cb212-7"></a>pingus &lt;-<span class="st"> </span>penguins</span></code></pre></div>
 <p>In der Regel werden Sie aber einen selbst erhobenen oder einen aus dem Internet heruntergeladenen Datensatz einlesen wollen. Mein Tipp ist, den Datensatz in das Working Directory zu speichern, dann finden Sie ihn schneller und er ist in der Nähe Ihrer Auswertung, noch eleganter ist es einen Unterordner namens data in den Ordner des Working Directories anzulegen, in den Sie alle Datensätze zu ihrem Projekt speichern können. Im <code>File</code>-tab unten rechts navigieren Sie zu der Datei mit dem Datensatz und dann klicken Sie diese zum Importieren des Datensatzes an (alternativ können Sie im <code>Environment</code>-tab über den Button <code>Import Dataset</code> einen Datensatz zum Importieren auf ihrem Computer suchen). In RStudio erscheint ein Fenster zum Importieren, unten rechts wird der automatisch der dem Dateiformat und unten links angegebenen Optionen entspricht, ggf. werden sogar benötigte Packages geladen.</p>
 <p>Um einen Datensatz per Code zu importieren sind Dateiformat, die Trennzeichen (<code>sep</code>) und die Dezimalzeichen (<code>dec</code>) besonders relevant. Das Standard-Dateiformat ist <code>.csv</code>, hier sind Kommata Trennzeichen (<code>sep=","</code>) und Punkte kennzeichnen Dezimalstellen (<code>dec="."</code>). Sie können die Funktionen <code>read_cvs()</code> oder <code>read_delim()</code> für dieses Dateiformat verwenden, letztere sollte Trenn- und Dezimalzeichen automatisch erkennen. Hier ist eine Übersicht zu den Einlesefunktionen in base R (also ohne zusätzlich geladene Packages) und im tidyverse Package, der Unterschied ist, dass base R Funktionen die Daten in einen data.frame laden, tidyverse Funktionen in ein tibble:</p>
 <table>
@@ -1016,11 +1016,11 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 </tbody>
 </table>
 <p>Wichtigstes und oft einziges Funktionsargument ist der vollständige Dateiname, er wird in <code>"</code> angegeben. Alternativ können Sie statt dem Dateinamen auch die Funktion <code>file.choose()</code> angeben, die dann ein interaktives Fenster zur Dateiauswahl öffnet. Falls Sie die Datei in einem Unterordner vom Working Directory gespeichert haben (ich erstelle mir meist einen Unterordner namens data), wird der Name des Unterordners mit einem <code>/</code> dem Dateinamen vorangestellt (z.B.“data/Datensatz1.csv”). Das Einlesen von Daten funktioniert nur, wenn der einzulesende Datensatz per <code>&lt;-</code> einem Namen zugewiesen wird. Beispiel zum Laden eines .csv Datensatzes:</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="datenstruktur.html#cb216-1"></a><span class="co"># Lese meinen socken.csv Datensatz aus dem Unterordner data in ein tibble namens socken:</span></span>
-<span id="cb216-2"><a href="datenstruktur.html#cb216-2"></a></span>
-<span id="cb216-3"><a href="datenstruktur.html#cb216-3"></a>socken &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/socken.csv&quot;</span>) </span>
-<span id="cb216-4"><a href="datenstruktur.html#cb216-4"></a></span>
-<span id="cb216-5"><a href="datenstruktur.html#cb216-5"></a>socken </span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="datenstruktur.html#cb213-1"></a><span class="co"># Lese meinen socken.csv Datensatz aus dem Unterordner data in ein tibble namens socken:</span></span>
+<span id="cb213-2"><a href="datenstruktur.html#cb213-2"></a></span>
+<span id="cb213-3"><a href="datenstruktur.html#cb213-3"></a>socken &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/socken.csv&quot;</span>) </span>
+<span id="cb213-4"><a href="datenstruktur.html#cb213-4"></a></span>
+<span id="cb213-5"><a href="datenstruktur.html#cb213-5"></a>socken </span></code></pre></div>
 <pre><code>## # A tibble: 2 × 3
 ##   Stoff Gewicht Bewertung
 ##   &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
@@ -1032,9 +1032,9 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <div id="datensätze-dat-anschauen" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.10</span> Datensätze (dat) anschauen<a href="datenstruktur.html#datensätze-dat-anschauen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Um sich einen geladenen Datensatz komplett anzuschauen, können Sie diesen im <code>Workspace</code> anklicken, oder deren Namen an die Funktion <code>view(dat)</code> übergeben. Der Datensatz <code>pingus</code> hat 344 Zeilen, das kann ich im Workspace sehen. Da er als <code>tibble</code> gespeichert ist, könnte ich diesen per Name aufrufen (nur die ersten 10 Zeilen würden dargestellt werden). Mit der Funktion <code>head(dat)</code> wird einem der Kopf des Datensatzes ausgegeben, genau genommen die ersten 6 Zeilen. Die Funktion ist besonders nützlich für große <code>data.frames</code>, da diese beim Aufrufen per Name die Console überfüllen.</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="datenstruktur.html#cb218-1"></a><span class="co"># Zeige die ersten 6 Zeilen jeder Variable an:</span></span>
-<span id="cb218-2"><a href="datenstruktur.html#cb218-2"></a></span>
-<span id="cb218-3"><a href="datenstruktur.html#cb218-3"></a><span class="kw">head</span>(pingus)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="datenstruktur.html#cb215-1"></a><span class="co"># Zeige die ersten 6 Zeilen jeder Variable an:</span></span>
+<span id="cb215-2"><a href="datenstruktur.html#cb215-2"></a></span>
+<span id="cb215-3"><a href="datenstruktur.html#cb215-3"></a><span class="kw">head</span>(pingus)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
 ##   species island bill_…¹ bill_…² flipp…³ body_…⁴ sex    year
 ##   &lt;fct&gt;   &lt;fct&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
@@ -1047,9 +1047,9 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ## # … with abbreviated variable names ¹​bill_length_mm,
 ## #   ²​bill_depth_mm, ³​flipper_length_mm, ⁴​body_mass_g</code></pre>
 <p>Einen Überlick über die Datenstruktur, inklusive Factor-<code>levels</code> (der Faktorstufen) erhalten Sie mit der Funktion <code>str(dat)</code>:</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="datenstruktur.html#cb220-1"></a><span class="co"># Zeige die Struktur der Daten:</span></span>
-<span id="cb220-2"><a href="datenstruktur.html#cb220-2"></a></span>
-<span id="cb220-3"><a href="datenstruktur.html#cb220-3"></a><span class="kw">str</span>(pingus)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="datenstruktur.html#cb217-1"></a><span class="co"># Zeige die Struktur der Daten:</span></span>
+<span id="cb217-2"><a href="datenstruktur.html#cb217-2"></a></span>
+<span id="cb217-3"><a href="datenstruktur.html#cb217-3"></a><span class="kw">str</span>(pingus)</span></code></pre></div>
 <pre><code>## tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
 ##  $ species          : Factor w/ 3 levels &quot;Adelie&quot;,&quot;Chinstrap&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ island           : Factor w/ 3 levels &quot;Biscoe&quot;,&quot;Dream&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
@@ -1063,9 +1063,9 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <div id="häufigkeit-von-factorlevels" class="section level3 hasAnchor">
 <h3><span class="header-section-number">4.10.1</span> Häufigkeit von Factorlevels<a href="datenstruktur.html#häufigkeit-von-factorlevels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Faktoren und die Zuweisung mit der Funktion <code>factor()</code> kennen Sie bereits aus dem vorherigen Kapitel. Die Funktion <code>levels(Faktor)</code> gibt die möglichen Ausprägungen einer Faktorvariable wieder. Faktoren eignen sich oft besser als Vektoren zum Plotten, Gruppieren oder für Häufigkeitstabellen. Mit der Funktion <code>count(dat, var)</code> lassen sich beispielsweise die Häufigkeiten der Levels eines Faktors ausgeben:</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="datenstruktur.html#cb222-1"></a><span class="co"># Zähle in pingu die Häufigkeiten der Levels des Faktors species:</span></span>
-<span id="cb222-2"><a href="datenstruktur.html#cb222-2"></a></span>
-<span id="cb222-3"><a href="datenstruktur.html#cb222-3"></a><span class="kw">count</span>(pingus, island)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="datenstruktur.html#cb219-1"></a><span class="co"># Zähle in pingu die Häufigkeiten der Levels des Faktors species:</span></span>
+<span id="cb219-2"><a href="datenstruktur.html#cb219-2"></a></span>
+<span id="cb219-3"><a href="datenstruktur.html#cb219-3"></a><span class="kw">count</span>(pingus, island)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   island        n
 ##   &lt;fct&gt;     &lt;int&gt;

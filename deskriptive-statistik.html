@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2022-10-26" />
+<meta name="date" content="2022-10-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -285,10 +285,10 @@ der Daten in einem Datensatz zu gewinnen.</p>
 <p>Für den folgenden Abschnitt benötigen Sie den <code>iris</code> Datensatz. Der <code>iris</code> Datensatz ist
 Teil von der Basisinstallation von R und wird automatisch (im Hintergrund) geladen. D.h. Sie
 können auf den Datensatz zugreifen in dem Sie <code>iris</code> in die R-Konsole eingeben.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="deskriptive-statistik.html#cb252-1"></a><span class="co"># als erstes speichern wir den iris-Datensatz in einer neuen Variable names &#39;data&#39;</span></span>
-<span id="cb252-2"><a href="deskriptive-statistik.html#cb252-2"></a>data &lt;-<span class="st"> </span>iris</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="deskriptive-statistik.html#cb249-1"></a><span class="co"># als erstes speichern wir den iris-Datensatz in einer neuen Variable names &#39;data&#39;</span></span>
+<span id="cb249-2"><a href="deskriptive-statistik.html#cb249-2"></a>data &lt;-<span class="st"> </span>iris</span></code></pre></div>
 <p>Benutzen Sie <code>head(data)</code>, um die ersten 5 Zeilen des Datensatzes zu sehen.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="deskriptive-statistik.html#cb253-1"></a><span class="kw">head</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="deskriptive-statistik.html#cb250-1"></a><span class="kw">head</span>(data)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -301,8 +301,8 @@ ist <code>str()</code>.<code>str()</code> steht für <em>structure</em>. Der out
 Datensatzes, wie die Anzahl and Beobachtungen (d.h., <code>obs.</code> für <em>observations</em>) und
 Variablen (d.h., <code>variables</code>). Wie Sie wissen, stehen Beobachtungen in den Zeilen und Variablen in den
 Spalten eines Datensatzes.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="deskriptive-statistik.html#cb255-1"></a><span class="co"># untersuchen wir die Struktur des Datensatzes</span></span>
-<span id="cb255-2"><a href="deskriptive-statistik.html#cb255-2"></a><span class="kw">str</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="deskriptive-statistik.html#cb252-1"></a><span class="co"># untersuchen wir die Struktur des Datensatzes</span></span>
+<span id="cb252-2"><a href="deskriptive-statistik.html#cb252-2"></a><span class="kw">str</span>(data)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
 ##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
 ##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
@@ -323,24 +323,24 @@ Die Art der Blume ist ein Faktor mit 3 Stufen (d.h., <code>Factor w/ 3 levels</c
 <div id="minimum-und-maximum" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.2.1</span> Minimum und Maximum<a href="deskriptive-statistik.html#minimum-und-maximum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Minimum und Maximum können mit den Funktionen <code>min()</code> und <code>max()</code> ermittelt werden:</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="deskriptive-statistik.html#cb257-1"></a><span class="co"># Berechnen wir das Minimum für die Variable Sepal.Length</span></span>
-<span id="cb257-2"><a href="deskriptive-statistik.html#cb257-2"></a><span class="kw">min</span>(data<span class="op">$</span>Sepal.Length)</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="deskriptive-statistik.html#cb254-1"></a><span class="co"># Berechnen wir das Minimum für die Variable Sepal.Length</span></span>
+<span id="cb254-2"><a href="deskriptive-statistik.html#cb254-2"></a><span class="kw">min</span>(data<span class="op">$</span>Sepal.Length)</span></code></pre></div>
 <pre><code>## [1] 4.3</code></pre>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="deskriptive-statistik.html#cb259-1"></a><span class="co"># Berechnen wir das Maximum für die Variable Sepal.Width</span></span>
-<span id="cb259-2"><a href="deskriptive-statistik.html#cb259-2"></a><span class="kw">max</span>(data<span class="op">$</span>Sepal.Width)</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="deskriptive-statistik.html#cb256-1"></a><span class="co"># Berechnen wir das Maximum für die Variable Sepal.Width</span></span>
+<span id="cb256-2"><a href="deskriptive-statistik.html#cb256-2"></a><span class="kw">max</span>(data<span class="op">$</span>Sepal.Width)</span></code></pre></div>
 <pre><code>## [1] 4.4</code></pre>
 <p>Alternativ, können Sie <code>range()</code> (Spannweite) benutzen, um Minima und Maxima zu berechnen:</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="deskriptive-statistik.html#cb261-1"></a><span class="co"># Berechnen wir die Spannweite von Sepal.Width und speichern</span></span>
-<span id="cb261-2"><a href="deskriptive-statistik.html#cb261-2"></a><span class="co"># wir das Ergebnis in einer neuen Variable namens &quot;width_range&quot;</span></span>
-<span id="cb261-3"><a href="deskriptive-statistik.html#cb261-3"></a>width_range &lt;-<span class="st"> </span><span class="kw">range</span>(data<span class="op">$</span>Sepal.Width)</span>
-<span id="cb261-4"><a href="deskriptive-statistik.html#cb261-4"></a>width_range</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="deskriptive-statistik.html#cb258-1"></a><span class="co"># Berechnen wir die Spannweite von Sepal.Width und speichern</span></span>
+<span id="cb258-2"><a href="deskriptive-statistik.html#cb258-2"></a><span class="co"># wir das Ergebnis in einer neuen Variable namens &quot;width_range&quot;</span></span>
+<span id="cb258-3"><a href="deskriptive-statistik.html#cb258-3"></a>width_range &lt;-<span class="st"> </span><span class="kw">range</span>(data<span class="op">$</span>Sepal.Width)</span>
+<span id="cb258-4"><a href="deskriptive-statistik.html#cb258-4"></a>width_range</span></code></pre></div>
 <pre><code>## [1] 2.0 4.4</code></pre>
 <p>Wie Sie sehen, berechnet <code>range()</code> einen Vektor, der das Minimum und das
 Maximum (in dieser Reihenfolge) enthält.
 Genau genommen müssen Sie diese Werte von einander abziehen, um die Spannweite von
 <code>Sepal.Width</code> zu bekommen:</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="deskriptive-statistik.html#cb263-1"></a><span class="co"># max - min</span></span>
-<span id="cb263-2"><a href="deskriptive-statistik.html#cb263-2"></a>width_range[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>width_range[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="deskriptive-statistik.html#cb260-1"></a><span class="co"># max - min</span></span>
+<span id="cb260-2"><a href="deskriptive-statistik.html#cb260-2"></a>width_range[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>width_range[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 2.4</code></pre>
 <p>Die Spannweite beträgt also <code>2.4</code>. Dies bedeutet, dass der Unterschied zwischen dem breitesten und dem dünsten Kelchblatt 2.4 cm beträgt.</p>
 </div>
@@ -360,17 +360,17 @@ x_{m+1} &amp; \mathrm{für}\; \mathrm{ungerades} \; n &amp;= 2m+1 \\
 größer als <code>m</code> und mindestens die Hälfte nicht kleiner als <code>m</code> ist.</p>
 <p>Sortiert man die Beobachtungswerte der Größe nach, so entspricht der Median bei einer ungeraden Anzahl von Beobachtungen dem Wert der in der Mitte dieser Folge liegenden Beobachtung. Bei einer geraden Anzahl von Beobachtungen gibt es kein einzelnes mittleres Element, sondern zwei. Der Median entspricht dann (vereinfacht ausgedruckt), dem Mittelwert dieser beiden Beobachtungen.</p>
 <p>Sie können diese Annahme mit den Funktionen <code>median()</code> und <code>quantile()</code> überprüfen.</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="deskriptive-statistik.html#cb265-1"></a><span class="co"># median</span></span>
-<span id="cb265-2"><a href="deskriptive-statistik.html#cb265-2"></a><span class="kw">median</span>(data<span class="op">$</span>Sepal.Length)</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="deskriptive-statistik.html#cb262-1"></a><span class="co"># median</span></span>
+<span id="cb262-2"><a href="deskriptive-statistik.html#cb262-2"></a><span class="kw">median</span>(data<span class="op">$</span>Sepal.Length)</span></code></pre></div>
 <pre><code>## [1] 5.8</code></pre>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="deskriptive-statistik.html#cb267-1"></a><span class="co"># 0.5 steht für 50%</span></span>
-<span id="cb267-2"><a href="deskriptive-statistik.html#cb267-2"></a><span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="deskriptive-statistik.html#cb264-1"></a><span class="co"># 0.5 steht für 50%</span></span>
+<span id="cb264-2"><a href="deskriptive-statistik.html#cb264-2"></a><span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## 50% 
 ## 5.8</code></pre>
 <p>Sie können <code>quantile()</code> auch benutzen, um unterschiedliche Perzentile auf einmal zu berechnen.</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="deskriptive-statistik.html#cb269-1"></a><span class="co"># mit 0.25, 0.5, und 0.75 können wir die Grenzen für die</span></span>
-<span id="cb269-2"><a href="deskriptive-statistik.html#cb269-2"></a><span class="co"># verschiedenen Quartile berechnen</span></span>
-<span id="cb269-3"><a href="deskriptive-statistik.html#cb269-3"></a><span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="kw">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="deskriptive-statistik.html#cb266-1"></a><span class="co"># mit 0.25, 0.5, und 0.75 können wir die Grenzen für die</span></span>
+<span id="cb266-2"><a href="deskriptive-statistik.html#cb266-2"></a><span class="co"># verschiedenen Quartile berechnen</span></span>
+<span id="cb266-3"><a href="deskriptive-statistik.html#cb266-3"></a><span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="kw">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>))</span></code></pre></div>
 <pre><code>## 25% 50% 75% 
 ## 5.1 5.8 6.4</code></pre>
 <p>Dies bedeutet, dass 25% der Werte sich unterhalb von <code>5.1</code>, 50% unterhalb von <code>5.8</code> und 75% unterhalb <code>6.4</code> befinden. Im Umkehrschluss befinden sich 25% der Werte oberhalb <code>6.4</code>.</p>
@@ -381,34 +381,34 @@ größer als <code>m</code> und mindestens die Hälfte nicht kleiner als <code>m
 um Aussagen über Beobachtungen, die innerhalb oder außerhalb eines bestimmten
 Wertebereichs liegen, zu treffen. Häufig wird hierfür der Interquartilsabstand benutzt,
 welches als der Abstand zwischen den 75. und 25. Perzentil definiert ist.</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="deskriptive-statistik.html#cb271-1"></a><span class="co"># IQR steht für interquartile range</span></span>
-<span id="cb271-2"><a href="deskriptive-statistik.html#cb271-2"></a><span class="kw">IQR</span>(data<span class="op">$</span>Sepal.Length)</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="deskriptive-statistik.html#cb268-1"></a><span class="co"># IQR steht für interquartile range</span></span>
+<span id="cb268-2"><a href="deskriptive-statistik.html#cb268-2"></a><span class="kw">IQR</span>(data<span class="op">$</span>Sepal.Length)</span></code></pre></div>
 <pre><code>## [1] 1.3</code></pre>
 <p>Sie können dies überprüfen, indem Sie den IQA selbt berechnen.</p>
 <p><span class="math display">\[
 (2)\qquad \mathrm{IQA} = X_{0.75} - X_{0.25}
 \]</span></p>
 <p>Sie müssen dafür den 3. Quartil (den 75. Perzentil) und den 1. Quartil (den 25. Perzentil) “händisch” berechnen und diese anschließend von einander abziehen.</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="deskriptive-statistik.html#cb273-1"></a><span class="kw">as.numeric</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.75</span>) <span class="op">-</span><span class="st"> </span><span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.25</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="deskriptive-statistik.html#cb270-1"></a><span class="kw">as.numeric</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.75</span>) <span class="op">-</span><span class="st"> </span><span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.25</span>))</span></code></pre></div>
 <pre><code>## [1] 1.3</code></pre>
 <p>Den IQA kann ebenfalls anhand eines Boxplots dargestellt werden. Unten sehen
 Sie das 75. Perzentil (nach unten zeigenden Dreieck), den Median (ein X) und den 25. Perzentil
 (nach oben zeigenden Dreieck) dargestellt. Den grau schattierten Bereich um den Median, zeigt
 der Wertebereich, in dem sich 50% der Werte einer Verteilung befinden.</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="deskriptive-statistik.html#cb275-1"></a><span class="co"># IQA visualisieren anhand eines Box-Plots</span></span>
-<span id="cb275-2"><a href="deskriptive-statistik.html#cb275-2"></a></span>
-<span id="cb275-3"><a href="deskriptive-statistik.html#cb275-3"></a><span class="co"># box-plot</span></span>
-<span id="cb275-4"><a href="deskriptive-statistik.html#cb275-4"></a><span class="kw">boxplot</span>(data<span class="op">$</span>Sepal.Length, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>))</span>
-<span id="cb275-5"><a href="deskriptive-statistik.html#cb275-5"></a><span class="co"># 0.75 Perzentil</span></span>
-<span id="cb275-6"><a href="deskriptive-statistik.html#cb275-6"></a><span class="kw">points</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.75</span>), </span>
-<span id="cb275-7"><a href="deskriptive-statistik.html#cb275-7"></a>       <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">pch =</span> <span class="dv">6</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb275-8"><a href="deskriptive-statistik.html#cb275-8"></a><span class="co"># 0.50 Perzentil (Median)</span></span>
-<span id="cb275-9"><a href="deskriptive-statistik.html#cb275-9"></a><span class="kw">points</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.50</span>), </span>
-<span id="cb275-10"><a href="deskriptive-statistik.html#cb275-10"></a>       <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">pch =</span> <span class="dv">4</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb275-11"><a href="deskriptive-statistik.html#cb275-11"></a><span class="co"># 0.25 Perzentil</span></span>
-<span id="cb275-12"><a href="deskriptive-statistik.html#cb275-12"></a><span class="kw">points</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.25</span>), </span>
-<span id="cb275-13"><a href="deskriptive-statistik.html#cb275-13"></a>       <span class="dt">col =</span> <span class="st">&#39;blue&#39;</span>, <span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">pch =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-114-1.png" width="384" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="deskriptive-statistik.html#cb272-1"></a><span class="co"># IQA visualisieren anhand eines Box-Plots</span></span>
+<span id="cb272-2"><a href="deskriptive-statistik.html#cb272-2"></a></span>
+<span id="cb272-3"><a href="deskriptive-statistik.html#cb272-3"></a><span class="co"># box-plot</span></span>
+<span id="cb272-4"><a href="deskriptive-statistik.html#cb272-4"></a><span class="kw">boxplot</span>(data<span class="op">$</span>Sepal.Length, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>))</span>
+<span id="cb272-5"><a href="deskriptive-statistik.html#cb272-5"></a><span class="co"># 0.75 Perzentil</span></span>
+<span id="cb272-6"><a href="deskriptive-statistik.html#cb272-6"></a><span class="kw">points</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.75</span>), </span>
+<span id="cb272-7"><a href="deskriptive-statistik.html#cb272-7"></a>       <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">pch =</span> <span class="dv">6</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb272-8"><a href="deskriptive-statistik.html#cb272-8"></a><span class="co"># 0.50 Perzentil (Median)</span></span>
+<span id="cb272-9"><a href="deskriptive-statistik.html#cb272-9"></a><span class="kw">points</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.50</span>), </span>
+<span id="cb272-10"><a href="deskriptive-statistik.html#cb272-10"></a>       <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">pch =</span> <span class="dv">4</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb272-11"><a href="deskriptive-statistik.html#cb272-11"></a><span class="co"># 0.25 Perzentil</span></span>
+<span id="cb272-12"><a href="deskriptive-statistik.html#cb272-12"></a><span class="kw">points</span>(<span class="kw">quantile</span>(data<span class="op">$</span>Sepal.Length, <span class="fl">0.25</span>), </span>
+<span id="cb272-13"><a href="deskriptive-statistik.html#cb272-13"></a>       <span class="dt">col =</span> <span class="st">&#39;blue&#39;</span>, <span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">pch =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-115-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="mittelwert" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.2.4</span> Mittelwert<a href="deskriptive-statistik.html#mittelwert" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -420,14 +420,14 @@ Werte geteilt durch die Anzahl der Werte.</p>
 \bar{x}=\frac{1}{n}\left(\sum_{i=1}^{n} x_{i}\right)=\frac{x_{1}+x_{2}+\cdots+x_{n}}{n}
 \]</span>
 Sie können den Mittelwert also folgendermaßen berechen.</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="deskriptive-statistik.html#cb276-1"></a>summe_der_werte &lt;-<span class="st"> </span><span class="kw">sum</span>(data<span class="op">$</span>Sepal.Width)</span>
-<span id="cb276-2"><a href="deskriptive-statistik.html#cb276-2"></a>anzahl_der_werte &lt;-<span class="st"> </span><span class="kw">length</span>(data<span class="op">$</span>Sepal.Width)</span>
-<span id="cb276-3"><a href="deskriptive-statistik.html#cb276-3"></a></span>
-<span id="cb276-4"><a href="deskriptive-statistik.html#cb276-4"></a><span class="co"># Mittelwert von Sepal.Width</span></span>
-<span id="cb276-5"><a href="deskriptive-statistik.html#cb276-5"></a>summe_der_werte <span class="op">/</span><span class="st"> </span>anzahl_der_werte</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="deskriptive-statistik.html#cb273-1"></a>summe_der_werte &lt;-<span class="st"> </span><span class="kw">sum</span>(data<span class="op">$</span>Sepal.Width)</span>
+<span id="cb273-2"><a href="deskriptive-statistik.html#cb273-2"></a>anzahl_der_werte &lt;-<span class="st"> </span><span class="kw">length</span>(data<span class="op">$</span>Sepal.Width)</span>
+<span id="cb273-3"><a href="deskriptive-statistik.html#cb273-3"></a></span>
+<span id="cb273-4"><a href="deskriptive-statistik.html#cb273-4"></a><span class="co"># Mittelwert von Sepal.Width</span></span>
+<span id="cb273-5"><a href="deskriptive-statistik.html#cb273-5"></a>summe_der_werte <span class="op">/</span><span class="st"> </span>anzahl_der_werte</span></code></pre></div>
 <pre><code>## [1] 3.057333</code></pre>
 <p>Wir können diese Berechnung mit der R-Funktion <code>mean()</code> überprüfen.</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="deskriptive-statistik.html#cb278-1"></a><span class="kw">mean</span>(data<span class="op">$</span>Sepal.Width)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="deskriptive-statistik.html#cb275-1"></a><span class="kw">mean</span>(data<span class="op">$</span>Sepal.Width)</span></code></pre></div>
 <pre><code>## [1] 3.057333</code></pre>
 <p>Bitte beachten Sie, dass, sollte eine Variable mindestens einen fehlenden Wert erhalten, sollten Sie <code>mean(data$Sepal.Width, na.rm = TRUE)</code>, um den Mittelwert unter Ausschluss der fehlenden Werte zu berechnen.
 Das Argument <code>na.rm = TRUE</code> kann für die meisten in diesem Abschnitt vorgestellten Funktionen verwendet werden, nicht nur für den Mittelwert.</p>
@@ -444,10 +444,10 @@ Das Argument <code>na.rm = TRUE</code> kann für die meisten in diesem Abschnitt
 s_{N}=\sqrt{\frac{1}{N} \sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^{2}}
 \]</span>
 In R also:</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="deskriptive-statistik.html#cb280-1"></a><span class="kw">sqrt</span>(<span class="kw">sum</span>((data<span class="op">$</span>Sepal.Width <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(data<span class="op">$</span>Sepal.Width))<span class="op">^</span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span>(<span class="kw">length</span>(data<span class="op">$</span>Sepal.Width) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="deskriptive-statistik.html#cb277-1"></a><span class="kw">sqrt</span>(<span class="kw">sum</span>((data<span class="op">$</span>Sepal.Width <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(data<span class="op">$</span>Sepal.Width))<span class="op">^</span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span>(<span class="kw">length</span>(data<span class="op">$</span>Sepal.Width) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)))</span></code></pre></div>
 <pre><code>## [1] 0.4358663</code></pre>
 <p>Oder mit Hilfe der R-Funktion <code>sd()</code>:</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="deskriptive-statistik.html#cb282-1"></a><span class="kw">sd</span>(data<span class="op">$</span>Sepal.Width)</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="deskriptive-statistik.html#cb279-1"></a><span class="kw">sd</span>(data<span class="op">$</span>Sepal.Width)</span></code></pre></div>
 <pre><code>## [1] 0.4358663</code></pre>
 
 </div>
