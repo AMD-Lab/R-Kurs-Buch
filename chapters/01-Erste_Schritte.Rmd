@@ -23,7 +23,7 @@ Zahlen werden aber auch manchmal in der sogenannten ***wissenschaftlichen Notati
 
 Sicherlich wollen Sie Ihre Daten nicht nur in der Konsole ausgeben lassen und bearbeiten, sondern auch in Variablen speichern. Variablen sind Bezeichnungen, mit deren Hilfe Sie auf gespeicherte Daten zugreifen. Sobald eine Variable definiert wurde, können Sie immer wieder darauf zugreifen. Variablen werden mit Hilfe des `<-` Operators definiert.
 
-```{r datatypes, echo = FALSE}
+```{r}
 # Hier werden zwei Variablen - x und y - definiert
 x <- 2
 y <- 3
@@ -39,34 +39,40 @@ Jetzt können Sie bereits erste Berechnungen mit Variablen durchführen:
 
 ```{r}
 x + y
+
 x * y
 ```
 
+
+In R lassen sich sämtliche Objekte -- nicht nur einzelne Zahlen, sondern auch Datentabellen, Wortlisten oder sogar Ergebnisse komplizierter Analysen -- in Variablen speichern. Der Workflow ist so ausgelegt, dass Sie die Ergebnisse einer Analyse in einer Variable speichern und von dort aus weiterverarbeiten können, z.B. um APA-konforme Tabellen oder Grafiken zu erstellen oder sich Effektstärkemaße ausgeben zu lassen. Im weiteren Verlauf des Kurses lernen Sie andere Datentypen kennen, die in Variablen gespeichert werden können.
+
 Variablennamen können auch Umlaute, Unterstriche ("_") und Punkte (".") enthalten, sie dürfen aber nicht mit einer Zahl oder einem Unterstrich beginnen.
 
-In R lassen sich sämtliche Objekte -- nicht nur einzelne Zahlen, sondern auch Datentabellen, Wortlisten oder sogar Ergebnisse komplizierter Analysen -- in Variablen speichern. Der Workflow ist so ausgelegt, dass Sie Ergebnisse einer Analyse in einer Variable speichern und von dort aus weiterverarbeiten können, z.B. um APA-konforme Tabellen oder Grafiken zu erstellen oder sich Effektstärkemaße ausgeben zu lassen. Im weiteren Verlauf des Kurses lernen Sie andere Datentypen kennen, die in Variablen gespeichert werden können.
-
 *Achtung*: Wenn Sie eine Berechnung mit einer Variable durchführen und das Ergebnis dieser Berechnung speichern möchten, müssen Sie es wieder eine Variable zuweisen -- es wird nicht automatisch gespeichert!
-
 
 ```{r}
 z <- x * 10
 ```
 
-Wenn Sie sich jetzt `x` und `z` ausgeben lassen, sehen Sie, dass sich nichts an `x` geändert hat -- das Ergebnis der Berechnung wurde nicht abgespeichert. In der Variable `z` hingegen sehen Sie das Ergebnis Ihrer Berechnung.
+Wenn Sie sich jetzt `x` und `z` ausgeben lassen, sehen Sie, dass sich nichts an `x` geändert hat -- das Ergebnis der Berechnung wurde nicht in der Variable `x` abgespeichert. In der Variable `z` hingegen sehen Sie das Ergebnis Ihrer Berechnung.
 
 ```{r}
 x
+
 z
 ```
 
-`x`, `y` und `z` sind denkbar schlechte Variablennamen! Gute Variablennamen *sprechen*, d.h. dass der Name eine Variable verrät, was sich "in" dieser Variable verbirgt. Deswegen sollten Sie sich immer bemühen, möglichst klare und eindeutige Variablennamen zu vergeben.
+`x`, `y` und `z` sind denkbar schlechte Variablennamen! Gute Variablennamen sprechen zu den R Benutzer:innen, d.h. dass der Name eine Variable verrät, was sich "in" dieser Variable verbirgt. Deswegen sollten Sie sich immer bemühen, möglichst klare und eindeutige Variablennamen zu vergeben. 
 
 ```{r}
 # Beispiele für gute Variablennamen
+
 durchschnittliches_Alter <- 23
+
 MW_Alter <- 23
+
 durchschnittliches_Evaluationsergebnis_KursA <- 2
+
 MW_Evaluationsergebnis_KursA <- 2
 ```
 
@@ -124,6 +130,7 @@ Viele Funktionen in R haben Funktionsargumente mit **Standardparametern**. Das h
 
 ```{r}
 round(0.0249, 3)
+
 round(0.0249)
 ```
 
@@ -156,8 +163,11 @@ Wenn Sie hingegen zwei gleich lange Vektoren haben, wird jedes *i*-te Element de
 
 ```{r}
 punkte_MC_Fragen <- c(5, 2, 2, 4, 3, 2, 1, 0, 1, 4)
+
 punkte_offene_Fragen <- c(3, 4, 5, 0, 2, 3, 1, 3, 5, 1)
+
 klausurergebnis <- punkte_MC_Fragen + punkte_offene_Fragen
+
 klausurergebnis
 ```
 
@@ -167,8 +177,11 @@ Wenn Sie in einer Variable Text abspeichern wollen, definieren Sie eine Variable
 
 ```{r}
 "Alpha" 
+
 'Beta'
+
 Vektor_character <- c("Lea", "Luke", "Han", "Chewy") 
+
 mode(Vektor_character)
 ```
 
@@ -176,6 +189,7 @@ Mit Vektoren des Typs `character` können Sie natürlich keine mathematischen Op
 
 ```{r}
 Geschlecht <- c("männlich", "weiblich", "weiblich", "divers", "weiblich")
+
 Studienfach <- c("Psychologie", "Medizin", "Informatik", "Sportwissenschaft", "Biologie")
 ```
 
@@ -185,17 +199,22 @@ Der Datentyp `logical` (kurz `logi`) kodiert binäre Informationen -- diese sind
 
 ```{r}
 TRUE 
+
 FALSE
+
 Vektor_logical <- c(TRUE, TRUE, FALSE, TRUE) 
+
 mode(Vektor_logical)
 ```
 
-Dabei werden `TRUE` und `FALSE` als logische Bedingungen interpretiert, die erfüllt oder nicht erfüllt sein können. Vektoren dieses Datentyps sind für die Datenaufbereitung unglaublich nützlich! Mit Hilfe eines Vektors vom Typ `logical` können sie beispielsweise kodieren, welche Versuchspersonen die Studie vollständig abgeschlossen haben oder ob einzelne Beobachtungen Ausreißer darstellen. Sie werden diesen Datentyp häufig benötigen, wenn Sie in Datentabellen einzelne Fälle auswählen oder Versuchspersonen ausschließen möchte. Hierbei wird dann jeweils im Einzelfall überprüft, welche Fälle eine gewünschte Bedingung erfüllen (z.B. maximal 30 Minuten zur Bearbeitung eines Tests gebraucht haben) und daher in den weiteren Analysen eingeschlossen werden.
+Dabei werden `TRUE` und `FALSE` als logische Bedingungen interpretiert, die erfüllt oder nicht erfüllt sein können. Vektoren dieses Datentyps sind für die Datenaufbereitung unglaublich nützlich! Mit Hilfe eines Vektors vom Typ `logical` können Sie beispielsweise kodieren, welche Versuchspersonen die Studie vollständig abgeschlossen haben oder ob einzelne Beobachtungen Ausreißer darstellen. Sie werden diesen Datentyp häufig benötigen, wenn Sie in Datentabellen einzelne Fälle auswählen oder Versuchspersonen ausschließen möchte. Hierbei wird dann jeweils im Einzelfall überprüft, welche Fälle eine gewünschte Bedingung erfüllen (z.B. maximal 30 Minuten zur Bearbeitung eines Tests gebraucht) und daher in den weiteren Analysen eingeschlossen werden.
 
 ```{r}
 # Hier wird festgehalten, welche Versuchspersonen (id) die Studie 
 # vollständig abgeschlossen haben (Studie_abgeschlossen)
+
 id <- 1:10
+
 Studie_abgeschlossen <- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE) 
 ```
 
@@ -208,18 +227,24 @@ Die Verknüpfung UND ergibt dann `TRUE`, wenn beide Bedingungen erfüllt sind, d
 
 
 ```{r}
-## Logisches UND
+## Logisches UND (&)
+
 TRUE & TRUE
+
 TRUE & FALSE
+
 FALSE & FALSE
 ```
 
 Die Verknüpfung ODER ergibt dann `TRUE`, wenn mindestens eine der beiden Bedingungen erfüllt ist, d.h. wenn die erste oder die zweite Bedingung oder beide Bedingungen `TRUE` sind. Ganz wichtig: ODER gibt auch dann `TRUE` aus, wenn beide Bedingungen erfüllt sind!
 
 ```{r}
-## Logisches ODER
+## Logisches ODER (|)
+
 TRUE | TRUE
+
 TRUE | FALSE
+
 FALSE | FALSE
 ```
 
@@ -227,8 +252,10 @@ FALSE | FALSE
 Das logische NICHT invertiert eine logische Variable: Aus `TRUE` wird `FALSE` und umgekehrt. Das ist hier noch etwas abstrakt, wird aber später in den Kapiteln zur Datenaufbereitung noch klarer.
 
 ```{r}
-## Logisches NICHT
+## Logisches NICHT (!)
+
 !TRUE
+
 !FALSE
 ```
 
@@ -236,6 +263,7 @@ Wie mathematischen Ausdrücke auch, haben logische Operationen ebenfalls eine Ra
 
 ```{r}
 !TRUE & FALSE | TRUE
+
 !TRUE & (FALSE | TRUE)
 ```
 
@@ -245,10 +273,13 @@ Variablen vom Datentyp `factor` sind nützlich, um kategoriale Variablen zu kodi
 
 ```{r}
 Bedingung <- c (0, 1, 1, 0, 1, 0, 0, 1)
+
 Vektor_factor <- factor(x = Bedingung, 
                         levels = c(0, 1),
                         labels = c("Kontrollgruppe", "Experimentalgruppe"))
+
 Vektor_factor
+
 mode(Vektor_factor)
 ```
 
@@ -274,30 +305,35 @@ Sie können auf einzelne Elemente eines Vektor zugreifen, indem Sie den Operator
 
 ```{r}
 daten <- c(3, 7, 9, 0, 1, 1, 4, 5)
-daten[3]
+
 # Hier wird das dritte Element ausgewählt
+
+daten[3]
 ```
 
 Sie können auch eine sogenannte **Negativindizierung** durchführen, d.h. im Index festhalten, welches Element Sie *nicht* auswählen möchten.
 
 
 ```{r}
-daten[-3]
 # Hier werden alle Elemente außer dem dritten ausgewählt
+
+daten[-3]
 ```
 
 Selbstverständlich können Sie auch gleich mehrere Elemente auswählen. Wenn Sie z.B. alles vom zweiten bis fünften Element auswählen wollen, können Sie das im Index so vermerken: `[2:5]`. Ganz allgemein gilt: Die Zahl *vor* dem Doppelpunkt gibt an, wo die Indizierung beginnt, und die Zahl *nach* dem Doppelpunkt gibt an, wo die Indizierung endet.
 
 ```{r}
-daten[2:5]
 # Hier werden die Elemente 2, 3, 4 und 5 ausgewählt
+
+daten[2:5]
 ```
 
 Wenn Sie mehrere Elemente auswählen möchten, die nicht direkt nebeneinander stehen, müssen Sie diese mit dem "combine"-Operator `c` verknüpfen:
 
 ```{r}
-daten[c(2, 7)]
 # Hier werden die Elemente 2 und 7 ausgewählt
+
+daten[c(2, 7)]
 ```
 
 Die so ausgewählten Daten können Sie natürlich wieder in einer neuen Variable speichern:
@@ -313,10 +349,11 @@ Logische Vergleiche können genutzt werden, um bestimmte Fälle -- z.B. einzelne
 
 ### Datentyp numeric
 
-Wenn Sie Daten vom Typ `numeric` haben, können Sie numerische Vergleiche durchführen. Sie können zum Beispiel überprüfen, welche Ihrer Versuchspersonen älter als 18 Jahre sind. Dazu verwenden Sie den logischen Operator `>=`, den Sie als "größer oder gleich" interpretieren können (analog dazu liest sich `<=` als "kleiner oder gleich".)
+Wenn Sie Daten vom Typ `numeric` haben, können Sie numerische Vergleiche durchführen. Sie können zum Beispiel überprüfen, welche Ihrer Versuchspersonen 18 Jahre oder älter sind. Dazu verwenden Sie den logischen Operator `>=`, den Sie als "größer oder gleich" interpretieren können (analog dazu liest sich `<=` als "kleiner oder gleich".)
 
 ```{r}
-alter <- c(20, 21, 24, 25, 32, 17, 65, 22)
+alter <- c(20, 21, 18, 25, 32, 17, 65, 22)
+
 alter >= 18
 ```
 
@@ -324,8 +361,11 @@ Bei numerischen Vektoren können Sie folgende logischen Vergleiche durchführen:
 
 ```{r}
 # Hier überprüfen wir, welche Versuchspersonen jünger als 18 Jahre sind
+
 alter < 18
+
 # Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre sind
+
 alter == 18
 ```
 
@@ -335,10 +375,13 @@ Vektoren vom Typ `character` lassen sich darauf überprüfen, ob diese identisch
 
 ```{r}
 # Hier wird überprüft, welche Versuchspersonen Psychologie studieren...
+
 Studienfach <- c("Psychologie", "Medizin", "Informatik", "Sportwissenschaft", "Biologie")
+
 Studienfach == "Psychologie"
 
 # ...bzw. welche nicht.
+
 Studienfach != "Psychologie"
 ```
 
@@ -348,10 +391,13 @@ Dieser logische Vergleich lässt sich auch mit Daten vom Typ `factor` durchführ
 
 ```{r}
 Bedingung <- c (0, 1, 1, 0, 1, 0, 0, 1)
+
 Bedingung <- factor(x = Bedingung, 
                         levels = c(0, 1),
                         labels = c("Kontrollgruppe", "Experimentalgruppe"))
+
 # Hier wird überprüft, welche Versuchspersonen der Experimentalgruppe angehören
+
 Bedingung == "Experimentalgruppe"
 ```
 
@@ -364,6 +410,7 @@ Mit Hilfe logischer Vergleiche können Sie überprüfen, ob fehlende Werte nicht
 
 ```{r}
 Testwerte <- c(80, 57, 93, 85, 72, 65, -9)
+
 Testwerte == -9
 ```
 
@@ -379,19 +426,33 @@ Im nächsten Schritt benutzen Sie die neue erstellte Variable vom Typ `logical`,
 
 ```{r}
 Testwerte[fehlende_Werte] <- NA
+
 # Hier wurde der Werte -9 durch NA ersetzt:
+
 Testwerte
 ```
 
-Ganz ähnlich können Sie bei einem Reaktionszeitexperiment alle Trials entfernen, in denen Versuchspersonen sehr lange mit ihrer Reaktion gebraucht haben, d.h. in denen sie möglicherweise mit ihrer Aufmerksamkeit abgeschweift sind.
+Ganz ähnlich können Sie bei einem Reaktionszeitexperiment alle Trials entfernen, in denen Versuchspersonen sehr langsam waren, weil sie möglicherweise mit ihrer Aufmerksamkeit abgeschweift sind.
 
 ```{r}
 # Als erstes werden 1000 Trials einer Versuchsperson simuliert
+
 RTs <- rnorm(n = 1000, mean = 500, sd = 100)
+
+# Histogram für die simulierten Daten
+
 hist(RTs)
-# In diesem Vektor von Reaktionszeiten werden alle RTs, die länger als 700 ms sind, entfernt
+
+# Der folgende Vektor gibt an, welche Reaktionszeiten länger 700 ms sind
+
 Ausreisser <- RTs > 700
+
+# und hier werden sie durch einen `NA` ersetzt (d.h. gelöscht)
+
 RTs[Ausreisser] <- NA
+
+# Histogram für die Daten ohne Ausreißer
+
 hist(RTs)
 ```
 
@@ -399,7 +460,9 @@ Für die ganz Eiligen: Sie können dies auch in einem einzigen Schritt durchfüh
 
 ```{r}
 RTs <- rnorm(n = 1000, mean = 500, sd = 100)
+
 # Hier wird der logische Vergleich direkt als Index von RTs genutzt.
+
 RTs[RTs > 700] <- NA
 ```
 
@@ -408,7 +471,9 @@ Alternativ könnten Sie Extremwerte natürlich durch einen sinnvollen Maximalwer
 
 ```{r}
 RTs <- rnorm(n = 1000, mean = 500, sd = 100)
+
 # Hier wird der logische Vergleich direkt als Index von RTs genutzt.
+
 RTs[RTs > 700] <- 700
 ```
 
@@ -416,19 +481,28 @@ Sie können auch mehrere logische Vergleiche kombinieren. In Reaktionszeitexperi
 
 ```{r}
 # Als erstes werden 1000 Trials einer Versuchsperson simuliert
+
 RTs <- rnorm(n = 1000, mean = 500, sd = 100)
+
 # Dann werden untere und obere Grenzen als Variablen definiert. Dies hat den
 # Vorteil, dass Sie einfach diese Variablen im Code anpassen können, wenn Sie 
 # die Kriterien zur Ausreißeranalyse anpassen möchten.
+
 untere_Grenze <- 300
 obere_Grenze <- 700
-# In diesem Vektor von Reaktionszeiten werden alle RTs, die schneller als 200 ms
+
+# In diesem Vektor von Reaktionszeiten werden alle RTs, die schneller als 300 ms
 # oder länger als 700 ms sind, entfernt. Dazu wird der logische ODER-Operator 
 # benötigt; es sollen solche Trials identifiziert werden, die < 300 ms ODER 
 # > 700 ms sind.
+
 Ausreisser <- (RTs > obere_Grenze | RTs < untere_Grenze)
+
+
 RTs[Ausreisser] <- NA
+
 # Im Histogramm ist zu sehen, dass sowohl sehr schnelle als auch sehr langsame
 # Trials aus den Daten entfernt wurden.
+
 hist(RTs)
 ```
