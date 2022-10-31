@@ -265,57 +265,51 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <h1><span class="header-section-number">4</span> Datenstruktur<a href="datenstruktur.html#datenstruktur" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <table>
 <colgroup>
-<col width="21%" />
-<col width="78%" />
+<col width="73%" />
+<col width="26%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="center">Thema</th>
-<th align="center">Inhalte</th>
+<th>Thema</th>
+<th>Inhalte</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">Werte, Vektoren
-&amp; Listen</td>
-<td align="center"><code>chr</code>, <code>num</code>, <code>logi</code>, <code>c()</code>, <code>list()</code>, <code>mode()</code>, <em>coercion</em>,
-<em>Abruf von Elementen,</em> <code>list(list())</code></td>
+<td>Werte, Vektoren, Listen</td>
+<td><code>chr</code>, <code>num</code>, <code>logi</code>, <code>c()</code>, <code>list()</code>, <code>mode()</code>, <em>coercion</em>, <em>Abruf von Elementen,</em> <code>list(list())</code></td>
 </tr>
 <tr class="even">
-<td align="center">Workspace</td>
-<td align="center"><code>rm()</code>, <em>Besen</em></td>
+<td>Workspace</td>
+<td><code>rm()</code>, <em>Besen</em></td>
 </tr>
 <tr class="odd">
-<td align="center">Berechnungen</td>
-<td align="center"><em>Übersicht Berechnungsfunktionen, </em>z<em>-Standardisierung</em></td>
+<td>Berechnungen</td>
+<td><em>Übersicht Berechnungsfunktionen, </em>z<em>-Standardisierung</em></td>
 </tr>
 <tr class="even">
-<td align="center">Matrizen</td>
-<td align="center"><code>matrix()</code>, <em>2D Indizierung</em></td>
+<td>Matrizen</td>
+<td><code>matrix()</code>, <em>2D Indizierung</em></td>
 </tr>
 <tr class="odd">
-<td align="center">tidy Daten</td>
-<td align="center"><em>Zeilen: Beobachtungen, Spalten: Variablen</em></td>
+<td>tidy Daten</td>
+<td><em>Zeilen: Beobachtungen, Spalten: Variablen</em></td>
 </tr>
 <tr class="even">
-<td align="center"><code>tidyverse</code></td>
-<td align="center"><em>Installation und</em> <code>library(package)</code></td>
+<td><code>tidyverse</code></td>
+<td><em>Installation und</em> <code>library(package)</code></td>
 </tr>
 <tr class="odd">
-<td align="center"><code>data.frame</code> &amp;
-<code>tibble</code></td>
-<td align="center"><em>Unterschiede,</em> <code>as.data.frame()</code>, <code>as_tibble()</code>, <code>$</code>, <code>[]</code>,
-<em>Zugriff auf Zeile, Spalte &amp; Zelle, Zeilennamen</em></td>
+<td><code>data.frame</code> und <code>tibble</code></td>
+<td><em>Unterschiede</em>, <code>as.data.frame()</code>, <code>as_tibble()</code>, <code>$</code>, <code>[]</code>, <em>Zugriff auf Zeile, Spalte &amp; Zelle, Zeilennamen</em></td>
 </tr>
 <tr class="even">
-<td align="center">Daten laden
-&amp; speichern</td>
-<td align="center"><em>Import per klick,</em> <code>read./_</code>, <code>sep=</code>,
-<code>dec=</code>, .xlsx, .svs, <code>write./_csv()</code></td>
+<td>Daten laden und speichern</td>
+<td><em>Import per klick,</em> <code>read./{*}</code>, <code>sep=</code>, <code>dec=</code>, .xlsx, .svs, <code>write./{*}.csv()</code></td>
 </tr>
 <tr class="odd">
-<td align="center">Daten anschauen</td>
-<td align="center"><code>View()</code>, <code>head()</code>, <code>str()</code>, <code>count()</code></td>
+<td>Daten anschauen</td>
+<td><code>View()</code>, <code>head()</code>, <code>str()</code>, <code>count()</code></td>
 </tr>
 </tbody>
 </table>
@@ -326,7 +320,7 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <p><code>Knittet</code> man dieses Skript mit dem Wollknäuel Button (5.) in der oberen Leiste, integriert es den ausgeführten Code mit dem Fließtext und druckt ein übersichtliches Dokument (html, pdf, txt oder doc). Das ist praktisch um z.B. Auswertungsergebnisse zu präsentieren.</p>
 <ol style="list-style-type: decimal">
 <li>Im Header werden Titel und Dokumententyp für das Ausgabe-Dokument festgelegt</li>
-<li>Die Code Blöcke (<code>Chunks</code>) sind mit je drei rückwärts gestellten Hochkommata (<code>Backticks</code>) am Anfang und Ende des Chunks eingerahmt. Werden sie vom R Markdown Skript als solche erkannt, wird auch die Hintergrundfarbe automatisch abgeändert. Im ersten Chunk sollten <code>globale Chunk Optionen festgelegt</code>, alle notwendigen <code>Packages geladen</code> und die <code>Daten eingelesen</code> werden.</li>
+<li>Die Code Blöcke (<code>Chunks</code>) sind mit je drei rückwärts gestellten Hochkommata (<code>Backticks</code>) am Anfang und Ende des Chunks eingerahmt. Werden sie vom R Markdown Skript als solche erkannt, wird auch die Hintergrundfarbe automatisch abgeändert. Im ersten Chunk sollten <code>globale Chunk Optionen festgelegt</code>(z.B. Working Directory setzen oder ändern), alle notwendigen <code>Packages geladen</code> und die <code>Daten eingelesen</code> werden.</li>
 <li>Den Fließtext kann man mit Überschriften (<code>#</code>) und Unterüberschriften (<code>##</code>) strukturieren, im Code kennzeichnet <code>#</code>
 Kommentare</li>
 <li>Zu Beginn eines Chunks muss man innerhalb einer geschwungenen Klammer spezifizieren(```{…}):</li>
@@ -352,7 +346,8 @@ Kommentare</li>
 </div>
 <div id="wiederholung-werte-vektoren" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.3</span> Wiederholung: Werte &amp; Vektoren<a href="datenstruktur.html#wiederholung-werte-vektoren" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Datenformate in R sind von einfach zu komplex: <code>Value</code>, Vektor, <code>matrix</code>, (<code>array</code>), <code>data.frame</code>, <code>tibble</code> und <code>list</code>. Die kleinste Objekteinheit in R ist ein <code>Value</code>. Die unterschiedlichen Datentypen von <code>Values</code> sind bereits bekannt:</p>
+<p>Datenformate in R sind von einfach zu komplex: <code>Value</code>, Vektor, <code>matrix</code>, (<code>array</code>), <code>data.frame</code>, <code>tibble</code> und <code>list</code>. Ihnen noch unbekannte Datenformate werde im Laufe des Kapitels erklärt.
+Die kleinste Objekteinheit in R ist ein <code>Value</code>. Die unterschiedlichen Datentypen von <code>Values</code> sind bereits bekannt:</p>
 <ol style="list-style-type: decimal">
 <li>Text, bzw. Charakter (<code>chr</code>), auch String genannt,</li>
 <li>numerische Werte (<code>num</code>), auch <code>double</code></li>
@@ -368,12 +363,12 @@ Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="datenstruktur.html#cb127-1"></a><span class="co"># c() kombiniert die Werte zu einem Vektor, der dem Variablennamen vec1 zugewiesen wird:</span></span>
 <span id="cb127-2"><a href="datenstruktur.html#cb127-2"></a></span>
 <span id="cb127-3"><a href="datenstruktur.html#cb127-3"></a>vec1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="fl">3.4</span>)</span></code></pre></div>
-<p>Wenn Sie versuchen verschiedene Elemeneten mit unterschiedlichen Typen ein einen Vektor zusammenzufassen, z.B. <code>c("kreativ", 3.5)</code>, wobei <code>"kreativ"</code> einen komplexeren Typ (Text ofer <em>character</em>) als <code>3.5</code> (numerisch oder <em>double</em>) besitzt, werden die Typen der Elemente vereinheitlich. Dabei wird der Typ des weniger komplexen Element in den Typ des komplexeren Elements umgewandelt, sodass alle Elemente des Vektors den komplexeren Typ besitzen. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1–4) geordnet. Die Umwandlung des Datentypen nennt sich <code>coercion</code>:</p>
+<p>Wenn Sie versuchen Elemenete mit unterschiedlichen Datentypen ein einen Vektor zusammenzufassen, z.B. <code>c("kreativ", 3.5)</code>, wobei <code>"kreativ"</code> einen komplexeren Typ (Text ofer <em>character</em>) als <code>3.5</code> (numerisch oder <em>double</em>) besitzt, werden die Typen der Elemente vereinheitlich. Dabei wird der Typ des weniger komplexen Element in den Typ des komplexeren Elements umgewandelt, sodass alle Elemente des Vektors den komplexeren Datentyp besitzen. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1–4) geordnet. Die Umwandlung des Datentypen nennt sich <code>coercion</code>.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="datenstruktur.html#cb128-1"></a><span class="co"># Versuche `chr` und `num` zu einem Vektor zu kombinieren:</span></span>
 <span id="cb128-2"><a href="datenstruktur.html#cb128-2"></a></span>
 <span id="cb128-3"><a href="datenstruktur.html#cb128-3"></a><span class="kw">c</span>(<span class="st">&quot;kreativ&quot;</span>, <span class="fl">3.5</span>)  </span></code></pre></div>
 <pre><code>## [1] &quot;kreativ&quot; &quot;3.5&quot;</code></pre>
-<p>3.5 wird in <code>""</code> ausgegeben, die Nummer wurde zu Text.</p>
+<p>3.5 wird in <code>""</code> ausgegeben, der numerische Wert wurde in Text umgewandelt.</p>
 <div id="coercion-umwandlung-von-typen" class="section level3 hasAnchor">
 <h3><span class="header-section-number">4.3.1</span> Coercion (Umwandlung von Typen)<a href="datenstruktur.html#coercion-umwandlung-von-typen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sie können den Datentypen auch per Funktion ändern, z.B. <code>as.character()</code>, <code>as.double()</code>:</p>
@@ -386,7 +381,7 @@ Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:
 <span id="cb132-3"><a href="datenstruktur.html#cb132-3"></a><span class="kw">as.double</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="ot">TRUE</span>, <span class="st">&quot;abc&quot;</span>, <span class="fl">4.1627</span>))</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] 2.0000     NA     NA 4.1627</code></pre>
-<p><code>Coercion</code> gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten <code>list(Element1, Element2, ...)</code>. Das geht soweit, dass Listen selbst Listen enthalten können.</p>
+<p><code>Coercion</code> gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten <code>list(Element1, Element2, ...)</code>. Das können Strings, Vektoren, aber auch Datensätze, Funktionen und sogar andere Listen sein.</p>
 </div>
 <div id="aufruf-per-index-von-daten-aus-mehreren-ebenen" class="section level3 hasAnchor">
 <h3><span class="header-section-number">4.3.2</span> Aufruf per Index von Daten aus mehreren Ebenen<a href="datenstruktur.html#aufruf-per-index-von-daten-aus-mehreren-ebenen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -414,8 +409,8 @@ Vektoren reihen Werte desselben Datentyps auf <code>c(Wert1, Wert2, ...)</code>:
 <p>In (fast) jedem Experiment und jeder Erhebung kommt es mal vor, das Daten fehlen. Es kann sein, dass Versuchspersonen einen Fragebogen nicht ausgefüllt haben oder man die Schrift einfach nicht lesen konnte. Solche Werte müssen ebenfalls kodiert werden, aber entsprechend als <em>fehlend</em>. Wir haben bereits gesehen, dass wir solche fehlenden Werte in R mit dem Wert <code>NA</code> (“not availible”) kodieren können. R hat allerdings noch zwei weitere Arten von <strong><em>Nullwerten</em></strong>.</p>
 <p>Neben <code>NA</code> gibt es auch noch <code>NULL</code>. Dieser Wert wird verwendet, wenn wir eine Variable definieren möchten, ihr aber noch keinen Wert zuweisen wollen. In diesem Fall können wir der Variable eine Art <em>Platzhalter</em> als Wert zuweisen, der gar keinen Wert hat, also quasi <em>leer</em> ist. Dieser “leere Wert” ist <code>NULL</code>.</p>
 <p>Gleichzeitig können wir <code>NULL</code> verwenden, wenn wir ein Objekt aus einer <code>list</code> oder eine Spalte aus einem <code>data.frame</code> entfernen wollen – wir weisen dem Element einfach den Wert <code>NULL</code> zu:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="datenstruktur.html#cb139-1"></a>Experiment_Reaktionszeit =<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;x&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;y&quot;</span> =<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span>)</span>
-<span id="cb139-2"><a href="datenstruktur.html#cb139-2"></a>Experiment_Reaktionszeit<span class="op">$</span>x =<span class="st"> </span><span class="ot">NULL</span></span>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="datenstruktur.html#cb139-1"></a>Experiment_Reaktionszeit &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;x&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;y&quot;</span> =<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span>)</span>
+<span id="cb139-2"><a href="datenstruktur.html#cb139-2"></a>Experiment_Reaktionszeit<span class="op">$</span>x &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
 <span id="cb139-3"><a href="datenstruktur.html#cb139-3"></a>Experiment_Reaktionszeit</span></code></pre></div>
 <pre><code>##     y
 ## 1  11
@@ -539,7 +534,7 @@ von <code>x</code> und <code>y</code></td>
 </div>
 <div id="matrizen" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.6</span> Matrizen<a href="datenstruktur.html#matrizen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Matrizen sind 2D Datenstrukturen, sie bestehen aus Vektoren <span class="ul">gleicher</span> Länge und enthalten <span class="ul">einen</span> Datentyp. Mit dem
+<p>Matrizen sind 2D-Datenstrukturen, sie bestehen aus Vektoren <span class="ul">gleicher</span> Länge und enthalten <span class="ul">einen</span> Datentyp. Mit dem
 Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="datenstruktur.html#cb148-1"></a><span class="co"># Erstellt die Matrix bsp_mat mit 4 Zeilen, 4 Spalten und leeren Einträgen: </span></span>
 <span id="cb148-2"><a href="datenstruktur.html#cb148-2"></a></span>
@@ -620,7 +615,7 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <span id="cb172-2"><a href="datenstruktur.html#cb172-2"></a></span>
 <span id="cb172-3"><a href="datenstruktur.html#cb172-3"></a><span class="kw">sum</span>(bsp_mat[<span class="dv">1</span>, ]) </span></code></pre></div>
 <pre><code>## [1] NaN</code></pre>
-<p>Die Summe der Zeile führt zu keinem interpretierbaren Ergebniss. Zum Auslassen der NaNs wird das Funktionsargument <code>na.rm = TRUE</code> verwendet (rm steht für <em>remove</em>):</p>
+<p>Die Summe der Zeile führt zu keinem interpretierbaren Ergebnis. Zum Auslassen der NaNs wird das Funktionsargument <code>na.rm = TRUE</code> verwendet (rm steht für <em>remove</em>):</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="datenstruktur.html#cb174-1"></a><span class="co"># Bilde die Summe über Zeile 1 ohne NaN:</span></span>
 <span id="cb174-2"><a href="datenstruktur.html#cb174-2"></a></span>
 <span id="cb174-3"><a href="datenstruktur.html#cb174-3"></a><span class="kw">sum</span>(bsp_mat[<span class="dv">1</span>, ], <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
@@ -877,7 +872,7 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 ## 3 The Weeknd       116           3          3
 ## 4 Dua Lipa         136           5          5
 ## 5 Imagine Dragons   68.7         1          1</code></pre>
-<p>Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen vorsichtig hiermit(!):</p>
+<p>Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen - vorsichtig hiermit(!):</p>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="datenstruktur.html#cb203-1"></a>tickets_<span class="dv">2022</span><span class="op">$</span>Priorität &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># Entfernt die Spalte </span></span></code></pre></div>
 <p>Mit den Funktionen <code>rbind()</code> und <code>cbind()</code> lassen sich die data.frames und tibbles um gleichbreite bzw. gleichlange Vektoren oder Datensätze ergänzen. Verbinden Sie ein tibble und einen <code>data.frame</code> miteinander, werden diese zum Format <code>tibble</code> coerced. Zunächst füge ich zwei weitere Zeilen hinzu, dann zwei weitere Spalten:</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="datenstruktur.html#cb204-1"></a><span class="co"># Zwei weitere Konzerte in neunem data.frame:</span></span>
@@ -965,7 +960,7 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 <span id="cb212-5"><a href="datenstruktur.html#cb212-5"></a><span class="co"># daher weise ich es dem Namen pingus zu:</span></span>
 <span id="cb212-6"><a href="datenstruktur.html#cb212-6"></a></span>
 <span id="cb212-7"><a href="datenstruktur.html#cb212-7"></a>pingus &lt;-<span class="st"> </span>penguins</span></code></pre></div>
-<p>In der Regel werden Sie aber einen selbst erhobenen oder einen aus dem Internet heruntergeladenen Datensatz einlesen wollen. Mein Tipp ist, den Datensatz in das Working Directory zu speichern, dann finden Sie ihn schneller und er ist in der Nähe Ihrer Auswertung, noch eleganter ist es einen Unterordner namens data in den Ordner des Working Directories anzulegen, in den Sie alle Datensätze zu ihrem Projekt speichern können. Im <code>File</code>-tab unten rechts navigieren Sie zu der Datei mit dem Datensatz und dann klicken Sie diese zum Importieren des Datensatzes an (alternativ können Sie im <code>Environment</code>-tab über den Button <code>Import Dataset</code> einen Datensatz zum Importieren auf ihrem Computer suchen). In RStudio erscheint ein Fenster zum Importieren, unten rechts wird der automatisch der dem Dateiformat und unten links angegebenen Optionen entspricht, ggf. werden sogar benötigte Packages geladen.</p>
+<p>In der Regel werden Sie aber einen selbst erhobenen oder einen aus dem Internet heruntergeladenen Datensatz einlesen wollen. Mein Tipp ist, den Datensatz in das Working Directory zu speichern, dann finden Sie ihn schneller und er ist in der Nähe Ihrer Auswertung. Noch eleganter ist es einen Unterordner namens data in den Ordner des Working Directories anzulegen, in den Sie alle Datensätze zu ihrem Projekt speichern können. Im <code>File</code>-tab unten rechts navigieren Sie zu der Datei mit dem Datensatz und dann klicken Sie diese zum Importieren des Datensatzes an (alternativ können Sie im <code>Environment</code>-tab über den Button <code>Import Dataset</code> einen Datensatz zum Importieren auf ihrem Computer suchen). In RStudio erscheint ein Fenster zum Importieren, unten rechts wird der automatisch der dem Dateiformat und unten links angegebenen Optionen entspricht, ggf. werden sogar benötigte Packages geladen.</p>
 <p>Um einen Datensatz per Code zu importieren sind Dateiformat, die Trennzeichen (<code>sep</code>) und die Dezimalzeichen (<code>dec</code>) besonders relevant. Das Standard-Dateiformat ist <code>.csv</code>, hier sind Kommata Trennzeichen (<code>sep=","</code>) und Punkte kennzeichnen Dezimalstellen (<code>dec="."</code>). Sie können die Funktionen <code>read_cvs()</code> oder <code>read_delim()</code> für dieses Dateiformat verwenden, letztere sollte Trenn- und Dezimalzeichen automatisch erkennen. Hier ist eine Übersicht zu den Einlesefunktionen in base R (also ohne zusätzlich geladene Packages) und im tidyverse Package, der Unterschied ist, dass base R Funktionen die Daten in einen data.frame laden, tidyverse Funktionen in ein tibble:</p>
 <table>
 <thead>
@@ -1015,7 +1010,7 @@ Befehl <code>matrix()</code> können sie erstellt werden:</p>
 </tr>
 </tbody>
 </table>
-<p>Wichtigstes und oft einziges Funktionsargument ist der vollständige Dateiname, er wird in <code>"</code> angegeben. Alternativ können Sie statt dem Dateinamen auch die Funktion <code>file.choose()</code> angeben, die dann ein interaktives Fenster zur Dateiauswahl öffnet. Falls Sie die Datei in einem Unterordner vom Working Directory gespeichert haben (ich erstelle mir meist einen Unterordner namens data), wird der Name des Unterordners mit einem <code>/</code> dem Dateinamen vorangestellt (z.B.“data/Datensatz1.csv”). Das Einlesen von Daten funktioniert nur, wenn der einzulesende Datensatz per <code>&lt;-</code> einem Namen zugewiesen wird. Beispiel zum Laden eines .csv Datensatzes:</p>
+<p>Wichtigstes und oft einziges Funktionsargument ist der vollständige Dateiname, er wird in <code>"</code> angegeben. Alternativ können Sie statt dem Dateinamen auch die Funktion <code>file.choose()</code> angeben, die dann ein interaktives Fenster zur Dateiauswahl öffnet. Falls Sie die Datei in einem Unterordner vom Working Directory gespeichert haben (ich erstelle mir meist einen Unterordner namens data), wird der Name des Unterordners mit einem <code>/</code> dem Dateinamen vorangestellt. Vergessen Sie nicht, innerhalb der Anführungszeichen sowohl den Namen des Datensatzes als auch das Dateiformat nach einem Punkt zu nennen (z.B.“data/Datensatz1.csv”). Das Einlesen von Daten funktioniert nur, wenn der einzulesende Datensatz per <code>&lt;-</code> einem Namen zugewiesen wird. Beispiel zum Laden eines .csv Datensatzes:</p>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="datenstruktur.html#cb213-1"></a><span class="co"># Lese meinen socken.csv Datensatz aus dem Unterordner data in ein tibble namens socken:</span></span>
 <span id="cb213-2"><a href="datenstruktur.html#cb213-2"></a></span>
 <span id="cb213-3"><a href="datenstruktur.html#cb213-3"></a>socken &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/socken.csv&quot;</span>) </span>
