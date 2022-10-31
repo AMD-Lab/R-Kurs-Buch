@@ -1,29 +1,16 @@
 # Datenstruktur
 
-+-----------------+---------------------------------------------------------------+
-| Thema           | Inhalte                                                       |
-+:===============:+:=============================================================:+
-| Werte, Vektoren | `chr`, `num`, `logi`, `c()`, `list()`, `mode()`, *coercion*,  |
-|      & Listen   |   *Abruf von Elementen,* `list(list())`                       |
-+-----------------+---------------------------------------------------------------+
-| Workspace       | `rm()`, *Besen*                                               |
-+-----------------+---------------------------------------------------------------+
-| Berechnungen    | *Übersicht Berechnungsfunktionen, *z*-Standardisierung*       |
-+-----------------+---------------------------------------------------------------+
-| Matrizen        | `matrix()`, *2D Indizierung*                                  |
-+-----------------+---------------------------------------------------------------+
-| tidy Daten      | *Zeilen: Beobachtungen, Spalten: Variablen*                   |
-+-----------------+---------------------------------------------------------------+
-| `tidyverse`     | *Installation und* `library(package)`                         |
-+-----------------+---------------------------------------------------------------+
-| `data.frame` &  | *Unterschiede,* `as.data.frame()`, `as_tibble()`, `$`, `[]`,  |
-| `tibble`        | *Zugriff auf Zeile, Spalte & Zelle, Zeilennamen*              |
-+-----------------+---------------------------------------------------------------+
-| Daten laden     | *Import per klick,* `read./_`, `sep=`,                        |
-| & speichern     | `dec=`, .xlsx, .svs, `write./_csv()`                          |
-+-----------------+---------------------------------------------------------------+
-| Daten anschauen | `View()`, `head()`, `str()`, `count()`                        |
-+-----------------+---------------------------------------------------------------+
+| Thema                    | Inhalte  |
+| -------------------------| ---------|
+| Werte, Vektoren, Listen  | `chr`, `num`, `logi`, `c()`, `list()`, `mode()`, *coercion*, *Abruf von Elementen,* `list(list())`    |
+| Workspace                | `rm()`, *Besen*                                         |
+| Berechnungen             | *Übersicht Berechnungsfunktionen, *z*-Standardisierung* |
+| Matrizen                 | `matrix()`, *2D Indizierung*                            |
+| tidy Daten               | *Zeilen: Beobachtungen, Spalten: Variablen*             |
+| `tidyverse`              | *Installation und* `library(package)`                   |
+| `data.frame` und `tibble`  | *Unterschiede*, `as.data.frame()`, `as_tibble()`, `$`, `[]`, *Zugriff auf Zeile, Spalte & Zelle, Zeilennamen*  |
+| Daten laden und speichern  | *Import per klick,* `read./{*}`, `sep=`,   `dec=`, .xlsx, .svs, `write./{*}.csv()`   |
+| Daten anschauen            | `View()`, `head()`, `str()`, `count()`                |
 
 ## RMarkdown
 
@@ -55,14 +42,16 @@ Das R Markdown Skript ist ein besonderes Dateiformat für R Skripte. Es enthält
 
 Sie merken, dass die Befehle und Funktionen zum Teil sehr spezifisch sind und Sie sich kaum alles behalten können. Am wichtigsten ist die Reihenfolge und Vollständigkeit der Zeichen: Vergessen Sie ein Komma, ein Backtick oder eine Klammer zu setzen, dann kann R den Code schon nicht interpretieren. Zum Glück erkennt R Studio das oft und weist einen darauf während des Codens mit einem `roten x` neben der Zeilennummer hin. Andernfalls erscheint eine Fehlermeldung beim Ausführen des Codes.
 
+
 Wenn Sie den Namen einer Funktion oder eines Packages nicht direkt erinnern, können Sie den Anfang des Namens im `Chunk` oder in der `Console` eingeben, RStudio bietet einem nach einem kurzen Moment eine Liste möglicher Optionen an, aus der Sie wählen können. Haben Sie eine Funktion gewählt, können Sie die `Tab`-Taste drücken und es werden die verschiedenen Funktionsargumente angezeigt, um die Funktion zu spezifizieren, was oft sehr hilfreich ist. Möchten Sie wissen, was eine Funktion macht oder in welcher Reihenfolge die Funktionsargumente eingegeben werden, können Sie `?FUN` in die `Console` eintippen, wobei FUN Platzhalter für den Funktionsnamen ist. Alternativ können Sie im `Help`-tab unten rechts suchen. Die Dokumentation ist oft sehr ausführlich.
 
-Die Möglichkeit einschlägige Suchmaschinen im Internet zu verwenden ist fast zu trivial, um sie hier aufzuführen. Oft werden Sie dabei auf `StackOverflow` weitergeleitet. Auf Englisch gestellte Fragen oder Probleme führen zu besseren Treffern. Noch trivialer ist es, im Skript des Kurses oder im eigenen Code nachzuschauen, die Tasten <kbd>STRG</kbd> + <kbd>F</kbd> habe ich schon 1000 Mal gedrückt, sie könnten dabei hilfreich sein. Falls Sie bei anderen Autoren nachlesen möchten, gibt es Bücher zu R, die meist sogar kostenlos online zur Verfügung stehen und einem eine Einführung in R geben: Z.B. `R Cookbook` oder `R for Data Science`.
+Im Zweifelsfall haben Sie immer die Möglichkeit einschlägige Suchmaschinen im Internet zu verwenden. Oft werden Sie dabei auf `StackOverflow` weitergeleitet. Auf Englisch gestellte Fragen oder Probleme führen zu besseren Treffern. Noch trivialer ist es, im Skript des Kurses oder im eigenen Code nachzuschauen, die Tasten <kbd>STRG</kbd> + <kbd>F</kbd> habe ich schon 1000 Mal gedrückt, sie könnten dabei hilfreich sein. Falls Sie bei anderen Autoren nachlesen möchten, gibt es Bücher zu R, die meist sogar kostenlos online zur Verfügung stehen und einem eine Einführung in R geben: Z.B. `R Cookbook` oder `R for Data Science`.
 
 ## Wiederholung: Werte & Vektoren
 
 Datenformate in R sind von einfach zu komplex: `Value`, Vektor, `matrix`, (`array`), `data.frame`, `tibble` und `list`. Ihnen noch unbekannte Datenformate werde im Laufe des Kapitels erklärt. 
 Die kleinste Objekteinheit in R ist ein `Value`. Die unterschiedlichen Datentypen von `Values` sind bereits bekannt:
+
 
 1.  Text, bzw. Charakter (`chr`), auch String genannt,
 2.  numerische Werte (`num`), auch `double`
@@ -72,9 +61,9 @@ Die kleinste Objekteinheit in R ist ein `Value`. Die unterschiedlichen Datentype
 Sie weisen einem Objektnamen einen Wert per `<-` zu (Shortkey: <kbd>ALT</kbd> + <kbd>-</kbd>), der Datentyp des `Values` wird automatisch erkannt.
 
 ```{r, echo=TRUE, results='hide'}
-var1 <- "kreativ" # Typ chr
+var1 <- TRUE      # Typ logi 
 var2 <- 3.5       # Typ num
-var3 <- TRUE      # Typ logi
+var3 <- "kreativ" # Typ chr  
 ```
 
 Mit der Funktion `mode()` können Sie sich den Datentypen anzeigen lassen.
@@ -86,7 +75,9 @@ Vektoren reihen Werte desselben Datentyps auf `c(Wert1, Wert2, ...)`:
 vec1 <- c(3, 6, 3.4)
 
 ```
-Versuchen Sie aus verschiedenen Datentypen einen Vektor zu bilden, werden sie zu dem komplexeren Typen von beiden umgewandelt. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1--4) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`:
+
+Wenn Sie versuchen Elemenete mit unterschiedlichen Datentypen ein einen Vektor zusammenzufassen, z.B. `c("kreativ", 3.5)`, wobei `"kreativ"` einen komplexeren Typ (Text ofer *character*) als `3.5` (numerisch oder *double*) besitzt, werden die Typen der Elemente vereinheitlich. Dabei wird der Typ des weniger komplexen Element in den Typ des komplexeren Elements umgewandelt, sodass alle Elemente des Vektors den komplexeren Datentyp besitzen. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1--4) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`.
+
 
 ```{r, echo=TRUE}
 # Versuche `chr` und `num` zu einem Vektor zu kombinieren:
@@ -173,7 +164,7 @@ x * y      # Produkt von x und y
 sqrt(x)    # Wurzel aus x
 x**(1/2)   # x hoch 0.5
 
-# Weise der Variable z das Ergebnis der Gleichung x+y zu. "z" erscheint im Workspace:
+# Weise der Variable z das Ergebnis der Gleichung `x + y` zu. `z` erscheint im Workspace:
 
 z <- x + y
 
@@ -210,6 +201,7 @@ Folgende Funktionen können Sie auf `num`-Vektoren und Matrizen anwenden, je nac
 
 ```{r, echo=TRUE}
 # Def. der Variable geschwister:
+
 geschwister <- c(8, 4, 12)
 
 # MW:
@@ -237,6 +229,7 @@ Befehl `matrix()` können sie erstellt werden:
 # Erstellt die Matrix bsp_mat mit 4 Zeilen, 4 Spalten und leeren Einträgen: 
 
 bsp_mat <- matrix(NaN, nrow = 4, ncol = 4) # NaN (Not a Number) ist vom Typ `num`
+
 bsp_mat
 ```
 
@@ -248,20 +241,24 @@ Ich habe eine 4&times;4 Matrix erstellt, die mit NaNs gefüllt ist. Hätte ich d
 # Dadurch, dass der Eintrag für die Zeilennummer leer ist, 
 # beziehe ich mich auf alle Zeilen:
 
-bsp_mat[,1] <- vec_4
+bsp_mat[ , 1] <- vec_4
+
 bsp_mat
 ```
+
 ```{r}
 # Recycling: Wird einem Bereich ein einzelner Wert zugeordnet,
 # wird dieser vervielfacht (wie oben bei NaN):
 
-bsp_mat[,2] <- 8
+bsp_mat[ , 2] <- 8
+
 bsp_mat
 ```
+
 ```{r}
 # Definiere `logi` Einträge in `num` Matrix:
 
-bsp_mat[,3] <- c(FALSE, TRUE, FALSE, TRUE)
+bsp_mat[ , 3] <- c(FALSE, TRUE, FALSE, TRUE)
 bsp_mat
 ```
 
@@ -276,30 +273,31 @@ bsp_mat[4,1]  # Wählt Zeile 4 von Spalte 1
 Hier wird es turbulent:
 
 ```{r}
-bsp_mat[c(1,3),] # Wählt Zeilen 1 & 3 von allen Spalten
+bsp_mat[c(1 , 3), ] # Wählt Zeilen 1 & 3 von allen Spalten
 
-bsp_mat[-1,2:4]  # Wählt alle Zeilen außer 1, und Spalten 2-4
+bsp_mat[-1, 2:4]  # Wählt alle Zeilen außer 1, und Spalten 2-4
 ```
 
 Da ich jetzt Bereiche der Matrix auswählen kann, kann ich vielleicht Berechnungen vornehmen:
 
 ```{r} 
 mode(bsp_mat)  # Ist bsp_mat numerisch?
+
 bsp_mat
 
 # Spalte 2 minus Spalte 1 und dann mal Spalte 3:
 
-(bsp_mat[,2] - bsp_mat[,1]) * bsp_mat[,3]
+(bsp_mat[ , 2] - bsp_mat[ , 1]) * bsp_mat[ , 3]
 ```
 
 Es sind immer noch nicht angegebene Nummernwerte in der Matrix. Da ich mich beim Berechnen auf Bereiche der Matrix beschränke, die vergebene numerische Werte haben (Spalten 1 bis 3 ohne `NaN` Einträge), habe ich ein sinnvolles Ergebnis bekommen. Was passiert, wenn ich mit `NaN` Einträgen rechnen möchte?
 
 ```{r}
-bsp_mat[1,]      # wählt Zeile 1
+bsp_mat[1, ]      # wählt Zeile 1
 
 # Bilde die Summe über Zeile 1 mit NaN:
 
-sum(bsp_mat[1,]) 
+sum(bsp_mat[1, ]) 
 ```
 
 Die Summe der Zeile führt zu keinem interpretierbaren Ergebnis. Zum Auslassen der NaNs wird das Funktionsargument `na.rm = TRUE` verwendet (rm steht für *remove*):
@@ -307,7 +305,7 @@ Die Summe der Zeile führt zu keinem interpretierbaren Ergebnis. Zum Auslassen d
 ```{r}
 # Bilde die Summe über Zeile 1 ohne NaN:
 
-sum(bsp_mat[1,], na.rm = TRUE)
+sum(bsp_mat[1, ], na.rm = TRUE)
 
 # Bilde den MW der Matrix ohne NaN:
 
@@ -324,6 +322,7 @@ sav_mat <- bsp_mat
 # Weise Spalte 4 einen `chr`-Vektor zu:
 
 bsp_mat[,4] <- c("coercion", "kann", "nervig", "sein")
+
 bsp_mat
 
 mode(bsp_mat) # Bestimmt Typ der Matrix
@@ -369,7 +368,7 @@ library(tidyverse)
 
 ## data.frames (df) und tibbles (tib)
 
-Es gibt mehr Gemeinsamkeiten als Unterschiede zwischen beiden Datenformaten. Beides sind Tabellen mit Spaltenvektoren (Variablen), die je verschiedene Datentypen enthalten können. Hier zunächst die Übersicht über die Funktionen zum Managen des Datensatzes:
+Beides sind Tabellen mit Spaltenvektoren (Variablen), die je verschiedene Datentypen enthalten können. Hier zunächst die Übersicht über die Funktionen zum Managen des Datensatzes:
 
 |       Funktion zum        |            `data.frame()`           |          `tibble()`        |
 |:-------------------------:|:-----------------------------------:|:--------------------------:|
@@ -390,8 +389,8 @@ Sie können die beiden Datensatz-Formate einfach in das jeweils andere konvertie
 # denen Namen zugewiesen werden (Denken Sie beim Definieren der Spaltenvektoren daran
 # diese mit einem Komma voneinander zu trennen):
 
-test_df <- data.frame("text" = bsp_mat[,4],
-                      "ist_Verb" = sav_mat[,3])
+test_df <- data.frame("text" = bsp_mat[ , 4],
+                      "ist_Verb" = sav_mat[ , 3])
 test_df
 ```
 
@@ -401,6 +400,7 @@ In Bezug auf weitere Funktionen des Packages `tidyverse` sind tibbles ein wenig 
 # Konvertiere data.frame zu tibble:
 
 test_tib <- as_tibble(test_df)
+
 test_tib
 ```
 
@@ -417,7 +417,7 @@ Es ist auch möglich, mehrere Zeilen und/oder Spalten auszugeben. Dies funktioni
 ```{r}
 # Gibe Zeilen 2 bis 4 aus Spalte 1 aus:
 
-test_tib[2:4,1]
+test_tib[2:4, 1]
 ```
 
 Die Adressierung einzelner Spalten und Zeilen ermöglicht dann zum Beispiel die Berechnung von Kennwerten nur für einzelne Spalten. Z.B. kann man die Kosten für Konzertkarten im Jahr 2022 aufsummieren lassen:
@@ -453,6 +453,7 @@ list_of_thingis$geschwi
 
 mylist$vec_4
 ```
+
 ```{r}
  # Mit mehreren $ können Sie tiefere Ebenen erreichen:
 
@@ -516,7 +517,6 @@ tickets_2022 <- cbind(tickets_2022, ort_begleitung)
 # Endergebnis:
 
 tickets_2022
-
 ```
 
 Ein Unterschied zwischen tibbles und data.frames ist, dass tibbles keine Zeilennamen kennen. Das vereinfacht das Format. Möchten Sie trotzdem gerne Zeilennamen vergeben, müssen Sie sich mit einer neuen Variable (z.B. `namevec`) behelfen, die Sie mit `relocate(tib, namevec)` an den Anfang des Datensatzes stellen können.
@@ -553,9 +553,7 @@ Nach einmaliger Installation des Packages (`install.packages("palmerpenguins"`) 
 ```{r}
 # Jedes Mal beim Durchlaufen des Skripts soll das Package angehängt werden 
 # (ohne "", weil R das Package bereits installiert hat und kennt):
-
 library(palmerpenguins) 
-
 # penguins ist zwar schon ein tibble, aber im Workspace rechts ist es nicht zu sehen,
 # daher weise ich es dem Namen pingus zu:
 
@@ -580,6 +578,7 @@ Wichtigstes und oft einziges Funktionsargument ist der vollständige Dateiname, 
 # Lese meinen socken.csv Datensatz aus dem Unterordner data in ein tibble namens socken:
 
 socken <- read_delim("data/socken.csv") 
+
 socken 
 ```
 
