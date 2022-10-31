@@ -141,6 +141,8 @@ Bei manchen Funktionsaufrufen wollen wir nur einige Funktionsargumente selbst an
 Jede Spalte eines Datensatzes ist ein Vektor. In einem Vektor befinden sich mehrere Elemente eines Datentyps, also z.B. mehrere Zahlen oder mehrere Wörter. Vektoren werden mit Hilfe der "combine"-Funktion `c` erstellt.
 
 ```{r}
+# Hier wird ein numerischer Vektor mit den Elementen 1 bis 10 erstellt. 
+# Mit einem Doppelpunkt können alle ganzen Zahlen zwischen den beiden angegebenen Zahlen angesprochen werden.
 Vektor_numeric <- c(1, 2, 3, 4, 5, 6:10)
 ```
 
@@ -159,7 +161,7 @@ Mit Vektoren vom Typ `numeric` (kurz `num`) können Sie verschiedene mathematisc
 Vektor_numeric * 2
 ```
 
-Wenn Sie hingegen zwei gleich lange Vektoren haben, wird jedes *i*-te Element des ersten Vektors mit dem *i*-ten Element des zweiten Vektors verrechnet. Das Element an Position 1 im einen Vektor wird dann mit dem Element an Position 1 im anderen Vektor gepaart, das Element an Position 2 im einen Vektor mit dem Element an Position 2 im anderen Vektor – und so weiter.
+Wenn Sie hingegen zwei gleich lange Vektoren haben, wird jedes *i*-te Element des ersten Vektors mit dem *i*-ten Element des zweiten Vektors verrechnet. Das Element an Position 1 in einem Vektor wird dann mit dem Element an Position 1 im anderen Vektor gepaart, das Element an Position 2 in einem Vektor mit dem Element an Position 2 im anderen Vektor – und so weiter.
 
 ```{r}
 punkte_MC_Fragen <- c(5, 2, 2, 4, 3, 2, 1, 0, 1, 4)
@@ -207,7 +209,7 @@ Vektor_logical <- c(TRUE, TRUE, FALSE, TRUE)
 mode(Vektor_logical)
 ```
 
-Dabei werden `TRUE` und `FALSE` als logische Bedingungen interpretiert, die erfüllt oder nicht erfüllt sein können. Vektoren dieses Datentyps sind für die Datenaufbereitung unglaublich nützlich! Mit Hilfe eines Vektors vom Typ `logical` können Sie beispielsweise kodieren, welche Versuchspersonen die Studie vollständig abgeschlossen haben oder ob einzelne Beobachtungen Ausreißer darstellen. Sie werden diesen Datentyp häufig benötigen, wenn Sie in Datentabellen einzelne Fälle auswählen oder Versuchspersonen ausschließen möchte. Hierbei wird dann jeweils im Einzelfall überprüft, welche Fälle eine gewünschte Bedingung erfüllen (z.B. maximal 30 Minuten zur Bearbeitung eines Tests gebraucht) und daher in den weiteren Analysen eingeschlossen werden.
+Dabei werden `TRUE` und `FALSE` als logische Bedingungen interpretiert, die erfüllt oder nicht erfüllt sein können. Vektoren dieses Datentyps sind für die Datenaufbereitung unglaublich nützlich! Mit Hilfe eines Vektors vom Typ `logical` können Sie beispielsweise kodieren, welche Versuchspersonen die Studie vollständig abgeschlossen haben oder ob einzelne Beobachtungen Ausreißer darstellen. Sie werden diesen Datentyp häufig benötigen, wenn Sie in Datentabellen einzelne Fälle auswählen oder Versuchspersonen ausschließen möchten. Hierbei wird dann jeweils im Einzelfall überprüft, welche Fälle eine gewünschte Bedingung erfüllen (z.B. maximal 30 Minuten zur Bearbeitung eines Tests gebraucht haben) und daher in den weiteren Analysen eingeschlossen werden.
 
 ```{r}
 # Hier wird festgehalten, welche Versuchspersonen (id) die Studie 
@@ -301,7 +303,7 @@ alter <- c(21, 25, 29, 24, NA, 19, 23, 24, 20)
 
 ## Auswahl von Vektorelementen
 
-Sie können auf einzelne Elemente eines Vektor zugreifen, indem Sie den Operator `[]` verwenden. In die eckigen Klammern wird die Position des Elements eingefügt, das Sie auswählen möchte. Dieses Vorgehen wird **Indizierung** genannt.
+Sie können auf einzelne Elemente eines Vektor zugreifen, indem Sie den Operator `[]` verwenden. In die eckigen Klammern wird die Position des Elements eingefügt, das Sie auswählen möchten. Dieses Vorgehen wird **Indizierung** genannt.
 
 ```{r}
 daten <- c(3, 7, 9, 0, 1, 1, 4, 5)
@@ -360,11 +362,11 @@ alter >= 18
 Bei numerischen Vektoren können Sie folgende logischen Vergleiche durchführen: (a) gleich (`==`), (b) größer (`>`), (c) kleiner (`<`), (d) größer gleich (`>=`), (e) kleiner gleich (`<=`) oder (f) ungleich (`!=`). Wenn Sie einen logischen Vergleich mit einem gesamten Vektor durchführen, wird für jedes einzelne Element überprüft, ob es der logischen Bedingung entspricht (`TRUE`) oder nicht (`FALSE`).
 
 ```{r}
-# Hier überprüfen wir, welche Versuchspersonen jünger als 18 Jahre sind
+# Hier überprüfen wir, welche Versuchspersonen jünger als 18 Jahre alt sind
 
 alter < 18
 
-# Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre sind
+# Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre alt sind
 
 alter == 18
 ```
