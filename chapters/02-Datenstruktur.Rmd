@@ -1,29 +1,16 @@
 # Datenstruktur
 
-+-----------------+---------------------------------------------------------------+
-| Thema           | Inhalte                                                       |
-+:===============:+:=============================================================:+
-| Werte, Vektoren | `chr`, `num`, `logi`, `c()`, `list()`, `mode()`, *coercion*,  |
-|      & Listen   |   *Abruf von Elementen,* `list(list())`                       |
-+-----------------+---------------------------------------------------------------+
-| Workspace       | `rm()`, *Besen*                                               |
-+-----------------+---------------------------------------------------------------+
-| Berechnungen    | *Übersicht Berechnungsfunktionen, *z*-Standardisierung*       |
-+-----------------+---------------------------------------------------------------+
-| Matrizen        | `matrix()`, *2D Indizierung*                                  |
-+-----------------+---------------------------------------------------------------+
-| tidy Daten      | *Zeilen: Beobachtungen, Spalten: Variablen*                   |
-+-----------------+---------------------------------------------------------------+
-| `tidyverse`     | *Installation und* `library(package)`                         |
-+-----------------+---------------------------------------------------------------+
-| `data.frame` &  | *Unterschiede,* `as.data.frame()`, `as_tibble()`, `$`, `[]`,  |
-| `tibble`        | *Zugriff auf Zeile, Spalte & Zelle, Zeilennamen*              |
-+-----------------+---------------------------------------------------------------+
-| Daten laden     | *Import per klick,* `read./_`, `sep=`,                        |
-| & speichern     | `dec=`, .xlsx, .svs, `write./_csv()`                          |
-+-----------------+---------------------------------------------------------------+
-| Daten anschauen | `View()`, `head()`, `str()`, `count()`                        |
-+-----------------+---------------------------------------------------------------+
+| Thema                    | Inhalte  |
+| -------------------------| ---------|
+| Werte, Vektoren, Listen  | `chr`, `num`, `logi`, `c()`, `list()`, `mode()`, *coercion*, *Abruf von Elementen,* `list(list())`    |
+| Workspace                | `rm()`, *Besen*                                         |
+| Berechnungen             | *Übersicht Berechnungsfunktionen, *z*-Standardisierung* |
+| Matrizen                 | `matrix()`, *2D Indizierung*                            |
+| tidy Daten               | *Zeilen: Beobachtungen, Spalten: Variablen*             |
+| `tidyverse`              | *Installation und* `library(package)`                   |
+| `data.frame` und `tibble`  | *Unterschiede*, `as.data.frame()`, `as_tibble()`, `$`, `[]`, *Zugriff auf Zeile, Spalte & Zelle, Zeilennamen*  |
+| Daten laden und speichern  | *Import per klick,* `read./{*}`, `sep=`,   `dec=`, .xlsx, .svs, `write./{*}.csv()`   |
+| Daten anschauen            | `View()`, `head()`, `str()`, `count()`                |
 
 ## RMarkdown
 
@@ -34,7 +21,7 @@ Das R Markdown Skript ist ein besonderes Dateiformat für R Skripte. Es enthält
 `Knittet` man dieses Skript mit dem Wollknäuel Button (5.) in der oberen Leiste, integriert es den ausgeführten Code mit dem Fließtext und druckt ein übersichtliches Dokument (html, pdf, txt oder doc). Das ist praktisch um z.B. Auswertungsergebnisse zu präsentieren.
 
 1.  Im Header werden Titel und Dokumententyp für das Ausgabe-Dokument festgelegt
-2.  Die Code Blöcke (`Chunks`) sind mit je drei rückwärts gestellten Hochkommata (`Backticks`) am Anfang und Ende des Chunks eingerahmt. Werden sie vom R Markdown Skript als solche erkannt, wird auch die Hintergrundfarbe automatisch abgeändert. Im ersten Chunk sollten `globale Chunk Optionen festgelegt`, alle notwendigen `Packages geladen` und die `Daten eingelesen` werden.
+2.  Die Code Blöcke (`Chunks`) sind mit je drei rückwärts gestellten Hochkommata (`Backticks`) am Anfang und Ende des Chunks eingerahmt. Werden sie vom R Markdown Skript als solche erkannt, wird auch die Hintergrundfarbe automatisch abgeändert. Im ersten Chunk sollten `globale Chunk Optionen festgelegt`(z.B. Working Directory setzen oder ändern), alle notwendigen `Packages geladen` und die `Daten eingelesen` werden.
 3.  Den Fließtext kann man mit Überschriften (`#`) und Unterüberschriften (`##`) strukturieren, im Code kennzeichnet `#`
     Kommentare
 4.  Zu Beginn eines Chunks muss man innerhalb einer geschwungenen Klammer spezifizieren(\`\`\`{...}):
@@ -62,7 +49,8 @@ Im Zweifelsfall haben Sie immer die Möglichkeit einschlägige Suchmaschinen im 
 
 ## Wiederholung: Werte & Vektoren
 
-Datenformate in R sind von einfach zu komplex: `Value`, Vektor, `matrix`, (`array`), `data.frame`, `tibble` und `list`. Die kleinste Objekteinheit in R ist ein `Value`. Die unterschiedlichen Datentypen von `Values` sind bereits bekannt:
+Datenformate in R sind von einfach zu komplex: `Value`, Vektor, `matrix`, (`array`), `data.frame`, `tibble` und `list`. Ihnen noch unbekannte Datenformate werde im Laufe des Kapitels erklärt. 
+Die kleinste Objekteinheit in R ist ein `Value`. Die unterschiedlichen Datentypen von `Values` sind bereits bekannt:
 
 
 1.  Text, bzw. Charakter (`chr`), auch String genannt,
@@ -87,7 +75,9 @@ Vektoren reihen Werte desselben Datentyps auf `c(Wert1, Wert2, ...)`:
 vec1 <- c(3, 6, 3.4)
 
 ```
-Wenn Sie versuchen verschiedene Elemeneten mit unterschiedlichen Typen ein einen Vektor zusammenzufassen, z.B. `c("kreativ", 3.5)`, wobei `"kreativ"` einen komplexeren Typ (Text ofer *character*) als `3.5` (numerisch oder *double*) besitzt, werden die Typen der Elemente vereinheitlich. Dabei wird der Typ des weniger komplexen Element in den Typ des komplexeren Elements umgewandelt, sodass alle Elemente des Vektors den komplexeren Typ besitzen. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1--4) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`:
+
+Wenn Sie versuchen Elemenete mit unterschiedlichen Datentypen ein einen Vektor zusammenzufassen, z.B. `c("kreativ", 3.5)`, wobei `"kreativ"` einen komplexeren Typ (Text ofer *character*) als `3.5` (numerisch oder *double*) besitzt, werden die Typen der Elemente vereinheitlich. Dabei wird der Typ des weniger komplexen Element in den Typ des komplexeren Elements umgewandelt, sodass alle Elemente des Vektors den komplexeren Datentyp besitzen. Die Datentypen-Übersichtstabelle ist von komplex zu einfach (1--4) geordnet. Die Umwandlung des Datentypen nennt sich `coercion`.
+
 
 ```{r, echo=TRUE}
 # Versuche `chr` und `num` zu einem Vektor zu kombinieren:
@@ -95,7 +85,7 @@ Wenn Sie versuchen verschiedene Elemeneten mit unterschiedlichen Typen ein einen
 c("kreativ", 3.5)  
 ```
 
-3.5 wird in `""` ausgegeben, die Nummer wurde zu Text.
+3.5 wird in `""` ausgegeben, der numerische Wert wurde in Text umgewandelt.
 
 ### Coercion (Umwandlung von Typen)
 
@@ -112,7 +102,7 @@ as.character(c(1, TRUE, "abc", 4.1627))
 as.double(c(2, TRUE, "abc", 4.1627))
 ```
 
-`Coercion` gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten `list(Element1, Element2, ...)`. Das geht soweit, dass Listen selbst Listen enthalten können.
+`Coercion` gibt es auch in Matrizen, Arrays (Mehrdimensionale Matrizen) und in Spaltenvektoren von Datensätzen (data.frames und tibbles). Nur Listen können verschiedene Datentypen und Elemente enthalten `list(Element1, Element2, ...)`. Das können Strings, Vektoren, aber auch Datensätze, Funktionen und sogar andere Listen sein.
 
 ### Aufruf per Index von Daten aus mehreren Ebenen
 
@@ -149,8 +139,8 @@ Neben `NA` gibt es auch noch `NULL`. Dieser Wert wird verwendet, wenn wir eine V
 Gleichzeitig können wir `NULL` verwenden, wenn wir ein Objekt aus einer `list` oder eine Spalte aus einem `data.frame` entfernen wollen -- wir weisen dem Element einfach den Wert `NULL` zu:
 
 ```{r}
-Experiment_Reaktionszeit = data.frame("x" = 1:10, "y" = 11:20)
-Experiment_Reaktionszeit$x = NULL
+Experiment_Reaktionszeit <- data.frame("x" = 1:10, "y" = 11:20)
+Experiment_Reaktionszeit$x <- NULL
 Experiment_Reaktionszeit
 ```
 
@@ -232,7 +222,7 @@ z_geschwister
 
 ## Matrizen
 
-Matrizen sind 2D Datenstrukturen, sie bestehen aus Vektoren [gleicher]{.ul} Länge und enthalten [einen]{.ul} Datentyp. Mit dem
+Matrizen sind 2D-Datenstrukturen, sie bestehen aus Vektoren [gleicher]{.ul} Länge und enthalten [einen]{.ul} Datentyp. Mit dem
 Befehl `matrix()` können sie erstellt werden:
 
 ```{r}
@@ -310,7 +300,7 @@ bsp_mat[1, ]      # wählt Zeile 1
 sum(bsp_mat[1, ]) 
 ```
 
-Die Summe der Zeile führt zu keinem interpretierbaren Ergebniss. Zum Auslassen der NaNs wird das Funktionsargument `na.rm = TRUE` verwendet (rm steht für *remove*):
+Die Summe der Zeile führt zu keinem interpretierbaren Ergebnis. Zum Auslassen der NaNs wird das Funktionsargument `na.rm = TRUE` verwendet (rm steht für *remove*):
 
 ```{r}
 # Bilde die Summe über Zeile 1 ohne NaN:
@@ -492,7 +482,7 @@ tickets_2022$Prioritaet <- tickets_2022$Priorität
 tickets_2022
 ```
 
-Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen vorsichtig hiermit(!): 
+Nun gibt es eine Spalte zu viel. Ich möchte sie wieder löschen - vorsichtig hiermit(!): 
 
 ```{r}
 tickets_2022$Priorität <- NULL # Entfernt die Spalte 
@@ -570,7 +560,7 @@ library(palmerpenguins)
 pingus <- penguins
 ```
 
-In der Regel werden Sie aber einen selbst erhobenen oder einen aus dem Internet heruntergeladenen Datensatz einlesen wollen. Mein Tipp ist, den Datensatz in das Working Directory zu speichern, dann finden Sie ihn schneller und er ist in der Nähe Ihrer Auswertung, noch eleganter ist es einen Unterordner namens data in den Ordner des Working Directories anzulegen, in den Sie alle Datensätze zu ihrem Projekt speichern können. Im `File`-tab unten rechts navigieren Sie zu der Datei mit dem Datensatz und dann klicken Sie diese zum Importieren des Datensatzes an (alternativ können Sie im `Environment`-tab über den Button `Import Dataset` einen Datensatz zum Importieren auf ihrem Computer suchen). In RStudio erscheint ein Fenster zum Importieren, unten rechts wird der automatisch der dem Dateiformat und unten links angegebenen Optionen entspricht, ggf. werden sogar benötigte Packages geladen.
+In der Regel werden Sie aber einen selbst erhobenen oder einen aus dem Internet heruntergeladenen Datensatz einlesen wollen. Mein Tipp ist, den Datensatz in das Working Directory zu speichern, dann finden Sie ihn schneller und er ist in der Nähe Ihrer Auswertung. Noch eleganter ist es einen Unterordner namens data in den Ordner des Working Directories anzulegen, in den Sie alle Datensätze zu ihrem Projekt speichern können. Im `File`-tab unten rechts navigieren Sie zu der Datei mit dem Datensatz und dann klicken Sie diese zum Importieren des Datensatzes an (alternativ können Sie im `Environment`-tab über den Button `Import Dataset` einen Datensatz zum Importieren auf ihrem Computer suchen). In RStudio erscheint ein Fenster zum Importieren, unten rechts wird der automatisch der dem Dateiformat und unten links angegebenen Optionen entspricht, ggf. werden sogar benötigte Packages geladen.
 
 Um einen Datensatz per Code zu importieren sind Dateiformat, die Trennzeichen (`sep`) und die Dezimalzeichen (`dec`) besonders relevant. Das Standard-Dateiformat ist `.csv`, hier sind Kommata Trennzeichen (`sep=","`) und Punkte kennzeichnen Dezimalstellen (`dec="."`). Sie können die Funktionen `read_cvs()` oder `read_delim()` für dieses Dateiformat verwenden, letztere sollte Trenn- und Dezimalzeichen automatisch erkennen. Hier ist eine Übersicht zu den Einlesefunktionen in base R (also ohne zusätzlich geladene Packages) und im tidyverse Package, der Unterschied ist, dass base R Funktionen die Daten in einen data.frame laden, tidyverse Funktionen in ein tibble:
 
@@ -582,7 +572,7 @@ Um einen Datensatz per Code zu importieren sind Dateiformat, die Trennzeichen (`
 |    lesen von     | leer  | `"."` | `read.table()`  |  `read_table()`  |
 | [schreiben]{.ul} | `","` | `"."` |  `write.csv()`  |  `write_csv()`   |
 
-Wichtigstes und oft einziges Funktionsargument ist der vollständige Dateiname, er wird in `"` angegeben. Alternativ können Sie statt dem Dateinamen auch die Funktion `file.choose()` angeben, die dann ein interaktives Fenster zur Dateiauswahl öffnet. Falls Sie die Datei in einem Unterordner vom Working Directory gespeichert haben (ich erstelle mir meist einen Unterordner namens data), wird der Name des Unterordners mit einem `/` dem Dateinamen vorangestellt (z.B."data/Datensatz1.csv"). Das Einlesen von Daten funktioniert nur, wenn der einzulesende Datensatz per `<-` einem Namen zugewiesen wird. Beispiel zum Laden eines .csv Datensatzes:
+Wichtigstes und oft einziges Funktionsargument ist der vollständige Dateiname, er wird in `"` angegeben. Alternativ können Sie statt dem Dateinamen auch die Funktion `file.choose()` angeben, die dann ein interaktives Fenster zur Dateiauswahl öffnet. Falls Sie die Datei in einem Unterordner vom Working Directory gespeichert haben (ich erstelle mir meist einen Unterordner namens data), wird der Name des Unterordners mit einem `/` dem Dateinamen vorangestellt. Vergessen Sie nicht, innerhalb der Anführungszeichen sowohl den Namen des Datensatzes als auch das Dateiformat nach einem Punkt zu nennen (z.B."data/Datensatz1.csv"). Das Einlesen von Daten funktioniert nur, wenn der einzulesende Datensatz per `<-` einem Namen zugewiesen wird. Beispiel zum Laden eines .csv Datensatzes:
 
 ```{r message=F}
 # Lese meinen socken.csv Datensatz aus dem Unterordner data in ein tibble namens socken:
