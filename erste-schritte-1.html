@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2022-10-28" />
+<meta name="date" content="2022-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -356,7 +356,9 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <div id="vektoren" class="section level2 hasAnchor">
 <h2><span class="header-section-number">3.4</span> Vektoren<a href="erste-schritte-1.html#vektoren" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Jede Spalte eines Datensatzes ist ein Vektor. In einem Vektor befinden sich mehrere Elemente eines Datentyps, also z.B. mehrere Zahlen oder mehrere Wörter. Vektoren werden mit Hilfe der “combine”-Funktion <code>c</code> erstellt.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="erste-schritte-1.html#cb49-1"></a>Vektor_numeric &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="erste-schritte-1.html#cb49-1"></a><span class="co"># Hier wird ein numerischer Vektor mit den Elementen 1 bis 10 erstellt. </span></span>
+<span id="cb49-2"><a href="erste-schritte-1.html#cb49-2"></a><span class="co"># Mit einem Doppelpunkt können alle ganzen Zahlen zwischen den beiden angegebenen Zahlen angesprochen werden.</span></span>
+<span id="cb49-3"><a href="erste-schritte-1.html#cb49-3"></a>Vektor_numeric &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>)</span></code></pre></div>
 <p>Mit jedem Datentyp können Sie unterschiedliche Operationen durchführen. Um sich den Datentyp eines Vektors anzeigen zu lassen, können Sie die Funktion <code>mode</code> verwenden.</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="erste-schritte-1.html#cb50-1"></a><span class="kw">mode</span>(Vektor_numeric)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
@@ -365,7 +367,7 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <p>Mit Vektoren vom Typ <code>numeric</code> (kurz <code>num</code>) können Sie verschiedene mathematische Operationen durchführen. Sie können diese Vektoren addieren, multiplizieren, usw. Wenn Sie eine Operation wie <code>* 2</code> auf den Vektor anwenden, wird diese Operation auf alle Elemente des Vektors angewendet.</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="erste-schritte-1.html#cb52-1"></a>Vektor_numeric <span class="op">*</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
 <pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
-<p>Wenn Sie hingegen zwei gleich lange Vektoren haben, wird jedes <em>i</em>-te Element des ersten Vektors mit dem <em>i</em>-ten Element des zweiten Vektors verrechnet. Das Element an Position 1 im einen Vektor wird dann mit dem Element an Position 1 im anderen Vektor gepaart, das Element an Position 2 im einen Vektor mit dem Element an Position 2 im anderen Vektor – und so weiter.</p>
+<p>Wenn Sie hingegen zwei gleich lange Vektoren haben, wird jedes <em>i</em>-te Element des ersten Vektors mit dem <em>i</em>-ten Element des zweiten Vektors verrechnet. Das Element an Position 1 in einem Vektor wird dann mit dem Element an Position 1 im anderen Vektor gepaart, das Element an Position 2 in einem Vektor mit dem Element an Position 2 im anderen Vektor – und so weiter.</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="erste-schritte-1.html#cb54-1"></a>punkte_MC_Fragen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>)</span>
 <span id="cb54-2"><a href="erste-schritte-1.html#cb54-2"></a></span>
 <span id="cb54-3"><a href="erste-schritte-1.html#cb54-3"></a>punkte_offene_Fragen &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>)</span>
@@ -402,7 +404,7 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <span id="cb67-2"><a href="erste-schritte-1.html#cb67-2"></a></span>
 <span id="cb67-3"><a href="erste-schritte-1.html#cb67-3"></a><span class="kw">mode</span>(Vektor_logical)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
-<p>Dabei werden <code>TRUE</code> und <code>FALSE</code> als logische Bedingungen interpretiert, die erfüllt oder nicht erfüllt sein können. Vektoren dieses Datentyps sind für die Datenaufbereitung unglaublich nützlich! Mit Hilfe eines Vektors vom Typ <code>logical</code> können Sie beispielsweise kodieren, welche Versuchspersonen die Studie vollständig abgeschlossen haben oder ob einzelne Beobachtungen Ausreißer darstellen. Sie werden diesen Datentyp häufig benötigen, wenn Sie in Datentabellen einzelne Fälle auswählen oder Versuchspersonen ausschließen möchte. Hierbei wird dann jeweils im Einzelfall überprüft, welche Fälle eine gewünschte Bedingung erfüllen (z.B. maximal 30 Minuten zur Bearbeitung eines Tests gebraucht) und daher in den weiteren Analysen eingeschlossen werden.</p>
+<p>Dabei werden <code>TRUE</code> und <code>FALSE</code> als logische Bedingungen interpretiert, die erfüllt oder nicht erfüllt sein können. Vektoren dieses Datentyps sind für die Datenaufbereitung unglaublich nützlich! Mit Hilfe eines Vektors vom Typ <code>logical</code> können Sie beispielsweise kodieren, welche Versuchspersonen die Studie vollständig abgeschlossen haben oder ob einzelne Beobachtungen Ausreißer darstellen. Sie werden diesen Datentyp häufig benötigen, wenn Sie in Datentabellen einzelne Fälle auswählen oder Versuchspersonen ausschließen möchten. Hierbei wird dann jeweils im Einzelfall überprüft, welche Fälle eine gewünschte Bedingung erfüllen (z.B. maximal 30 Minuten zur Bearbeitung eines Tests gebraucht haben) und daher in den weiteren Analysen eingeschlossen werden.</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="erste-schritte-1.html#cb69-1"></a><span class="co"># Hier wird festgehalten, welche Versuchspersonen (id) die Studie </span></span>
 <span id="cb69-2"><a href="erste-schritte-1.html#cb69-2"></a><span class="co"># vollständig abgeschlossen haben (Studie_abgeschlossen)</span></span>
 <span id="cb69-3"><a href="erste-schritte-1.html#cb69-3"></a></span>
@@ -472,7 +474,7 @@ verknüpfen jeweils zwei logische Bedingungen (sprich: zwei logische Werte, also
 </div>
 <div id="auswahl-von-vektorelementen" class="section level2 hasAnchor">
 <h2><span class="header-section-number">3.5</span> Auswahl von Vektorelementen<a href="erste-schritte-1.html#auswahl-von-vektorelementen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Sie können auf einzelne Elemente eines Vektor zugreifen, indem Sie den Operator <code>[]</code> verwenden. In die eckigen Klammern wird die Position des Elements eingefügt, das Sie auswählen möchte. Dieses Vorgehen wird <strong>Indizierung</strong> genannt.</p>
+<p>Sie können auf einzelne Elemente eines Vektor zugreifen, indem Sie den Operator <code>[]</code> verwenden. In die eckigen Klammern wird die Position des Elements eingefügt, das Sie auswählen möchten. Dieses Vorgehen wird <strong>Indizierung</strong> genannt.</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="erste-schritte-1.html#cb95-1"></a>daten &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
 <span id="cb95-2"><a href="erste-schritte-1.html#cb95-2"></a></span>
 <span id="cb95-3"><a href="erste-schritte-1.html#cb95-3"></a><span class="co"># Hier wird das dritte Element ausgewählt</span></span>
@@ -508,11 +510,11 @@ verknüpfen jeweils zwei logische Bedingungen (sprich: zwei logische Werte, also
 <span id="cb104-3"><a href="erste-schritte-1.html#cb104-3"></a>alter <span class="op">&gt;=</span><span class="st"> </span><span class="dv">18</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE</code></pre>
 <p>Bei numerischen Vektoren können Sie folgende logischen Vergleiche durchführen: (a) gleich (<code>==</code>), (b) größer (<code>&gt;</code>), (c) kleiner (<code>&lt;</code>), (d) größer gleich (<code>&gt;=</code>), (e) kleiner gleich (<code>&lt;=</code>) oder (f) ungleich (<code>!=</code>). Wenn Sie einen logischen Vergleich mit einem gesamten Vektor durchführen, wird für jedes einzelne Element überprüft, ob es der logischen Bedingung entspricht (<code>TRUE</code>) oder nicht (<code>FALSE</code>).</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="erste-schritte-1.html#cb106-1"></a><span class="co"># Hier überprüfen wir, welche Versuchspersonen jünger als 18 Jahre sind</span></span>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="erste-schritte-1.html#cb106-1"></a><span class="co"># Hier überprüfen wir, welche Versuchspersonen jünger als 18 Jahre alt sind</span></span>
 <span id="cb106-2"><a href="erste-schritte-1.html#cb106-2"></a></span>
 <span id="cb106-3"><a href="erste-schritte-1.html#cb106-3"></a>alter <span class="op">&lt;</span><span class="st"> </span><span class="dv">18</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="erste-schritte-1.html#cb108-1"></a><span class="co"># Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre sind</span></span>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="erste-schritte-1.html#cb108-1"></a><span class="co"># Wir können auch überprüfen, welche Versuchspersonen genau 18 Jahre alt sind</span></span>
 <span id="cb108-2"><a href="erste-schritte-1.html#cb108-2"></a></span>
 <span id="cb108-3"><a href="erste-schritte-1.html#cb108-3"></a>alter <span class="op">==</span><span class="st"> </span><span class="dv">18</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
