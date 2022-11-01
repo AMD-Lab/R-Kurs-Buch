@@ -1,4 +1,4 @@
-# Datenaufbereitung mit \`dplyr\`
+# Datenaufbereitung mit `dplyr`
 
 ![](_static/dplyr_hex.png){width="232"}
 
@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Einführung
 
-Dplyr ist Teil des \`tidyverse\` Packages und ermöglicht es, Daten sehr einfach zu bearbeiten und in eine Form zu bringen, um diese zu analysieren. Der größte Vorteil dabei ist die einfache Syntax des Packages. Diese ermöglicht es, komplexe Operationen und Umformungen mit relativ wenigen Codezeilen zu realisieren. Um `dplyr` kennenzulernen, werden wir mit dem `Starwars` Datensatz arbeiten. Dieser enthält verschiedenen Informationen zu unterschiedlichen Charakteren der Star Wars Saga, wie zum Beispiel das Alter, Geschlecht, Heimatplanet oder Alienrasse. Zunächst lesen wir den Datensatz mit `readRDS()` ein und verschaffen uns dann einen ersten Überblick über den Datensatz:
+Dplyr ist Teil des $tidyverse$ Packages und ermöglicht es, Daten sehr einfach zu manipulieren und in eine Form zu bringen, um diese zu analysieren. Der größte Vorteil dabei ist die einfache Syntax des Packages. Diese ermöglicht es, komplexe Operationen und Umformungen mit relativ wenigen Codezeilen zu realisieren. Um `dplyr` kennenzulernen, werden wir mit dem `Starwars` Datensatz arbeiten. Dieser enthält verschiedenen Informationen zu unterschiedlichen Charakteren der Star Wars Saga, wie zum Beispiel das Alter, Geschlecht, Heimatplanet oder Alienrasse. Zunächst lesen wir den Datensatz mit `readRDS()` ein und verschaffen uns dann einen ersten Überblick über den Datensatz:
 
 ```{r}
 
@@ -28,43 +28,40 @@ Wir benutzen den `head()` Befehl, um uns die ersten 5 Zeilen des Datensatzes anz
 ```{r, echo=T}
 # Wir lassen uns zunächst die ersten 5 Zeilen des Datensatzes ausgeben. 
 
+head(starwars, 5)
 
-head(starwars,5) 
+# Analog können wir auch mit den Befehl tail(), die letzten n Zeilen eines Datensatzes anzeigen.
 
-# Analog können wir auch mit den Befehl `tail()`, die letzten n Zeilen eines Datensatzes anzeigen.
-
-
-tail(starwars,5)
+tail(starwars, 5)
 
 ```
 
 Nachdem wir nun eine erste "Augapfeldiagnostik" des Datensatzes betrieben haben, sollten wir uns nun die einzelnen Variablen genauer ansehen. Um einen ersten Überblick in die unterschiedlichen Parameter der Variablen zu bekommen, eignet sich der `summary()` Befehl. Dieser berechnet die wichtigstens Kennwerte der im Datensatz enthaltenen Variablen wie Mittelwert, Median, Quantile, Minimum, Maximum und fehlende Werte.
 
 ```{r}
-
 summary(starwars)
-
-# Wir sehen nun die Unterschiedlichen Verteilungsinformationen jeder Variablen. Für factor bzw. character Variablen, werden hier die Häufigkeiten der einzelnen Kategorien angezeigt. 
 
 ```
 
-## \``dplyr`\`: Die wichtigsten Befehle
+Wir sehen nun die unterschiedlichen Verteilungsinformationen jeder Variable. Für `factor` bzw. `character` Variablen, werden hier die Häufigkeiten der einzelnen Kategorien angezeigt.
+
+## `dplyr`: Die wichtigsten Befehle
 
 Wie am Anfang des Kapitels bereits erwähnt, ermöglicht es `dplyr` mit relativ einfachen Mitteln, komplexe Operationen und Transformationen in Datensätzen vorzunehmen. Hierzu hat `dplyr` eine eigene Syntax entwickelt, die sich sehr stark von der ursprünglichen R-Syntax unterscheidet. Diese baut auf wenigen, relativ intuitiven Befehlen auf, welche verkettet werden können. Zunächst eine Übersicht der wichtigsten Befehle:
 
--   `filter()` - Filtern von Beobachtungen nach einem bestimmten Kriterium
+-   `filter()` -- Filtern von Beobachtungen nach einem bestimmten Kriterium
 
--   `arrange()`- Reihen neu Sortieren
+-   `arrange()` -- Reihen neu Sortieren
 
--   `select()` - Auswahl von Variablen nach deren Name
+-   `select()` -- Auswahl von Variablen nach deren Name
 
--   `mutate()` - Erstellen von neuen Variablen aus bereits existierenden
+-   `mutate()` -- Erstellen von neuen Variablen aus bereits existierenden
 
--   `summarise()` - Viele Werte zu einem einzelnen Wert zusammenfassen
+-   `summarise()` -- Viele Werte zu einem einzelnen Wert zusammenfassen
 
--   `group_by()` - Gruppieren von Daten nach bestimmten Variablen in Kombination mit anderen Funktionen
+-   `group_by()` -- Gruppieren von Daten nach bestimmten Variablen in Kombination mit anderen Funktionen
 
-Der vielleicht wichtigste Befehl ist der `group_by()` Befehl, mit dem die oben genannten Befehle auf einzelne Gruppen innerhalb eines Datensatzes anwendbar sind.
+Der vielleicht wichtigste Befehl ist `group_by()`, mit dem die oben genannten Befehle auf einzelne Gruppen innerhalb eines Datensatzes anwendbar sind.
 
 Diese sechs sogennaten "***Verben"*** bilden die Grundlage von `dplyr`. Mit ihnen ist es möglich mehrere einfache Operationen miteinander zu verketten, um ein komplexes Ergebnis zu erzielen. Alle Befehle funktionieren auf die gleiche Art und Weise. Jede Operation ist durch die gleiche Struktur gekennzeichnet:
 
@@ -91,13 +88,13 @@ Logische Operatoren lassen sich sehr gut auf numerische / bzw. kontinuierliche V
 
 ![](_static/dplyr_filter_sm.png)
 
-Sollen nun alle Beobachtungen mit "Skywalker" im Namen gefiltert werden, kann die `grepl()` Funktion aus R genutzt werden. Diese prüft, ob eine Zeichenfolge vorhanden ist oder nicht und gibt dann entsprechend `TRUE` oder `FALSE` aus, was ein filtern ermöglicht. Dies ist vorallem bei Strings die aus mehr als einem Wort bestehen und durch ein Leerzeichen getrennt sind, sehr praktisch. Bei Strings die nur aus einem Wort bestehen oder Factors, kann auch mit einem einfach `==` Vergleich gearbeitet werden.
+Sollen nun alle Beobachtungen mit "Skywalker" im Namen gefiltert werden, kann die `grepl()` Funktion aus R genutzt werden. Diese prüft, ob eine Zeichenfolge vorhanden ist oder nicht und gibt dann entsprechend `TRUE` oder `FALSE` aus, was ein filtern ermöglicht. Dies ist vor allem bei Strings die aus mehr als einem Wort bestehen und durch ein Leerzeichen getrennt sind, sehr praktisch. Bei Strings die nur aus einem Wort bestehen oder Factors, kann auch mit einem einfach `==` Vergleich gearbeitet werden.
 
 Beispiel:
 
 ```{r}
 
-# Hier werden alle Beobachtungen mit der Spezies "Human" gefiltert. 
+# Hier werden alle Beobachtungen mit der Spezies "Human" gefiltert.
 
 filter(starwars, species == "Human")
 
@@ -105,14 +102,14 @@ filter(starwars, species == "Human")
 
 filter(starwars, sex == "male")
 
-# Um komplexere Strings zu filtern, kann die grepl() funktion integriert werden. Hier werden alle Beocbachtungen gefiltert, welche innerhalb der Variable "name" den String "Skywalker" enthalten. So erhalten wir alle Skywalker Charaktere, die im Datensatz vorhanden sind:
+# Um komplexere Strings zu filtern, kann die grepl() Funktion integriert werden. Hier werden alle Beobachtungen gefiltert, welche innerhalb der Variable "name" den String "Skywalker" enthalten. So erhalten wir alle Skywalker Charaktere, die im Datensatz vorhanden sind:
 
 filter(starwars, grepl("Skywalker", name))
 
 
 ```
 
-## Dplyr: Der Piping Operator \`%\>%\`
+## `dplyr`: Der Piping Operator `%>%`
 
 Die vielleicht wichtigste Funktion in `dplyr` ist der sogenannte "piping operator" `%>%`. Mit diesem können beliebig viele Befehle kombiniert, oder auch "verkettet" werden, um einen Datensatz umzuformen. Hierbei bleiben die oben vorgestellten Prinzipien gültig:
 
@@ -128,9 +125,9 @@ Hier ein sehr fortgeschrittenes Beispiel, wie dies aussehen kann. Es wurden in d
 
 ```{r}
 
-# df_clean %>% group_by(N,K,Retrievals) %>%  
+# df_clean %>% group_by(N, K, Retrievals) %>%
 
-# Hier wird der Datensatz nach den Variablen N,K und Retrievals gruppiert.
+# Hier wird der Datensatz nach den Variablen N, K und Retrievals gruppiert.
 
 #   summarise(corA = cor(mu_est_a, mu_real_a), 
 #             corC = cor(mu_est_c, mu_real_c)) %>%
@@ -142,8 +139,8 @@ Hier ein sehr fortgeschrittenes Beispiel, wie dies aussehen kann. Es wurden in d
 
 # Anschließend werden diese Korrelationen z-transformiert und dann die Mittelwerte nach den Variablen N und K berechnet
 
-#   filter(Retrievals== 100) %>%
-#   group_by(N,K) %>%  
+#   filter(Retrievals == 100) %>%
+#   group_by(N, K) %>%  
 #   summarise(mean_a_100 = mean(z_a),
 #             mean_c_100 = mean(z_c),
 #             range_cor = range(mean_a_100),
@@ -157,7 +154,7 @@ Hier ein sehr fortgeschrittenes Beispiel, wie dies aussehen kann. Es wurden in d
 
 ## Beispiel
 
-Um nun verschiedene Operationen zu einer Pipeline zu verketten, können wir zwischen die einzelnen `dplyr` Befehle den Pining Operator `%>%` schalten.
+Um nun verschiedene Operationen zu einer Pipeline zu verketten, können wir zwischen die einzelnen `dplyr` Befehle den Piping Operator `%>%` schalten.
 
 Soll zum Beispiel der Mittelwert des Alters der Helden aus dem Starwars Datensatz für verschiedene Gruppen (hier Heimatwelten und Spezies) berechnet werden, können hierfür der `group_by()` und der `summarise()` Befehl kombiniert werden. Zunächst Gruppieren wir den Datensatz nach den Variablen `species` und `homeworld` und berechnen dann mit `summarise()` eine neue Variable `mean_Age` für jede Gruppenkombination. Hierbei wird innerhalb von `summarise()` der Mittelwert der `Age` Variablen berechnet und in der neuen Variablen `mean_Age` gespeichert. Hierbei gelten die oben genannten Prinzipien, welche dann mit `%>%` verkettet werden:
 
@@ -165,7 +162,7 @@ Soll zum Beispiel der Mittelwert des Alters der Helden aus dem Starwars Datensat
 
 2.  Die nachfolgenden Argumente beschreiben, was mit dem Dataframe geschehen soll:
 
-    `group_by(species, homeworld)` und `summarise(mean_Age=mean(Age))`
+    `group_by(species, homeworld)` und `summarise(mean_Age = mean(Age))`
 
 3.  Das Ergebnis ist ein neuer Dataframe, der nur noch die Gruppenvariablen `Homeworld` und `Species`, sowie die neu berechnete Variable `mean_Ages` enthält:
 
@@ -175,51 +172,59 @@ Soll zum Beispiel der Mittelwert des Alters der Helden aus dem Starwars Datensat
 
 starwars %>% 
   group_by(species, homeworld) %>% 
-  summarise(mean_Age=mean(Age))
+  summarise(mean_Age = mean(Age))
 
 ```
 
 Natürlichsprachlich dargestellt werden also folgende Operationen ausgeführt:
 
-1.  Nehme den Datensatz \`starwars\` (1. Zuerst der Dataframe):
+1.  Nehme den Datensatz `starwars` (1. Zuerst der Dataframe):
 
 <!-- -->
 
-    `starwars %>%`
+```
+starwars %>%
+```
 
 2.  Gruppiere diesen nach Spezies und Heimatwelt (1. Verarbeitungsschritt):
 
-    `group_by(species, homeworld) %>%`
+```
+group_by(species, homeworld) %>%
+```
 
-3.  Berechne dann für jede dieser Gruppen den Mittelwert für die Variable "Age" (2. Schritt):
+3.  Berechne dann für jede dieser Gruppen den Mittelwert für die Variable `Age` (2. Schritt):
 
 <!-- -->
 
-    `summarise(meanAge=mean(Age)`
+```
+summarise(meanAge = mean(Age))
+```
 
 Da nun der Piping-Operator die einzelnen Elemente miteinander verkettet, ist es nicht mehr notwendig, den Datensatz innerhalb der einzelnen Befehle als Argument anzugeben, so wie im Beipsiel von `filter()`. Es muss lediglich der Ausgangsdatensatz am Anfang der Pipeline angeben werden.
 
-## Dplyr : Neue Variablen mit `mutate()` berechnen
+## `dplyr`: Neue Variablen mit `mutate()` berechnen
 
 ![](_static/dplyr_mutate.png)
 
-Der letzte wichtige Befehl in `dplyr` ist `mutate()` bzw. `across()`. Mit `mutate()` bzw. `across()` ist es möglich eine Variable bzw. mehrere Variablen umzuformen, oder neu zu berechnen. Dies wird hier anhand einer z-Tranformation erläutert. Dies ermöglicht der Befehl `scale()`, der standardmäßig in R vorhanden ist.
+Der letzte wichtige Befehl in `dplyr` ist `mutate()` bzw. `across()`. Mit `mutate()` bzw. `across()` ist es möglich eine Variable bzw. mehrere Variablen umzuformen, oder neu zu berechnen. Dies wird hier anhand einer *z*-Tranformation erläutert. Dies ermöglicht der Befehl `scale()`, der standardmäßig in R vorhanden ist.
 
 ## Beispiel
 
 ```{r}
 
 starwars %>% 
-  select(height,mass) %>% 
+  select(height, mass) %>% 
   mutate(z_height = scale(height),
          z_mass = scale(mass)) 
 
- starwars %>% select(height,mass) %>% 
-  mutate(across(c(height,mass), list(z=scale)))
+starwars %>%
+  select(height, mass) %>% 
+  mutate(across(c(height, mass), list(z = scale)))
 
 ```
 
 In diesem Beispiel wurden zunächst nur `height` und `mass` mit dem `select()` Befehl ausgewählt, daher werden auch nur diese beiden Spalten am Ende der Pipline im Datensatz angezeigt. Dies kann hilfreich sein, wenn man einen Datensatz mit sehr vielen Variablen analysieren muss, von denen nur einige wenige interessant sind. Dies ist z.B. bei Fragebögen der Fall, die unterschiedliche Facetten erfassen.
+
 
 Der nächste Befehl `mutate()` besteht immer aus einer Operation, die mit einer Spalte im Datensatz durchgeführt wird. Im Beispiel oben werden die Spalten `z_height` und `z_mass` berechnet, die sich jeweils aus `scale(SPALTENNAME)` zusammensetzen und die z-Werte der jeweiligen Variablen ausgeben.
 
@@ -227,9 +232,9 @@ Anstatt beide Variablen einzeln zu transformieren, kann den Befehl `scale()` auc
 
 ![](_static/dplyr_across_where.jpeg)
 
-Hier muss innerhalb von `mutate()` einfach mit `across(c(SPALTE1, SPALTE2))` ein Vektor der zu tranformierenden Spalten übergeben werden, sowie die Funktion(en), welche auf die Spalten angewand werden soll. Dies muss dann wie folgt definiert werden:
+Hier muss innerhalb von `mutate()` einfach mit `across(c(SPALTE1, SPALTE2))` ein Vektor der zu tranformierenden Spalten übergeben werden, sowie die Funktion(en), welche auf die Spalten angewandt werden soll. Dies muss dann wie folgt definiert werden:
 
-`mutate(across(c(height,mass), list(z=scale)))`
+`mutate(across(c(height, mass), list(z = scale)))`
 
 Diese Schreibweise hat den Vorteil, dass:
 
@@ -243,6 +248,6 @@ Diese Schreibweise hat den Vorteil, dass:
 ```{r}
 
 
-starwars %>% mutate(across(c(height,mass), list(z=scale)))
+starwars %>% mutate(across(c(height, mass), list(z = scale)))
      
 ```
