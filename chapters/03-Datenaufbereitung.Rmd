@@ -40,6 +40,7 @@ Nachdem wir nun eine erste "Augapfeldiagnostik" des Datensatzes betrieben haben,
 
 ```{r}
 summary(starwars)
+
 ```
 
 Wir sehen nun die unterschiedlichen Verteilungsinformationen jeder Variable. Für `factor` bzw. `character` Variablen, werden hier die Häufigkeiten der einzelnen Kategorien angezeigt.
@@ -97,7 +98,7 @@ Beispiel:
 
 filter(starwars, species == "Human")
 
-# Analog hierzu kann genau so auch nach bestimmten Faktorstufen gefiltert werden:
+# Analog hierzu kann auch nach bestimmten Faktorstufen gefiltert werden:
 
 filter(starwars, sex == "male")
 
@@ -131,7 +132,8 @@ Hier ein sehr fortgeschrittenes Beispiel, wie dies aussehen kann. Es wurden in d
 #   summarise(corA = cor(mu_est_a, mu_real_a), 
 #             corC = cor(mu_est_c, mu_real_c)) %>%
 
-# Dann werden die Korrelationen zwischen den Variablen est_a und real_a für alle Gruppenkombinationen berechnet.
+# Dann werden die Korrelationen zwischen den Variablen est_a und real_a,
+# so wie die Korrelationen zwischen den Variablen est_c und real_c für alle Gruppenkombinationen berechnet.
 
 #   mutate(z_a = fisherz(corA), z_c = fisherz(corC)) %>% 
 

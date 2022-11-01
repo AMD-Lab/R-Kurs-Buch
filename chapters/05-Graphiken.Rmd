@@ -21,8 +21,8 @@ Das `viridis` Paket in R stellt eine Reihe an Colormaps bereit, die folgenden An
 
 Praktisch bedeutet das, die Farbkarten sind:
 
--   **farbenfroh**: sie umspannen weite Teile der Farbpalette damit Unterschiede einfach zu erkennen sind
--   **einheitlich**: Punkte nah beieinander haben ähnliche Farben und Punkte weit auseinander stark unterschiedliche Farben -- und das möglichst konsistent über den gesamten Farbraum hinweg\
+-   **farbenfroh**: Sie umspannen weite Teile der Farbpalette, damit Unterschiede einfach zu erkennen sind
+-   **einheitlich**: Nah beieinander liegende Punkte haben ähnliche Farben und weit auseinander liegende Punkte haben stark unterschiedliche Farben -- und das möglichst konsistent über den gesamten Farbraum hinweg\
     $\rightarrow$ *ein fester Abstand wird also an verschiedenen Stellen im Farbraum als perzeptuell gleich wahrgenommen, d.h. keine mal schnellen mal langsamen Farbton- oder Helligkeitsänderungen*
 
 Gerade die Einheitlichkeit ist wichtig, sie sorgt dafür, dass keine Gebiete überbetont werden, während Kontrast an anderen Strellen nicht gegeben ist. Hier die `viridis` Farbskala oben und `jet` (langjährig die Standardfarben in Matlab) unten:
@@ -63,7 +63,7 @@ source: [viridis Dokumentation](https://www.rstudio.com/resources/cheatsheets/)
 
 -   [Daten]{style="color:#8fd744"} bereitstellen
 
--   Wie werden Variablen in der Graphik in [Ästhetik umgewandelt]{style="color:#35b779"}? -- `aesthetics()`
+-   Wie werden Variablen in der Graphik in [Ästhetik (aesthetic mappings) umgewandelt]{style="color:#35b779"}? -- `aesthetics()`
 
     -   Was ist die x-Achse, was die y-Achse?
     -   Wonach wird farbkodiert?
@@ -215,7 +215,7 @@ source: [ggplot2 Cheat Sheet](https://www.rstudio.com/resources/cheatsheets/)
 
 ### Säulen- und Balkendiagramm
 
-`geom_bar` ist eine [graphische Funktion]{style="color:#21918d"} um Häufigkeiten einer diskreten Variable in einem [Säulen-]{style="color:#21918d"} oder [Balkendiagramm]{style="color:#21918d"} zu visualisieren.
+`geom_bar` ist eine [graphische Funktion]{style="color:#21918d"}, um Häufigkeiten einer diskreten Variable in einem [Säulen-]{style="color:#21918d"} oder [Balkendiagramm]{style="color:#21918d"} zu visualisieren.
 
 ```{r, fig.dim=c(4, 4), fig.align='center'}
 ggplot(data = MarvelDC,        # Nehme Daten MarcelDC
@@ -274,7 +274,7 @@ MarvelDC %>%
   geom_bar(position = "fill") +
   coord_polar()                 # stelle das in Polarkoordinaten dar
 ```
-
+Die Information für Marvel DC wird auf dem äußeren Kreis abgebildet und die für DC Comics auf dem inneren Kreis abgebildet.
 Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weiblich sind, während es bei Marvel etwas mehr als ein Viertel sind.
 
 ### Histogramm
@@ -325,7 +325,7 @@ ggplot(MarvelDC,
 
 ### Boxplot
 
-`geom_boxplot`ist eine [graphische Funktion]{style="color:#21918d"} um kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung darzustellen. Hat Marvel oder DC die stärkeren Superhelden? -- Dafür betrachten wir den `Total` Wert jedes Helden.
+`geom_boxplot`ist eine [graphische Funktion]{style="color:#21918d"}, um kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung darzustellen. Hat Marvel oder DC die stärkeren Superhelden? -- Dafür betrachten wir den `Total` Wert jedes Helden.
 
 ```{r, fig.dim=c(4, 4), fig.align='center'}
 ggplot(MarvelDC, 
@@ -405,7 +405,7 @@ ggplot(data = MarvelDC,
 
 ### (Linearer) Fit
 
-Die `Power` und `Durability` Daten können mit einer Funktion gefittet werden. So kann man visuell prüfen, ob es bei Marvel und DC jeweils einen anderen Zusammenhang zwischen `Power` und `Durability` gibt. Dafür wird die [graphischen Funktion]{style="color:#21918d"} `geom_smooth` verwendet. Um ein **lineares** Modell zu erhalten, muss das Argument `method = "lm"` für "linear model" gesetzt werden. Um `y` durch `x` vorherzusagen, braucht es die Formel `y ~ x`:
+Die `Power` und `Durability` Daten können mit einer Funktion gefittet werden. So kann man visuell prüfen, ob es bei Marvel und DC jeweils einen anderen Zusammenhang zwischen `Power` und `Durability` gibt. Dafür wird die [graphische Funktion]{style="color:#21918d"} `geom_smooth` verwendet. Um ein **lineares** Modell zu erhalten, muss das Argument `method = "lm"` für "linear model" gesetzt werden. Um `y` durch `x` vorherzusagen, braucht es die Formel `y ~ x`:
 
 ```{r, fig.width=7, fig.asp=0.7, fig.align='center', warning=FALSE}
 ggplot(data = MarvelDC, 
@@ -436,7 +436,7 @@ Auch hier zeigen sich weiterhin keine Unterschiede zwischen den Publishern. Es m
 
 ### Linienplot
 
-[Linienplots]{style="color:#21918d"} lassen sich am besten an einer überschaubaren Anzahl Punkte veranschaulichen, z.B. eignet sich eine Auswahl der X-Men. Die [Datenpunkte]{style="color:#21918d"} werden [farblich]{style="color:#35b779"} nach Geschlecht getrennt -- dann werden alle Punkte durch eine [Linie]{style="color:#21918d"} verbunden:
+[Linienplots]{style="color:#21918d"} lassen sich am besten an einer überschaubaren Anzahl von Punkten veranschaulichen, z.B. eignet sich eine Auswahl der X-Men. Die [Datenpunkte]{style="color:#21918d"} werden [farblich]{style="color:#35b779"} nach Geschlecht getrennt -- dann werden alle Punkte durch eine [Linie]{style="color:#21918d"} verbunden:
 
 ```{r, fig.width=5, fig.asp=0.7, fig.align='center'}
 # Erstelle Vektor der X-Men Charaktere: 
@@ -469,7 +469,7 @@ MarvelDC %>%
   geom_line(aes(linetype = Gender)) # zusätzlich Linentyp nach Gender
 ```
 
-Will man wissen, welcher Charakter welche Werte aufweist, fügt `geom_label` [Textlabel]{style="color:#21918d"} zu dem Plot hinzu. Außerdem können die Achsen so [skaliert]{style="color:#31688e"} werden, dass der absolute Null Punkt enthalten ist und beide Achsen symmetrisch laufen:
+Will man wissen, welcher Charakter welche Werte aufweist, fügt `geom_label` [Textlabel]{style="color:#21918d"} zu dem Plot hinzu. Außerdem können die Achsen so [skaliert]{style="color:#31688e"} werden, dass der absolute Nullpunkt enthalten ist und beide Achsen symmetrisch laufen:
 
 ```{r, fig.width=5, fig.asp=0.7, fig.align='center'}
 XMen <- c("Wolverine", "Jean Grey", "Storm", "Beast", 
@@ -542,7 +542,7 @@ Es gibt verschiedene `themes` die das grundlegende [Graphiklayout]{style="color:
 
 -   `theme_dark()` -- dunkler Hintergrund mit grid Linien
 
--   `theme_minimal()` -- minimales `theme`
+-   `theme_minimal()` -- minimalistisches `theme`
 
 -   `theme_void()` -- leeres `theme`
 
@@ -570,13 +570,13 @@ ggplot(MarvelDC, aes(x = Publisher, y = Total, fill= Gender)) +
 
 Mit `position` kann die [Positionierung]{style="color:#31688e"} graphischer Elemente zueinander eingestellt werden. Positionsarten sind z.B.:
 
--   `identity` -- wahre Werte an wahrer Position, hier kann man Plots z.B. durch den alpha Parameter entzerren
+-   `identity` -- Werte sollen an ihrer wahren Position (d.h. so wie sie in der Funktion eingegeben wurden) angezeigt werden. Tipp: Bei dieser Einstellung kann man die angezeigten Werte machmal nicht so gut erkennen durch (z.B. weil sie aufeineander liegen). Manchmal kann es hilfreich sein, den `alpha` Parameter zusätzlich zu verwenden, um die angezeigten Punkten (oder Balken, etc.) etwas zu entzerren.
 
 -   `stack` -- Elemente aufeinander schichten (default)
 
 -   `dodge` -- Elemente nebeneinander zeigen
 
--   `jitter` -- Zufälliges Rauschen auf die (x,y) Positions jedes Elements addieren um den Plot zu entzerren
+-   `jitter` -- Zufälliges Rauschen auf die (x,y) Position jedes Elements addieren, um den Plot zu entzerren
 
 [dodge]{style="color:#31688e"} = nebeneinander:
 
@@ -650,7 +650,7 @@ Das wichtigste [Koordinatensystem]{style="color:#31688e"} ist zweifellos das kar
 
 ### Farbskalen
 
-`scale` bestimmt auf welche [Farbskala]{style="color:#31688e"} die [Daten]{style="color:#8fd744"} abgebildet werden. Am Beispiel von `viridis`:
+`scale` bestimmt, auf welche [Farbskala]{style="color:#31688e"} die [Daten]{style="color:#8fd744"} abgebildet werden. Am Beispiel von `viridis`:
 
 -   `scale_color_viridis_d()` -- diskretes [`viridis` Spektrum]{style="color:#31688e"} für das Argument `color`
 
@@ -668,7 +668,7 @@ Neben dem `viridis` Package gibt es auch den ColorBrewer in R, der unter anderem
 
 Wenn man allerdings schon ein [Farbspektrum]{style="color:#31688e"} selbst definiert, ist es empfehlenswert ein *colorblind friendly* Schema wie alle Skalen aus dem `viridis` Package zu benutzen.
 
-Im folgenden Beispiel werden verschiedene Einstellungen zusammengeführt um eine ansprechende und informative Graphik zu erhalten. Erst wird eine Liste der besten Superhelden der X-Men, der Avengers und der Guardians of the Galaxy erstellt. Dann veranschaulicht ein [Balkendiagramm]{style="color:#21918d"} welcher Art sie angehören. Also ob es Menschen sind, oder Mutanten, oder Androiden... Dann wird die Graphik informativ [beschriftet]{style="color:#31688e"}, so dass sie auch ohne den zugehörigen Code verständlich ist, und als letztes wird ein diskretes [`viridis` Spektrum]{style="color:#31688e"} als die [Farbskala]{style="color:#31688e"} bestimmt, die R verwenden soll:
+Im folgenden Beispiel werden verschiedene Einstellungen zusammengeführt, um eine ansprechende und informative Graphik zu erhalten. Erst wird eine Liste der besten Superhelden der X-Men, der Avengers und der Guardians of the Galaxy erstellt. Dann veranschaulicht ein [Balkendiagramm]{style="color:#21918d"} welcher Art sie angehören. Also ob es Menschen sind oder Mutanten oder Androiden... Dann wird die Graphik informativ [beschriftet]{style="color:#31688e"}, so dass sie auch ohne den zugehörigen Code verständlich ist, und als letztes wird ein diskretes [`viridis` Spektrum]{style="color:#31688e"} als die [Farbskala]{style="color:#31688e"} bestimmt, die R verwenden soll:
 
 ```{r, fig.width=6, fig.asp=0.7, fig.align='center'}
 # Charaktere der X-Men, der Guardians of the Galaxy und der Avengers
@@ -700,13 +700,31 @@ MarvelDC %>%
 
 ### Variablenskalen
 
-Mit `ggplot2` können Variablen einfach auf unterschiedliche [Skalen]{style="color:#31688e"} übertragen werden. Diese Funktionalität kann mit [`x`]{style="color:#35b779"} oder [`y`]{style="color:#35b779"} verwendet werden, z.B.:
+Mit `ggplot2` können Variablen einfach auf unterschiedliche [Skalen]{style="color:#31688e"} übertragen werden. Diese Funktionalität kann mit der [`x`]{style="color:#35b779"}-Achse oder mit der [`y`]{style="color:#35b779"}-Achse verwendet werden, z.B.:
 
--   `scale_x_log10()`
+-   `scale_x_log10()` ()
 
--   `scale_x_sqrt()`
+-   `scale_x_sqrt()` ()
 
--   `scale_x_reverse()`
+-   `scale_x_reverse()` ()
+
+Beispielsweise können Sie in der folgenden Abbildung den Zusammenhang zweier Variablen betrachten. Dabei wird ein logarithmischer Zusammenhang dargestellt.
+
+```{r, fig.width=8, fig.asp=0.6, fig.align='center'}
+ggplot(data = data.frame(x = seq(1:100), y = 10 + 3 * log(seq(1:100))),
+       aes(x = x, y = y)) +
+  geom_point()
+```
+
+Wenn Sie die `x`-Achse mittels `scale_x_log10()` umwandeln, könnnen Sie sehen, dass der dargestellte Zusammenhang linear aussieht (d.H. der Zusammen ist linear in der Logarithmus-Skala).
+
+
+```{r, fig.width=8, fig.asp=0.6, fig.align='center'}
+ggplot(data = data.frame(x = seq(1:100), y = 10 + 3 * log(seq(1:100))),
+       aes(x = x, y = y)) +
+  geom_point()
+  scale_x_log10()
+```
 
 ## Facetten
 
