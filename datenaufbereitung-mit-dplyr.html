@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2022-10-31" />
+<meta name="date" content="2022-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -403,7 +403,7 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 ## # … with 3 more variables: gender &lt;fct&gt;, homeworld &lt;chr&gt;,
 ## #   species &lt;chr&gt;, and abbreviated variable names
 ## #   ¹​hair_color, ²​skin_color, ³​eye_color</code></pre>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="datenaufbereitung-mit-dplyr.html#cb232-1"></a><span class="co"># Analog hierzu kann genau so auch nach bestimmten Faktorstufen gefiltert werden:</span></span>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="datenaufbereitung-mit-dplyr.html#cb232-1"></a><span class="co"># Analog hierzu kann auch nach bestimmten Faktorstufen gefiltert werden:</span></span>
 <span id="cb232-2"><a href="datenaufbereitung-mit-dplyr.html#cb232-2"></a></span>
 <span id="cb232-3"><a href="datenaufbereitung-mit-dplyr.html#cb232-3"></a><span class="kw">filter</span>(starwars, sex <span class="op">==</span><span class="st"> &quot;male&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 23 × 11
@@ -452,21 +452,22 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <span id="cb236-5"><a href="datenaufbereitung-mit-dplyr.html#cb236-5"></a><span class="co">#   summarise(corA = cor(mu_est_a, mu_real_a), </span></span>
 <span id="cb236-6"><a href="datenaufbereitung-mit-dplyr.html#cb236-6"></a><span class="co">#             corC = cor(mu_est_c, mu_real_c)) %&gt;%</span></span>
 <span id="cb236-7"><a href="datenaufbereitung-mit-dplyr.html#cb236-7"></a></span>
-<span id="cb236-8"><a href="datenaufbereitung-mit-dplyr.html#cb236-8"></a><span class="co"># Dann werden die Korrelationen zwischen den Variablen est_a und real_a für alle Gruppenkombinationen berechnet.</span></span>
-<span id="cb236-9"><a href="datenaufbereitung-mit-dplyr.html#cb236-9"></a></span>
-<span id="cb236-10"><a href="datenaufbereitung-mit-dplyr.html#cb236-10"></a><span class="co">#   mutate(z_a = fisherz(corA), z_c = fisherz(corC)) %&gt;% </span></span>
-<span id="cb236-11"><a href="datenaufbereitung-mit-dplyr.html#cb236-11"></a></span>
-<span id="cb236-12"><a href="datenaufbereitung-mit-dplyr.html#cb236-12"></a><span class="co"># Anschließend werden diese Korrelationen z-transformiert und dann die Mittelwerte nach den Variablen N und K berechnet</span></span>
-<span id="cb236-13"><a href="datenaufbereitung-mit-dplyr.html#cb236-13"></a></span>
-<span id="cb236-14"><a href="datenaufbereitung-mit-dplyr.html#cb236-14"></a><span class="co">#   filter(Retrievals == 100) %&gt;%</span></span>
-<span id="cb236-15"><a href="datenaufbereitung-mit-dplyr.html#cb236-15"></a><span class="co">#   group_by(N, K) %&gt;%  </span></span>
-<span id="cb236-16"><a href="datenaufbereitung-mit-dplyr.html#cb236-16"></a><span class="co">#   summarise(mean_a_100 = mean(z_a),</span></span>
-<span id="cb236-17"><a href="datenaufbereitung-mit-dplyr.html#cb236-17"></a><span class="co">#             mean_c_100 = mean(z_c),</span></span>
-<span id="cb236-18"><a href="datenaufbereitung-mit-dplyr.html#cb236-18"></a><span class="co">#             range_cor = range(mean_a_100),</span></span>
-<span id="cb236-19"><a href="datenaufbereitung-mit-dplyr.html#cb236-19"></a><span class="co">#             range_cor = range(mean_a_100)) %&gt;%</span></span>
-<span id="cb236-20"><a href="datenaufbereitung-mit-dplyr.html#cb236-20"></a><span class="co">#   mutate(meanCorA_100 = fisherz2r(mean_a_100),</span></span>
-<span id="cb236-21"><a href="datenaufbereitung-mit-dplyr.html#cb236-21"></a><span class="co">#          meanCorC_100 = fisherz2r(mean_c_100)) %&gt;%</span></span>
-<span id="cb236-22"><a href="datenaufbereitung-mit-dplyr.html#cb236-22"></a><span class="co">#   select(-c(mean_a_100, mean_c_100))</span></span></code></pre></div>
+<span id="cb236-8"><a href="datenaufbereitung-mit-dplyr.html#cb236-8"></a><span class="co"># Dann werden die Korrelationen zwischen den Variablen est_a und real_a,</span></span>
+<span id="cb236-9"><a href="datenaufbereitung-mit-dplyr.html#cb236-9"></a><span class="co"># so wie die Korrelationen zwischen den Variablen est_c und real_c für alle Gruppenkombinationen berechnet.</span></span>
+<span id="cb236-10"><a href="datenaufbereitung-mit-dplyr.html#cb236-10"></a></span>
+<span id="cb236-11"><a href="datenaufbereitung-mit-dplyr.html#cb236-11"></a><span class="co">#   mutate(z_a = fisherz(corA), z_c = fisherz(corC)) %&gt;% </span></span>
+<span id="cb236-12"><a href="datenaufbereitung-mit-dplyr.html#cb236-12"></a></span>
+<span id="cb236-13"><a href="datenaufbereitung-mit-dplyr.html#cb236-13"></a><span class="co"># Anschließend werden diese Korrelationen z-transformiert und dann die Mittelwerte nach den Variablen N und K berechnet</span></span>
+<span id="cb236-14"><a href="datenaufbereitung-mit-dplyr.html#cb236-14"></a></span>
+<span id="cb236-15"><a href="datenaufbereitung-mit-dplyr.html#cb236-15"></a><span class="co">#   filter(Retrievals == 100) %&gt;%</span></span>
+<span id="cb236-16"><a href="datenaufbereitung-mit-dplyr.html#cb236-16"></a><span class="co">#   group_by(N, K) %&gt;%  </span></span>
+<span id="cb236-17"><a href="datenaufbereitung-mit-dplyr.html#cb236-17"></a><span class="co">#   summarise(mean_a_100 = mean(z_a),</span></span>
+<span id="cb236-18"><a href="datenaufbereitung-mit-dplyr.html#cb236-18"></a><span class="co">#             mean_c_100 = mean(z_c),</span></span>
+<span id="cb236-19"><a href="datenaufbereitung-mit-dplyr.html#cb236-19"></a><span class="co">#             range_cor = range(mean_a_100),</span></span>
+<span id="cb236-20"><a href="datenaufbereitung-mit-dplyr.html#cb236-20"></a><span class="co">#             range_cor = range(mean_a_100)) %&gt;%</span></span>
+<span id="cb236-21"><a href="datenaufbereitung-mit-dplyr.html#cb236-21"></a><span class="co">#   mutate(meanCorA_100 = fisherz2r(mean_a_100),</span></span>
+<span id="cb236-22"><a href="datenaufbereitung-mit-dplyr.html#cb236-22"></a><span class="co">#          meanCorC_100 = fisherz2r(mean_c_100)) %&gt;%</span></span>
+<span id="cb236-23"><a href="datenaufbereitung-mit-dplyr.html#cb236-23"></a><span class="co">#   select(-c(mean_a_100, mean_c_100))</span></span></code></pre></div>
 </div>
 <div id="beispiel" class="section level2 hasAnchor">
 <h2><span class="header-section-number">5.5</span> Beispiel<a href="datenaufbereitung-mit-dplyr.html#beispiel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -560,17 +561,17 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 ## 10    180    80      0.0904      0.0965
 ## # … with 19 more rows</code></pre>
 <p>In diesem Beispiel wurden zunächst nur <code>height</code> und <code>mass</code> mit dem <code>select()</code> Befehl ausgewählt, daher werden auch nur diese beiden Spalten am Ende der Pipline im Datensatz angezeigt. Dies kann hilfreich sein, wenn man einen Datensatz mit sehr vielen Variablen analysieren muss, von denen nur einige wenige interessant sind. Dies ist z.B. bei Fragebögen der Fall, die unterschiedliche Facetten erfassen.</p>
-<p>Der nächste Befehl <code>mutate()</code> besteht immer aus einer Operation, die mit einer Spalte im Datensatz durchgeführt wird. Im Beispiel oben fügen werden die Spalten <code>z_height</code> und <code>z_mass</code> berechnet, die sich jeweils aus <code>scale(SPALTENNAME)</code> zusammensetzen und die <em>z</em>-Werte der jeweiligen Variablen ausgeben.</p>
+<p>Der nächste Befehl <code>mutate()</code> besteht immer aus einer Operation, die mit einer Spalte im Datensatz durchgeführt wird. Im Beispiel oben werden die Spalten <code>z_height</code> und <code>z_mass</code> berechnet, die sich jeweils aus <code>scale(SPALTENNAME)</code> zusammensetzen und die z-Werte der jeweiligen Variablen ausgeben.</p>
 <p>Anstatt beide Variablen einzeln zu transformieren, kann den Befehl <code>scale()</code> auch direkt auf mehrere Spalten angewendet werden. Dazu kann der <code>across()</code> Befehl verwendet werden.</p>
 <p><img src="_static/dplyr_across_where.jpeg" /></p>
 <p>Hier muss innerhalb von <code>mutate()</code> einfach mit <code>across(c(SPALTE1, SPALTE2))</code> ein Vektor der zu tranformierenden Spalten übergeben werden, sowie die Funktion(en), welche auf die Spalten angewandt werden soll. Dies muss dann wie folgt definiert werden:</p>
 <p><code>mutate(across(c(height, mass), list(z = scale)))</code></p>
-<p>Diese Schreibweise hat den Vorteil das</p>
+<p>Diese Schreibweise hat den Vorteil, dass:</p>
 <ol style="list-style-type: decimal">
 <li><p>In der <code>list()</code> mehrere Befehle übergeben werden können</p></li>
 <li><p>Die Originalspalten beibehalten werden</p></li>
-<li><p>Den neuen Spalten direkt einen Suffix zugewiesen werden kann.<br />
-Dieser wird automatisch als “_suffix” an die neue Variable angehängt.</p></li>
+<li><p>Den neuen Spalten direkt ein Suffix zugewiesen werden kann.<br />
+Dieses wird automatisch als “_suffix” an die neue Variable angehängt.</p></li>
 </ol>
 <div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="datenaufbereitung-mit-dplyr.html#cb247-1"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="kw">across</span>(<span class="kw">c</span>(height, mass), <span class="kw">list</span>(<span class="dt">z =</span> scale)))</span></code></pre></div>
 <pre><code>## # A tibble: 29 × 13
