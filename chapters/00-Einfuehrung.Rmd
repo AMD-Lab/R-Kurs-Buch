@@ -4,7 +4,7 @@
 
 Um R nutzen zu können, müssen Sie sich sowohl R als auch R-Studio installieren.
 
-R ist eine Open-Source-Software, die zur Datenanalyse genutzt wird. Die große Stärke von R in der Verfügbarkeit zahlreicher Zusatzfunktionen, in Form sogenannter Packages. Entwickler:innen überall auf der Welt bieten Packages fals Lösungen für die unterschiedlichsten Probleme an, von der Datenaufbereitung über APA-formatierten Tabellen bis hin zu zahlreichen statistischen Analysen. Laden Sie sich R unter dem folgenden Link herunter und installieren Sie sich das Programm auf Ihrem PC/Laptop: [https://cran.r-project.org/](https://cran.r-project.org/)
+R ist eine Open-Source-Software, die zur Datenanalyse genutzt wird. Die große Stärke von R liegt in der Verfügbarkeit zahlreicher Zusatzfunktionen, in Form sogenannter Packages. Entwickler:innen überall auf der Welt bieten Packages als Lösungen für die unterschiedlichsten Probleme an, von der Datenaufbereitung über APA-formatierten Tabellen bis hin zu zahlreichen statistischen Analysen. Laden Sie sich R unter dem folgenden Link herunter und installieren Sie sich das Programm auf Ihrem PC/Laptop: [https://cran.r-project.org/](https://cran.r-project.org/).
 
 Außerdem benötigen Sie noch R-Studio. R-Studio ist eine „integrierte Entwicklungsumgebung“ (engl: integrated development environment; *IDE*), die es deutlich einfacher macht, mit R zu arbeiten. Installieren Sie sich daher auch R-Studio auf Ihrem PC/Laptop, indem Sie folgendem Link folgen: [https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download)
 
@@ -33,53 +33,53 @@ Jetzt können Sie R schon als einfachen Taschenrechner benutzen!
 Addition:
 
 ```{r}
-3+2
+3 + 2
 ```
 
 Subtraktion:
 
 ```{r}
-3-2
+3 - 2
 ```
 
 Multiplikation:
 
 ```{r}
-3*2
+3 * 2
 ```
 
 Division:
 
 ```{r}
-3/2
+3 / 2
 ```
 
 Beachten Sie dabei, dass Sie auch Klammern setzen können:
 
 
 ```{r}
-(3+2)*5
+(3 + 2) * 5
 ```
 
 
 ## Das R-Skript
 
-In der Regel werden Sie Ihre Analysen nicht direkt in die Konsole eingeben, sondern ein *Skript* schreiben, in dem Sie Ihre Analysen dokumentieren. Dieses Skript dokumentiert Ihre Analysen, was den großen Vorteil hat, dass Ihre Analysen dadurch reproduzierbar werden. Wenn Sie Daten aufbereiten oder analysieren und dabei unterbrochen werden, können Sie sich - auch noch Tage oder Wochen später - einfach wieder an das Skript setzen, die bisherigen Analyseschritte erneut ausführen und dort weitermachen. So können Sie Ihre Analysen auch mit anderen Studierenden oder Lehrenden, die ein Projekt betreuen, teilen. Viele Forschende laden ihre R-Skripte regelmäßig ins [Open Science Framework (OSF)](osf.io) hoch, wenn sie Artikel zur Begutachtung einreichen, damit andere ihren Code und ihre Analysen auf Fehler überprüfen und nachvollziehen können.
+In der Regel werden Sie Ihre Analysen nicht direkt in die Konsole eingeben, sondern ein *Skript* schreiben, in dem Sie Ihre Analysen dokumentieren. Dieses Skript dokumentiert Ihre Analysen, was den großen Vorteil hat, dass Ihre Analysen dadurch reproduzierbar werden. Wenn Sie Daten aufbereiten oder analysieren und dabei unterbrochen werden, können Sie sich -- auch noch Tage oder Wochen später -- einfach wieder an das Skript setzen, die bisherigen Analyseschritte erneut ausführen und dort weitermachen. So können Sie Ihre Analysen auch mit anderen Studierenden oder Lehrenden, die ein Projekt betreuen, teilen. Viele Forschende laden ihre R-Skripte regelmäßig ins [Open Science Framework (OSF)](osf.io) hoch, wenn sie Artikel zur Begutachtung einreichen, damit andere Ihren Code und Ihre Analysen auf Fehler überprüfen und nachvollziehen können.
 
-Um ein solches Skript zu erstellen, nutzen wir den in R-Studio verfügbaren Texteditor. Sie können ein neues Skript unter „Datei $\to$ NeueDatei $\to$ R Skript“ („File $\to$ New File $\to$ R Script“ öffnen. Skripte, die R-Code enthalten, speichern wir mit der Dateiendung „.r“ oder „.R“ ab.
+Um ein solches Skript zu erstellen, nutzen wir den in R-Studio verfügbaren Texteditor. Sie können ein neues Skript unter "Datei $\to$ NeueDatei $\to$ R Skript" ("File $\to$ New File $\to$ R Script" öffnen. Skripte, die R-Code enthalten, speichern wir mit der Dateiendung ".r" oder ".R" ab.
 
-Das Praktische: Wenn Sie Code im Skript schreiben, können Sie diesen Code direkt ausführen. Wenn sich Ihr Cursor in einer Zeile befindet, in der Code steht, können Sie `STRG-Enter` drücken (oder oben auf das `Run`-Symbol klicken), um diese Zeile auszuführen. Wenn Sie einen Teil des Skripts markieren, wird nur genau dieser Teil ausgeführt, wenn Sie `STRG-Enter` drücken. Das Ergebnis wird Ihnen wie gewohnt in der Konsole angezeigt.
+Das Praktische: Wenn Sie Code im Skript schreiben, können Sie diesen Code direkt ausführen. Wenn sich Ihr Cursor in einer Zeile befindet, in der Code steht, können Sie <kbd>STRG</kbd> + <kbd>Enter</kbd> bzw. bei macOS <kbd>⌘</kbd> + <kbd>Enter</kbd> drücken (oder oben auf das `Run`-Symbol klicken), um diese Zeile auszuführen. Wenn Sie einen Teil des Skripts markieren, wird nur genau dieser Teil ausgeführt, wenn Sie <kbd>STRG</kbd> + <kbd>Enter</kbd> bzw. <kbd>⌘</kbd> + <kbd>Enter</kbd> drücken. Das Ergebnis wird Ihnen wie gewohnt in der Konsole angezeigt.
 
 ## Struktur des Skripts
 
-Nichts ist wichtiger als gute Organisation! Damit Sie sich auch später noch daran erinnern, welche Analysen Sie durchgeführt haben, können (und sollten) Sie sich Kommentare ins Skript schreiben. In R wird `#` benutzt, um Code zu kommentieren. Wenn Sie `#` vor Code setzen, wird dieser Code beim Ausführen einfach ignoriert! So können Sie sich ganze Abschnitte dazu notieren, welche Analysen Sie gemacht haben, was Kernbefunde waren, usw., ohne dass Sie Probleme beim Ausführen Ihres Skriptes bekommen. Sie sollten Ihren Code *immer* kommentieren, um sich auch später noch daran erinnern zu können, was Sie vor einiger Zeit geschrieben haben.
+Nichts ist wichtiger als gute Organisation! Damit Sie sich auch später noch daran erinnern, welche Analysen Sie durchgeführt haben, können (und sollten) Sie sich Kommentare ins Skript schreiben. In R wird `#` benutzt, um den Code zu kommentieren. Wenn Sie `#` vor dem Code setzen, wird dieser Code beim Ausführen einfach ignoriert! So können Sie sich ganze Abschnitte dazu notieren, welche Analysen Sie gemacht haben, was die Kernbefunde waren, usw., ohne dass Sie Probleme beim Ausführen Ihres Skriptes bekommen. Sie sollten Ihren Code *immer* kommentieren, um sich auch später noch daran erinnern zu können, was Sie vor einiger Zeit geschrieben haben.
 
 ```R
-# 3+2
+# 3 + 2
 # Nichts passiert - die Rechnung wurde nicht ausgeführt, weil sie auskommentiert ist
 ```
 
-Sie können Kommentare auch nutzen, um das Skript in Abschnitte zu gliedern. Wenn Sie hinter ein `#` noch ein `-` setzen, fügt der Editor einen logischen Abschnitt ein, den Sie ein- oder ausklappen können. Das ist insbesondere zur Strukturierung längerer Skripte enorm hilfreich.
+Sie können Kommentare auch nutzen, um das Skript in Abschnitte zu gliedern. Wenn Sie hinter ein `#` noch vier `-` (also: `# ----`) setzen, fügt der Editor einen logischen Abschnitt ein, den Sie ein- oder ausklappen können. Das ist insbesondere zur Strukturierung längerer Skripte enorm hilfreich.
 
 ## Pakete
 
@@ -95,7 +95,7 @@ Sobald Sie das Paket installiert haben, müssen Sie es nur noch laden, um es nut
 library(psych)
 ```
 
-Und schon haben Sie Ihr erstes Paket installiert und geladen! Sobald Sie ein Paket auf Ihrem PC/Laptop installiert haben, können Sie es immer wieder verwenden. Beachten Sie aber unbedingt, dass Sie Pakete nach jedem Neustart von R neu einladen müssen.
+Und schon haben Sie Ihr erstes Paket installiert und geladen! Sobald Sie ein Paket auf Ihrem PC/Laptop installiert haben, können Sie es immer wieder verwenden. Beachten Sie aber unbedingt, dass Sie Pakete nach jedem Neustart von R neu laden müssen.
 
 Wenn Sie keine Idee haben, welche Funktionen ein Paket umfasst und wofür es nützlich sein könnte, können Sie ganz einfach die Hilfe-Funktion nutzen, die Sie aufrufen können, indem Sie ein Fragezeichen vor den Paketnamen setzen.
 
@@ -105,13 +105,13 @@ Wenn Sie keine Idee haben, welche Funktionen ein Paket umfasst und wofür es nü
 
 ## Working Directory
 
-Wenn Sie in R arbeiten, arbeiten Sie immer in einem Verzeichnis - einem sog. "working directory". Sie können sich Ihr aktuelles working directory mit dem Befehl 'getwd()' anzeigen lassen.
+Wenn Sie in R arbeiten, arbeiten Sie immer in einem Verzeichnis -- einem sog. "Working Directory". Es beschreibt den Dateipfad auf Ihrem Computer, auf den R per Default zugreift, um Daten einzulesen oder zu speichern. Sie können sich Ihr aktuelles Working Directory mit dem Befehl 'getwd()' anzeigen lassen.
 
 ```{r}
 getwd()
 ```
 
-In der Regel werden Sie für jedes Projekt ein eigenes working directory anlegen, in dem Sie die Daten und Skripte speichern, die zu dem Projekt gehören. Um in das richtige Verzeichnis zu wechseln, können Sie den Befehl `setwd()` nutzen. Noch einfacher geht es per Mausklick über Session &#8594;  Set Working Directory &#8594;  Choose Directory.
+In der Regel werden Sie für jedes Projekt ein eigenes Working Directory anlegen, in dem Sie die Daten und Skripte speichern, die zu dem Projekt gehören. Um in das richtige Verzeichnis zu wechseln, können Sie den Befehl `setwd()` nutzen (In manchen Fällen, z.B. bei Computern mit Windows-Betriebsystem, müssen Sie alle im Dateipfad enthaltenen "\" zu "/" oder "\\" umgeändern). Noch einfacher geht es per Mausklick über Session &#8594;  Set Working Directory &#8594;  Choose Directory.
 
 *Tipp*: Noch einfacher geht es mit dem R-Paket `here`: Wenn Sie bereits ein Verzeichnis für Ihr Projekt angelegt und dort ein Skript gespeichert haben (**wichtig: es muss unbedingt im Verzeichnis gespeichert sein!**), liest das Paket `here`  automatisch den Pfad aus, an dem ein Skript gespeichert ist. Das ist auch dann enorm praktisch, wenn Sie Ihre Skripte mit anderen austauschen! 
 
