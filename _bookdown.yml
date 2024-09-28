@@ -11,5 +11,6 @@ rmd_files:
     "./chapters/02-Datenstruktur.Rmd",
     "./chapters/03-Datenaufbereitung.Rmd",
     "./chapters/04-Deskriptive_Statistik.Rmd",
+    "./chapters/06-Psychometrie.Rmd",
     "./chapters/05-Graphiken.Rmd"
   ]
