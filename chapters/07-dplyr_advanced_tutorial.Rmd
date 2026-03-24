@@ -1,0 +1,293 @@
+# dplyr fortgeschrittenes Tutorial
+
+```{r echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE, dev="cairo_pdf")
+library(tidyverse)
+```
+
+In diesem Abschnitt werden wir uns mit fortgeschrittenen Methoden des Data-wrangling beschäftigen. Insbesondere das umformatieren vom long- ins wide-Format und das Zusammenfügen (join) von unterschiedlichen Datensätzen. 
+
+### Long vs. Wide – Format
+
+In **langen Datensätzen (Long-Format)** steht **jede Beobachtung in einer eigenen Zeile**, auch wenn sie zur selben Person oder zum selben Objekt gehört.  
+In **breiten Datensätzen (Wide-Format)** dagegen befinden sich **mehrere Beobachtungen einer Person in einer Zeile**, verteilt auf verschiedene Spalten.  
+
+Was zunächst nach einer reinen Layoutfrage klingt, ist in der Datenanalyse tatsächlich sehr wichtig: Viele statistische Methoden und Visualisierungstools können nur mit einem bestimmten Format arbeiten.  
+Wer den Unterschied versteht, kann Datensätze gezielt umstrukturieren – und damit **Auswertung, Vergleich und Visualisierung erheblich vereinfachen**.
+
+### Tidy Data
+
+Das Konzept von **tidy data** (aufgeräumten Daten) stammt aus dem **tidyverse**, einem System von R-Paketen, das auf einheitliche Datenstrukturen setzt.  
+Ein Datensatz gilt als *tidy*, wenn er drei einfache Regeln erfüllt:
+
+- **jede Variable** bildet **eine Spalte**  
+- **jede Beobachtung** bildet **eine Zeile**  
+- **jeder Wert** steht **in einer eigenen Zelle**
+
+Nach diesem Prinzip sollten Datensätze idealerweise im **Long-Format** vorliegen.
+Deshalb arbeiten Pakete wie **`dplyr`**, **`tidyr`** und **`ggplot2`** besonders gut mit Daten in dieser Form – sie ermöglichen einen konsistenten und effizienten Analyseprozess.
+
+### Wide-Format
+
+Schauen wir uns ein Beispiel für einen Datensatz im wide-Format an. Stellen Sie sich vor wir haben für 20 Personen Stresslevel mithile eines Fragebogens zu drei Messzeitpunkten (t1, t2, t3) erhoben. Der Datensatz könnte dann in etwa so aussehen:
+
+```{r}
+set.seed(23)
+
+n <- 10
+
+data_wide <- data.frame("id" = 1:n,
+                        "stress_t1" = rnorm(n, mean=0),
+                        "stress_t2" = rnorm(n, mean=0.2),
+                        "stress_t3" = rnorm(n, mean=0.4))
+
+head(data_wide)
+```
+
+Wir sehen also für jede Person eine VP-Nummer (`id`) und drei Variablen für die Stresslevel zu den unterschiedlichen Zeitpunkten. Achtung, im strengen Sinne ist dieser Datensatz nicht *tidy*, weil wir hier mehrere Beobachtungen pro Zeile haben (mehrere Werte für eine Person). Er ist also für Analysen im tidyverse u.U. nicht so gut geeignet. Schauen wir uns im Gegensatz dazu mal das long-Format an:
+
+```{r echo = FALSE}
+
+data_long <- data_wide %>% 
+  pivot_longer(stress_t1:stress_t3, names_to = "time", values_to="stress") %>% 
+  mutate(time = str_replace(time, 'stress_', ''))
+
+data_long %>% 
+  head()
+```
+Wir sehen hier also eine **neue Spalte time**, die anzeigt, für welchen Zeitraum die entsprechende Zeile steht. In der ersten Zeile sehen wir also zum Beispiel die erste Person zum ersten Zeitpunkt und können unter `stress` sehen, wie hoch ihr Stresslevel zu diesem Zeitpunkt war. In der zweiten Zeile steht das Stresslevel für Person 1 zu Zeitpunkt t2, usw. 
+
+Diese Art der Datenformatierung wirkt am Anfang eher umständlicher als das wide-Format, hat allerdings sehr viele Vorteile und ist für die meisten weiteren Anwendungen leichter zu verarbeiten.
+
+Es sollte nun klar sein, was der Unterschied zwischen long- und wide-Format ist. Im long-Format gibt es mehr Zeilen, jede Beobachtung hat ihre eigene, im wide-Format gibt es mehr Variablen, mehrere Beobachtungen werden in eine Zeile geschrieben.
+
+In vielen Fällen fallen Daten in den unterschiedlichsten Formaten an, es ist also wichtig, Daten vom eine ins andere Format transformieren zu können. Wir wollen also beispielsweise einen Datensatz aus dem wide-Format ins long-Format transformieren. Dazu bietet das tidyverse zwei sehr praktische Funktionen: 
+
+* `pivot_longer` macht Datensätze long
+* `pivot_wider` macht Datensätze wide
+
+## wide to long 
+
+Fangen wir mit unserem wide-Format an. Wir sehen uns noch mal den Datensätz mit den Stresswerten an:
+
+```{r}
+data_wide %>% 
+  head()
+```
+
+Bevor Sie sich den Code zum Transformieren anschauen, überlegen Sie kurz, was passieren müsste, damit dieser Datensatz lang wird. Man kann sich zum Beispiel vorstellen, dass die drei Variablennamen `stress_t1`, `stress_t2` und `stress_t3` in eine neue Spalte gepackt werden und alle Werte, die in den Spalten stehen in der richtigen Reihenfolge in eine weitere Spalte:
+
+
+![](_static/wide_to_long.png){width="100%"}
+Damit die Zuordnung der Werte beibehalten wird, muss die Variable `id` nun jeden Wert wiederholen, also drei mal `1`, dann drei mal `3` usw. Dadurch wird der Datensatz insgesamt wesentlich länger.
+
+Genau das, was oben beschrieben wird, macht der Befehl `pivot_longer` für uns. Alles, was wir auswählen müssen, sind die Variablen, die wir in eine neue Spalte packen wollen:
+
+```{r}
+data_wide %>% 
+  pivot_longer(c(stress_t1, stress_t2, stress_t3)) %>% 
+  head()
+```
+
+Die Bezeichnungen `name` und `value` werden automatisch vergeben, sind aber nicht besonders informativ. Deswegen ändern wir noch die Bezeichung, damit wir nachher noch wissen, was die einzelnen Variablen enthalten. Das können wir auch innerhalb des Befehls machen:
+
+```{r}
+data_long <- data_wide %>% 
+  pivot_longer(c(stress_t1, stress_t2, stress_t3),
+               names_to = 'timepoint',
+               values_to = 'stress')
+
+head(data_long)
+```
+
+
+
+## Long to Wide
+
+Wir haben jetzt aus einem wide-Format ein long-Format gemacht. Schauen wir uns die umgekehrte Transformation an: von long zu wide. Bevor Sie sich den Code zum Transformieren anschauen, überlegen Sie kurz, was passieren müsste, damit dieser Datensatz wieder ins wide-Format kommt. Wir ziehen aus der Variable `timepoint` die Variablennamen für drei neue Variablen und füllen diese Variablen mit Werten aus der Variable `stress`: 
+
+![](_static/long_to_wide.png){width="100%"}
+
+In R können wir das die Funktion `pivot_wider` machen lassen. Diese Funktion braucht zwei essentielle Information: Aus welcher Variable sollen die Variablennamen genommen werden? und: aus welche Variable sollen die Werte für die neuen Variablen genommen werden? Wir können es uns in unserem Beispiel oben so vorstellen: Wir nehmen die Variable `timepoint`, ziehen daraus alle möglichen Werte (`stress_t1`, `stress_t2` und `stress_t3`) und machen daraus wieder einzelne Variablen. Es ist aber noch unklar, woher die Werte für diese Variablen kommen sollen. Deshalb müssen wir noch angeben, dass sie aus der Variable `stress` gezogen werden sollen. In Code sieht das dann so aus:
+
+
+```{r}
+data_long %>% 
+  pivot_wider(names_from = timepoint,
+              values_from = stress) %>% 
+  head()
+```
+
+Tadaaa, wir sind wieder da, wo wir am Anfang waren. 
+
+
+### Übungsaufgabe
+
+Erstellen Sie den folgenden Datensatz und transformieren Sie ihn mit `pivot_longer` ins long-Format und anschließend mit `pivot_wider` wieder zurück ins wide-Format. Versuchen Sie sich klar zu machen, weshalb die Argumente (`names_to`, `values_to` bzw. `names_from` und `values_from`) so heißen wie sie heißen.
+
+```{r}
+df <- data.frame(id = 1:10,
+                 a = rnorm(10),
+                 b = rnorm(10),
+                 c = rnorm(10))
+```
+
+## Key is key
+
+Beim transformieren ist es immer wichtig, eine Variable zu haben, die eine Zeile **eindeutig identifiziert**. Das heißt diese Variable ist für jede Zeile (in unserem wide-Format Beispiel eine Person) **unterschiedlich**. Diese Variable, in unserem Fall *id*, nennt man auch **key**,weil sie wie ein Schlüssel funktioniert: Sie öffnet den Zugang zu genau der richtigen Zeile in deinem Datensatz. Ein Key identifiziert eine Einheit eindeutig, zum Beispiel eine Person mit einer ID oder einen Zeitpunkt mit einer klaren Bezeichnung. Ohne so einen Schlüssel kann man beim Zusammenführen oder Ordnen von Daten ziemlich schnell den Überblick verlieren, weil man nie sicher wäre, welche Werte eigentlich zu wem gehören. Die key-Variable bringt uns zu unserem nächsten Thema: das Zusammenfügen von unterschiedlichen Datensätzen.
+
+## joins
+
+Stellen Sie sich vor, wir haben in unserer Studie nicht nur die Stressdaten zu drei Zeitpunkten, sondern auch deren Ergebnisse in einem Statistiktest. Die Testdaten wurden allerdings auf einer anderen Plattform erhoben und sollen nun mit den Stressdaten zusammengefügt werden, um sie gemeinsam auszuwerten, z.B. um zu untersuchen, inwieweit Stress mit der Leistung in einem Test zusammenhängt. So sehen unsere Testergebnisse aus:
+
+```{r}
+
+potential_outcomes <- c(1, 1.2, 1.7, 2, 2.3, 2.7, 3, 3.3, 3.7, 4)
+
+df_statistik <- data.frame(id = 5:14,
+                           testergebnis = sample(potential_outcomes, 
+                                                 size = 10, 
+                                                 replace=TRUE))
+
+head(df_statistik)
+
+```
+
+Wie bekommen wir die Daten beider Datensätze in einen gemeinsamen Datensatz? Theoretisch müssten wir einen neuen Datensatz erstellen und für jede einzelne Person die Stresswerte eintragen und dann die entsprechenden Testergebnisse. Erfreulicherweise müssen wir das nicht händisch machen, sondern haben mehrere Funktionen, die genau das übernehmen, sogenannte `joins`.
+
+### full_join
+
+Der full-join fügt zwei Datensätze so zusammen, dass **alle Informationen aus Datensatz A und B enthalten bleiben**. Wir müssen ihm nur sagen, welche Variable unser key ist, also die Beobachtungen eindeutig identifiziert. Wichtig, dass diese key-Variable in beiden Datensätzen vorhanden ist.
+
+```{r}
+data_joined <- data_wide %>% 
+  full_join(df_statistik, by = join_by(id))
+
+data_joined
+```
+
+Führen Sie den Code selbst aus und schauen Sie sich den Datensatz `data_joined` genau an. Was fällt Ihnen auf?
+
+Richtig, es gibt ein paar NA`s in den Testergebnissen und den Stresswerten. Das passiert, weil die IDs in beiden Datensätzen nicht identisch sind. Es gibt also Personen, die im ersten Datensatz vorkommen aber nicht im zweiten und andersherum. 
+
+In der Regel interessieren uns nur vollständige Daten, deshalb können wir die NA's mit `drop_na()` entfernen. Wir erhalten also nur die Zeilen, die vollständig sind:
+
+```{r}
+data_joined <- data_wide %>% 
+  full_join(df_statistik, by = join_by(id)) %>% 
+  drop_na()
+
+data_joined
+```
+
+Für dieses Vorgehen gibt es eine eigene Funktion, den `inner_join`:
+
+```{r}
+data_joined <- data_wide %>% 
+  inner_join(df_statistik, by = join_by(id))
+
+data_joined
+
+```
+
+Hier bleibt nur die Information enthalten, die in **beiden Datensätzen** enthalten ist.
+
+
+### left_join und right_join
+
+Angenommen, wir wollen auf jeden Fall die Stressdaten für alle Versuchspersonen untersuchen und für diejenigen, bei denen die Testergebnisse vorliegen, den Zusammenhang zwischen Stress und Testergebnis berechnen. Dann brauchen wir alle Informationen aus Datensatz A (`data_wide`), aber aus Datensatz B (`df_statistik`) nur die Personen, die auch in Datensatz A vorkommen. Wir nehmen also den Datensatz A und kleben die Daten aus Datensatz B dran. Datensatz A bleibt dabei so wie er ist, aus Datensatz B nehmen wir nur die Personen, die auch in A vorkommen.
+
+In Code sieht das dann so aus:
+
+```{r}
+data_joined <- data_wide %>% 
+  left_join(df_statistik, by = join_by(id))
+
+data_joined
+```
+
+Das ganze gibt es auch als `right_join`. Hier tauschen die Datensätze ihre Rollen:
+
+```{r}
+data_joined <- data_wide %>% 
+  right_join(df_statistik, by = join_by(id))
+
+data_joined
+```
+
+## Übung 
+
+Erstellen Sie folgende Datensätze:
+
+```{r}
+x <- tribble(
+  ~key, ~val_x,
+     1, "x1",
+     2, "x2",
+     3, "x3"
+)
+y <- tribble(
+  ~key, ~val_y,
+     1, "y1",
+     2, "y2",
+     4, "y3"
+)
+```
+
+Fügen Sie die beiden Datensätze mit `full_join` und `left_join` zusammen. Wie unterscheiden sich die Ergebnisse und warum?
+
+
+## Fallunterscheidung mit `ifelse` und `case_when`
+
+Bei der Arbeit mit Daten entsteht häufig die Situation, dass Werte auf Grundlage bestimmter Bedingungen neu eingeteilt, klassifiziert oder zugeordnet werden sollen. Ob wir Messwerte in Kategorien einteilen, Indikatorvariablen erstellen oder komplexere Fallunterscheidungen treffen möchten: Bedingte Logik gehört zu den wichtigsten Werkzeugen im Data-Wrangling.
+
+In dplyr stehen uns dafür vor allem zwei Funktionen zur Verfügung, die zwar ähnlich aussehen, aber unterschiedliche Stärken haben. Die erste ist ifelse(). Sie eignet sich besonders gut für einfache Entscheidungen, bei denen es nur zwei mögliche Ergebnisse gibt, also einen klassischen Wenn–dann–sonst-Fall. ifelse() prüft eine Bedingung und weist für jeden Eintrag einer Spalte entweder den Wert für "yes" oder für "no" zu. Diese Funktion ist vollständig vektorisiert, das bedeutet, sie verarbeitet alle Zeilen einer Spalte gleichzeitig.
+
+Im folgenden Beispiel erzeugen wir eine neue Variable, die anzeigt, ob der Stresswert über 0.5 liegt ('hoch') oder darunter ('niedrig'):
+
+```{r}
+data_long <- data_long %>%
+  mutate(stress_cat = ifelse(stress > 0.5, 'hoch', 'niedrig'))
+
+head(data_long)
+```
+
+Wir können diese Funktion `ifelse(stress > 0.5, 'hoch', 'niedrig')` auch ausdrücken als: Wenn stress höher als 0.5, schreibe 'hoch', ansonsten 'niedrig'.
+
+
+Sobald jedoch mehr als zwei Fälle unterschieden werden sollen, wird ifelse() schnell unübersichtlich. Dafür gibt es die zweite Funktion: case_when(). Sie ermöglicht klar strukturiertes und gut lesbares Formulieren mehrerer Bedingungen nacheinander, ähnlich einer Reihe von if, else if und else. Gerade bei komplexeren Einteilungen sorgt case_when() dafür, dass der Code nachvollziehbar bleibt und sich später leichter erweitern lässt. Auch hier ist wichtig, dass alle Rückgabewerte denselben Datentyp haben und dass ein Auffangfall (TRUE ~ ...) definiert wird, damit keine unbeabsichtigten NAs entstehen.
+
+Im nächsten Beispiel teilen wir stress in drei Kategorien ein: niedrig, mittel und hoch. Die Schwellenwerte dienen nur der Veranschaulichung:
+
+```{r}
+data_long <- data_long %>%
+  mutate(stress_cat = case_when(stress < -0.5 ~ "niedrig",
+                                stress >= -0.5 & stress <= 0.5 ~ "mittel",
+                                stress > 0.5 ~ "hoch",
+                                TRUE ~ NA))
+
+data_long %>% 
+  head()
+```
+
+case_when() eignet sich auch hervorragend für komplexere Bedingungen, bei denen mehrere Variablen gleichzeitig berücksichtigt werden sollen. Unten nutzen wir Stresswerte und Testergebnisse gemeinsam, um eine aussagekräftigere Kategorie zu erzeugen:
+
+```{r}
+joined_long <- data_long %>%
+  inner_join(df_statistik, by = join_by(id))
+
+
+joined_long <- joined_long %>%
+  mutate(stress_leistung = case_when(
+    stress > 0.5 & testergebnis >= 3 ~ "hoch Stress & gut",
+    stress > 0.5 & testergebnis < 3 ~ "hoch Stress & schwächer",
+    stress <= 0.5 & testergebnis >= 3 ~ "niedriger Stress & gut",
+    stress <= 0.5 & testergebnis < 3 ~ "niedriger Stress & schwächer",
+    TRUE ~ NA
+))
+
+joined_long %>%
+  head()
+```
+
+
