@@ -108,7 +108,7 @@ Wir haben jetzt aus einem wide-Format ein long-Format gemacht. Schauen wir uns d
 
 ![](_static/long_to_wide.png){width="100%"}
 
-In R können wir das die Funktion `pivot_wider` machen lassen. Diese Funktion braucht zwei essentielle Information: Aus welcher Variable sollen die Variablennamen genommen werden? und: aus welche Variable sollen die Werte für die neuen Variablen genommen werden? Wir können es uns in unserem Beispiel oben so vorstellen: Wir nehmen die Variable `timepoint`, ziehen daraus alle möglichen Werte (`stress_t1`, `stress_t2` und `stress_t3`) und machen daraus wieder einzelne Variablen. Es ist aber noch unklar, woher die Werte für diese Variablen kommen sollen. Deshalb müssen wir noch angeben, dass sie aus der Variable `stress` gezogen werden sollen. In Code sieht das dann so aus:
+In R können wir das die Funktion `pivot_wider` machen lassen. Diese Funktion braucht zwei essentielle Informationen: Aus welcher Variable sollen die Variablennamen genommen werden? Und: aus welcher Variable sollen die Werte für die neuen Variablen genommen werden? Wir können es uns in unserem Beispiel oben so vorstellen: Wir nehmen die Variable `timepoint`, ziehen daraus alle möglichen Werte (`stress_t1`, `stress_t2` und `stress_t3`) und machen daraus wieder einzelne Variablen. Es ist aber noch unklar, woher die Werte für diese Variablen kommen sollen. Deshalb müssen wir noch angeben, dass sie aus der Variable `stress` gezogen werden sollen. In Code sieht das dann so aus:
 
 
 ```{r}
@@ -134,7 +134,7 @@ df <- data.frame(id = 1:10,
 
 ## Key is key
 
-Beim transformieren ist es immer wichtig, eine Variable zu haben, die eine Zeile **eindeutig identifiziert**. Das heißt diese Variable ist für jede Zeile (in unserem wide-Format Beispiel eine Person) **unterschiedlich**. Diese Variable, in unserem Fall *id*, nennt man auch **key**,weil sie wie ein Schlüssel funktioniert: Sie öffnet den Zugang zu genau der richtigen Zeile in deinem Datensatz. Ein Key identifiziert eine Einheit eindeutig, zum Beispiel eine Person mit einer ID oder einen Zeitpunkt mit einer klaren Bezeichnung. Ohne so einen Schlüssel kann man beim Zusammenführen oder Ordnen von Daten ziemlich schnell den Überblick verlieren, weil man nie sicher wäre, welche Werte eigentlich zu wem gehören. Die key-Variable bringt uns zu unserem nächsten Thema: das Zusammenfügen von unterschiedlichen Datensätzen.
+Beim Transformieren ist es immer wichtig, eine Variable zu haben, die eine Zeile **eindeutig identifiziert**. Das heißt diese Variable ist für jede Zeile (in unserem wide-Format Beispiel eine Person) **unterschiedlich**. Diese Variable, in unserem Fall *id*, nennt man auch **key**,weil sie wie ein Schlüssel funktioniert: Sie öffnet den Zugang zu genau der richtigen Zeile in deinem Datensatz. Ein Key identifiziert eine Einheit eindeutig, zum Beispiel eine Person mit einer ID oder einen Zeitpunkt mit einer klaren Bezeichnung. Ohne so einen Schlüssel kann man beim Zusammenführen oder Ordnen von Daten ziemlich schnell den Überblick verlieren, weil man nie sicher wäre, welche Werte eigentlich zu wem gehören. Die key-Variable bringt uns zu unserem nächsten Thema: das Zusammenfügen von unterschiedlichen Datensätzen.
 
 ## joins
 
