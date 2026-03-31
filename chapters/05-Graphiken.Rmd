@@ -112,9 +112,8 @@ Erst werden die zwei Files von GitHub heruntergeladen und den Variablen `MarvelC
 
 ```{r message=FALSE}
 # Lade Daten aus zwei unterschiedlichen Files
-MarvelCharacters <- read_csv("https://raw.github.com/cosmoduende/r-marvel-vs-dc/main/dataset_shdb/heroesInformation.csv", 
-                             na = c("-", "-99.0"))
-MarvelStats <- read_csv("https://raw.github.com/cosmoduende/r-marvel-vs-dc/main/dataset_shdb/charactersStats.csv")
+MarvelCharacters <- read.csv("https://raw.githubusercontent.com/cosmoduende/r-marvel-vs-dc/main/dataset_shdb/heroesInformation.csv", na.strings = c("-", "-99.0"))
+MarvelStats <- read_csv("https://raw.githubusercontent.com/cosmoduende/r-marvel-vs-dc/main/dataset_shdb/charactersStats.csv")
 ```
 
 Dann werden nur die Charaktere aus Marvel und DC ausgewählt und die `MarvelCharacters`-Daten werden mit `dplyr` vorbearbeitet:
