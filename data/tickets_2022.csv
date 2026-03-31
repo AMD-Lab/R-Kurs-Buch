@@ -1,6 +1,9 @@
-Artist,Kosten,Prioritaet
-Ed Sheeran,79.32,2
-Billy Eilish,282,4
-The Weeknd,116,3
-Dua Lipa,136,5
-Imagine Dragons,68.71,1
+Artist,Kosten,Prioritaet,Ort,Begleitung
+Ed Sheeran,79.32,2,Frankfurt,Juergen
+Billy Eilish,282,4,London,Samu
+The Weeknd,116,3,Muenchen,Anni
+Dua Lipa,136,5,Berlin,Jan und Laura
+Imagine Dragons,68.71,1,Gdynia,Oma
+Elton John,139,2.7,Frankfurt,Papa
+Coldplay,259,2.3,Frankfurt,Schwester
+RHCP,200,1.7,Koeln,die Girls

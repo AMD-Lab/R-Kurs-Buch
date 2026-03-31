@@ -12,5 +12,6 @@ rmd_files:
     "./chapters/03-Datenaufbereitung.Rmd",
     "./chapters/04-Deskriptive_Statistik.Rmd",
     "./chapters/06-Psychometrie.Rmd",
-    "./chapters/05-Graphiken.Rmd"
+    "./chapters/05-Graphiken.Rmd",
+    "./chapters/07-dplyr_advanced_tutorial.Rmd"
   ]

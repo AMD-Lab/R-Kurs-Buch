@@ -297,7 +297,7 @@ fit$loadings
 Wir sehen, dass die erwartete Struktur gefunden wird. Aber wie schon bei der Betrachtung der Trennschärfen, sind die Items `RF01_03` und `RF01_05` nicht ganz unproblematisch.
 
 
-# Berechnung der Reliabilität
+## Berechnung der Reliabilität
 
 Zum Abschluss schauen wir uns nun noch die Reliabilität der beiden Skalen an, indem wir Cronbachs $\alpha$ bestimmen. Wir nutzen dafür wieder die Funktion `alpha` aus dem Paket `psych`. Die Reliabilität finden wir in der Ausgabe unter `raw_alpha`.
 
