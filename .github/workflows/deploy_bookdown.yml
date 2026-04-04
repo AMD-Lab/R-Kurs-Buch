@@ -28,7 +28,7 @@ jobs:
           sudo apt-get install -y libcurl4-openssl-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev
       - name: Install R packages
         run: |
-          install.packages(c("rmarkdown","bookdown", "tidyverse", "psych", "palmerpenguins", "ggbeeswarm", "ggpubr", "tinytex"))
+          install.packages(c("rmarkdown","bookdown", "ragg", "tidyverse", "psych", "palmerpenguins", "ggbeeswarm", "ggpubr", "tinytex"))
           tinytex::install_tinytex()
         shell: Rscript {0}
       - name: Render pdf book
