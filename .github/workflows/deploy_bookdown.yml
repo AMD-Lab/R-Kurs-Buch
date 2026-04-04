@@ -19,8 +19,8 @@ jobs:
       - name: Install pandoc
         uses: r-lib/actions/setup-pandoc@v2
       - name: Install rmarkdown
+      #options(pkgType = "binary")
         run: |
-          options(pkgType = "binary")
           options(install.packages.check.source = "no")
           install.packages(c("rmarkdown","bookdown", "tidyverse", "psych", "palmerpenguins", "ggbeeswarm", "ggpubr", "tinytex"))
           tinytex::install_tinytex()
