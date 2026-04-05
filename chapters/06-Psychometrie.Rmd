@@ -83,9 +83,9 @@ knitr::kable(describe(rumination))
 
 ### Wurden Variablen, die negativ kodiert sind, rekodiert?
 
-Items, die negativ kodiert sind, muss man vor allen weiterführenden Analysen invertieren. Um ein negativ gepoltes Item zu rekodieren wendet man folgende Formel an:
-$$ \text{neuer_wert} = \text{maximal_wert} - \text{alter_wert}$$
-Wenn also die höchste Antwortkategorie eines Fragebogens den Wert $3$ hat, dann rechnen wir für alle negativ gepolten Items $\text{neuer_wert} = 3 - \text{alter_wert}$. Auch dazu kann man wieder die Funktion `mutate` nutzen:
+Items, die negativ kodiert sind, muss man vor allen weiterführenden Analysen invertieren. Um ein negativ gepoltes Item zu rekodieren wendet man folgende Formel an: 
+$$\text{neuerWert} = \text{maximalWert} \text{ - } \text{alterWert}$$
+Wenn also die höchste Antwortkategorie eines Fragebogens den Wert $3$ hat, dann rechnen wir für alle negativ gepolten Items $\text{neuerWert} = 3 \text{ - } \text{alterWert}$. Auch dazu kann man wieder die Funktion `mutate` nutzen:
 
 ```
 rumination <- rumination %>%
