@@ -23,3 +23,4 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: biblatex
   keep_tex: no
+
