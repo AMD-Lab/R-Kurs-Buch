@@ -61,7 +61,7 @@ jobs:
          # Artifact name
          name: docs # optional
          # Destination path
-         # path: docs/ # optional
+         path: docs/ # optional
      - name: Deploy to GitHub Pages
        uses: Cecilapp/GitHub-Pages-deploy@3.0.0
        env:
