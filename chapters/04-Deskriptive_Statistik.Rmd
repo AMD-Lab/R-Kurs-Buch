@@ -34,7 +34,7 @@ können auf den Datensatz zugreifen in dem Sie `iris` in die R-Konsole eingeben.
 data <- iris
 ```
 
-Benutzen Sie `head(data)`, um die ersten 5 Zeilen des Datensatzes zu sehen.
+Benutzen Sie `head(data)`, um die ersten 6 Zeilen des Datensatzes zu sehen.
 
 ```{r}
 head(data)
@@ -144,7 +144,7 @@ Dies bedeutet, dass 25% der Werte sich unterhalb von `5.1`, 50% unterhalb von `5
 Manchmal möchte man wissen wie groß der Abstand zwischen bestimmten Quantilen ist, 
 um Aussagen über Beobachtungen, die innerhalb oder außerhalb eines bestimmten 
 Wertebereichs liegen, zu treffen. Häufig wird hierfür der Interquartilsabstand benutzt,
-welches als der Abstand zwischen den 75. und 25. Perzentil definiert ist.
+welches als der Abstand zwischen dem 75. und 25. Perzentil definiert ist.
 
 ```{r}
 # IQR steht für interquartile range
@@ -182,6 +182,12 @@ points(quantile(data$Sepal.Length, 0.50),
 # 0.25 Perzentil
 points(quantile(data$Sepal.Length, 0.25), 
        col = 'blue', cex = 2, pch = 2, lwd = 2)
+       
+# Die Argumente definieren folgende Eigenschaften für dargestellte Datenpunkte in der Grafik:
+# col: Farbe
+# cex: Größe
+# pch: Art des Symbols
+# lwd: Linienstärke des Symbols
 ```
 
 ### Mittelwert
@@ -218,7 +224,7 @@ Das Argument `na.rm = TRUE` kann für die meisten in diesem Abschnitt vorgestell
 
 ### Standardabweichung
 
-Die Standardabweichung ist ein Maß für die Breite der Streuung der Werte einer Variable rund um deren Mittelwert (arithmetisches Mittel). Vereinfacht gesagt, ist die Standardabweichung die durchschnittliche Entfernung aller gemessenen Ausprägungen eines Merkmals vom Durchschnitt.
+Die Standardabweichung ist ein Maß für die Breite der Streuung der Werte einer Variable rund um deren Mittelwert (arithmetisches Mittel). Vereinfacht gesagt ist die Standardabweichung die durchschnittliche Entfernung aller gemessenen Ausprägungen eines Merkmals vom Durchschnitt.
 
 Sie kann folgender Maßen berechnet werden:
 
