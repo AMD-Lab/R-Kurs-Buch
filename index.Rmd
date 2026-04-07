@@ -4,7 +4,9 @@ author: "José Carlos García Alanis, Jan Goettmann, Cordula Hunt,  \nFlorian Ko
   Wanja Hemmerich, Christoph Löffler, Lisa Renziehausen, Anna-Lena Schubert, Simon
   Schaefer, Meike Steinhilber\n"
 date: "`r Sys.Date()`"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 documentclass: book
 bibliography:
 - book.bib
@@ -41,8 +43,6 @@ knitr::include_graphics(if (identical(knitr:::pandoc_to(), 'html')) fig_url else
 ```
 ![](_static/r_first_then.png)
  
-
-```
 <center>
 Artwork by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
 </center>
