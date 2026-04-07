@@ -4,25 +4,25 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Graphiken mit ggplot2 | Einführung in R</title>
+  <title>7 Graphiken mit ggplot2 | Einführung in R</title>
   <meta name="description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Graphiken mit ggplot2 | Einführung in R" />
+  <meta property="og:title" content="7 Graphiken mit ggplot2 | Einführung in R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
   <meta name="github-repo" content="AMD-Lab/R-Kurs-Buch" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Graphiken mit ggplot2 | Einführung in R" />
+  <meta name="twitter:title" content="7 Graphiken mit ggplot2 | Einführung in R" />
   
   <meta name="twitter:description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
   
 
 
 
-<meta name="date" content="2026-04-05" />
+<meta name="date" content="2026-04-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,164 +139,158 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Einführung in R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Über dieses Skript</a>
+<li class="chapter" data-level="1" data-path="über-dieses-skript.html"><a href="über-dieses-skript.html"><i class="fa fa-check"></i><b>1</b> Über dieses Skript</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#feedback"><i class="fa fa-check"></i><b>1.1</b> Feedback</a></li>
+<li class="chapter" data-level="1.1" data-path="über-dieses-skript.html"><a href="über-dieses-skript.html#das-r-skript"><i class="fa fa-check"></i><b>1.1</b> Das R-Skript</a></li>
+<li class="chapter" data-level="1.2" data-path="über-dieses-skript.html"><a href="über-dieses-skript.html#struktur-des-skripts"><i class="fa fa-check"></i><b>1.2</b> Struktur des Skripts</a></li>
+<li class="chapter" data-level="1.3" data-path="über-dieses-skript.html"><a href="über-dieses-skript.html#pakete"><i class="fa fa-check"></i><b>1.3</b> Pakete</a></li>
+<li class="chapter" data-level="1.4" data-path="über-dieses-skript.html"><a href="über-dieses-skript.html#working-directory"><i class="fa fa-check"></i><b>1.4</b> Working Directory</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="einführung.html"><a href="einführung.html"><i class="fa fa-check"></i><b>2</b> Einführung</a>
+<li class="chapter" data-level="2" data-path="erste-schritte.html"><a href="erste-schritte.html"><i class="fa fa-check"></i><b>2</b> Erste Schritte</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="einführung.html"><a href="einführung.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
-<li class="chapter" data-level="2.2" data-path="einführung.html"><a href="einführung.html#erste-schritte"><i class="fa fa-check"></i><b>2.2</b> Erste Schritte</a></li>
-<li class="chapter" data-level="2.3" data-path="einführung.html"><a href="einführung.html#das-r-skript"><i class="fa fa-check"></i><b>2.3</b> Das R-Skript</a></li>
-<li class="chapter" data-level="2.4" data-path="einführung.html"><a href="einführung.html#struktur-des-skripts"><i class="fa fa-check"></i><b>2.4</b> Struktur des Skripts</a></li>
-<li class="chapter" data-level="2.5" data-path="einführung.html"><a href="einführung.html#pakete"><i class="fa fa-check"></i><b>2.5</b> Pakete</a></li>
-<li class="chapter" data-level="2.6" data-path="einführung.html"><a href="einführung.html#working-directory"><i class="fa fa-check"></i><b>2.6</b> Working Directory</a></li>
+<li class="chapter" data-level="2.1" data-path="erste-schritte.html"><a href="erste-schritte.html#zahlen"><i class="fa fa-check"></i><b>2.1</b> Zahlen</a></li>
+<li class="chapter" data-level="2.2" data-path="erste-schritte.html"><a href="erste-schritte.html#variablen"><i class="fa fa-check"></i><b>2.2</b> Variablen</a></li>
+<li class="chapter" data-level="2.3" data-path="erste-schritte.html"><a href="erste-schritte.html#funktionen"><i class="fa fa-check"></i><b>2.3</b> Funktionen</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="erste-schritte.html"><a href="erste-schritte.html#funktionsargumente"><i class="fa fa-check"></i><b>2.3.1</b> Funktionsargumente</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html"><i class="fa fa-check"></i><b>3</b> Erste Schritte</a>
+<li class="chapter" data-level="2.4" data-path="erste-schritte.html"><a href="erste-schritte.html#vektoren"><i class="fa fa-check"></i><b>2.4</b> Vektoren</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#zahlen"><i class="fa fa-check"></i><b>3.1</b> Zahlen</a></li>
-<li class="chapter" data-level="3.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#variablen"><i class="fa fa-check"></i><b>3.2</b> Variablen</a></li>
-<li class="chapter" data-level="3.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#funktionen"><i class="fa fa-check"></i><b>3.3</b> Funktionen</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#funktionsargumente"><i class="fa fa-check"></i><b>3.3.1</b> Funktionsargumente</a></li>
+<li class="chapter" data-level="2.4.1" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-numeric"><i class="fa fa-check"></i><b>2.4.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="2.4.2" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-character"><i class="fa fa-check"></i><b>2.4.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="2.4.3" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-logical"><i class="fa fa-check"></i><b>2.4.3</b> Datentyp logical</a></li>
+<li class="chapter" data-level="2.4.4" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-factor"><i class="fa fa-check"></i><b>2.4.4</b> Datentyp factor</a></li>
+<li class="chapter" data-level="2.4.5" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-na"><i class="fa fa-check"></i><b>2.4.5</b> Datentyp NA</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#vektoren"><i class="fa fa-check"></i><b>3.4</b> Vektoren</a>
+<li class="chapter" data-level="2.5" data-path="erste-schritte.html"><a href="erste-schritte.html#auswahl-von-vektorelementen"><i class="fa fa-check"></i><b>2.5</b> Auswahl von Vektorelementen</a></li>
+<li class="chapter" data-level="2.6" data-path="erste-schritte.html"><a href="erste-schritte.html#logische-vergleiche"><i class="fa fa-check"></i><b>2.6</b> Logische Vergleiche</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-numeric"><i class="fa fa-check"></i><b>3.4.1</b> Datentyp numeric</a></li>
-<li class="chapter" data-level="3.4.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-character"><i class="fa fa-check"></i><b>3.4.2</b> Datentyp character</a></li>
-<li class="chapter" data-level="3.4.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-logical"><i class="fa fa-check"></i><b>3.4.3</b> Datentyp logical</a></li>
-<li class="chapter" data-level="3.4.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-factor"><i class="fa fa-check"></i><b>3.4.4</b> Datentyp factor</a></li>
-<li class="chapter" data-level="3.4.5" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-na"><i class="fa fa-check"></i><b>3.4.5</b> Datentyp NA</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#auswahl-von-vektorelementen"><i class="fa fa-check"></i><b>3.5</b> Auswahl von Vektorelementen</a></li>
-<li class="chapter" data-level="3.6" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#logische-vergleiche"><i class="fa fa-check"></i><b>3.6</b> Logische Vergleiche</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-numeric-1"><i class="fa fa-check"></i><b>3.6.1</b> Datentyp numeric</a></li>
-<li class="chapter" data-level="3.6.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-character-1"><i class="fa fa-check"></i><b>3.6.2</b> Datentyp character</a></li>
-<li class="chapter" data-level="3.6.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-factor-1"><i class="fa fa-check"></i><b>3.6.3</b> Datentyp factor</a></li>
-<li class="chapter" data-level="3.6.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#rekodieren-von-variablen-mit-hilfe-logischer-vergleich"><i class="fa fa-check"></i><b>3.6.4</b> Rekodieren von Variablen mit Hilfe logischer Vergleich</a></li>
+<li class="chapter" data-level="2.6.1" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-numeric-1"><i class="fa fa-check"></i><b>2.6.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="2.6.2" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-character-1"><i class="fa fa-check"></i><b>2.6.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="2.6.3" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-factor-1"><i class="fa fa-check"></i><b>2.6.3</b> Datentyp factor</a></li>
+<li class="chapter" data-level="2.6.4" data-path="erste-schritte.html"><a href="erste-schritte.html#rekodieren-von-variablen-mit-hilfe-logischer-vergleich"><i class="fa fa-check"></i><b>2.6.4</b> Rekodieren von Variablen mit Hilfe logischer Vergleich</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="datenstruktur.html"><a href="datenstruktur.html"><i class="fa fa-check"></i><b>4</b> Datenstruktur</a>
+<li class="chapter" data-level="3" data-path="datenstruktur.html"><a href="datenstruktur.html"><i class="fa fa-check"></i><b>3</b> Datenstruktur</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="datenstruktur.html"><a href="datenstruktur.html#rmarkdown"><i class="fa fa-check"></i><b>4.1</b> RMarkdown</a></li>
-<li class="chapter" data-level="4.2" data-path="datenstruktur.html"><a href="datenstruktur.html#hilfe"><i class="fa fa-check"></i><b>4.2</b> Hilfe</a></li>
-<li class="chapter" data-level="4.3" data-path="datenstruktur.html"><a href="datenstruktur.html#wiederholung-werte-vektoren"><i class="fa fa-check"></i><b>4.3</b> Wiederholung: Werte &amp; Vektoren</a>
+<li class="chapter" data-level="3.1" data-path="datenstruktur.html"><a href="datenstruktur.html#rmarkdown"><i class="fa fa-check"></i><b>3.1</b> RMarkdown</a></li>
+<li class="chapter" data-level="3.2" data-path="datenstruktur.html"><a href="datenstruktur.html#hilfe"><i class="fa fa-check"></i><b>3.2</b> Hilfe</a></li>
+<li class="chapter" data-level="3.3" data-path="datenstruktur.html"><a href="datenstruktur.html#wiederholung-werte-vektoren"><i class="fa fa-check"></i><b>3.3</b> Wiederholung: Werte &amp; Vektoren</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="datenstruktur.html"><a href="datenstruktur.html#coercion-umwandlung-von-typen"><i class="fa fa-check"></i><b>4.3.1</b> Coercion (Umwandlung von Typen)</a></li>
-<li class="chapter" data-level="4.3.2" data-path="datenstruktur.html"><a href="datenstruktur.html#aufruf-per-index-von-daten-aus-mehreren-ebenen"><i class="fa fa-check"></i><b>4.3.2</b> Aufruf per Index von Daten aus mehreren Ebenen</a></li>
-<li class="chapter" data-level="4.3.3" data-path="datenstruktur.html"><a href="datenstruktur.html#nullwerte"><i class="fa fa-check"></i><b>4.3.3</b> Nullwerte</a></li>
+<li class="chapter" data-level="3.3.1" data-path="datenstruktur.html"><a href="datenstruktur.html#coercion-umwandlung-von-typen"><i class="fa fa-check"></i><b>3.3.1</b> Coercion (Umwandlung von Typen)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="datenstruktur.html"><a href="datenstruktur.html#aufruf-per-index-von-daten-aus-mehreren-ebenen"><i class="fa fa-check"></i><b>3.3.2</b> Aufruf per Index von Daten aus mehreren Ebenen</a></li>
+<li class="chapter" data-level="3.3.3" data-path="datenstruktur.html"><a href="datenstruktur.html#nullwerte"><i class="fa fa-check"></i><b>3.3.3</b> Nullwerte</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="datenstruktur.html"><a href="datenstruktur.html#der-workspace"><i class="fa fa-check"></i><b>4.4</b> Der Workspace</a></li>
-<li class="chapter" data-level="4.5" data-path="datenstruktur.html"><a href="datenstruktur.html#wiederholung-einfache-berechnungen"><i class="fa fa-check"></i><b>4.5</b> Wiederholung: Einfache Berechnungen</a>
+<li class="chapter" data-level="3.4" data-path="datenstruktur.html"><a href="datenstruktur.html#der-workspace"><i class="fa fa-check"></i><b>3.4</b> Der Workspace</a></li>
+<li class="chapter" data-level="3.5" data-path="datenstruktur.html"><a href="datenstruktur.html#wiederholung-einfache-berechnungen"><i class="fa fa-check"></i><b>3.5</b> Wiederholung: Einfache Berechnungen</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="datenstruktur.html"><a href="datenstruktur.html#übersicht-berechnungsfunktionen"><i class="fa fa-check"></i><b>4.5.1</b> Übersicht Berechnungsfunktionen</a></li>
+<li class="chapter" data-level="3.5.1" data-path="datenstruktur.html"><a href="datenstruktur.html#übersicht-berechnungsfunktionen"><i class="fa fa-check"></i><b>3.5.1</b> Übersicht Berechnungsfunktionen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="datenstruktur.html"><a href="datenstruktur.html#matrizen"><i class="fa fa-check"></i><b>4.6</b> Matrizen</a></li>
-<li class="chapter" data-level="4.7" data-path="datenstruktur.html"><a href="datenstruktur.html#tidy-daten"><i class="fa fa-check"></i><b>4.7</b> tidy Daten</a>
+<li class="chapter" data-level="3.6" data-path="datenstruktur.html"><a href="datenstruktur.html#matrizen"><i class="fa fa-check"></i><b>3.6</b> Matrizen</a></li>
+<li class="chapter" data-level="3.7" data-path="datenstruktur.html"><a href="datenstruktur.html#tidy-daten"><i class="fa fa-check"></i><b>3.7</b> tidy Daten</a>
 <ul>
-<li class="chapter" data-level="4.7.1" data-path="datenstruktur.html"><a href="datenstruktur.html#tidyverse"><i class="fa fa-check"></i><b>4.7.1</b> tidyverse</a></li>
+<li class="chapter" data-level="3.7.1" data-path="datenstruktur.html"><a href="datenstruktur.html#tidyverse"><i class="fa fa-check"></i><b>3.7.1</b> tidyverse</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="datenstruktur.html"><a href="datenstruktur.html#data.frames-df-und-tibbles-tib"><i class="fa fa-check"></i><b>4.8</b> data.frames (df) und tibbles (tib)</a></li>
-<li class="chapter" data-level="4.9" data-path="datenstruktur.html"><a href="datenstruktur.html#einlesen-und-speichern-von-daten"><i class="fa fa-check"></i><b>4.9</b> Einlesen und Speichern von Daten</a></li>
-<li class="chapter" data-level="4.10" data-path="datenstruktur.html"><a href="datenstruktur.html#datensätze-dat-anschauen"><i class="fa fa-check"></i><b>4.10</b> Datensätze (dat) anschauen</a>
+<li class="chapter" data-level="3.8" data-path="datenstruktur.html"><a href="datenstruktur.html#data.frames-df-und-tibbles-tib"><i class="fa fa-check"></i><b>3.8</b> data.frames (df) und tibbles (tib)</a></li>
+<li class="chapter" data-level="3.9" data-path="datenstruktur.html"><a href="datenstruktur.html#einlesen-und-speichern-von-daten"><i class="fa fa-check"></i><b>3.9</b> Einlesen und Speichern von Daten</a></li>
+<li class="chapter" data-level="3.10" data-path="datenstruktur.html"><a href="datenstruktur.html#datensätze-dat-anschauen"><i class="fa fa-check"></i><b>3.10</b> Datensätze (dat) anschauen</a>
 <ul>
-<li class="chapter" data-level="4.10.1" data-path="datenstruktur.html"><a href="datenstruktur.html#häufigkeit-von-factorlevels"><i class="fa fa-check"></i><b>4.10.1</b> Häufigkeit von Factorlevels</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung mit <code>dplyr</code></a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#einführung-1"><i class="fa fa-check"></i><b>5.1</b> Einführung</a></li>
-<li class="chapter" data-level="5.2" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-die-wichtigsten-befehle"><i class="fa fa-check"></i><b>5.2</b> <code>dplyr</code>: Die wichtigsten Befehle</a></li>
-<li class="chapter" data-level="5.3" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-filtern-von-beobachtungen-mit-filter"><i class="fa fa-check"></i><b>5.3</b> Beispiel: Filtern von Beobachtungen mit <code>filter()</code></a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#filtern-von-strings-factors"><i class="fa fa-check"></i><b>5.3.1</b> Filtern von Strings / Factors</a></li>
-</ul></li>
-<li class="chapter" data-level="5.4" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-der-piping-operator"><i class="fa fa-check"></i><b>5.4</b> <code>dplyr</code>: Der Piping Operator <code>%&gt;%</code></a></li>
-<li class="chapter" data-level="5.5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel"><i class="fa fa-check"></i><b>5.5</b> Beispiel</a></li>
-<li class="chapter" data-level="5.6" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-neue-variablen-mit-mutate-berechnen"><i class="fa fa-check"></i><b>5.6</b> <code>dplyr</code>: Neue Variablen mit <code>mutate()</code> berechnen</a></li>
-<li class="chapter" data-level="5.7" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-1"><i class="fa fa-check"></i><b>5.7</b> Beispiel</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#allgemeine-informationen-eines-datensatzes"><i class="fa fa-check"></i><b>6.1</b> Allgemeine Informationen eines Datensatzes</a></li>
-<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#lagemaße"><i class="fa fa-check"></i><b>6.2</b> Lagemaße</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#minimum-und-maximum"><i class="fa fa-check"></i><b>6.2.1</b> Minimum und Maximum</a></li>
-<li class="chapter" data-level="6.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#quantile-und-perzentile"><i class="fa fa-check"></i><b>6.2.2</b> Quantile und Perzentile</a></li>
-<li class="chapter" data-level="6.2.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#interquantilsabstand-iqa"><i class="fa fa-check"></i><b>6.2.3</b> Interquantilsabstand (IQA)</a></li>
-<li class="chapter" data-level="6.2.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#mittelwert"><i class="fa fa-check"></i><b>6.2.4</b> Mittelwert</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#streuungsmaße"><i class="fa fa-check"></i><b>6.3</b> Streuungsmaße</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#standardabweichung"><i class="fa fa-check"></i><b>6.3.1</b> Standardabweichung</a></li>
+<li class="chapter" data-level="3.10.1" data-path="datenstruktur.html"><a href="datenstruktur.html#häufigkeit-von-factorlevels"><i class="fa fa-check"></i><b>3.10.1</b> Häufigkeit von Factorlevels</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="psychometrie.html"><a href="psychometrie.html"><i class="fa fa-check"></i><b>7</b> Psychometrie</a>
+<li class="chapter" data-level="4" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html"><i class="fa fa-check"></i><b>4</b> Datenaufbereitung mit <code>dplyr</code></a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="psychometrie.html"><a href="psychometrie.html#einführung-2"><i class="fa fa-check"></i><b>7.1</b> Einführung</a></li>
-<li class="chapter" data-level="7.2" data-path="psychometrie.html"><a href="psychometrie.html#welche-statistischen-grundvoraussetzungen-sollten-items-erfüllen"><i class="fa fa-check"></i><b>7.2</b> Welche statistischen Grundvoraussetzungen sollten Items erfüllen?</a>
+<li class="chapter" data-level="4.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#einführung"><i class="fa fa-check"></i><b>4.1</b> Einführung</a></li>
+<li class="chapter" data-level="4.2" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-die-wichtigsten-befehle"><i class="fa fa-check"></i><b>4.2</b> <code>dplyr</code>: Die wichtigsten Befehle</a></li>
+<li class="chapter" data-level="4.3" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-filtern-von-beobachtungen-mit-filter"><i class="fa fa-check"></i><b>4.3</b> Beispiel: Filtern von Beobachtungen mit <code>filter()</code></a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="psychometrie.html"><a href="psychometrie.html#stimmen-die-minima-und-maxima-der-variablen"><i class="fa fa-check"></i><b>7.2.1</b> Stimmen die Minima und Maxima der Variablen?</a></li>
-<li class="chapter" data-level="7.2.2" data-path="psychometrie.html"><a href="psychometrie.html#wurden-variablen-die-negativ-kodiert-sind-rekodiert"><i class="fa fa-check"></i><b>7.2.2</b> Wurden Variablen, die negativ kodiert sind, rekodiert?</a></li>
-<li class="chapter" data-level="7.2.3" data-path="psychometrie.html"><a href="psychometrie.html#sind-die-variablen-approximativ-normalverteilt"><i class="fa fa-check"></i><b>7.2.3</b> Sind die Variablen approximativ normalverteilt?</a></li>
-<li class="chapter" data-level="7.2.4" data-path="psychometrie.html"><a href="psychometrie.html#differenzieren-die-variablen-zwischen-personen"><i class="fa fa-check"></i><b>7.2.4</b> Differenzieren die Variablen zwischen Personen?</a></li>
+<li class="chapter" data-level="4.3.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#filtern-von-strings-factors"><i class="fa fa-check"></i><b>4.3.1</b> Filtern von Strings / Factors</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="psychometrie.html"><a href="psychometrie.html#wie-nutzt-man-die-interkorrelation-der-items-für-die-itemsauswahl"><i class="fa fa-check"></i><b>7.3</b> Wie nutzt man die Interkorrelation der Items für die Itemsauswahl?</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="psychometrie.html"><a href="psychometrie.html#trennschärfe"><i class="fa fa-check"></i><b>7.3.1</b> Trennschärfe</a></li>
-<li class="chapter" data-level="7.3.2" data-path="psychometrie.html"><a href="psychometrie.html#faktorenanalyse"><i class="fa fa-check"></i><b>7.3.2</b> Faktorenanalyse</a></li>
+<li class="chapter" data-level="4.4" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-der-piping-operator"><i class="fa fa-check"></i><b>4.4</b> <code>dplyr</code>: Der Piping Operator <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="4.5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel"><i class="fa fa-check"></i><b>4.5</b> Beispiel</a></li>
+<li class="chapter" data-level="4.6" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-neue-variablen-mit-mutate-berechnen"><i class="fa fa-check"></i><b>4.6</b> <code>dplyr</code>: Neue Variablen mit <code>mutate()</code> berechnen</a></li>
+<li class="chapter" data-level="4.7" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-1"><i class="fa fa-check"></i><b>4.7</b> Beispiel</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="psychometrie.html"><a href="psychometrie.html#berechnung-der-reliabilität"><i class="fa fa-check"></i><b>7.4</b> Berechnung der Reliabilität</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html"><i class="fa fa-check"></i><b>8</b> Graphiken mit <code>ggplot2</code></a>
+<li class="chapter" data-level="5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>5</b> Deskriptive Statistik</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#exkurs-warum-viridis"><i class="fa fa-check"></i><b>8.1</b> Exkurs: Warum <code>viridis</code>?</a></li>
-<li class="chapter" data-level="8.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ggplot2-einführung"><i class="fa fa-check"></i><b>8.2</b> <code>ggplot2</code> – Einführung</a></li>
-<li class="chapter" data-level="8.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#vor-der-visualisierung-die-daten"><i class="fa fa-check"></i><b>8.3</b> Vor der Visualisierung: Die Daten</a></li>
-<li class="chapter" data-level="8.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ästhetische-mapping"><i class="fa fa-check"></i><b>8.4</b> Ästhetische Mapping</a></li>
-<li class="chapter" data-level="8.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#graphischen-funktionen"><i class="fa fa-check"></i><b>8.5</b> Graphischen Funktionen</a>
+<li class="chapter" data-level="5.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#allgemeine-informationen-eines-datensatzes"><i class="fa fa-check"></i><b>5.1</b> Allgemeine Informationen eines Datensatzes</a></li>
+<li class="chapter" data-level="5.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#lagemaße"><i class="fa fa-check"></i><b>5.2</b> Lagemaße</a>
 <ul>
-<li class="chapter" data-level="8.5.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#säulen--und-balkendiagramm"><i class="fa fa-check"></i><b>8.5.1</b> Säulen- und Balkendiagramm</a></li>
-<li class="chapter" data-level="8.5.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#histogramm"><i class="fa fa-check"></i><b>8.5.2</b> Histogramm</a></li>
-<li class="chapter" data-level="8.5.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#qq-plot"><i class="fa fa-check"></i><b>8.5.3</b> QQ-Plot</a></li>
-<li class="chapter" data-level="8.5.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#boxplot"><i class="fa fa-check"></i><b>8.5.4</b> Boxplot</a></li>
-<li class="chapter" data-level="8.5.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#violinen-plot"><i class="fa fa-check"></i><b>8.5.5</b> Violinen-Plot</a></li>
-<li class="chapter" data-level="8.5.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#beeswarm-plot-mit-dem-paket-ggbeeswarm"><i class="fa fa-check"></i><b>8.5.6</b> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code></a></li>
-<li class="chapter" data-level="8.5.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#scatterplot"><i class="fa fa-check"></i><b>8.5.7</b> Scatterplot</a></li>
-<li class="chapter" data-level="8.5.8" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linearer-fit"><i class="fa fa-check"></i><b>8.5.8</b> (Linearer) Fit</a></li>
-<li class="chapter" data-level="8.5.9" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linienplot"><i class="fa fa-check"></i><b>8.5.9</b> Linienplot</a></li>
+<li class="chapter" data-level="5.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#minimum-und-maximum"><i class="fa fa-check"></i><b>5.2.1</b> Minimum und Maximum</a></li>
+<li class="chapter" data-level="5.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#quantile-und-perzentile"><i class="fa fa-check"></i><b>5.2.2</b> Quantile und Perzentile</a></li>
+<li class="chapter" data-level="5.2.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#interquantilsabstand-iqa"><i class="fa fa-check"></i><b>5.2.3</b> Interquantilsabstand (IQA)</a></li>
+<li class="chapter" data-level="5.2.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#mittelwert"><i class="fa fa-check"></i><b>5.2.4</b> Mittelwert</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#sonstige-funktionalität"><i class="fa fa-check"></i><b>8.6</b> Sonstige Funktionalität</a>
+<li class="chapter" data-level="5.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#streuungsmaße"><i class="fa fa-check"></i><b>5.3</b> Streuungsmaße</a>
 <ul>
-<li class="chapter" data-level="8.6.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#labels"><i class="fa fa-check"></i><b>8.6.1</b> Labels</a></li>
-<li class="chapter" data-level="8.6.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#thema"><i class="fa fa-check"></i><b>8.6.2</b> Thema</a></li>
-<li class="chapter" data-level="8.6.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#position"><i class="fa fa-check"></i><b>8.6.3</b> Position</a></li>
-<li class="chapter" data-level="8.6.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#legenden"><i class="fa fa-check"></i><b>8.6.4</b> Legenden</a></li>
-<li class="chapter" data-level="8.6.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#koordinatensysteme"><i class="fa fa-check"></i><b>8.6.5</b> Koordinatensysteme</a></li>
-<li class="chapter" data-level="8.6.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#farbskalen"><i class="fa fa-check"></i><b>8.6.6</b> Farbskalen</a></li>
-<li class="chapter" data-level="8.6.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#variablenskalen"><i class="fa fa-check"></i><b>8.6.7</b> Variablenskalen</a></li>
+<li class="chapter" data-level="5.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#standardabweichung"><i class="fa fa-check"></i><b>5.3.1</b> Standardabweichung</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#facetten"><i class="fa fa-check"></i><b>8.7</b> Facetten</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html"><i class="fa fa-check"></i><b>9</b> <code>dplyr</code> Teil 2</a>
+<li class="chapter" data-level="6" data-path="psychometrie.html"><a href="psychometrie.html"><i class="fa fa-check"></i><b>6</b> Psychometrie</a>
 <ul>
-<li class="chapter" data-level="9.0.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#long-vs.-wide-format"><i class="fa fa-check"></i><b>9.0.1</b> Long vs. Wide – Format</a></li>
-<li class="chapter" data-level="9.0.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#tidy-data"><i class="fa fa-check"></i><b>9.0.2</b> Tidy Data</a></li>
-<li class="chapter" data-level="9.0.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#wide-format"><i class="fa fa-check"></i><b>9.0.3</b> Wide-Format</a></li>
-<li class="chapter" data-level="9.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#wide-to-long"><i class="fa fa-check"></i><b>9.1</b> Wide to Long</a></li>
-<li class="chapter" data-level="9.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#long-to-wide"><i class="fa fa-check"></i><b>9.2</b> Long to Wide</a>
+<li class="chapter" data-level="6.1" data-path="psychometrie.html"><a href="psychometrie.html#einführung-1"><i class="fa fa-check"></i><b>6.1</b> Einführung</a></li>
+<li class="chapter" data-level="6.2" data-path="psychometrie.html"><a href="psychometrie.html#welche-statistischen-grundvoraussetzungen-sollten-items-erfüllen"><i class="fa fa-check"></i><b>6.2</b> Welche statistischen Grundvoraussetzungen sollten Items erfüllen?</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#übungsaufgabe"><i class="fa fa-check"></i><b>9.2.1</b> Übungsaufgabe</a></li>
+<li class="chapter" data-level="6.2.1" data-path="psychometrie.html"><a href="psychometrie.html#stimmen-die-minima-und-maxima-der-variablen"><i class="fa fa-check"></i><b>6.2.1</b> Stimmen die Minima und Maxima der Variablen?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="psychometrie.html"><a href="psychometrie.html#wurden-variablen-die-negativ-kodiert-sind-rekodiert"><i class="fa fa-check"></i><b>6.2.2</b> Wurden Variablen, die negativ kodiert sind, rekodiert?</a></li>
+<li class="chapter" data-level="6.2.3" data-path="psychometrie.html"><a href="psychometrie.html#sind-die-variablen-approximativ-normalverteilt"><i class="fa fa-check"></i><b>6.2.3</b> Sind die Variablen approximativ normalverteilt?</a></li>
+<li class="chapter" data-level="6.2.4" data-path="psychometrie.html"><a href="psychometrie.html#differenzieren-die-variablen-zwischen-personen"><i class="fa fa-check"></i><b>6.2.4</b> Differenzieren die Variablen zwischen Personen?</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#key-is-key"><i class="fa fa-check"></i><b>9.3</b> Key is key</a></li>
-<li class="chapter" data-level="9.4" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#joins"><i class="fa fa-check"></i><b>9.4</b> joins</a>
+<li class="chapter" data-level="6.3" data-path="psychometrie.html"><a href="psychometrie.html#wie-nutzt-man-die-interkorrelation-der-items-für-die-itemsauswahl"><i class="fa fa-check"></i><b>6.3</b> Wie nutzt man die Interkorrelation der Items für die Itemsauswahl?</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#full_join"><i class="fa fa-check"></i><b>9.4.1</b> full_join</a></li>
-<li class="chapter" data-level="9.4.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#left_join-und-right_join"><i class="fa fa-check"></i><b>9.4.2</b> left_join und right_join</a></li>
-<li class="chapter" data-level="9.4.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#übung"><i class="fa fa-check"></i><b>9.4.3</b> Übung</a></li>
+<li class="chapter" data-level="6.3.1" data-path="psychometrie.html"><a href="psychometrie.html#trennschärfe"><i class="fa fa-check"></i><b>6.3.1</b> Trennschärfe</a></li>
+<li class="chapter" data-level="6.3.2" data-path="psychometrie.html"><a href="psychometrie.html#faktorenanalyse"><i class="fa fa-check"></i><b>6.3.2</b> Faktorenanalyse</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#fallunterscheidung-mit-ifelse-und-case_when"><i class="fa fa-check"></i><b>9.5</b> Fallunterscheidung mit <code>ifelse</code> und <code>case_when</code></a></li>
+<li class="chapter" data-level="6.4" data-path="psychometrie.html"><a href="psychometrie.html#berechnung-der-reliabilität"><i class="fa fa-check"></i><b>6.4</b> Berechnung der Reliabilität</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html"><i class="fa fa-check"></i><b>7</b> Graphiken mit <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#exkurs-warum-viridis"><i class="fa fa-check"></i><b>7.1</b> Exkurs: Warum <code>viridis</code>?</a></li>
+<li class="chapter" data-level="7.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ggplot2-einführung"><i class="fa fa-check"></i><b>7.2</b> <code>ggplot2</code> – Einführung</a></li>
+<li class="chapter" data-level="7.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#vor-der-visualisierung-die-daten"><i class="fa fa-check"></i><b>7.3</b> Vor der Visualisierung: Die Daten</a></li>
+<li class="chapter" data-level="7.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ästhetische-mapping"><i class="fa fa-check"></i><b>7.4</b> Ästhetische Mapping</a></li>
+<li class="chapter" data-level="7.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#graphischen-funktionen"><i class="fa fa-check"></i><b>7.5</b> Graphischen Funktionen</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#säulen--und-balkendiagramm"><i class="fa fa-check"></i><b>7.5.1</b> Säulen- und Balkendiagramm</a></li>
+<li class="chapter" data-level="7.5.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#histogramm"><i class="fa fa-check"></i><b>7.5.2</b> Histogramm</a></li>
+<li class="chapter" data-level="7.5.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#qq-plot"><i class="fa fa-check"></i><b>7.5.3</b> QQ-Plot</a></li>
+<li class="chapter" data-level="7.5.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#boxplot"><i class="fa fa-check"></i><b>7.5.4</b> Boxplot</a></li>
+<li class="chapter" data-level="7.5.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#violinen-plot"><i class="fa fa-check"></i><b>7.5.5</b> Violinen-Plot</a></li>
+<li class="chapter" data-level="7.5.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#beeswarm-plot-mit-dem-paket-ggbeeswarm"><i class="fa fa-check"></i><b>7.5.6</b> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code></a></li>
+<li class="chapter" data-level="7.5.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#scatterplot"><i class="fa fa-check"></i><b>7.5.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.5.8" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linearer-fit"><i class="fa fa-check"></i><b>7.5.8</b> (Linearer) Fit</a></li>
+<li class="chapter" data-level="7.5.9" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linienplot"><i class="fa fa-check"></i><b>7.5.9</b> Linienplot</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#sonstige-funktionalität"><i class="fa fa-check"></i><b>7.6</b> Sonstige Funktionalität</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#labels"><i class="fa fa-check"></i><b>7.6.1</b> Labels</a></li>
+<li class="chapter" data-level="7.6.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#thema"><i class="fa fa-check"></i><b>7.6.2</b> Thema</a></li>
+<li class="chapter" data-level="7.6.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#position"><i class="fa fa-check"></i><b>7.6.3</b> Position</a></li>
+<li class="chapter" data-level="7.6.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#legenden"><i class="fa fa-check"></i><b>7.6.4</b> Legenden</a></li>
+<li class="chapter" data-level="7.6.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#koordinatensysteme"><i class="fa fa-check"></i><b>7.6.5</b> Koordinatensysteme</a></li>
+<li class="chapter" data-level="7.6.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#farbskalen"><i class="fa fa-check"></i><b>7.6.6</b> Farbskalen</a></li>
+<li class="chapter" data-level="7.6.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#variablenskalen"><i class="fa fa-check"></i><b>7.6.7</b> Variablenskalen</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#facetten"><i class="fa fa-check"></i><b>7.7</b> Facetten</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html"><i class="fa fa-check"></i><b>8</b> <code>dplyr</code> Teil 2</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#long-vs.-wide-format"><i class="fa fa-check"></i><b>8.0.1</b> Long vs. Wide – Format</a></li>
+<li class="chapter" data-level="8.0.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#tidy-data"><i class="fa fa-check"></i><b>8.0.2</b> Tidy Data</a></li>
+<li class="chapter" data-level="8.0.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#wide-format"><i class="fa fa-check"></i><b>8.0.3</b> Wide-Format</a></li>
+<li class="chapter" data-level="8.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#wide-to-long"><i class="fa fa-check"></i><b>8.1</b> Wide to Long</a></li>
+<li class="chapter" data-level="8.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#long-to-wide"><i class="fa fa-check"></i><b>8.2</b> Long to Wide</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#übungsaufgabe"><i class="fa fa-check"></i><b>8.2.1</b> Übungsaufgabe</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#key-is-key"><i class="fa fa-check"></i><b>8.3</b> Key is key</a></li>
+<li class="chapter" data-level="8.4" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#joins"><i class="fa fa-check"></i><b>8.4</b> joins</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#full_join"><i class="fa fa-check"></i><b>8.4.1</b> full_join</a></li>
+<li class="chapter" data-level="8.4.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#left_join-und-right_join"><i class="fa fa-check"></i><b>8.4.2</b> left_join und right_join</a></li>
+<li class="chapter" data-level="8.4.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#übung"><i class="fa fa-check"></i><b>8.4.3</b> Übung</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#fallunterscheidung-mit-ifelse-und-case_when"><i class="fa fa-check"></i><b>8.5</b> Fallunterscheidung mit <code>ifelse</code> und <code>case_when</code></a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/AMD-Lab/R-Kurs-Buch" target="blank">
@@ -319,13 +313,13 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="graphiken-mit-ggplot2" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> Graphiken mit <code>ggplot2</code><a href="graphiken-mit-ggplot2.html#graphiken-mit-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="graphiken-mit-ggplot2" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Graphiken mit <code>ggplot2</code><a href="graphiken-mit-ggplot2.html#graphiken-mit-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <center>
 <p><img src="_static/ggplot2_masterpiece.png" width="500" /> <br> Artwork by <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a></p>
 </center>
-<div id="exkurs-warum-viridis" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Exkurs: Warum <code>viridis</code>?<a href="graphiken-mit-ggplot2.html#exkurs-warum-viridis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exkurs-warum-viridis" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Exkurs: Warum <code>viridis</code>?<a href="graphiken-mit-ggplot2.html#exkurs-warum-viridis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Das <code>viridis</code> Paket in R stellt eine Reihe an Colormaps bereit, die folgenden Anspruch an sich stellen:</p>
 <ul>
 <li>gute <strong>Lesbarkeit</strong> und Unterscheidbarkeit in Graphiken</li>
@@ -356,8 +350,8 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <p>source: <a href="https://www.rstudio.com/resources/cheatsheets/">viridis Dokumentation</a></p>
 </div>
 </div>
-<div id="ggplot2-einführung" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> <code>ggplot2</code> – Einführung<a href="graphiken-mit-ggplot2.html#ggplot2-einführung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ggplot2-einführung" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> <code>ggplot2</code> – Einführung<a href="graphiken-mit-ggplot2.html#ggplot2-einführung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>ggplot2</code> ist ein Paket zur graphischen Darstellung in R, das auf dem Buch <a href="https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448/ref=as_li_ss_tl">“The Grammar of Graphics”</a> von Leland Wilkinson basiert. Wie bei <code>dplyr</code> ist die Codestruktur an Grammatik orientiert und somit einfach nachzuvollziehen. Ablauf der Graphikerstellung in <code>ggplot2</code> lässt sich wie folgend zusammenfassen:</p>
 <ul>
 <li><p><span style="color:#8fd744">Daten</span> bereitstellen</p></li>
@@ -403,8 +397,8 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <p>source: <a href="https://www.rstudio.com/resources/cheatsheets/">ggplot2 Cheat Sheet</a></p>
 </div>
 </div>
-<div id="vor-der-visualisierung-die-daten" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Vor der Visualisierung: Die Daten<a href="graphiken-mit-ggplot2.html#vor-der-visualisierung-die-daten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="vor-der-visualisierung-die-daten" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Vor der Visualisierung: Die Daten<a href="graphiken-mit-ggplot2.html#vor-der-visualisierung-die-daten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Das Kapitel arbeitet mit einem Datensatz, der die Superhelden von Marvel und DC miteinander vergleicht. Die Daten finden sich auf GitHub (“<a href="https://github.com/cosmoduende/r-marvel-vs-dc" class="uri">https://github.com/cosmoduende/r-marvel-vs-dc</a>”), sind aber auf zwei Files aufgeteilt, die erst einzeln geladen und dann zusammengeführt werden müssen.</p>
 <p>Erst werden die zwei Files von GitHub heruntergeladen und den Variablen <code>MarvelCharacters</code> und <code>MarvelStats</code> zugewiesen. Dabei werden fehlende Werte als <code>NA</code> kodiert:</p>
 <div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="graphiken-mit-ggplot2.html#cb314-1" tabindex="-1"></a><span class="co"># Lade Daten aus zwei unterschiedlichen Files</span></span>
@@ -435,8 +429,8 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
   ggplot()</code></pre>
 <p>Dieser Code funktioniert allerdings noch nicht, da wir bisher nur die <span style="color:#8fd744">Daten</span> definiert haben, aber noch keine <span style="color:#35b779">MAPPINGS</span> und auch keine <span style="color:#21918d">GEOM_FUNCTION</span> – die beiden anderen erforderlichen Angaben.</p>
 </div>
-<div id="ästhetische-mapping" class="section level2 hasAnchor" number="8.4">
-<h2><span class="header-section-number">8.4</span> Ästhetische Mapping<a href="graphiken-mit-ggplot2.html#ästhetische-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ästhetische-mapping" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Ästhetische Mapping<a href="graphiken-mit-ggplot2.html#ästhetische-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Das <span style="color:#35b779">ästhetische Mapping</span> (<code>aesthetics</code>) kann entweder direkt in <code>ggplot</code> definiert werden, dann gilt es für <strong>alle</strong> weiteren Schritte, oder es kann in der jeweiligen <span style="color:#21918d">graphischen Funktion</span> definiert werden, dann gilt es nur für diese <code>geom_*</code> Funktion.</p>
 <center>
 <div style="float: center; width: 80%;">
@@ -486,8 +480,8 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <span id="cb320-2"><a href="graphiken-mit-ggplot2.html#cb320-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Gender))    </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-145-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="graphischen-funktionen" class="section level2 hasAnchor" number="8.5">
-<h2><span class="header-section-number">8.5</span> Graphischen Funktionen<a href="graphiken-mit-ggplot2.html#graphischen-funktionen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="graphischen-funktionen" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Graphischen Funktionen<a href="graphiken-mit-ggplot2.html#graphischen-funktionen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mit den <span style="color:#21918d">graphischen Funktionen</span> (<code>geom_*</code>) gibt man an, welche Art der graphischen Darstellung man will. Beispiele sind:</p>
 <center>
 <div style="float: center; width: 80%;">
@@ -556,8 +550,8 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <div class="footnotes">
 <p>source: <a href="https://www.rstudio.com/resources/cheatsheets/">ggplot2 Cheat Sheet</a></p>
 </div>
-<div id="säulen--und-balkendiagramm" class="section level3 hasAnchor" number="8.5.1">
-<h3><span class="header-section-number">8.5.1</span> Säulen- und Balkendiagramm<a href="graphiken-mit-ggplot2.html#säulen--und-balkendiagramm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="säulen--und-balkendiagramm" class="section level3 hasAnchor" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Säulen- und Balkendiagramm<a href="graphiken-mit-ggplot2.html#säulen--und-balkendiagramm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>geom_bar</code> ist eine <span style="color:#21918d">graphische Funktion</span>, um Häufigkeiten einer diskreten Variable in einem <span style="color:#21918d">Säulen-</span> oder <span style="color:#21918d">Balkendiagramm</span> zu visualisieren.</p>
 <div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="graphiken-mit-ggplot2.html#cb321-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> MarvelDC,        <span class="co"># Nehme Daten MarcelDC</span></span>
 <span id="cb321-2"><a href="graphiken-mit-ggplot2.html#cb321-2" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Publisher)) <span class="sc">+</span>   <span class="co"># auf der x-Achse soll Publisher sein</span></span>
@@ -603,8 +597,8 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 Die Information für Marvel DC wird auf dem äußeren Kreis abgebildet und die für DC Comics auf dem inneren Kreis abgebildet.
 Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weiblich sind, während es bei Marvel etwas mehr als ein Viertel sind.</p>
 </div>
-<div id="histogramm" class="section level3 hasAnchor" number="8.5.2">
-<h3><span class="header-section-number">8.5.2</span> Histogramm<a href="graphiken-mit-ggplot2.html#histogramm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="histogramm" class="section level3 hasAnchor" number="7.5.2">
+<h3><span class="header-section-number">7.5.2</span> Histogramm<a href="graphiken-mit-ggplot2.html#histogramm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>geom_histogram</code> ist eine <span style="color:#21918d">graphische Funktion</span> um Häufigkeiten einer kontinuierlichen Variable zu visualisieren. Beispielsweise kann man schauen, wie schnell die Superhelden unterwegs sind:</p>
 <div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="graphiken-mit-ggplot2.html#cb327-1" tabindex="-1"></a><span class="fu">ggplot</span>(MarvelDC,                </span>
 <span id="cb327-2"><a href="graphiken-mit-ggplot2.html#cb327-2" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Speed)) <span class="sc">+</span>        <span class="co"># auf der x-Achse soll Speed sein  </span></span>
@@ -622,8 +616,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <p>Offensichtlich nicht, die Verteilungen sind sich relativ ähnlich.</p>
 <p>Bei <code>Speed</code> fällt allerdings direkt auf, dass es nicht sehr normalverteilt aussieht. Ein <span style="color:#21918d">Histogramm</span> lässt hier einen ersten Eindruck zu, aber eine visuelle Prüfung der Normalverteilung sollte lieber über einen <span style="color:#21918d">qq-Plot</span> vorgenommen werden.</p>
 </div>
-<div id="qq-plot" class="section level3 hasAnchor" number="8.5.3">
-<h3><span class="header-section-number">8.5.3</span> QQ-Plot<a href="graphiken-mit-ggplot2.html#qq-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="qq-plot" class="section level3 hasAnchor" number="7.5.3">
+<h3><span class="header-section-number">7.5.3</span> QQ-Plot<a href="graphiken-mit-ggplot2.html#qq-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Bei einem <span style="color:#21918d">qq-Plot</span> kann und muss man <span style="color:#21918d">Punkte</span> und <span style="color:#21918d">Vergleichslinie</span> getrennt definieren:</p>
 <div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="graphiken-mit-ggplot2.html#cb329-1" tabindex="-1"></a><span class="fu">ggplot</span>(MarvelDC, </span>
 <span id="cb329-2"><a href="graphiken-mit-ggplot2.html#cb329-2" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">sample =</span> Speed)) <span class="sc">+</span>  <span class="co"># erstelle Quantile von: Speed</span></span>
@@ -637,8 +631,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <span id="cb330-4"><a href="graphiken-mit-ggplot2.html#cb330-4" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-155-1.png" alt="" width="480" style="display: block; margin: auto;" /></p>
 </div>
-<div id="boxplot" class="section level3 hasAnchor" number="8.5.4">
-<h3><span class="header-section-number">8.5.4</span> Boxplot<a href="graphiken-mit-ggplot2.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="boxplot" class="section level3 hasAnchor" number="7.5.4">
+<h3><span class="header-section-number">7.5.4</span> Boxplot<a href="graphiken-mit-ggplot2.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>geom_boxplot</code>ist eine <span style="color:#21918d">graphische Funktion</span>, um kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung darzustellen. Hat Marvel oder DC die stärkeren Superhelden? – Dafür betrachten wir den <code>Total</code> Wert jedes Helden.</p>
 <div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="graphiken-mit-ggplot2.html#cb331-1" tabindex="-1"></a><span class="fu">ggplot</span>(MarvelDC, </span>
 <span id="cb331-2"><a href="graphiken-mit-ggplot2.html#cb331-2" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Publisher, <span class="at">y =</span> Total)) <span class="sc">+</span> </span>
@@ -652,8 +646,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <p><img src="_main_files/figure-html/unnamed-chunk-157-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
 <p>Betrachtet man <code>Total</code> aufgespalten nach Geschlecht, so scheint Marvel etwas stärkere Männer und schwächere Frauen zu haben – allerdings sind die Unterschiede so gering, dass es sich wahrscheinlich um zufällige Schwankungen und nicht um belastbare Effekte handelt! Keins der Universen scheint also dem anderen überlegen zu sein.</p>
 </div>
-<div id="violinen-plot" class="section level3 hasAnchor" number="8.5.5">
-<h3><span class="header-section-number">8.5.5</span> Violinen-Plot<a href="graphiken-mit-ggplot2.html#violinen-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="violinen-plot" class="section level3 hasAnchor" number="7.5.5">
+<h3><span class="header-section-number">7.5.5</span> Violinen-Plot<a href="graphiken-mit-ggplot2.html#violinen-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>geom_violin</code> ist ebenfalls eine <span style="color:#21918d">graphische Funktion</span> um kontinuierliche Verteilungen getrennt nach einer diskreten Gruppierung darzustellen – und lässt etwas mehr Aufschluss auf die Daten zu (z.B. wie die grobe Verteilung der Werte ist).</p>
 <div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="graphiken-mit-ggplot2.html#cb333-1" tabindex="-1"></a><span class="fu">ggplot</span>(MarvelDC, </span>
 <span id="cb333-2"><a href="graphiken-mit-ggplot2.html#cb333-2" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Publisher, <span class="at">y =</span> Total, </span>
@@ -662,8 +656,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <span id="cb333-5"><a href="graphiken-mit-ggplot2.html#cb333-5" tabindex="-1"></a>    <span class="at">trim=</span><span class="cn">FALSE</span>)           <span class="co"># schneide Spitzen nicht ab</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-158-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="beeswarm-plot-mit-dem-paket-ggbeeswarm" class="section level3 hasAnchor" number="8.5.6">
-<h3><span class="header-section-number">8.5.6</span> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code><a href="graphiken-mit-ggplot2.html#beeswarm-plot-mit-dem-paket-ggbeeswarm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="beeswarm-plot-mit-dem-paket-ggbeeswarm" class="section level3 hasAnchor" number="7.5.6">
+<h3><span class="header-section-number">7.5.6</span> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code><a href="graphiken-mit-ggplot2.html#beeswarm-plot-mit-dem-paket-ggbeeswarm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Das package <code>ggbeeswarm</code> bietet eine ähnliche Darstellung durch die <span style="color:#21918d">graphische Funktion</span> <code>geom_quasirandom</code>:</p>
 <div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="graphiken-mit-ggplot2.html#cb334-1" tabindex="-1"></a><span class="fu">library</span>(ggbeeswarm)</span>
 <span id="cb334-2"><a href="graphiken-mit-ggplot2.html#cb334-2" tabindex="-1"></a>MarvelDC <span class="sc">%&gt;%</span></span>
@@ -675,8 +669,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <p><img src="_main_files/figure-html/unnamed-chunk-159-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
 <p>Weder <span style="color:#21918d">Violinen-Plot</span> noch <span style="color:#21918d">Beeswarm-Plot</span> deuten darauf hin, dass Marvels Superhelden stärker und cooler sind, als die von DC. Ohne gegenteilige Hinweise bleibt es also bei der Annahme, dass beide Universen gleich gut sind.</p>
 </div>
-<div id="scatterplot" class="section level3 hasAnchor" number="8.5.7">
-<h3><span class="header-section-number">8.5.7</span> Scatterplot<a href="graphiken-mit-ggplot2.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="scatterplot" class="section level3 hasAnchor" number="7.5.7">
+<h3><span class="header-section-number">7.5.7</span> Scatterplot<a href="graphiken-mit-ggplot2.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ein <span style="color:#21918d">Scatterplot</span> mit <code>geom_point</code> stellt die <span style="color:#8fd744">Daten</span> als Punkte im Raum zweier kontinuierlicher Variablen dar. Beispielsweise kann man <code>Power</code> und <code>Durability</code> aller Helden gegeneinander darstellen:</p>
 <div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="graphiken-mit-ggplot2.html#cb335-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> MarvelDC, </span>
 <span id="cb335-2"><a href="graphiken-mit-ggplot2.html#cb335-2" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Power, <span class="at">y =</span> Durability)) <span class="sc">+</span> </span>
@@ -697,8 +691,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <span id="cb337-5"><a href="graphiken-mit-ggplot2.html#cb337-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()    </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-162-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="linearer-fit" class="section level3 hasAnchor" number="8.5.8">
-<h3><span class="header-section-number">8.5.8</span> (Linearer) Fit<a href="graphiken-mit-ggplot2.html#linearer-fit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="linearer-fit" class="section level3 hasAnchor" number="7.5.8">
+<h3><span class="header-section-number">7.5.8</span> (Linearer) Fit<a href="graphiken-mit-ggplot2.html#linearer-fit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Die <code>Power</code> und <code>Durability</code> Daten können mit einer Funktion gefittet werden. So kann man visuell prüfen, ob es bei Marvel und DC jeweils einen anderen Zusammenhang zwischen <code>Power</code> und <code>Durability</code> gibt. Dafür wird die <span style="color:#21918d">graphische Funktion</span> <code>geom_smooth</code> verwendet. Um ein <strong>lineares</strong> Modell zu erhalten, muss das Argument <code>method = "lm"</code> für “linear model” gesetzt werden. Um <code>y</code> durch <code>x</code> vorherzusagen, braucht es die Formel <code>y ~ x</code>:</p>
 <div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="graphiken-mit-ggplot2.html#cb338-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> MarvelDC, </span>
 <span id="cb338-2"><a href="graphiken-mit-ggplot2.html#cb338-2" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Power, <span class="at">y =</span> Durability, </span>
@@ -721,8 +715,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <p><img src="_main_files/figure-html/unnamed-chunk-164-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <p>Auch hier zeigen sich weiterhin keine Unterschiede zwischen den Publishern. Es muss wohl endgültig davon ausgegangen werden, dass Marvel nicht das alleinige Recht auf coole Superhelden hat. Unsere Daten geben keine Hinweise auf die Überlegenheit des einen oder anderen Superhelden-Universums.</p>
 </div>
-<div id="linienplot" class="section level3 hasAnchor" number="8.5.9">
-<h3><span class="header-section-number">8.5.9</span> Linienplot<a href="graphiken-mit-ggplot2.html#linienplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="linienplot" class="section level3 hasAnchor" number="7.5.9">
+<h3><span class="header-section-number">7.5.9</span> Linienplot<a href="graphiken-mit-ggplot2.html#linienplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span style="color:#21918d">Linienplots</span> lassen sich am besten an einer überschaubaren Anzahl von Punkten veranschaulichen, z.B. eignet sich eine Auswahl der X-Men. Die <span style="color:#21918d">Datenpunkte</span> werden <span style="color:#35b779">farblich</span> nach Geschlecht getrennt – dann werden alle Punkte durch eine <span style="color:#21918d">Linie</span> verbunden:</p>
 <div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="graphiken-mit-ggplot2.html#cb340-1" tabindex="-1"></a><span class="co"># Erstelle Vektor der X-Men Charaktere: </span></span>
 <span id="cb340-2"><a href="graphiken-mit-ggplot2.html#cb340-2" tabindex="-1"></a>XMen <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Wolverine&quot;</span>, <span class="st">&quot;Jean Grey&quot;</span>, <span class="st">&quot;Storm&quot;</span>, <span class="st">&quot;Beast&quot;</span>, </span>
@@ -768,10 +762,10 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <p><img src="_main_files/figure-html/unnamed-chunk-167-1.png" alt="" width="480" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="sonstige-funktionalität" class="section level2 hasAnchor" number="8.6">
-<h2><span class="header-section-number">8.6</span> Sonstige Funktionalität<a href="graphiken-mit-ggplot2.html#sonstige-funktionalität" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="labels" class="section level3 hasAnchor" number="8.6.1">
-<h3><span class="header-section-number">8.6.1</span> Labels<a href="graphiken-mit-ggplot2.html#labels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="sonstige-funktionalität" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Sonstige Funktionalität<a href="graphiken-mit-ggplot2.html#sonstige-funktionalität" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="labels" class="section level3 hasAnchor" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Labels<a href="graphiken-mit-ggplot2.html#labels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span style="color:#31688e">Label</span> sind die wahrscheinlich wichtigste zusätzliche Funktionalität, die fast immer benötigt wird, um einen Plot allgemein verständlich zu machen. Mithilfe von <code>labs()</code> können Titel, Untertitel, Achsenbeschriftungen und eine Caption zu einem Plot hinzugefügt werden. Z.B. für den Plot der X-Men:</p>
 <div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="graphiken-mit-ggplot2.html#cb343-1" tabindex="-1"></a>XMen <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Wolverine&quot;</span>, <span class="st">&quot;Jean Grey&quot;</span>, <span class="st">&quot;Storm&quot;</span>, <span class="st">&quot;Beast&quot;</span>, </span>
 <span id="cb343-2"><a href="graphiken-mit-ggplot2.html#cb343-2" tabindex="-1"></a>          <span class="st">&quot;Cyclops&quot;</span>, <span class="st">&quot;Professor X&quot;</span>, <span class="st">&quot;Raven&quot;</span>)</span>
@@ -807,8 +801,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <span id="cb344-10"><a href="graphiken-mit-ggplot2.html#cb344-10" tabindex="-1"></a>         <span class="at">caption =</span> <span class="st">&quot;dataset source: https://github.com/cosmoduende/r-marvel-vs-dc&quot;</span> )</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-169-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="thema" class="section level3 hasAnchor" number="8.6.2">
-<h3><span class="header-section-number">8.6.2</span> Thema<a href="graphiken-mit-ggplot2.html#thema" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="thema" class="section level3 hasAnchor" number="7.6.2">
+<h3><span class="header-section-number">7.6.2</span> Thema<a href="graphiken-mit-ggplot2.html#thema" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Es gibt verschiedene <code>themes</code> die das grundlegende <span style="color:#31688e">Graphiklayout</span> bestimmen.</p>
 <ul>
 <li><p><code>theme_bw()</code> – weißer Hintergrund mit grid Linien</p></li>
@@ -832,8 +826,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <span id="cb346-4"><a href="graphiken-mit-ggplot2.html#cb346-4" tabindex="-1"></a>  <span class="fu">theme_dark</span>()            <span class="co"># verwende Thema: Dunkel</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-171-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="position" class="section level3 hasAnchor" number="8.6.3">
-<h3><span class="header-section-number">8.6.3</span> Position<a href="graphiken-mit-ggplot2.html#position" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="position" class="section level3 hasAnchor" number="7.6.3">
+<h3><span class="header-section-number">7.6.3</span> Position<a href="graphiken-mit-ggplot2.html#position" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Mit <code>position</code> kann die <span style="color:#31688e">Positionierung</span> graphischer Elemente zueinander eingestellt werden. Positionsarten sind z.B.:</p>
 <ul>
 <li><p><code>identity</code> – Werte sollen an ihrer wahren Position (d.h. so wie sie in der Funktion eingegeben wurden) angezeigt werden. Tipp: Bei dieser Einstellung kann man die angezeigten Werte machmal nicht so gut erkennen durch (z.B. weil sie aufeineander liegen). Manchmal kann es hilfreich sein, den <code>alpha</code> Parameter zusätzlich zu verwenden, um die angezeigten Punkten (oder Balken, etc.) etwas zu entzerren.</p></li>
@@ -875,8 +869,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <span id="cb349-9"><a href="graphiken-mit-ggplot2.html#cb349-9" tabindex="-1"></a>                 <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>)  <span class="co"># Position: hintereinander</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-174-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="legenden" class="section level3 hasAnchor" number="8.6.4">
-<h3><span class="header-section-number">8.6.4</span> Legenden<a href="graphiken-mit-ggplot2.html#legenden" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="legenden" class="section level3 hasAnchor" number="7.6.4">
+<h3><span class="header-section-number">7.6.4</span> Legenden<a href="graphiken-mit-ggplot2.html#legenden" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Die <span style="color:#31688e">Legende</span> wird von <code>ggplot</code> automatisch erstellt und kann einfach an die Positionen <code>bottom</code>, <code>right</code>, <code>left</code> und <code>top</code> gelegt werden:</p>
 <div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="graphiken-mit-ggplot2.html#cb350-1" tabindex="-1"></a><span class="fu">ggplot</span>(MarvelDC, <span class="fu">aes</span>(<span class="at">x =</span> Publisher, <span class="at">y =</span> Total, </span>
 <span id="cb350-2"><a href="graphiken-mit-ggplot2.html#cb350-2" tabindex="-1"></a>                     <span class="at">fill=</span> Gender)) <span class="sc">+</span> </span>
@@ -891,8 +885,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <span id="cb350-11"><a href="graphiken-mit-ggplot2.html#cb350-11" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;top&quot;</span>)   <span class="co"># positioniere Legende oben</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-175-1.png" alt="" width="480" style="display: block; margin: auto;" /></p>
 </div>
-<div id="koordinatensysteme" class="section level3 hasAnchor" number="8.6.5">
-<h3><span class="header-section-number">8.6.5</span> Koordinatensysteme<a href="graphiken-mit-ggplot2.html#koordinatensysteme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="koordinatensysteme" class="section level3 hasAnchor" number="7.6.5">
+<h3><span class="header-section-number">7.6.5</span> Koordinatensysteme<a href="graphiken-mit-ggplot2.html#koordinatensysteme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Das wichtigste <span style="color:#31688e">Koordinatensystem</span> ist zweifellos das kartesische. In R kann man aber z.B. auch <span style="color:#31688e">Polarkoordinaten</span> verwenden, oder das <span style="color:#31688e">kartesische System “drehen”</span>:</p>
 <ul>
 <li><p><code>coord_flip</code> – <span style="color:#31688e">dreht ein kartesisches Koordinatensystem</span> um (x wird zu y und umgekehrt) - empfohlen ist allerdings, das über die Definition von <span style="color:#35b779">x</span> und <span style="color:#35b779">y</span> direkt zu lösen.</p></li>
@@ -900,8 +894,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 </ul>
 <p><span style="color:#31688e">Polarkoordinaten</span> wurden bereits beim Balkendiagramm gezeigt.</p>
 </div>
-<div id="farbskalen" class="section level3 hasAnchor" number="8.6.6">
-<h3><span class="header-section-number">8.6.6</span> Farbskalen<a href="graphiken-mit-ggplot2.html#farbskalen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="farbskalen" class="section level3 hasAnchor" number="7.6.6">
+<h3><span class="header-section-number">7.6.6</span> Farbskalen<a href="graphiken-mit-ggplot2.html#farbskalen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>scale</code> bestimmt, auf welche <span style="color:#31688e">Farbskala</span> die <span style="color:#8fd744">Daten</span> abgebildet werden. Am Beispiel von <code>viridis</code>:</p>
 <ul>
 <li><p><code>scale_color_viridis_d()</code> – diskretes <span style="color:#31688e"><code>viridis</code> Spektrum</span> für das Argument <code>color</code></p></li>
@@ -945,8 +939,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 <span id="cb351-25"><a href="graphiken-mit-ggplot2.html#cb351-25" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()              <span class="co"># verwende Farben aus viridis</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-176-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="variablenskalen" class="section level3 hasAnchor" number="8.6.7">
-<h3><span class="header-section-number">8.6.7</span> Variablenskalen<a href="graphiken-mit-ggplot2.html#variablenskalen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variablenskalen" class="section level3 hasAnchor" number="7.6.7">
+<h3><span class="header-section-number">7.6.7</span> Variablenskalen<a href="graphiken-mit-ggplot2.html#variablenskalen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Mit <code>ggplot2</code> können Variablen einfach auf unterschiedliche <span style="color:#31688e">Skalen</span> übertragen werden. Diese Funktionalität kann mit der <span style="color:#35b779"><code>x</code></span>-Achse oder mit der <span style="color:#35b779"><code>y</code></span>-Achse verwendet werden, z.B.:</p>
 <ul>
 <li><p><code>scale_x_log10()</code> ()</p></li>
@@ -969,8 +963,8 @@ Hier sieht man, dass bei DC Comics nur weniger als ein Viertel aller Helden weib
 ##  Limits:    0 --    1</code></pre>
 </div>
 </div>
-<div id="facetten" class="section level2 hasAnchor" number="8.7">
-<h2><span class="header-section-number">8.7</span> Facetten<a href="graphiken-mit-ggplot2.html#facetten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="facetten" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Facetten<a href="graphiken-mit-ggplot2.html#facetten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span style="color:#31688e">Facettierung</span> bedeutet, dass ein Plot in mehrere Plots aufgespalten wird, abhängig von den Werten einer oder mehrerer diskreter Variablen. Der einfachste Weg geht über <code>facet_wrap()</code>. Beispielsweise kann man das <span style="color:#21918d">Balkendiagramm</span> von oben, welches die Art der Superhelden zeigt, um die größten Gegner dieser Helden erweitern. Erst definiert man in einem Vektor, wer die größten Helden und Bösewichte sind. Dann <span style="color:#31688e">facettiert</span> man das <span style="color:#21918d">Balkendiagramm</span> nach <code>Alignment</code>, es werden also unterschiedliche Grids für die Guten und die Bösen erstellt:</p>
 <div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="graphiken-mit-ggplot2.html#cb356-1" tabindex="-1"></a><span class="co"># Gegner der X-Men, der Guardians of the Galaxy und der Avengers</span></span>
 <span id="cb356-2"><a href="graphiken-mit-ggplot2.html#cb356-2" tabindex="-1"></a>VXMen <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Magneto&quot;</span>, <span class="st">&quot;Gambit&quot;</span>, <span class="st">&quot;Apocalypse&quot;</span>, <span class="st">&quot;Mystique&quot;</span>)</span>

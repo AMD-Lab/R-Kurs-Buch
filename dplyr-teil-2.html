@@ -4,25 +4,25 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9 dplyr Teil 2 | Einführung in R</title>
+  <title>8 dplyr Teil 2 | Einführung in R</title>
   <meta name="description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="9 dplyr Teil 2 | Einführung in R" />
+  <meta property="og:title" content="8 dplyr Teil 2 | Einführung in R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
   <meta name="github-repo" content="AMD-Lab/R-Kurs-Buch" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="9 dplyr Teil 2 | Einführung in R" />
+  <meta name="twitter:title" content="8 dplyr Teil 2 | Einführung in R" />
   
   <meta name="twitter:description" content="Dies ist eine Einführung in R, die in verschiedenen Lehrveranstaltungen der Arbeitseinheiten Analyse und Modellierung komplexer Daten und Methodenlehre und Statistik des Psychologischen Instituts der Johannes Gutenberg-Universität Mainz genutzt werden." />
   
 
 
 
-<meta name="date" content="2026-04-05" />
+<meta name="date" content="2026-04-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,164 +139,158 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Einführung in R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Über dieses Skript</a>
+<li class="chapter" data-level="1" data-path="über-dieses-skript.html"><a href="über-dieses-skript.html"><i class="fa fa-check"></i><b>1</b> Über dieses Skript</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#feedback"><i class="fa fa-check"></i><b>1.1</b> Feedback</a></li>
+<li class="chapter" data-level="1.1" data-path="über-dieses-skript.html"><a href="über-dieses-skript.html#das-r-skript"><i class="fa fa-check"></i><b>1.1</b> Das R-Skript</a></li>
+<li class="chapter" data-level="1.2" data-path="über-dieses-skript.html"><a href="über-dieses-skript.html#struktur-des-skripts"><i class="fa fa-check"></i><b>1.2</b> Struktur des Skripts</a></li>
+<li class="chapter" data-level="1.3" data-path="über-dieses-skript.html"><a href="über-dieses-skript.html#pakete"><i class="fa fa-check"></i><b>1.3</b> Pakete</a></li>
+<li class="chapter" data-level="1.4" data-path="über-dieses-skript.html"><a href="über-dieses-skript.html#working-directory"><i class="fa fa-check"></i><b>1.4</b> Working Directory</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="einführung.html"><a href="einführung.html"><i class="fa fa-check"></i><b>2</b> Einführung</a>
+<li class="chapter" data-level="2" data-path="erste-schritte.html"><a href="erste-schritte.html"><i class="fa fa-check"></i><b>2</b> Erste Schritte</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="einführung.html"><a href="einführung.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
-<li class="chapter" data-level="2.2" data-path="einführung.html"><a href="einführung.html#erste-schritte"><i class="fa fa-check"></i><b>2.2</b> Erste Schritte</a></li>
-<li class="chapter" data-level="2.3" data-path="einführung.html"><a href="einführung.html#das-r-skript"><i class="fa fa-check"></i><b>2.3</b> Das R-Skript</a></li>
-<li class="chapter" data-level="2.4" data-path="einführung.html"><a href="einführung.html#struktur-des-skripts"><i class="fa fa-check"></i><b>2.4</b> Struktur des Skripts</a></li>
-<li class="chapter" data-level="2.5" data-path="einführung.html"><a href="einführung.html#pakete"><i class="fa fa-check"></i><b>2.5</b> Pakete</a></li>
-<li class="chapter" data-level="2.6" data-path="einführung.html"><a href="einführung.html#working-directory"><i class="fa fa-check"></i><b>2.6</b> Working Directory</a></li>
+<li class="chapter" data-level="2.1" data-path="erste-schritte.html"><a href="erste-schritte.html#zahlen"><i class="fa fa-check"></i><b>2.1</b> Zahlen</a></li>
+<li class="chapter" data-level="2.2" data-path="erste-schritte.html"><a href="erste-schritte.html#variablen"><i class="fa fa-check"></i><b>2.2</b> Variablen</a></li>
+<li class="chapter" data-level="2.3" data-path="erste-schritte.html"><a href="erste-schritte.html#funktionen"><i class="fa fa-check"></i><b>2.3</b> Funktionen</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="erste-schritte.html"><a href="erste-schritte.html#funktionsargumente"><i class="fa fa-check"></i><b>2.3.1</b> Funktionsargumente</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html"><i class="fa fa-check"></i><b>3</b> Erste Schritte</a>
+<li class="chapter" data-level="2.4" data-path="erste-schritte.html"><a href="erste-schritte.html#vektoren"><i class="fa fa-check"></i><b>2.4</b> Vektoren</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#zahlen"><i class="fa fa-check"></i><b>3.1</b> Zahlen</a></li>
-<li class="chapter" data-level="3.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#variablen"><i class="fa fa-check"></i><b>3.2</b> Variablen</a></li>
-<li class="chapter" data-level="3.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#funktionen"><i class="fa fa-check"></i><b>3.3</b> Funktionen</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#funktionsargumente"><i class="fa fa-check"></i><b>3.3.1</b> Funktionsargumente</a></li>
+<li class="chapter" data-level="2.4.1" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-numeric"><i class="fa fa-check"></i><b>2.4.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="2.4.2" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-character"><i class="fa fa-check"></i><b>2.4.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="2.4.3" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-logical"><i class="fa fa-check"></i><b>2.4.3</b> Datentyp logical</a></li>
+<li class="chapter" data-level="2.4.4" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-factor"><i class="fa fa-check"></i><b>2.4.4</b> Datentyp factor</a></li>
+<li class="chapter" data-level="2.4.5" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-na"><i class="fa fa-check"></i><b>2.4.5</b> Datentyp NA</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#vektoren"><i class="fa fa-check"></i><b>3.4</b> Vektoren</a>
+<li class="chapter" data-level="2.5" data-path="erste-schritte.html"><a href="erste-schritte.html#auswahl-von-vektorelementen"><i class="fa fa-check"></i><b>2.5</b> Auswahl von Vektorelementen</a></li>
+<li class="chapter" data-level="2.6" data-path="erste-schritte.html"><a href="erste-schritte.html#logische-vergleiche"><i class="fa fa-check"></i><b>2.6</b> Logische Vergleiche</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-numeric"><i class="fa fa-check"></i><b>3.4.1</b> Datentyp numeric</a></li>
-<li class="chapter" data-level="3.4.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-character"><i class="fa fa-check"></i><b>3.4.2</b> Datentyp character</a></li>
-<li class="chapter" data-level="3.4.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-logical"><i class="fa fa-check"></i><b>3.4.3</b> Datentyp logical</a></li>
-<li class="chapter" data-level="3.4.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-factor"><i class="fa fa-check"></i><b>3.4.4</b> Datentyp factor</a></li>
-<li class="chapter" data-level="3.4.5" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-na"><i class="fa fa-check"></i><b>3.4.5</b> Datentyp NA</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#auswahl-von-vektorelementen"><i class="fa fa-check"></i><b>3.5</b> Auswahl von Vektorelementen</a></li>
-<li class="chapter" data-level="3.6" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#logische-vergleiche"><i class="fa fa-check"></i><b>3.6</b> Logische Vergleiche</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-numeric-1"><i class="fa fa-check"></i><b>3.6.1</b> Datentyp numeric</a></li>
-<li class="chapter" data-level="3.6.2" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-character-1"><i class="fa fa-check"></i><b>3.6.2</b> Datentyp character</a></li>
-<li class="chapter" data-level="3.6.3" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#datentyp-factor-1"><i class="fa fa-check"></i><b>3.6.3</b> Datentyp factor</a></li>
-<li class="chapter" data-level="3.6.4" data-path="erste-schritte-1.html"><a href="erste-schritte-1.html#rekodieren-von-variablen-mit-hilfe-logischer-vergleich"><i class="fa fa-check"></i><b>3.6.4</b> Rekodieren von Variablen mit Hilfe logischer Vergleich</a></li>
+<li class="chapter" data-level="2.6.1" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-numeric-1"><i class="fa fa-check"></i><b>2.6.1</b> Datentyp numeric</a></li>
+<li class="chapter" data-level="2.6.2" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-character-1"><i class="fa fa-check"></i><b>2.6.2</b> Datentyp character</a></li>
+<li class="chapter" data-level="2.6.3" data-path="erste-schritte.html"><a href="erste-schritte.html#datentyp-factor-1"><i class="fa fa-check"></i><b>2.6.3</b> Datentyp factor</a></li>
+<li class="chapter" data-level="2.6.4" data-path="erste-schritte.html"><a href="erste-schritte.html#rekodieren-von-variablen-mit-hilfe-logischer-vergleich"><i class="fa fa-check"></i><b>2.6.4</b> Rekodieren von Variablen mit Hilfe logischer Vergleich</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="datenstruktur.html"><a href="datenstruktur.html"><i class="fa fa-check"></i><b>4</b> Datenstruktur</a>
+<li class="chapter" data-level="3" data-path="datenstruktur.html"><a href="datenstruktur.html"><i class="fa fa-check"></i><b>3</b> Datenstruktur</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="datenstruktur.html"><a href="datenstruktur.html#rmarkdown"><i class="fa fa-check"></i><b>4.1</b> RMarkdown</a></li>
-<li class="chapter" data-level="4.2" data-path="datenstruktur.html"><a href="datenstruktur.html#hilfe"><i class="fa fa-check"></i><b>4.2</b> Hilfe</a></li>
-<li class="chapter" data-level="4.3" data-path="datenstruktur.html"><a href="datenstruktur.html#wiederholung-werte-vektoren"><i class="fa fa-check"></i><b>4.3</b> Wiederholung: Werte &amp; Vektoren</a>
+<li class="chapter" data-level="3.1" data-path="datenstruktur.html"><a href="datenstruktur.html#rmarkdown"><i class="fa fa-check"></i><b>3.1</b> RMarkdown</a></li>
+<li class="chapter" data-level="3.2" data-path="datenstruktur.html"><a href="datenstruktur.html#hilfe"><i class="fa fa-check"></i><b>3.2</b> Hilfe</a></li>
+<li class="chapter" data-level="3.3" data-path="datenstruktur.html"><a href="datenstruktur.html#wiederholung-werte-vektoren"><i class="fa fa-check"></i><b>3.3</b> Wiederholung: Werte &amp; Vektoren</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="datenstruktur.html"><a href="datenstruktur.html#coercion-umwandlung-von-typen"><i class="fa fa-check"></i><b>4.3.1</b> Coercion (Umwandlung von Typen)</a></li>
-<li class="chapter" data-level="4.3.2" data-path="datenstruktur.html"><a href="datenstruktur.html#aufruf-per-index-von-daten-aus-mehreren-ebenen"><i class="fa fa-check"></i><b>4.3.2</b> Aufruf per Index von Daten aus mehreren Ebenen</a></li>
-<li class="chapter" data-level="4.3.3" data-path="datenstruktur.html"><a href="datenstruktur.html#nullwerte"><i class="fa fa-check"></i><b>4.3.3</b> Nullwerte</a></li>
+<li class="chapter" data-level="3.3.1" data-path="datenstruktur.html"><a href="datenstruktur.html#coercion-umwandlung-von-typen"><i class="fa fa-check"></i><b>3.3.1</b> Coercion (Umwandlung von Typen)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="datenstruktur.html"><a href="datenstruktur.html#aufruf-per-index-von-daten-aus-mehreren-ebenen"><i class="fa fa-check"></i><b>3.3.2</b> Aufruf per Index von Daten aus mehreren Ebenen</a></li>
+<li class="chapter" data-level="3.3.3" data-path="datenstruktur.html"><a href="datenstruktur.html#nullwerte"><i class="fa fa-check"></i><b>3.3.3</b> Nullwerte</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="datenstruktur.html"><a href="datenstruktur.html#der-workspace"><i class="fa fa-check"></i><b>4.4</b> Der Workspace</a></li>
-<li class="chapter" data-level="4.5" data-path="datenstruktur.html"><a href="datenstruktur.html#wiederholung-einfache-berechnungen"><i class="fa fa-check"></i><b>4.5</b> Wiederholung: Einfache Berechnungen</a>
+<li class="chapter" data-level="3.4" data-path="datenstruktur.html"><a href="datenstruktur.html#der-workspace"><i class="fa fa-check"></i><b>3.4</b> Der Workspace</a></li>
+<li class="chapter" data-level="3.5" data-path="datenstruktur.html"><a href="datenstruktur.html#wiederholung-einfache-berechnungen"><i class="fa fa-check"></i><b>3.5</b> Wiederholung: Einfache Berechnungen</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="datenstruktur.html"><a href="datenstruktur.html#übersicht-berechnungsfunktionen"><i class="fa fa-check"></i><b>4.5.1</b> Übersicht Berechnungsfunktionen</a></li>
+<li class="chapter" data-level="3.5.1" data-path="datenstruktur.html"><a href="datenstruktur.html#übersicht-berechnungsfunktionen"><i class="fa fa-check"></i><b>3.5.1</b> Übersicht Berechnungsfunktionen</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="datenstruktur.html"><a href="datenstruktur.html#matrizen"><i class="fa fa-check"></i><b>4.6</b> Matrizen</a></li>
-<li class="chapter" data-level="4.7" data-path="datenstruktur.html"><a href="datenstruktur.html#tidy-daten"><i class="fa fa-check"></i><b>4.7</b> tidy Daten</a>
+<li class="chapter" data-level="3.6" data-path="datenstruktur.html"><a href="datenstruktur.html#matrizen"><i class="fa fa-check"></i><b>3.6</b> Matrizen</a></li>
+<li class="chapter" data-level="3.7" data-path="datenstruktur.html"><a href="datenstruktur.html#tidy-daten"><i class="fa fa-check"></i><b>3.7</b> tidy Daten</a>
 <ul>
-<li class="chapter" data-level="4.7.1" data-path="datenstruktur.html"><a href="datenstruktur.html#tidyverse"><i class="fa fa-check"></i><b>4.7.1</b> tidyverse</a></li>
+<li class="chapter" data-level="3.7.1" data-path="datenstruktur.html"><a href="datenstruktur.html#tidyverse"><i class="fa fa-check"></i><b>3.7.1</b> tidyverse</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="datenstruktur.html"><a href="datenstruktur.html#data.frames-df-und-tibbles-tib"><i class="fa fa-check"></i><b>4.8</b> data.frames (df) und tibbles (tib)</a></li>
-<li class="chapter" data-level="4.9" data-path="datenstruktur.html"><a href="datenstruktur.html#einlesen-und-speichern-von-daten"><i class="fa fa-check"></i><b>4.9</b> Einlesen und Speichern von Daten</a></li>
-<li class="chapter" data-level="4.10" data-path="datenstruktur.html"><a href="datenstruktur.html#datensätze-dat-anschauen"><i class="fa fa-check"></i><b>4.10</b> Datensätze (dat) anschauen</a>
+<li class="chapter" data-level="3.8" data-path="datenstruktur.html"><a href="datenstruktur.html#data.frames-df-und-tibbles-tib"><i class="fa fa-check"></i><b>3.8</b> data.frames (df) und tibbles (tib)</a></li>
+<li class="chapter" data-level="3.9" data-path="datenstruktur.html"><a href="datenstruktur.html#einlesen-und-speichern-von-daten"><i class="fa fa-check"></i><b>3.9</b> Einlesen und Speichern von Daten</a></li>
+<li class="chapter" data-level="3.10" data-path="datenstruktur.html"><a href="datenstruktur.html#datensätze-dat-anschauen"><i class="fa fa-check"></i><b>3.10</b> Datensätze (dat) anschauen</a>
 <ul>
-<li class="chapter" data-level="4.10.1" data-path="datenstruktur.html"><a href="datenstruktur.html#häufigkeit-von-factorlevels"><i class="fa fa-check"></i><b>4.10.1</b> Häufigkeit von Factorlevels</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html"><i class="fa fa-check"></i><b>5</b> Datenaufbereitung mit <code>dplyr</code></a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#einführung-1"><i class="fa fa-check"></i><b>5.1</b> Einführung</a></li>
-<li class="chapter" data-level="5.2" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-die-wichtigsten-befehle"><i class="fa fa-check"></i><b>5.2</b> <code>dplyr</code>: Die wichtigsten Befehle</a></li>
-<li class="chapter" data-level="5.3" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-filtern-von-beobachtungen-mit-filter"><i class="fa fa-check"></i><b>5.3</b> Beispiel: Filtern von Beobachtungen mit <code>filter()</code></a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#filtern-von-strings-factors"><i class="fa fa-check"></i><b>5.3.1</b> Filtern von Strings / Factors</a></li>
-</ul></li>
-<li class="chapter" data-level="5.4" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-der-piping-operator"><i class="fa fa-check"></i><b>5.4</b> <code>dplyr</code>: Der Piping Operator <code>%&gt;%</code></a></li>
-<li class="chapter" data-level="5.5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel"><i class="fa fa-check"></i><b>5.5</b> Beispiel</a></li>
-<li class="chapter" data-level="5.6" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-neue-variablen-mit-mutate-berechnen"><i class="fa fa-check"></i><b>5.6</b> <code>dplyr</code>: Neue Variablen mit <code>mutate()</code> berechnen</a></li>
-<li class="chapter" data-level="5.7" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-1"><i class="fa fa-check"></i><b>5.7</b> Beispiel</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>6</b> Deskriptive Statistik</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#allgemeine-informationen-eines-datensatzes"><i class="fa fa-check"></i><b>6.1</b> Allgemeine Informationen eines Datensatzes</a></li>
-<li class="chapter" data-level="6.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#lagemaße"><i class="fa fa-check"></i><b>6.2</b> Lagemaße</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#minimum-und-maximum"><i class="fa fa-check"></i><b>6.2.1</b> Minimum und Maximum</a></li>
-<li class="chapter" data-level="6.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#quantile-und-perzentile"><i class="fa fa-check"></i><b>6.2.2</b> Quantile und Perzentile</a></li>
-<li class="chapter" data-level="6.2.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#interquantilsabstand-iqa"><i class="fa fa-check"></i><b>6.2.3</b> Interquantilsabstand (IQA)</a></li>
-<li class="chapter" data-level="6.2.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#mittelwert"><i class="fa fa-check"></i><b>6.2.4</b> Mittelwert</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#streuungsmaße"><i class="fa fa-check"></i><b>6.3</b> Streuungsmaße</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#standardabweichung"><i class="fa fa-check"></i><b>6.3.1</b> Standardabweichung</a></li>
+<li class="chapter" data-level="3.10.1" data-path="datenstruktur.html"><a href="datenstruktur.html#häufigkeit-von-factorlevels"><i class="fa fa-check"></i><b>3.10.1</b> Häufigkeit von Factorlevels</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="psychometrie.html"><a href="psychometrie.html"><i class="fa fa-check"></i><b>7</b> Psychometrie</a>
+<li class="chapter" data-level="4" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html"><i class="fa fa-check"></i><b>4</b> Datenaufbereitung mit <code>dplyr</code></a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="psychometrie.html"><a href="psychometrie.html#einführung-2"><i class="fa fa-check"></i><b>7.1</b> Einführung</a></li>
-<li class="chapter" data-level="7.2" data-path="psychometrie.html"><a href="psychometrie.html#welche-statistischen-grundvoraussetzungen-sollten-items-erfüllen"><i class="fa fa-check"></i><b>7.2</b> Welche statistischen Grundvoraussetzungen sollten Items erfüllen?</a>
+<li class="chapter" data-level="4.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#einführung"><i class="fa fa-check"></i><b>4.1</b> Einführung</a></li>
+<li class="chapter" data-level="4.2" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-die-wichtigsten-befehle"><i class="fa fa-check"></i><b>4.2</b> <code>dplyr</code>: Die wichtigsten Befehle</a></li>
+<li class="chapter" data-level="4.3" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-filtern-von-beobachtungen-mit-filter"><i class="fa fa-check"></i><b>4.3</b> Beispiel: Filtern von Beobachtungen mit <code>filter()</code></a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="psychometrie.html"><a href="psychometrie.html#stimmen-die-minima-und-maxima-der-variablen"><i class="fa fa-check"></i><b>7.2.1</b> Stimmen die Minima und Maxima der Variablen?</a></li>
-<li class="chapter" data-level="7.2.2" data-path="psychometrie.html"><a href="psychometrie.html#wurden-variablen-die-negativ-kodiert-sind-rekodiert"><i class="fa fa-check"></i><b>7.2.2</b> Wurden Variablen, die negativ kodiert sind, rekodiert?</a></li>
-<li class="chapter" data-level="7.2.3" data-path="psychometrie.html"><a href="psychometrie.html#sind-die-variablen-approximativ-normalverteilt"><i class="fa fa-check"></i><b>7.2.3</b> Sind die Variablen approximativ normalverteilt?</a></li>
-<li class="chapter" data-level="7.2.4" data-path="psychometrie.html"><a href="psychometrie.html#differenzieren-die-variablen-zwischen-personen"><i class="fa fa-check"></i><b>7.2.4</b> Differenzieren die Variablen zwischen Personen?</a></li>
+<li class="chapter" data-level="4.3.1" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#filtern-von-strings-factors"><i class="fa fa-check"></i><b>4.3.1</b> Filtern von Strings / Factors</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="psychometrie.html"><a href="psychometrie.html#wie-nutzt-man-die-interkorrelation-der-items-für-die-itemsauswahl"><i class="fa fa-check"></i><b>7.3</b> Wie nutzt man die Interkorrelation der Items für die Itemsauswahl?</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="psychometrie.html"><a href="psychometrie.html#trennschärfe"><i class="fa fa-check"></i><b>7.3.1</b> Trennschärfe</a></li>
-<li class="chapter" data-level="7.3.2" data-path="psychometrie.html"><a href="psychometrie.html#faktorenanalyse"><i class="fa fa-check"></i><b>7.3.2</b> Faktorenanalyse</a></li>
+<li class="chapter" data-level="4.4" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-der-piping-operator"><i class="fa fa-check"></i><b>4.4</b> <code>dplyr</code>: Der Piping Operator <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="4.5" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel"><i class="fa fa-check"></i><b>4.5</b> Beispiel</a></li>
+<li class="chapter" data-level="4.6" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#dplyr-neue-variablen-mit-mutate-berechnen"><i class="fa fa-check"></i><b>4.6</b> <code>dplyr</code>: Neue Variablen mit <code>mutate()</code> berechnen</a></li>
+<li class="chapter" data-level="4.7" data-path="datenaufbereitung-mit-dplyr.html"><a href="datenaufbereitung-mit-dplyr.html#beispiel-1"><i class="fa fa-check"></i><b>4.7</b> Beispiel</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="psychometrie.html"><a href="psychometrie.html#berechnung-der-reliabilität"><i class="fa fa-check"></i><b>7.4</b> Berechnung der Reliabilität</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html"><i class="fa fa-check"></i><b>8</b> Graphiken mit <code>ggplot2</code></a>
+<li class="chapter" data-level="5" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>5</b> Deskriptive Statistik</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#exkurs-warum-viridis"><i class="fa fa-check"></i><b>8.1</b> Exkurs: Warum <code>viridis</code>?</a></li>
-<li class="chapter" data-level="8.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ggplot2-einführung"><i class="fa fa-check"></i><b>8.2</b> <code>ggplot2</code> – Einführung</a></li>
-<li class="chapter" data-level="8.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#vor-der-visualisierung-die-daten"><i class="fa fa-check"></i><b>8.3</b> Vor der Visualisierung: Die Daten</a></li>
-<li class="chapter" data-level="8.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ästhetische-mapping"><i class="fa fa-check"></i><b>8.4</b> Ästhetische Mapping</a></li>
-<li class="chapter" data-level="8.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#graphischen-funktionen"><i class="fa fa-check"></i><b>8.5</b> Graphischen Funktionen</a>
+<li class="chapter" data-level="5.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#allgemeine-informationen-eines-datensatzes"><i class="fa fa-check"></i><b>5.1</b> Allgemeine Informationen eines Datensatzes</a></li>
+<li class="chapter" data-level="5.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#lagemaße"><i class="fa fa-check"></i><b>5.2</b> Lagemaße</a>
 <ul>
-<li class="chapter" data-level="8.5.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#säulen--und-balkendiagramm"><i class="fa fa-check"></i><b>8.5.1</b> Säulen- und Balkendiagramm</a></li>
-<li class="chapter" data-level="8.5.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#histogramm"><i class="fa fa-check"></i><b>8.5.2</b> Histogramm</a></li>
-<li class="chapter" data-level="8.5.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#qq-plot"><i class="fa fa-check"></i><b>8.5.3</b> QQ-Plot</a></li>
-<li class="chapter" data-level="8.5.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#boxplot"><i class="fa fa-check"></i><b>8.5.4</b> Boxplot</a></li>
-<li class="chapter" data-level="8.5.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#violinen-plot"><i class="fa fa-check"></i><b>8.5.5</b> Violinen-Plot</a></li>
-<li class="chapter" data-level="8.5.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#beeswarm-plot-mit-dem-paket-ggbeeswarm"><i class="fa fa-check"></i><b>8.5.6</b> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code></a></li>
-<li class="chapter" data-level="8.5.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#scatterplot"><i class="fa fa-check"></i><b>8.5.7</b> Scatterplot</a></li>
-<li class="chapter" data-level="8.5.8" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linearer-fit"><i class="fa fa-check"></i><b>8.5.8</b> (Linearer) Fit</a></li>
-<li class="chapter" data-level="8.5.9" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linienplot"><i class="fa fa-check"></i><b>8.5.9</b> Linienplot</a></li>
+<li class="chapter" data-level="5.2.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#minimum-und-maximum"><i class="fa fa-check"></i><b>5.2.1</b> Minimum und Maximum</a></li>
+<li class="chapter" data-level="5.2.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#quantile-und-perzentile"><i class="fa fa-check"></i><b>5.2.2</b> Quantile und Perzentile</a></li>
+<li class="chapter" data-level="5.2.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#interquantilsabstand-iqa"><i class="fa fa-check"></i><b>5.2.3</b> Interquantilsabstand (IQA)</a></li>
+<li class="chapter" data-level="5.2.4" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#mittelwert"><i class="fa fa-check"></i><b>5.2.4</b> Mittelwert</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#sonstige-funktionalität"><i class="fa fa-check"></i><b>8.6</b> Sonstige Funktionalität</a>
+<li class="chapter" data-level="5.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#streuungsmaße"><i class="fa fa-check"></i><b>5.3</b> Streuungsmaße</a>
 <ul>
-<li class="chapter" data-level="8.6.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#labels"><i class="fa fa-check"></i><b>8.6.1</b> Labels</a></li>
-<li class="chapter" data-level="8.6.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#thema"><i class="fa fa-check"></i><b>8.6.2</b> Thema</a></li>
-<li class="chapter" data-level="8.6.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#position"><i class="fa fa-check"></i><b>8.6.3</b> Position</a></li>
-<li class="chapter" data-level="8.6.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#legenden"><i class="fa fa-check"></i><b>8.6.4</b> Legenden</a></li>
-<li class="chapter" data-level="8.6.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#koordinatensysteme"><i class="fa fa-check"></i><b>8.6.5</b> Koordinatensysteme</a></li>
-<li class="chapter" data-level="8.6.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#farbskalen"><i class="fa fa-check"></i><b>8.6.6</b> Farbskalen</a></li>
-<li class="chapter" data-level="8.6.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#variablenskalen"><i class="fa fa-check"></i><b>8.6.7</b> Variablenskalen</a></li>
+<li class="chapter" data-level="5.3.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#standardabweichung"><i class="fa fa-check"></i><b>5.3.1</b> Standardabweichung</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#facetten"><i class="fa fa-check"></i><b>8.7</b> Facetten</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html"><i class="fa fa-check"></i><b>9</b> <code>dplyr</code> Teil 2</a>
+<li class="chapter" data-level="6" data-path="psychometrie.html"><a href="psychometrie.html"><i class="fa fa-check"></i><b>6</b> Psychometrie</a>
 <ul>
-<li class="chapter" data-level="9.0.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#long-vs.-wide-format"><i class="fa fa-check"></i><b>9.0.1</b> Long vs. Wide – Format</a></li>
-<li class="chapter" data-level="9.0.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#tidy-data"><i class="fa fa-check"></i><b>9.0.2</b> Tidy Data</a></li>
-<li class="chapter" data-level="9.0.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#wide-format"><i class="fa fa-check"></i><b>9.0.3</b> Wide-Format</a></li>
-<li class="chapter" data-level="9.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#wide-to-long"><i class="fa fa-check"></i><b>9.1</b> Wide to Long</a></li>
-<li class="chapter" data-level="9.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#long-to-wide"><i class="fa fa-check"></i><b>9.2</b> Long to Wide</a>
+<li class="chapter" data-level="6.1" data-path="psychometrie.html"><a href="psychometrie.html#einführung-1"><i class="fa fa-check"></i><b>6.1</b> Einführung</a></li>
+<li class="chapter" data-level="6.2" data-path="psychometrie.html"><a href="psychometrie.html#welche-statistischen-grundvoraussetzungen-sollten-items-erfüllen"><i class="fa fa-check"></i><b>6.2</b> Welche statistischen Grundvoraussetzungen sollten Items erfüllen?</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#übungsaufgabe"><i class="fa fa-check"></i><b>9.2.1</b> Übungsaufgabe</a></li>
+<li class="chapter" data-level="6.2.1" data-path="psychometrie.html"><a href="psychometrie.html#stimmen-die-minima-und-maxima-der-variablen"><i class="fa fa-check"></i><b>6.2.1</b> Stimmen die Minima und Maxima der Variablen?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="psychometrie.html"><a href="psychometrie.html#wurden-variablen-die-negativ-kodiert-sind-rekodiert"><i class="fa fa-check"></i><b>6.2.2</b> Wurden Variablen, die negativ kodiert sind, rekodiert?</a></li>
+<li class="chapter" data-level="6.2.3" data-path="psychometrie.html"><a href="psychometrie.html#sind-die-variablen-approximativ-normalverteilt"><i class="fa fa-check"></i><b>6.2.3</b> Sind die Variablen approximativ normalverteilt?</a></li>
+<li class="chapter" data-level="6.2.4" data-path="psychometrie.html"><a href="psychometrie.html#differenzieren-die-variablen-zwischen-personen"><i class="fa fa-check"></i><b>6.2.4</b> Differenzieren die Variablen zwischen Personen?</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#key-is-key"><i class="fa fa-check"></i><b>9.3</b> Key is key</a></li>
-<li class="chapter" data-level="9.4" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#joins"><i class="fa fa-check"></i><b>9.4</b> joins</a>
+<li class="chapter" data-level="6.3" data-path="psychometrie.html"><a href="psychometrie.html#wie-nutzt-man-die-interkorrelation-der-items-für-die-itemsauswahl"><i class="fa fa-check"></i><b>6.3</b> Wie nutzt man die Interkorrelation der Items für die Itemsauswahl?</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#full_join"><i class="fa fa-check"></i><b>9.4.1</b> full_join</a></li>
-<li class="chapter" data-level="9.4.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#left_join-und-right_join"><i class="fa fa-check"></i><b>9.4.2</b> left_join und right_join</a></li>
-<li class="chapter" data-level="9.4.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#übung"><i class="fa fa-check"></i><b>9.4.3</b> Übung</a></li>
+<li class="chapter" data-level="6.3.1" data-path="psychometrie.html"><a href="psychometrie.html#trennschärfe"><i class="fa fa-check"></i><b>6.3.1</b> Trennschärfe</a></li>
+<li class="chapter" data-level="6.3.2" data-path="psychometrie.html"><a href="psychometrie.html#faktorenanalyse"><i class="fa fa-check"></i><b>6.3.2</b> Faktorenanalyse</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#fallunterscheidung-mit-ifelse-und-case_when"><i class="fa fa-check"></i><b>9.5</b> Fallunterscheidung mit <code>ifelse</code> und <code>case_when</code></a></li>
+<li class="chapter" data-level="6.4" data-path="psychometrie.html"><a href="psychometrie.html#berechnung-der-reliabilität"><i class="fa fa-check"></i><b>6.4</b> Berechnung der Reliabilität</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html"><i class="fa fa-check"></i><b>7</b> Graphiken mit <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#exkurs-warum-viridis"><i class="fa fa-check"></i><b>7.1</b> Exkurs: Warum <code>viridis</code>?</a></li>
+<li class="chapter" data-level="7.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ggplot2-einführung"><i class="fa fa-check"></i><b>7.2</b> <code>ggplot2</code> – Einführung</a></li>
+<li class="chapter" data-level="7.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#vor-der-visualisierung-die-daten"><i class="fa fa-check"></i><b>7.3</b> Vor der Visualisierung: Die Daten</a></li>
+<li class="chapter" data-level="7.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#ästhetische-mapping"><i class="fa fa-check"></i><b>7.4</b> Ästhetische Mapping</a></li>
+<li class="chapter" data-level="7.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#graphischen-funktionen"><i class="fa fa-check"></i><b>7.5</b> Graphischen Funktionen</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#säulen--und-balkendiagramm"><i class="fa fa-check"></i><b>7.5.1</b> Säulen- und Balkendiagramm</a></li>
+<li class="chapter" data-level="7.5.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#histogramm"><i class="fa fa-check"></i><b>7.5.2</b> Histogramm</a></li>
+<li class="chapter" data-level="7.5.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#qq-plot"><i class="fa fa-check"></i><b>7.5.3</b> QQ-Plot</a></li>
+<li class="chapter" data-level="7.5.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#boxplot"><i class="fa fa-check"></i><b>7.5.4</b> Boxplot</a></li>
+<li class="chapter" data-level="7.5.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#violinen-plot"><i class="fa fa-check"></i><b>7.5.5</b> Violinen-Plot</a></li>
+<li class="chapter" data-level="7.5.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#beeswarm-plot-mit-dem-paket-ggbeeswarm"><i class="fa fa-check"></i><b>7.5.6</b> Beeswarm Plot mit dem Paket <code>ggbeeswarm</code></a></li>
+<li class="chapter" data-level="7.5.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#scatterplot"><i class="fa fa-check"></i><b>7.5.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.5.8" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linearer-fit"><i class="fa fa-check"></i><b>7.5.8</b> (Linearer) Fit</a></li>
+<li class="chapter" data-level="7.5.9" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#linienplot"><i class="fa fa-check"></i><b>7.5.9</b> Linienplot</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#sonstige-funktionalität"><i class="fa fa-check"></i><b>7.6</b> Sonstige Funktionalität</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#labels"><i class="fa fa-check"></i><b>7.6.1</b> Labels</a></li>
+<li class="chapter" data-level="7.6.2" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#thema"><i class="fa fa-check"></i><b>7.6.2</b> Thema</a></li>
+<li class="chapter" data-level="7.6.3" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#position"><i class="fa fa-check"></i><b>7.6.3</b> Position</a></li>
+<li class="chapter" data-level="7.6.4" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#legenden"><i class="fa fa-check"></i><b>7.6.4</b> Legenden</a></li>
+<li class="chapter" data-level="7.6.5" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#koordinatensysteme"><i class="fa fa-check"></i><b>7.6.5</b> Koordinatensysteme</a></li>
+<li class="chapter" data-level="7.6.6" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#farbskalen"><i class="fa fa-check"></i><b>7.6.6</b> Farbskalen</a></li>
+<li class="chapter" data-level="7.6.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#variablenskalen"><i class="fa fa-check"></i><b>7.6.7</b> Variablenskalen</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="graphiken-mit-ggplot2.html"><a href="graphiken-mit-ggplot2.html#facetten"><i class="fa fa-check"></i><b>7.7</b> Facetten</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html"><i class="fa fa-check"></i><b>8</b> <code>dplyr</code> Teil 2</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#long-vs.-wide-format"><i class="fa fa-check"></i><b>8.0.1</b> Long vs. Wide – Format</a></li>
+<li class="chapter" data-level="8.0.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#tidy-data"><i class="fa fa-check"></i><b>8.0.2</b> Tidy Data</a></li>
+<li class="chapter" data-level="8.0.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#wide-format"><i class="fa fa-check"></i><b>8.0.3</b> Wide-Format</a></li>
+<li class="chapter" data-level="8.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#wide-to-long"><i class="fa fa-check"></i><b>8.1</b> Wide to Long</a></li>
+<li class="chapter" data-level="8.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#long-to-wide"><i class="fa fa-check"></i><b>8.2</b> Long to Wide</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#übungsaufgabe"><i class="fa fa-check"></i><b>8.2.1</b> Übungsaufgabe</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#key-is-key"><i class="fa fa-check"></i><b>8.3</b> Key is key</a></li>
+<li class="chapter" data-level="8.4" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#joins"><i class="fa fa-check"></i><b>8.4</b> joins</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#full_join"><i class="fa fa-check"></i><b>8.4.1</b> full_join</a></li>
+<li class="chapter" data-level="8.4.2" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#left_join-und-right_join"><i class="fa fa-check"></i><b>8.4.2</b> left_join und right_join</a></li>
+<li class="chapter" data-level="8.4.3" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#übung"><i class="fa fa-check"></i><b>8.4.3</b> Übung</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="dplyr-teil-2.html"><a href="dplyr-teil-2.html#fallunterscheidung-mit-ifelse-und-case_when"><i class="fa fa-check"></i><b>8.5</b> Fallunterscheidung mit <code>ifelse</code> und <code>case_when</code></a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/AMD-Lab/R-Kurs-Buch" target="blank">
@@ -319,18 +313,18 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dplyr-teil-2" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">9</span> <code>dplyr</code> Teil 2<a href="dplyr-teil-2.html#dplyr-teil-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="dplyr-teil-2" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> <code>dplyr</code> Teil 2<a href="dplyr-teil-2.html#dplyr-teil-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In diesem Abschnitt werden wir uns mit fortgeschrittenen Methoden des Data-wrangling beschäftigen. Insbesondere das umformatieren vom long- ins wide-Format und das Zusammenfügen (join) von unterschiedlichen Datensätzen.</p>
-<div id="long-vs.-wide-format" class="section level3 hasAnchor" number="9.0.1">
-<h3><span class="header-section-number">9.0.1</span> Long vs. Wide – Format<a href="dplyr-teil-2.html#long-vs.-wide-format" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="long-vs.-wide-format" class="section level3 hasAnchor" number="8.0.1">
+<h3><span class="header-section-number">8.0.1</span> Long vs. Wide – Format<a href="dplyr-teil-2.html#long-vs.-wide-format" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In <strong>langen Datensätzen (Long-Format)</strong> steht <strong>jede Beobachtung in einer eigenen Zeile</strong>, auch wenn sie zur selben Person oder zum selben Objekt gehört.<br />
 In <strong>breiten Datensätzen (Wide-Format)</strong> dagegen befinden sich <strong>mehrere Beobachtungen einer Person in einer Zeile</strong>, verteilt auf verschiedene Spalten.</p>
 <p>Was zunächst nach einer reinen Layoutfrage klingt, ist in der Datenanalyse tatsächlich sehr wichtig: Viele statistische Methoden und Visualisierungstools können nur mit einem bestimmten Format arbeiten.<br />
 Wer den Unterschied versteht, kann Datensätze gezielt umstrukturieren – und damit <strong>Auswertung, Vergleich und Visualisierung erheblich vereinfachen</strong>.</p>
 </div>
-<div id="tidy-data" class="section level3 hasAnchor" number="9.0.2">
-<h3><span class="header-section-number">9.0.2</span> Tidy Data<a href="dplyr-teil-2.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tidy-data" class="section level3 hasAnchor" number="8.0.2">
+<h3><span class="header-section-number">8.0.2</span> Tidy Data<a href="dplyr-teil-2.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Das Konzept von <strong>tidy data</strong> (aufgeräumten Daten) stammt aus dem <strong>tidyverse</strong>, einem System von R-Paketen, das auf einheitliche Datenstrukturen setzt.<br />
 Ein Datensatz gilt als <em>tidy</em>, wenn er drei einfache Regeln erfüllt:</p>
 <ul>
@@ -343,8 +337,8 @@ Ein Datensatz gilt als <em>tidy</em>, wenn er drei einfache Regeln erfüllt:</p>
 <p>Nach diesem Prinzip sollten Datensätze idealerweise im <strong>Long-Format</strong> vorliegen.
 Deshalb arbeiten Pakete wie <strong><code>dplyr</code></strong>, <strong><code>tidyr</code></strong> und <strong><code>ggplot2</code></strong> besonders gut mit Daten in dieser Form – sie ermöglichen einen konsistenten und effizienten Analyseprozess.</p>
 </div>
-<div id="wide-format" class="section level3 hasAnchor" number="9.0.3">
-<h3><span class="header-section-number">9.0.3</span> Wide-Format<a href="dplyr-teil-2.html#wide-format" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="wide-format" class="section level3 hasAnchor" number="8.0.3">
+<h3><span class="header-section-number">8.0.3</span> Wide-Format<a href="dplyr-teil-2.html#wide-format" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Schauen wir uns ein Beispiel für einen Datensatz im wide-Format an. Stellen Sie sich vor wir haben für 20 Personen Stresslevel mithile eines Fragebogens zu drei Messzeitpunkten (t1, t2, t3) erhoben. Der Datensatz könnte dann in etwa so aussehen:</p>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="dplyr-teil-2.html#cb357-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">23</span>)</span>
 <span id="cb357-2"><a href="dplyr-teil-2.html#cb357-2" tabindex="-1"></a></span>
@@ -382,8 +376,8 @@ Deshalb arbeiten Pakete wie <strong><code>dplyr</code></strong>, <strong><code>t
 <li><code>pivot_wider</code> macht Datensätze wide</li>
 </ul>
 </div>
-<div id="wide-to-long" class="section level2 hasAnchor" number="9.1">
-<h2><span class="header-section-number">9.1</span> Wide to Long<a href="dplyr-teil-2.html#wide-to-long" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="wide-to-long" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Wide to Long<a href="dplyr-teil-2.html#wide-to-long" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Fangen wir mit unserem wide-Format an. Wir sehen uns noch mal den Datensätz mit den Stresswerten an:</p>
 <div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="dplyr-teil-2.html#cb360-1" tabindex="-1"></a>data_wide <span class="sc">%&gt;%</span> </span>
 <span id="cb360-2"><a href="dplyr-teil-2.html#cb360-2" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
@@ -427,8 +421,8 @@ Damit die Zuordnung der Werte beibehalten wird, muss die Variable <code>id</code
 ## 5     2 stress_t2 -0.847
 ## 6     2 stress_t3 -0.166</code></pre>
 </div>
-<div id="long-to-wide" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> Long to Wide<a href="dplyr-teil-2.html#long-to-wide" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="long-to-wide" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Long to Wide<a href="dplyr-teil-2.html#long-to-wide" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Wir haben jetzt aus einem wide-Format ein long-Format gemacht. Schauen wir uns die umgekehrte Transformation an: von long zu wide. Bevor Sie sich den Code zum Transformieren anschauen, überlegen Sie kurz, was passieren müsste, damit dieser Datensatz wieder ins wide-Format kommt. Wir ziehen aus der Variable <code>timepoint</code> die Variablennamen für drei neue Variablen und füllen diese Variablen mit Werten aus der Variable <code>stress</code>:</p>
 <p><img src="_static/long_to_wide.png" style="width:100.0%" /></p>
 <p>In R können wir das die Funktion <code>pivot_wider</code> machen lassen. Diese Funktion braucht zwei essentielle Informationen: Aus welcher Variable sollen die Variablennamen genommen werden? Und: aus welcher Variable sollen die Werte für die neuen Variablen genommen werden? Wir können es uns in unserem Beispiel oben so vorstellen: Wir nehmen die Variable <code>timepoint</code>, ziehen daraus alle möglichen Werte (<code>stress_t1</code>, <code>stress_t2</code> und <code>stress_t3</code>) und machen daraus wieder einzelne Variablen. Es ist aber noch unklar, woher die Werte für diese Variablen kommen sollen. Deshalb müssen wir noch angeben, dass sie aus der Variable <code>stress</code> gezogen werden sollen. In Code sieht das dann so aus:</p>
@@ -446,8 +440,8 @@ Damit die Zuordnung der Werte beibehalten wird, muss die Variable <code>id</code
 ## 5     5     0.997   -1.02      -0.131
 ## 6     6     1.11     0.508      0.399</code></pre>
 <p>Tadaaa, wir sind wieder da, wo wir am Anfang waren.</p>
-<div id="übungsaufgabe" class="section level3 hasAnchor" number="9.2.1">
-<h3><span class="header-section-number">9.2.1</span> Übungsaufgabe<a href="dplyr-teil-2.html#übungsaufgabe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="übungsaufgabe" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Übungsaufgabe<a href="dplyr-teil-2.html#übungsaufgabe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Erstellen Sie den folgenden Datensatz und transformieren Sie ihn mit <code>pivot_longer</code> ins long-Format und anschließend mit <code>pivot_wider</code> wieder zurück ins wide-Format. Versuchen Sie sich klar zu machen, weshalb die Argumente (<code>names_to</code>, <code>values_to</code> bzw. <code>names_from</code> und <code>values_from</code>) so heißen wie sie heißen.</p>
 <div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="dplyr-teil-2.html#cb368-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
 <span id="cb368-2"><a href="dplyr-teil-2.html#cb368-2" tabindex="-1"></a>                 <span class="at">a =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
@@ -455,12 +449,12 @@ Damit die Zuordnung der Werte beibehalten wird, muss die Variable <code>id</code
 <span id="cb368-4"><a href="dplyr-teil-2.html#cb368-4" tabindex="-1"></a>                 <span class="at">c =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>))</span></code></pre></div>
 </div>
 </div>
-<div id="key-is-key" class="section level2 hasAnchor" number="9.3">
-<h2><span class="header-section-number">9.3</span> Key is key<a href="dplyr-teil-2.html#key-is-key" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="key-is-key" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Key is key<a href="dplyr-teil-2.html#key-is-key" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Beim Transformieren ist es immer wichtig, eine Variable zu haben, die eine Zeile <strong>eindeutig identifiziert</strong>. Das heißt diese Variable ist für jede Zeile (in unserem wide-Format Beispiel eine Person) <strong>unterschiedlich</strong>. Diese Variable, in unserem Fall <em>id</em>, nennt man auch <strong>key</strong>,weil sie wie ein Schlüssel funktioniert: Sie öffnet den Zugang zu genau der richtigen Zeile in deinem Datensatz. Ein Key identifiziert eine Einheit eindeutig, zum Beispiel eine Person mit einer ID oder einen Zeitpunkt mit einer klaren Bezeichnung. Ohne so einen Schlüssel kann man beim Zusammenführen oder Ordnen von Daten ziemlich schnell den Überblick verlieren, weil man nie sicher wäre, welche Werte eigentlich zu wem gehören. Die key-Variable bringt uns zu unserem nächsten Thema: das Zusammenfügen von unterschiedlichen Datensätzen.</p>
 </div>
-<div id="joins" class="section level2 hasAnchor" number="9.4">
-<h2><span class="header-section-number">9.4</span> joins<a href="dplyr-teil-2.html#joins" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="joins" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> joins<a href="dplyr-teil-2.html#joins" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Stellen Sie sich vor, wir haben in unserer Studie nicht nur die Stressdaten zu drei Zeitpunkten, sondern auch deren Ergebnisse in einem Statistiktest. Die Testdaten wurden allerdings auf einer anderen Plattform erhoben und sollen nun mit den Stressdaten zusammengefügt werden, um sie gemeinsam auszuwerten, z.B. um zu untersuchen, inwieweit Stress mit der Leistung in einem Test zusammenhängt. So sehen unsere Testergebnisse aus:</p>
 <div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="dplyr-teil-2.html#cb369-1" tabindex="-1"></a>potential_outcomes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.2</span>, <span class="fl">1.7</span>, <span class="dv">2</span>, <span class="fl">2.3</span>, <span class="fl">2.7</span>, <span class="dv">3</span>, <span class="fl">3.3</span>, <span class="fl">3.7</span>, <span class="dv">4</span>)</span>
 <span id="cb369-2"><a href="dplyr-teil-2.html#cb369-2" tabindex="-1"></a></span>
@@ -478,8 +472,8 @@ Damit die Zuordnung der Werte beibehalten wird, muss die Variable <code>id</code
 ## 5  9          1.7
 ## 6 10          1.0</code></pre>
 <p>Wie bekommen wir die Daten beider Datensätze in einen gemeinsamen Datensatz? Theoretisch müssten wir einen neuen Datensatz erstellen und für jede einzelne Person die Stresswerte eintragen und dann die entsprechenden Testergebnisse. Erfreulicherweise müssen wir das nicht händisch machen, sondern haben mehrere Funktionen, die genau das übernehmen, sogenannte <code>joins</code>.</p>
-<div id="full_join" class="section level3 hasAnchor" number="9.4.1">
-<h3><span class="header-section-number">9.4.1</span> full_join<a href="dplyr-teil-2.html#full_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="full_join" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> full_join<a href="dplyr-teil-2.html#full_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Der full-join fügt zwei Datensätze so zusammen, dass <strong>alle Informationen aus Datensatz A und B enthalten bleiben</strong>. Wir müssen ihm nur sagen, welche Variable unser key ist, also die Beobachtungen eindeutig identifiziert. Wichtig, dass diese key-Variable in beiden Datensätzen vorhanden ist.</p>
 <div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="dplyr-teil-2.html#cb371-1" tabindex="-1"></a>data_joined <span class="ot">&lt;-</span> data_wide <span class="sc">%&gt;%</span> </span>
 <span id="cb371-2"><a href="dplyr-teil-2.html#cb371-2" tabindex="-1"></a>  <span class="fu">full_join</span>(df_statistik, <span class="at">by =</span> <span class="fu">join_by</span>(id))</span>
@@ -529,8 +523,8 @@ Damit die Zuordnung der Werte beibehalten wird, muss die Variable <code>id</code
 ## 6 10  1.57577959  1.4945778  0.5666242          1.0</code></pre>
 <p>Hier bleibt nur die Information enthalten, die in <strong>beiden Datensätzen</strong> enthalten ist.</p>
 </div>
-<div id="left_join-und-right_join" class="section level3 hasAnchor" number="9.4.2">
-<h3><span class="header-section-number">9.4.2</span> left_join und right_join<a href="dplyr-teil-2.html#left_join-und-right_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="left_join-und-right_join" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> left_join und right_join<a href="dplyr-teil-2.html#left_join-und-right_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Angenommen, wir wollen auf jeden Fall die Stressdaten für alle Versuchspersonen untersuchen und für diejenigen, bei denen die Testergebnisse vorliegen, den Zusammenhang zwischen Stress und Testergebnis berechnen. Dann brauchen wir alle Informationen aus Datensatz A (<code>data_wide</code>), aber aus Datensatz B (<code>df_statistik</code>) nur die Personen, die auch in Datensatz A vorkommen. Wir nehmen also den Datensatz A und kleben die Daten aus Datensatz B dran. Datensatz A bleibt dabei so wie er ist, aus Datensatz B nehmen wir nur die Personen, die auch in A vorkommen.</p>
 <p>In Code sieht das dann so aus:</p>
 <div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="dplyr-teil-2.html#cb377-1" tabindex="-1"></a>data_joined <span class="ot">&lt;-</span> data_wide <span class="sc">%&gt;%</span> </span>
@@ -565,8 +559,8 @@ Damit die Zuordnung der Werte beibehalten wird, muss die Variable <code>id</code
 ## 9  13          NA         NA         NA          3.0
 ## 10 14          NA         NA         NA          3.7</code></pre>
 </div>
-<div id="übung" class="section level3 hasAnchor" number="9.4.3">
-<h3><span class="header-section-number">9.4.3</span> Übung<a href="dplyr-teil-2.html#übung" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="übung" class="section level3 hasAnchor" number="8.4.3">
+<h3><span class="header-section-number">8.4.3</span> Übung<a href="dplyr-teil-2.html#übung" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Erstellen Sie folgende Datensätze:</p>
 <div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="dplyr-teil-2.html#cb381-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
 <span id="cb381-2"><a href="dplyr-teil-2.html#cb381-2" tabindex="-1"></a>  <span class="sc">~</span>key, <span class="sc">~</span>val_x,</span>
@@ -583,8 +577,8 @@ Damit die Zuordnung der Werte beibehalten wird, muss die Variable <code>id</code
 <p>Fügen Sie die beiden Datensätze mit <code>full_join</code> und <code>left_join</code> zusammen. Wie unterscheiden sich die Ergebnisse und warum?</p>
 </div>
 </div>
-<div id="fallunterscheidung-mit-ifelse-und-case_when" class="section level2 hasAnchor" number="9.5">
-<h2><span class="header-section-number">9.5</span> Fallunterscheidung mit <code>ifelse</code> und <code>case_when</code><a href="dplyr-teil-2.html#fallunterscheidung-mit-ifelse-und-case_when" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="fallunterscheidung-mit-ifelse-und-case_when" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Fallunterscheidung mit <code>ifelse</code> und <code>case_when</code><a href="dplyr-teil-2.html#fallunterscheidung-mit-ifelse-und-case_when" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Bei der Arbeit mit Daten entsteht häufig die Situation, dass Werte auf Grundlage bestimmter Bedingungen neu eingeteilt, klassifiziert oder zugeordnet werden sollen. Ob wir Messwerte in Kategorien einteilen, Indikatorvariablen erstellen oder komplexere Fallunterscheidungen treffen möchten: Bedingte Logik gehört zu den wichtigsten Werkzeugen im Data-Wrangling.</p>
 <p>In dplyr stehen uns dafür vor allem zwei Funktionen zur Verfügung, die zwar ähnlich aussehen, aber unterschiedliche Stärken haben. Die erste ist ifelse(). Sie eignet sich besonders gut für einfache Entscheidungen, bei denen es nur zwei mögliche Ergebnisse gibt, also einen klassischen Wenn–dann–sonst-Fall. ifelse() prüft eine Bedingung und weist für jeden Eintrag einer Spalte entweder den Wert für “yes” oder für “no” zu. Diese Funktion ist vollständig vektorisiert, das bedeutet, sie verarbeitet alle Zeilen einer Spalte gleichzeitig.</p>
 <p>Im folgenden Beispiel erzeugen wir eine neue Variable, die anzeigt, ob der Stresswert über 0.5 liegt (‘hoch’) oder darunter (‘niedrig’):</p>
