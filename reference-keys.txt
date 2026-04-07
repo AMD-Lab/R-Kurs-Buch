@@ -1,9 +1,13 @@
 über-dieses-skript
+feedback
+einführung
+installation
+erste-schritte
 das-r-skript
 struktur-des-skripts
 pakete
 working-directory
-erste-schritte
+erste-schritte-1
 zahlen
 variablen
 funktionen
@@ -41,7 +45,7 @@ einlesen-und-speichern-von-daten
 datensätze-dat-anschauen
 häufigkeit-von-factorlevels
 datenaufbereitung-mit-dplyr
-einführung
+einführung-1
 dplyr-die-wichtigsten-befehle
 beispiel-filtern-von-beobachtungen-mit-filter
 filtern-von-strings-factors
@@ -59,7 +63,7 @@ mittelwert
 streuungsmaße
 standardabweichung
 psychometrie
-einführung-1
+einführung-2
 welche-statistischen-grundvoraussetzungen-sollten-items-erfüllen
 stimmen-die-minima-und-maxima-der-variablen
 wurden-variablen-die-negativ-kodiert-sind-rekodiert
