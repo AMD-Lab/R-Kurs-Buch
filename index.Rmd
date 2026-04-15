@@ -1,8 +1,8 @@
 --- 
 title: "Einführung in R"
-author: "José Carlos García Alanis, Jan Goettmann, Cordula Hunt,  \nFlorian Kobylka,
-  Wanja Hemmerich, Christoph Löffler, Lisa Renziehausen, Anna-Lena Schubert, Simon
-  Schaefer, Meike Steinhilber\n"
+author: "José Carlos García Alanis, Jan Goettmann, Cordula Hunt, Florian Kobylka,
+  Wanja Hemmerich, \n Mareike Hülsemann, Christoph Löffler, Lisa Renziehausen, Anna-Lena Schubert, Simon
+  Schaefer, Meike Steinhilber"
 date: "`r Sys.Date()`"
 output:
   html_document:
