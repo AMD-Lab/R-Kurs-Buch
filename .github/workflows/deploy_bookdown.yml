@@ -30,6 +30,7 @@ jobs:
         run: |
           install.packages(c("rmarkdown","bookdown", "tidyverse", "psych", "palmerpenguins", "ggbeeswarm", "ggpubr", "tinytex"))
           tinytex::install_tinytex()
+          tinytex::tlmgr_install("german")
         shell: Rscript {0}
       - name: Render pdf book
         run: |
