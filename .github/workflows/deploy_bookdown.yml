@@ -30,7 +30,7 @@ jobs:
         run: |
           install.packages(c("rmarkdown","bookdown", "tidyverse", "psych", "palmerpenguins", "ggbeeswarm", "ggpubr", "tinytex"))
           tinytex::install_tinytex()
-          tinytex::tlmgr_option("repository", "https://mirror.physik.tu-berlin.de/pub/CTAN/systems/texlive/tlnet")
+          tinytex::tlmgr_repo("https://mirror.physik.tu-berlin.de/pub/CTAN/systems/texlive/tlnet")
           tinytex::tlmgr_install("german")
           tinytex::tlmgr_update()
         shell: Rscript {0}
