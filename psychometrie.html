@@ -814,7 +814,7 @@ Veröffentlicht auf GitHub, erstellt mit bookdown</a></li>
 <div id="wurden-variablen-die-negativ-kodiert-sind-rekodiert" class="section level3 hasAnchor" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> Wurden Variablen, die negativ kodiert sind, rekodiert?<a href="psychometrie.html#wurden-variablen-die-negativ-kodiert-sind-rekodiert" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Items, die negativ kodiert sind, muss man vor allen weiterführenden Analysen invertieren. Um ein negativ gepoltes Item zu rekodieren wendet man folgende Formel an:
-<span class="math display">\[\text{neuer Wert} = \text{maximaler Wert} text{ + } \text{minimaler Wert} text{ - } \text{alter Wert}\]</span>
+<span class="math display">\[\text{neuer Wert} = \text{maximaler Wert} \text{ + } \text{minimaler Wert} \text{ - } \text{alter Wert}\]</span>
 Wenn also die höchste Antwortkategorie eines Fragebogens den Wert <span class="math inline">\(3\)</span> hat und die niedrigste Antwortkategorie den Wert <span class="math inline">\(0\)</span>, dann rechnen wir für alle negativ gepolten Items <span class="math inline">\(\text{neuer Wert} = 3 \text{ + } 0 \text{ - } \text{alter Wert}\)</span>. Auch dazu kann man wieder die Funktion <code>mutate</code> nutzen:</p>
 <pre><code>rumination &lt;- rumination %&gt;%
   mutate(RF01_01 = 3 - RF01_01,
